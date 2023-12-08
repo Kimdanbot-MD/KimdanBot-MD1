@@ -10,7 +10,11 @@ global.owner = [
 ["595975740803"], 
 ]
 
-//global.noperfil = fs.readFileSync('./src/sinfoto.jpg')
+// ═════════════𓊈『 IDIOMAS 』𓊉═════════════ 
+global.place = 'America/Bogota' // Aquí puede encontrar su ubicación https://momentjs.com/timezone/
+global.language = 'es' // Aquí puede encontrar su idioma https://cloud.google.com/translate/docs/languages?hl=es-419
+
+// ═════════════𓊈『 IMAGENES 』𓊉═════════════ 
 global.imagen1 = fs.readFileSync('./src/img_cuadrada.jpg')
 global.imagen2 = fs.readFileSync('./src/IMG-20230727-WA0103.jpg')
 global.imagen3 = fs.readFileSync('./src/Screenshot_2023-07-28-14-06-50-823_com.whatsapp.jpg')
@@ -23,7 +27,7 @@ const rd = Math.floor(Math.random() * img.length);
 const r = img[rd]
 global.imgkim = r
 
-//---------[ APIS GLOBAL ]---------
+// ═════════════𓊈『 APIS 』𓊉═════════════ 
 global.keysZens = ['LuOlangNgentot', 'c2459db922', '37CC845916', '6fb0eff124', 'hdiiofficial', 'fiktod', 'BF39D349845E', '675e34de8a', '0b917b905e6f']; 
 global.keysxxx = keysZens[Math.floor(keysZens.length * Math.random())]; 
 global.keysxteammm = ['29d4b59a4aa687ca', '5LTV57azwaid7dXfz5fzJu', 'cb15ed422c71a2fb', '5bd33b276d41d6b4', 'HIRO', 'kurrxd09', 'ebb6251cc00f9c63']; 
@@ -67,9 +71,11 @@ global.APIKeys = {
   'https://api.xyroinee.xyz': 'uwgflzFEh6'
 };
 
-//---------[ ENLACES ]---------
+
+// ═════════════𓊈『 LINKS 』𓊉═════════════ 
 global.md = 'https://github.com/Kimdanbot-MD/KimdanBot-MD'
 
+// ═════════════𓊈『 MESS 』𓊉═════════════ 
 global.mess = {
 admin: "✾⃛⃛ᬿ⃝⃞🚫 🅴 *𝐑𝐑𝐎𝐑*\n   ╰ᬊ _🫐 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐄𝐒 𝐒𝐎𝐋𝐎 𝐏𝐀𝐑𝐀 𝐀𝐃𝐌𝐈𝐍𝐒 🫐_",
 owner: "✾⃛⃛ᬿ⃝⃞🚫🅴 *𝐑𝐑𝐎𝐑*\n   ╰ᬊ ~ _🍡 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐋𝐎 𝐏𝐔𝐄𝐃𝐄 𝐔𝐒𝐀𝐑 𝐌𝐈 𝐉𝐄𝐅𝐄 🍡_",
@@ -85,7 +91,7 @@ AntiNsfw: `*Los comando +18 esta desactivado*\nSi eres admin y quiere activarlos
 endLimit: 'te quedaste sin dinero, puedes comprar mas con el comando "buy"'
 }
 
-//---------[ INFO ]--------- 
+// ═════════════𓊈『 CARGA 』𓊉═════════════ 
 global.info = {
 wait: '*〘⌛〙_𝐂𝐚𝐫𝐠𝐚𝐧𝐝𝐨..._ ▬▭▭▭▭▭▭*', 
 waitt: '*〘⌛〙_𝐂𝐚𝐫𝐠𝐚𝐧𝐝𝐨..._ ▬▬▭▭▭*', 
@@ -95,23 +101,28 @@ waittttt: '*〘⌛〙_𝐂𝐚𝐫𝐠𝐚𝐧𝐝𝐨..._ ▬▬▬▬▬▬▬
 result: '*〖✅〗𝐋𝐈𝐒𝐓𝐎 🌺*'
 }
 
+// ═════════════𓊈『 REACCIONES 』𓊉═════════════ 
 global.rwait = '⌛'
 global.dmoji = '🤭'
 global.done = '✅'
 global.error = '❌' 
 global.xmoji = '🔥' 
 
+// ═════════════𓊈『 INFO 』𓊉═════════════ 
 global.botname = "𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃"
 global.wm = "𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃"
 global.packname = "🍓 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🍓"
 global.author = "🍒𝐃𝐚𝐧𝐨𝐧𝐢𝐧𝐨🍒"
 global.vs = '𝟏.𝟎.𝟎'
-global.place = 'America/Bogota' // Aquí puede encontrar su ubicación https://momentjs.com/timezone/
-global.language = 'es' // Aquí puede encontrar su idioma https://cloud.google.com/translate/docs/languages?hl=es-419
 
+// ═════════════𓊈『 LISTAS 』𓊉═════════════ 
 global.mods = []
 global.premium = []  
 global.blockList = []  
+
+// ═════════════𓊈『 NIVELES 』𓊉═════════════ 
+global.multiplier = 90 // Cuanto más alto, más difícil subir de nivel 
+global.maxwarn = '4' // máxima advertencias 
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
