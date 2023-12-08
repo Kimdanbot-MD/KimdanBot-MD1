@@ -94,13 +94,13 @@ console.log(chalk.cyanBright(lenguaje['tmp']()))}, 180000)
 //sessions/jadibts
 function purgeSession() {
 let prekey = []
-let directorio = readdirSync("./sessions")
+let directorio = readdirSync("./authFolder")
 let filesFolderPreKeys = directorio.filter(file => {
-return file.startsWith('pre-key-') //|| file.startsWith('session-') || file.startsWith('sender-') || file.startsWith('app-') 
+return file.startsWith('pre-key-') //|| file.startsWith('authFolder-') || file.startsWith('sender-') || file.startsWith('app-') 
 })
 prekey = [...prekey, ...filesFolderPreKeys]
 filesFolderPreKeys.forEach(files => {
-unlinkSync(`./sessions/${files}`)
+unlinkSync(`./authFolder/${files}`)
 })} 
 
 function purgeSessionSB() {
@@ -123,7 +123,7 @@ console.log(chalk.bold.red(lenguaje['errorsession']()))
 }}
 
 function purgeOldFiles() {
-const directories = ['./sessions/', './jadibts/']
+const directories = ['./authFolder/', './jadibts/']
 const oneHourAgo = Date.now() - (60 * 60 * 1000)
 directories.forEach(dir => {
 readdirSync(dir, (err, files) => {
@@ -165,7 +165,7 @@ const socketSettings = {
 printQRInTerminal: true,
 logger: pino({ level: 'silent' }),
 auth: { creds: state.creds, keys: makeCacheableSignalKeyStore(state.keys, pino({level: 'silent'})) },
-browser: ['NovaBot-MD', 'Safari', '1.0.0'],
+browser: ['𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃', '𝐃𝐚𝐧𝐨𝐧𝐢𝐧𝐨', '𝟏.𝟎.𝟎'],
 msgRetry,
 msgRetryCache,
 version,
@@ -185,7 +185,7 @@ if (store) {
 const msg = store.loadMessage(key.remoteJid, key.id)
 return msg.message && undefined
 } return {
-conversation: 'SimpleBot',
+conversation: '𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃',
 }}
 
 sock.ev.on('messages.upsert', async chatUpdate => {
@@ -203,7 +203,7 @@ if (mek.key.id.startsWith('FatihArridho_')) return
 global.numBot = sock.user.id.split(":")[0] + "@s.whatsapp.net"
 global.numBot2 = sock.user.id
 m = smsg(sock, mek)
-require("./main")(sock, m, chatUpdate, mek, store)
+require("./kim")(sock, m, chatUpdate, mek, store)
 } catch (e) {
 console.log(e)
 }})
