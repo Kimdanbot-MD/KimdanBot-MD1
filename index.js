@@ -4,7 +4,6 @@ const { default: makeWASocket, Browsers, makeInMemoryStore, useMultiFileAuthStat
 const { state, saveCreds } = await useMultiFileAuthState('./authFolder')
 const chalk = require('chalk')
 const moment = require('moment')
-const FileType = require('file-type')
 const fs = require('fs')
 const yargs = require('yargs/yargs')
 const { smsg, getBuffer, sleep} = require('./libs/fuctions')
@@ -89,20 +88,19 @@ return false;
 })}
 setInterval(async () => {
 await clearTmp()
-console.log(chalk.cyanBright(`╭━─━─━─≪🔆≫─━─━─━╮\n│SE LIMPIO LA CARPETA TEMP CORRECTAMENTE\n╰━─━─━─≪🔆≫─━─━─━╯`)
-)}, 180000)
+console.log(chalk.cyanBright(lenguaje['tmp']()))}, 180000)
 //_________________
 
 //sessions/jadibts
 function purgeSession() {
 let prekey = []
-let directorio = readdirSync("./authFolder")
+let directorio = readdirSync("./sessions")
 let filesFolderPreKeys = directorio.filter(file => {
-return file.startsWith('pre-key-') || file.startsWith('authFolder-') || file.startsWith('sender-') || file.startsWith('app-') 
+return file.startsWith('pre-key-') //|| file.startsWith('session-') || file.startsWith('sender-') || file.startsWith('app-') 
 })
 prekey = [...prekey, ...filesFolderPreKeys]
 filesFolderPreKeys.forEach(files => {
-unlinkSync(`./authFolder/${files}`)
+unlinkSync(`./sessions/${files}`)
 })} 
 
 function purgeSessionSB() {
@@ -119,13 +117,13 @@ DSBPreKeys.forEach(fileInDir => {
 unlinkSync(`./jadibts/${directorio}/${fileInDir}`)
 })}})
 if (SBprekey.length === 0) return; 
-console.log(chalk.cyanBright(`🟢 NO HAY ARCHIVO POR ELIMINAR.`))
+console.log(chalk.cyanBright(lenguaje['session']()))
 } catch (err) {
-console.log(chalk.bold.red(`🟢 ALGO SALIO MAL DURANTE LA ELIMINACIÓN, ARCHIVO NO ELIMINADOS`))
+console.log(chalk.bold.red(lenguaje['errorsession']()))
 }}
 
 function purgeOldFiles() {
-const directories = ['./authFolder/', './jadibts/']
+const directories = ['./sessions/', './jadibts/']
 const oneHourAgo = Date.now() - (60 * 60 * 1000)
 directories.forEach(dir => {
 readdirSync(dir, (err, files) => {
@@ -137,24 +135,24 @@ if (err) throw err;
 if (stats.isFile() && stats.mtimeMs < oneHourAgo && file !== 'creds.json') { 
 unlinkSync(filePath, err => {  
 if (err) throw err
-console.log(chalk.bold.green(`🟢 ARCHIVO ${file} BORRADO CON EXITO`))})
+console.log(chalk.bold.green(`${lenguaje['archivo']()} ${file} ${lenguaje['archivoborrado']()}`))})
 } else {  
-console.log(chalk.bold.red(`🟢 ARCHIVO ${file} NO BORRADO` + err))
+console.log(chalk.bold.red(`${lenguaje['archivo']()} ${file} ${lenguaje['archborrado']()}` + err))
 } }) }) }) })}
 setInterval(async () => {
   await purgeSession();
-  console.log(chalk.cyanBright(`╭━─━─━─≪🔆≫─━─━─━╮\n│AUTOPURGESESSIONS\n│ARCHIVOS ELIMINADOS ✅\n╰━─━─━─≪🔆≫─━─━─━╯`));
+  console.log(chalk.cyanBright(`${lenguaje['purgesessions']()}`));
 }, 1000 * 60 * 60);
 setInterval(async () => {
   await purgeSessionSB();
-  console.log(chalk.cyanBright(`╭━─━─━─≪🔆≫─━─━─━╮\n│AUTO_PURGE_SESSIONS_SUB-BOTS\n│ ARCHIVOS ELIMINADOS ✅\n╰━─━─━─≪🔆≫─━─━─━╯`));
+  console.log(chalk.cyanBright(`${lenguaje['purgesubbots']()}`));
 }, 1000 * 60 * 60);
 setInterval(async () => {
   await purgeOldFiles();
-  console.log(chalk.cyanBright(`╭━─━─━─≪🔆≫─━─━─━╮\n│AUTO_PURGE_OLDFILES\n│ARCHIVOS ELIMINADOS ✅\n╰━─━─━─≪🔆≫─━─━─━╯`));
+  console.log(chalk.cyanBright(`${lenguaje['purgeoldfiles']()}`));
 }, 1000 * 60 * 60);
-//___________	
-
+//___________
+    
 async function startBot() {
 
 console.info = () => {}
@@ -167,7 +165,7 @@ const socketSettings = {
 printQRInTerminal: true,
 logger: pino({ level: 'silent' }),
 auth: { creds: state.creds, keys: makeCacheableSignalKeyStore(state.keys, pino({level: 'silent'})) },
-browser: ['𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃', '𝐃𝐚𝐧𝐨𝐧𝐢𝐧𝐨', '𝟏.𝟎.𝟎'],
+browser: ['NovaBot-MD', 'Safari', '1.0.0'],
 msgRetry,
 msgRetryCache,
 version,
@@ -187,9 +185,9 @@ if (store) {
 const msg = store.loadMessage(key.remoteJid, key.id)
 return msg.message && undefined
 } return {
-conversation: '𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃',
+conversation: 'SimpleBot',
 }}
-	
+
 sock.ev.on('messages.upsert', async chatUpdate => {
 //console.log(JSON.stringify(chatUpdate, undefined, 2))
 try {
@@ -205,7 +203,7 @@ if (mek.key.id.startsWith('FatihArridho_')) return
 global.numBot = sock.user.id.split(":")[0] + "@s.whatsapp.net"
 global.numBot2 = sock.user.id
 m = smsg(sock, mek)
-require("./kim")(sock, m, chatUpdate, mek, store)
+require("./main")(sock, m, chatUpdate, mek, store)
 } catch (e) {
 console.log(e)
 }})
@@ -237,9 +235,9 @@ console.log(fuckedcall)
 for (let fucker of fuckedcall) {
 if (fucker.isGroup == false) {
 if (fucker.status == "offer") {
-let call = await sock.sendTextWithMentions(fucker.from, `*[ ! ] @${fucker.from.split('@')[0]} Seras bloqueado*\n_Razon : por realizar una ${fucker.isVideo ? `videollamadas` : `llamadas` }_\n\n*Si accidentalmente llamaste póngase en contacto con mi creador para que te desbloquee.*\n\n• https://www.facebook.com/groups/872989990425789/`)
+let call = await sock.sendTextWithMentions(fucker.from, `*[ ! ] @${fucker.from.split('@')[0]} ${lenguaje['smscall']()} ${fucker.isVideo ? `videollamadas` : `llamadas` }_\n\n${lenguaje['smscall2']()}\n\n• https://www.facebook.com/groups/872989990425789/`)
 let vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;Propietario 👑;;;\nFN:Propietario\nORG:Propietario 👑\nTITLE:\nitem1.TEL;waid=595975740803:+595 975 740803\nitem1.X-ABLabel:Propietario 👑\nX-WA-BIZ-DESCRIPTION:ᴇsᴄʀɪʙɪ sᴏʟᴏ ᴘᴏʀ ᴄᴏsᴀs ᴅᴇʟ ʙᴏᴛ.\nX-WA-BIZ-NAME:Owner 👑\nEND:VCARD`
-sock.sendMessage(fucker.from, { contacts: { displayName: 'ɴᴏᴠᴀʙᴏᴛ-ᴍᴅ 👑', contacts: [{ vcard }] }}, {quoted: call})
+sock.sendMessage(fucker.from, { contacts: { displayName: 'ɴᴏᴠᴀʙᴏᴛ-ᴍᴅ 👑', contacts: [{ vcard }] }}, {quoted: call, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 await sleep(8000)
 await sock.updateBlockStatus(fucker.from, "block")
 }}}})
@@ -258,8 +256,8 @@ ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 } catch (err) {
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
 }
-let text = `「 𝐀𝐉𝐔𝐒𝐓𝐄𝐒 𝐃𝐄𝐋 𝐆𝐑𝐔𝐏𝐎 」\n\n*¡Ahora solo los administradores pueden enviar mensajes!*`
-sock.sendMessage(res.id, {text: text,  
+//let text = ``
+sock.sendMessage(res.id, {text: lenguaje['smsAvisos2'](),  
 contextInfo:{  
 forwardingScore: 9999999,  
 isForwarded: true,   
@@ -268,12 +266,12 @@ mentionedJid:[m.sender],
 "showAdAttribution": true,  
 "containsAutoReply": false,
 "renderLargerThumbnail": false,  
-"title": `[ 🔒 ＧＲＵＰＯ ＣＥＲＲＡＤＯ ]`,  
+"title": lenguaje['smsAvisos'](), 
 "mediaType": 1,   
 "thumbnail": imagen1,  
 "mediaUrl": md,  
 "sourceUrl": md
-}}}, { quoted: null })
+}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else if (res.announce == false) {
 await sleep(2000)
 try {
@@ -281,9 +279,9 @@ ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 } catch (err) {
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
 }
-let text = `「 𝐀𝐉𝐔𝐒𝐓𝐄𝐒 𝐃𝐄𝐋 𝐆𝐑𝐔𝐏𝐎 」\n\n*Ahora todos los participantes pueden mandar mensajes 🗣️*`
+//let text = `「 𝐀𝐉𝐔𝐒𝐓𝐄𝐒 𝐃𝐄𝐋 𝐆𝐑𝐔𝐏𝐎 」\n\n*ᴬʰᵒʳᵃ ᵗᵒᵈᵒˢ ˡᵒˢ ᵖᵃʳᵗᶦᶜᶦᵖᵃⁿᵗᵉˢ ᵖᵘᵉᵈᵉⁿ ᵐᵃⁿᵈᵃʳ ᵐᵉⁿˢᵃʲᵉˢ 🗣️*`
 sock.sendMessage(res.id, {   
-text: text,  
+text: lenguaje['smsAvisos3'](),  
 contextInfo:{  
 forwardingScore: 9999999,  
 isForwarded: true,   
@@ -292,12 +290,12 @@ mentionedJid:[m.sender],
 "showAdAttribution": true,  
 "containsAutoReply": false,
 "renderLargerThumbnail": false,  
-"title": `[ 🔓 ＧＲＵＰＯ ＡＢＩＥＲＴＯ ]`,   
+"title": lenguaje['smsAvisos4'](),   
 "mediaType": 1,   
 "thumbnail": imagen1, 
 "mediaUrl": md, 
 "sourceUrl": md  
-}}}, { quoted: null })
+}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else if (res.restrict == true) {
 await sleep(2000)
 try {
@@ -305,8 +303,8 @@ ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 } catch (err) {
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
 }
-let text = `「 𝐀𝐉𝐔𝐒𝐓𝐄𝐒 𝐃𝐄𝐋 𝐆𝐑𝐔𝐏𝐎 」\n\n*ᴀʜᴏʀᴀ sᴏʟᴏ ʟᴏs ᴀᴅᴍɪɴɪsᴛʀᴀᴅᴏʀᴇs ᴘᴜᴇᴅᴇ ᴇᴅɪᴛᴀʀ ʟᴏs ᴀᴊᴜsᴛᴇ ᴅᴇʟ ɢʀᴜᴘᴏ*`
-sock.sendMessage(res.id, {text: text,  
+//let text = `「 𝐀𝐉𝐔𝐒𝐓𝐄𝐒 𝐃𝐄𝐋 𝐆𝐑𝐔𝐏𝐎 」\n\n*ᴬʰᵒʳᵃ ˢᵒˡᵒ ˡᵒˢ ᵃᵈᵐᶦⁿˢ ᵖᵘᵉᵈᵉ ᵉᵈᶦᵗᵃʳ ˡᵒˢ ᵃʲᵘˢᵗᵉ ᵈᵉˡ ᵍʳᵘᵖᵒ*`
+sock.sendMessage(res.id, {text: lenguaje['smsAvisos6'](),
 contextInfo:{  
 forwardingScore: 9999999,  
 isForwarded: true,   
@@ -315,12 +313,13 @@ mentionedJid:[m.sender],
 "showAdAttribution": true,  
 "containsAutoReply": false,
 "renderLargerThumbnail": false,  
-"title": wm, 
+"title": lenguaje['smsAvisos5'](),
+"body": wm, 
 "mediaType": 1,   
 "thumbnail": imagen1, 
 "mediaUrl": md, 
 "sourceUrl": yt
-}}}, { quoted: null })
+}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else if (res.restrict == false) {
 await sleep(2000)
 try {
@@ -328,8 +327,8 @@ ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 } catch (err) {
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
 }
-let text = `「 𝐀𝐉𝐔𝐒𝐓𝐄𝐒 𝐃𝐄𝐋 𝐆𝐑𝐔𝐏𝐎 」\n\n*ᴀʜᴏʀᴀ ᴛᴏᴅᴏs ʟᴏs ᴘᴀʀᴛɪᴄɪᴘᴀʀᴛᴇ ᴘᴜᴇᴅᴇ ᴇᴅɪᴛᴀʀ ʟᴏs ᴀᴊᴜsᴛᴇ ᴅᴇʟ ɢʀᴜᴘᴏ*`
-sock.sendMessage(res.id, {text: text,  
+//let text = `「 𝐀𝐉𝐔𝐒𝐓𝐄𝐒 𝐃𝐄𝐋 𝐆𝐑𝐔𝐏𝐎 」\n\n*ᴬʰᵒʳᵃ ᵗᵒᵈᵒˢ ˡᵒˢ ᵖᵃʳᵗᶦᶜᶦᵖᵃʳᵗᵉ ᵖᵘᵉᵈᵉ ᵉᵈᶦᵗᵃʳ ˡᵒˢ ᵃʲᵘˢᵗᵉ ᵈᵉˡ ᵍʳᵘᵖᵒ*`
+sock.sendMessage(res.id, {text: lenguaje['smsAvisos7'](),  
 contextInfo:{  
 forwardingScore: 9999999,  
 isForwarded: true,   
@@ -338,12 +337,13 @@ mentionedJid:[m.sender],
 "showAdAttribution": true,  
 "containsAutoReply": false,
 "renderLargerThumbnail": false,  
-"title": wm, 
+"title": lenguaje['smsAvisos5'](),
+"body": wm, 
 "mediaType": 1,   
 "thumbnail": imagen1, 
 "mediaUrl": md, 
 "sourceUrl": md
-}}}, { quoted: null })
+}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else if(!res.desc == ''){
 await sleep(2000)
 try {
@@ -351,7 +351,7 @@ ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 } catch (err) {
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
 }
-let text = `「 𝐀𝐉𝐔𝐒𝐓𝐄𝐒 𝐃𝐄𝐋 𝐆𝐑𝐔𝐏𝐎 」\n\n*La descripción del grupo fue cambiada nueva descripción es *\n${res.desc}`
+let text = `${lenguaje['smsAvisos8']()}\n${res.desc}`
 sock.sendMessage(res.id, {text: text,  
 contextInfo:{  
 forwardingScore: 9999999,  
@@ -361,12 +361,13 @@ mentionedJid:[m.sender],
 "showAdAttribution": true,  
 "containsAutoReply": false,
 "renderLargerThumbnail": false,  
-"title": wm, 
+"title": lenguaje['smsAvisos5'](),
+"body": wm, 
 "mediaType": 1,   
 "thumbnail": imagen1, 
 "mediaUrl": md,  
 "sourceUrl": md
-}}}, { quoted: null })
+}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else {
 await sleep(2000)
 try {
@@ -374,7 +375,7 @@ ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 } catch (err) {
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
 }
-let text = `「 𝐀𝐉𝐔𝐒𝐓𝐄𝐒 𝐃𝐄𝐋 𝐆𝐑𝐔𝐏𝐎 」\n\n*El nombre del grupo fue cambiado nuevos nombre es :*\n${res.subject}`
+let text = `${lenguaje['smsAvisos9']()}\n${res.subject}`
 sock.sendMessage(res.id, {text: text,  
 contextInfo:{  
 forwardingScore: 9999999,  
@@ -384,12 +385,13 @@ mentionedJid:[m.sender],
 "showAdAttribution": true,  
 "containsAutoReply": false,
 "renderLargerThumbnail": false,  
-"title": wm, 
+"title": lenguaje['smsAvisos5'](),
+"body": wm, 
 "mediaType": 1,   
 "thumbnail": imagen1, 
 "mediaUrl": md,  
 "sourceUrl": md
-}}}, { quoted: null })
+}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 }})
 
 //Welcome 
@@ -488,13 +490,19 @@ sock.sendMessage(anu.id, { text: `@${name.split("@")[0]} Joderte ya no eres admi
 }}} catch (err) {
 console.log(err)
 }})
+	
+function pickRandom(list) {
+return list[Math.floor(list.length * Math.random())]
+}  
+
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
 sock.ev.on('connection.update', async (update) => {
 const { connection, lastDisconnect, qr, receivedPendingNotifications } = update;
 console.log(receivedPendingNotifications)
 if (connection == 'connecting') {
 console.log('iniciando...')
-say('KIMDANBOT-MD', {
+say('KimdanBot-MD', {
   font: 'chrome',
   align: 'center',
   gradient: ['red', 'magenta']});
@@ -504,15 +512,15 @@ say(`BOT EN DESARROLLO`, {
   gradient: ['red', 'magenta']});
   
 console.log(color(` `,'magenta'))
-console.log(color(`\n🟢 𝘜𝘚𝘜𝘈𝘙𝘐𝘖𝘚 𝘊𝘖𝘕𝘌𝘊𝘛𝘈𝘋𝘖 => ` + JSON.stringify(sock.user, null, 2), 'yellow'))
+console.log(color(`\n${lenguaje['smsConexion']()} ` + JSON.stringify(sock.user, null, 2), 'yellow'))
 } else if (qr !== undefined) {
 console.log(color('[SYS]', '#009FFF'),
 color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
-color(`\n╭━─━─━─≪ ${vs} ≫─━─━─━╮\n│ESCANEA EL QR, EXPIRA 45 SEG...\n╰━─━━─━─≪ 🟢 ≫─━─━━─━╯`, '#f12711'))
+color(`\n╭━─━─━─≪ ${vs} ≫─━─━─━╮\n│${lenguaje['smsEscaneaQR']()}\n╰━─━━─━─≪ 🟢 ≫─━─━━─━╯`, '#f12711'))
 } else if (connection === 'close') {
 console.log(color('[SYS]', '#009FFF'),
 color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
-color(`⚠️ CONEXION CERRADA, SE INTENTARA RECONECTAR`, '#f64f59'));
+color(`${lenguaje['smsConexioncerrar']()}`, '#f64f59'));
 lastDisconnect.error?.output?.statusCode !== DisconnectReason.loggedOut
 ? startBot()
 : console.log(color('[SYS]', '#009FFF'),
@@ -522,17 +530,19 @@ color(`Wa Web logged Out`, '#f64f59')
 } else if (connection == 'open') {
 console.log(color('[SYS]', '#009FFF'),
 color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
-color(`\n╭━─━─━─≪ ${vs} ≫─━─━─━╮\n│YA ESTA CONECTADO CORRECTAMENTE\n╰━─━━─━─≪ 🟢 ≫─━─━━─━╯` + receivedPendingNotifications, '#38ef7d')
+color(`\n╭━─━─━─≪ ${vs} ≫─━─━─━╮\n│${lenguaje['smsConectado']()}\n╰━─━━─━─≪ 🟢 ≫─━─━━─━╯` + receivedPendingNotifications, '#38ef7d')
 );
 if (!sock.user.connect) {
-sock.sendMessage("573161407118@s.whatsapp.net", { text: "Hola Creador me he conectado como un nuevo bot 🥳", 
+/*let res = await sock.groupAcceptInvite(global.nna2);
+await delay(5 * 5000)
+sock.sendMessage(res, { text: `${pickRandom(['Hola me he conectado como un nuevo bot 🥳', 'Hola 👋😄 me presento soy un nuevo bot activo 🚀\n\nPoner #menu para vez mi comando\n\nᴺᵒ ʰᵃᵍᵃⁿ ˢᵖᵃᵐ ᵈᵉˡ ᶜᵒᵐᵃⁿᵈᵒ', 'Hola chavales me he conectado como un nuevo botsito (NovaBot-MD) 😎'])}`, 
 contextInfo:{
 forwardingScore: 9999999, 
 isForwarded: true
-}})
+}})*/
+await sock.groupAcceptInvite(global.nna2);
 sock.user.connect = true
 }
-await sock.groupAcceptInvite(global.nna2);
 }});
 
 sock.public = true
