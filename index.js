@@ -67,8 +67,6 @@ if (global.db) setInterval(async () => {
     if (global.db.data) await global.db.write()
   }, 30 * 1000)
 
-//_________________
-
 //temp
 if (!opts['test']) { 
 if (global.db) { 
