@@ -19,13 +19,17 @@ global.lenguaje = es // Aquí puede encontrar su idioma https://cloud.google.com
 global.imagen1 = fs.readFileSync('./src/img_cuadrada.jpg')
 global.imagen2 = fs.readFileSync('./src/IMG-20230727-WA0103.jpg')
 global.imagen3 = fs.readFileSync('./src/Screenshot_2023-07-28-14-06-50-823_com.whatsapp.jpg')
-const img = [
+/*const img = [
 fs.readFileSync('./src/img_cuadrada.jpg'),
 fs.readFileSync('./src/IMG-20230727-WA0103.jpg'),
 fs.readFileSync('./src/Screenshot_2023-07-28-14-06-50-823_com.whatsapp.jpg') 
 ];
 const RD = img[Math.floor(Math.random() * img.length)]; 
-global.imgkim = `${RD}`
+global.imgkim = `${RD}`*/
+
+const img = ['./src/img_cuadrada.jpg','./src/IMG-20230727-WA0103.jpg','./src/Screenshot_2023-07-28-14-06-50-823_com.whatsapp.jpg'];
+const RD = img[Math.floor(Math.random() * img.length)]; 
+global.imgkim = fs.readFileSync(`${RD}`) 
 
 // ═════════════𓊈『 APIS 』𓊉═════════════ 
 global.keysZens = ['LuOlangNgentot', 'c2459db922', '37CC845916', '6fb0eff124', 'hdiiofficial', 'fiktod', 'BF39D349845E', '675e34de8a', '0b917b905e6f']; 
