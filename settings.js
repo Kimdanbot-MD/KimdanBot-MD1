@@ -24,9 +24,8 @@ fs.readFileSync('./src/img_cuadrada.jpg'),
 fs.readFileSync('./src/IMG-20230727-WA0103.jpg'),
 fs.readFileSync('./src/Screenshot_2023-07-28-14-06-50-823_com.whatsapp.jpg') 
 ]
-const rd = Math.floor(Math.random() * img.length);
-const r = img[rd]
-global.imgkim = r
+const rd = img[Math.floor(Math.random() * img.length)]; 
+global.imgkim = ${rd}
 
 // ═════════════𓊈『 APIS 』𓊉═════════════ 
 global.keysZens = ['LuOlangNgentot', 'c2459db922', '37CC845916', '6fb0eff124', 'hdiiofficial', 'fiktod', 'BF39D349845E', '675e34de8a', '0b917b905e6f']; 
