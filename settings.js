@@ -22,7 +22,7 @@ global.imagen3 = fs.readFileSync('./src/Screenshot_2023-07-28-14-06-50-823_com.w
 const img = [
 fs.readFileSync('./src/img_cuadrada.jpg'),
 fs.readFileSync('./src/IMG-20230727-WA0103.jpg'),
-fs.readFileSync('./src/Screenshot_2023-07-28-14-06-50-823_com.whatsapp.jpg'), 
+fs.readFileSync('./src/Screenshot_2023-07-28-14-06-50-823_com.whatsapp.jpg') 
 ]
 const rd = Math.floor(Math.random() * img.length);
 const r = img[rd]
