@@ -315,7 +315,7 @@ user.afkReason = ''
 	
 // ═════════════𓊈『 CONSOLA 』𓊉═════════════	
 if (m.message) {
-console.log(chalk.bold.magenta('༺  🍓  𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🍓 ༻'), 
+console.log(chalk.bold.magenta(' ༺  🍓  𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🍓 ༻'), 
 chalk.bold.cyanBright(`\n┏━━━━━━━━━━━━━━━━━━━━━━━┅┅\n┃🏷️  +${conn.user.id.split("@")[0]}`), 
 chalk.bold.yellow('\n┃━━━━━━━━━━━━\n┃📆  𝖿ᥱᥴһᥲ 📆 : ') + chalk.yellow(moment(t * 1000).tz(place).format('DD/MM/YY'),	
 chalk.bold.red('\n┃⏰  һ᥆rᥲ ⏰ : ') + chalk.red(moment(t * 1000).tz(place).format('HH:mm:ss'),
