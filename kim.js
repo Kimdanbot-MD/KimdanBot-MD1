@@ -321,8 +321,8 @@ chalk.bold.yellow('\n┃━━━━━━━━━━━━━━\n┃📆 𝖿
 chalk.bold.red('\n┃⏰ һ᥆rᥲrᥲ ⏰: ') + chalk.red(moment(t * 1000).tz(place).format('HH:mm:ss'),
 chalk.bold.cyan('\n┃📔 ᥙsᥙᥲrі᥆ 📔: ') + chalk.cyanBright(pushname) + ' ➜', gradient.rainbow(userSender), 
 m.isGroup ? chalk.bold.greenBright('\n┃📨 grᥙ⍴᥆ 📨: ') + chalk.greenBright(groupName) + ' ❥ ' + gradient.rainbow(from) : chalk.bold.greenBright('\n┃📨 ⍴rі᥎ᥲძ᥆ 📨'), 
-chalk.bold.cyanBright('\n┃') + chalk.bold.white(`💬 mᥱᥒsᥲȷᥱ 💬: ${msgs(m.text)}`) + chalk.bold.cyanBright(`\n┗━━━━━━━━━━━━━━━━┅┅\n`))
-)}
+chalk.bold.cyanBright('\n┃') + chalk.bold.white(`💬 mᥱᥒsᥲȷᥱ 💬: ${msgs(m.text)}`) + chalk.bold.cyanBright(`\n┗━━━━━━━━━━━━━━━━┅┅\n`)
+)))}
 	
 switch (command) {
 	/*case 'imagen':
