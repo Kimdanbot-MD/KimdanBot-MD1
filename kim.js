@@ -315,13 +315,13 @@ user.afkReason = ''
 	
 // ═════════════𓊈『 CONSOLA 』𓊉═════════════	
 if (m.message) {
-console.log(chalk.bold.magenta('༺ 🍓 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭 - 𝐌𝐃 🍓 ༻'), 
-chalk.bold.cyanBright(`\n┏━━━━━━━━━━━━━━━━━━┅┅\n┃🏷️  +${conn.user.id.split("@")[0]}`), 
+console.log(chalk.bold.magenta('༺  🍓  𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🍓 ༻'), 
+chalk.bold.cyanBright(`\n┏━━━━━━━━━━━━━━━━━━━━┅┅\n┃🏷️  +${conn.user.id.split("@")[0]}`), 
 chalk.bold.yellow('\n┃━━━━━━━━━━━━\n┃📆  𝖿ᥱᥴһᥲ 📆 : ') + chalk.yellow(moment(t * 1000).tz(place).format('DD/MM/YY'),	
 chalk.bold.red('\n┃⏰  һ᥆rᥲ ⏰ : ') + chalk.red(moment(t * 1000).tz(place).format('HH:mm:ss'),
-chalk.bold.magenta('\n┃📔  ᥙsᥙᥲrі᥆ 📔 : ') + chalk.magenta(pushname) + ' ➜', gradient.rainbow(userSender), 
-m.isGroup ? chalk.bold.yellow('\n┃📨  grᥙ⍴᥆ 📨 : ') + chalk.yellow(groupName) + ' ❥ ' + gradient.rainbow(from) : chalk.bold.yellow('\n┃📨  ᥴһᥲ𝗍 ⍴rі᥎ᥲძ᥆ ᥴ᥆ᥒ ᥱᥣ ᑲ᥆𝗍 📨'), 
-chalk.bold.cyanBright('\n┃') + chalk.bold.white(`💬  mᥱᥒsᥲȷᥱ 💬 : ${msgs(m.text)}`) + chalk.bold.cyanBright(`\n┗━━━━━━━━━━━━━━━━━━┅┅\n`)
+chalk.bold.magenta('\n┃📔  ᥙsᥙᥲrі᥆ 📔 : ') + chalk.magenta(pushname) + '  ➜ ', gradient.rainbow(userSender), 
+m.isGroup ? chalk.bold.yellow('\n┃📨  grᥙ⍴᥆ 📨 : ') + chalk.yellow(groupName) + '  ❥  ' + gradient.rainbow(from) : chalk.bold.yellow('\n┃📨  ᥴһᥲ𝗍 ⍴rі᥎ᥲძ᥆ ᥴ᥆ᥒ ᥱᥣ ᑲ᥆𝗍 📨'), 
+chalk.bold.cyanBright('\n┃') + chalk.bold.white(`💬  mᥱᥒsᥲȷᥱ 💬 : ${msgs(m.text)}`) + chalk.bold.cyanBright(`\n┗━━━━━━━━━━━━━━━━━━━━┅┅\n`)
 )))}
 	
 switch (command) {
