@@ -7,7 +7,7 @@ const errorsession = () => { return `【 🌺 】ᥲᥣg᥆ sᥲᥣі᥆́ mᥲ�
 const archivo = () => { return `【 🧁 】ᥲrᥴһі᥎᥆` }
 const archborrado = () => { return `ᑲ᥆rrᥲძ᥆ ᥱ᥊і𝗍᥆sᥲmᥱᥒ𝗍ᥱ` }
 const archivoborrado = () => { return `ᥒ᥆ ᑲ᥆rrᥲძ᥆` }
-const purgesessions = () => { return `┏━━━◉━━━━⬤━━━━⪩『 🍒   』⪨━━━━⬤━━━━◉━━━┓\n┃  ᥲᥙ𝗍᥆⍴ᥙrgᥱsᥱssі᥆ᥒs  ┃\ᥒ┃ ᥲrᥴһі᥎᥆s ᥱᥣіmіᥒsძ᥆s ┃\n┗━━━◉━━━━⬤━━━━⪩『 🍒   』⪨━━━━⬤━━━━◉━━━┛\n` } 
+const purgesessions = () => { return `┏━━◉━━━⬤━━━⪩『 🍒   』⪨━━━⬤━━━◉━━┓\n┃  ᥲᥙ𝗍᥆⍴ᥙrgᥱsᥱssі᥆ᥒs  ┃\n┃ ᥲrᥴһі᥎᥆s ᥱᥣіmіᥒsძ᥆s ┃\n┗━━◉━━━⬤━━━⪩『 🍒   』⪨━━━⬤━━━◉━━┛\n` } 
 const purgesubbots  = () => { return `╭━─━─━─≪🔆≫─━─━─━╮\n│AUTO_PURGE_SESSIONS_SUB-BOTS\n│ ARCHIVOS ELIMINADOS ✅\n╰━─━─━─≪🔆≫─━─━─━╯` }
 const purgeoldfiles = () => { return `╭━─━─━─≪🔆≫─━─━─━╮\n│AUTO_PURGE_OLDFILES\n│ARCHIVOS ELIMINADOS ✅\n╰━─━─━─≪🔆≫─━─━─━╯` }
 
