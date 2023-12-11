@@ -88,7 +88,7 @@ return false;
 })}
 setInterval(async () => {
 await clearTmp()
-console.log(chalk.cyanBright(lenguaje['tmp']()))}, 180000)
+console.log(chalk.yellow(lenguaje['tmp']()))}, 180000)
 //_________________
 
 //sessions/jadibts
