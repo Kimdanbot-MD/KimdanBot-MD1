@@ -1,7 +1,7 @@
 const lenguaje = () => { return 'es' } //Español  
 
 //index.js
-const tmp = () => { return `┏━━━◉━━━━━⬤━━━━━⪩『 🍒   』⪨━━━━⬤━━━━━◉━━━┓\n┃ Se limpio correctamente la carpeta temp ┃\n┗━━━◉━━━━━⬤━━━━━⪩『 🍒   』⪨━━━━━⬤━━━━━◉━━━┛` } 
+const tmp = () => { return `┏━━━◉━━━━━⬤━━━━━⪩『 🍒   』⪨━━━━━⬤━━━━━◉━━━┓\n┃ Se limpio correctamente la carpeta temp ┃\n┗━━━◉━━━━━⬤━━━━━⪩『 🍒   』⪨━━━━━⬤━━━━━◉━━━┛` } 
 const session = () => { return `🟢 NO HAY ARCHIVO POR ELIMINAR` }
 const errorsession = () => { return `🟢 ALGO SALIO MAL DURANTE LA ELIMINACIÓN, ARCHIVO NO ELIMINADOS` }
 const archivo = () => { return `🟢 ARCHIVO` }
