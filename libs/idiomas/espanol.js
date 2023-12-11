@@ -2,11 +2,11 @@ const lenguaje = () => { return 'es' } //Español
 
 //index.js
 const tmp = () => { return `┏━━━◉━━━━━⬤━━━━━⪩『 🍒   』⪨━━━━━⬤━━━━━◉━━━┓\n┃ sᥱ ᥣіm⍴і᥆ ᥴ᥆rrᥱᥴ𝗍ᥲmᥱᥒ𝗍ᥱ ᥣᥲ ᥴᥲr⍴ᥱ𝗍ᥲ 𝗍ᥱm⍴ ┃\n┗━━━◉━━━━━⬤━━━━━⪩『 🍒   』⪨━━━━━⬤━━━━━◉━━━┛\n` } 
-const session = () => { return `🟢 NO HAY ARCHIVO POR ELIMINAR` }
-const errorsession = () => { return `🟢 ALGO SALIO MAL DURANTE LA ELIMINACIÓN, ARCHIVO NO ELIMINADOS` }
-const archivo = () => { return `🟢 ARCHIVO` }
-const archborrado = () => { return `BORRADO CON EXITO` }
-const archivoborrado = () => { return `NO BORRADO` }
+const session = () => { return `【 🫐 】ᥒ᥆ sᥱ ᥱᥒᥴ᥆ᥒ𝗍rᥲr᥆ᥒ ᥲrᥴһі᥎᥆s ⍴ᥲrᥲ ᥱᥣіmіᥒᥲr\n` }
+const errorsession = () => { return `【 🌺 】ᥲᥣg᥆ sᥲᥣі᥆́ mᥲᥣ, ᥒ᥆ sᥱ ⍴ᥙᥱძіᥱr᥆ᥒ ᥱᥣіmіᥒᥲr ᥣ᥆s ᥲrᥴһі᥎᥆s` }
+const archivo = () => { return `【 🧁 】ᥲrᥴһі᥎᥆` }
+const archborrado = () => { return `ᑲ᥆rrᥲძ᥆ ᥱ᥊і𝗍᥆sᥲmᥱᥒ𝗍ᥱ` }
+const archivoborrado = () => { return `ᥒ᥆ ᑲ᥆rrᥲძ᥆` }
 const purgesessions = () => { return `╭━─━─━─≪🔆≫─━─━─━╮\n│AUTOPURGESESSIONS\n│ARCHIVOS ELIMINADOS ✅\n╰━─━─━─≪🔆≫─━─━─━╯` }
 const purgesubbots  = () => { return `╭━─━─━─≪🔆≫─━─━─━╮\n│AUTO_PURGE_SESSIONS_SUB-BOTS\n│ ARCHIVOS ELIMINADOS ✅\n╰━─━─━─≪🔆≫─━─━─━╯` }
 const purgeoldfiles = () => { return `╭━─━─━─≪🔆≫─━─━─━╮\n│AUTO_PURGE_OLDFILES\n│ARCHIVOS ELIMINADOS ✅\n╰━─━─━─≪🔆≫─━─━─━╯` }
