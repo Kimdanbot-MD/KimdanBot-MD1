@@ -394,24 +394,24 @@ mentionedJid:[m.sender],
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 }})
 
-//Welcome 
-sock.ev.on("group-participants.update", async (anu) => {
-  const welcome = global.db.data.chats[anu.id].welcome;
-  if (!welcome) return;
-  console.log(anu);
-  try {
-    let metadata = await sock.groupMetadata(anu.id);
-    const participants = anu.participants;
-    for (let num of participants) {
-    try {
- ppuser = await sock.profilePictureUrl(num, 'image')
+//Welcome adaptado
+sock.ev.on('group-participants.update', async (anu) => {
+let isWelcome = global.db.data.chats[anu.id].welcome
+if(!isWelcome) return
+console.log(anu)
+try {
+let metadata = await sock.groupMetadata(anu.id)
+let participants = anu.participants
+for (let num of participants) {
+try {
+ppuser = await sock.profilePictureUrl(num, 'image')
 } catch (err) {
 ppuser = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60'
 }
 try {
- ppgroup = await sock.profilePictureUrl(anu.id, 'image')
+ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 } catch (err) {
- ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
+ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
 }
 memb = metadata.participants.length
 welc = await getBuffer(ppuser)
