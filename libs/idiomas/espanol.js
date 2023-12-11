@@ -7,7 +7,7 @@ const errorsession = () => { return `【 🌺 】ᥲᥣg᥆ sᥲᥣі᥆́ mᥲ�
 const archivo = () => { return `【 🧁 】ᥲrᥴһі᥎᥆` }
 const archborrado = () => { return `ᑲ᥆rrᥲძ᥆ ᥱ᥊і𝗍᥆sᥲmᥱᥒ𝗍ᥱ` }
 const archivoborrado = () => { return `ᥒ᥆ ᑲ᥆rrᥲძ᥆` }
-const purgesessions = () => { return `┏━━◉━━━⬤━━━⪩『 🍒   』⪨━━━⬤━━━◉━━┓\n┃  ᥲᥙ𝗍᥆⍴ᥙrgᥱsᥱssі᥆ᥒs  ┃\n┃ ᥲrᥴһі᥎᥆s ᥱᥣіmіᥒsძ᥆s ┃\n┗━━◉━━━⬤━━━⪩『 🍒   』⪨━━━⬤━━━◉━━┛\n` } 
+const purgesessions = () => { return `┏━━◉━━⪩『 🍒   』⪨━━◉━━┓\n┃  ᥲᥙ𝗍᥆⍴ᥙrgᥱsᥱssі᥆ᥒs  ┃\n┃ ᥲrᥴһі᥎᥆s ᥱᥣіmіᥒᥲძ᥆s ┃\n┗━━◉━━⪩『 🍒   』⪨━━◉━━┛\n` }
 const purgesubbots  = () => { return `╭━─━─━─≪🔆≫─━─━─━╮\n│AUTO_PURGE_SESSIONS_SUB-BOTS\n│ ARCHIVOS ELIMINADOS ✅\n╰━─━─━─≪🔆≫─━─━─━╯` }
 const purgeoldfiles = () => { return `╭━─━─━─≪🔆≫─━─━─━╮\n│AUTO_PURGE_OLDFILES\n│ARCHIVOS ELIMINADOS ✅\n╰━─━─━─≪🔆≫─━─━─━╯` }
 
@@ -50,7 +50,7 @@ const promote = () => { return `Felicidades ahora eres parte staff 🎉` }
 const demote = () => { return `ya no eres admins 🥲` }
 
 //mensaje el la consola inicio
-const smsConexion = () => { return `┏━━◉━━⪩『 🍒   』⪨━━◉━━┓\n┃  ᥲᥙ𝗍᥆⍴ᥙrgᥱsᥱssі᥆ᥒs  ┃\n┃ ᥲrᥴһі᥎᥆s ᥱᥣіmіᥒsძ᥆s ┃\n┗━━◉━━⪩『 🍒   』⪨━━◉━━┛\n` } 
+const smsConexion = () => { return `┏━━◉━━⪩『 🍒   』⪨━━◉━━┓\n┃  ᥲᥙ𝗍᥆⍴ᥙrgᥱsᥱssі᥆ᥒs  ┃\n┃ ᥲrᥴһі᥎᥆s ᥱᥣіmіᥒᥲძ᥆s ┃\n┗━━◉━━⪩『 🍒   』⪨━━◉━━┛\n` } 
 const smsEscaneaQR = () => { return `ESCANEA EL QR, EXPIRA 45 SEG...` }
 const smsConectado = () => { return `YA ESTA CONECTADO CORRECTAMENTE` }
 const smsConexioncerrar = () => { return `⚠️ CONEXION CERRADA, SE INTENTARA RECONECTAR` }
