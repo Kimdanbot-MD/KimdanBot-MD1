@@ -50,7 +50,7 @@ const promote = () => { return `Felicidades ahora eres parte staff 🎉` }
 const demote = () => { return `ya no eres admins 🥲` }
 
 //mensaje el la consola inicio
-const smsConexion = () => { return `𝘜𝘚𝘜𝘈𝘙𝘐𝘖𝘚 𝘊𝘖𝘕𝘌𝘊𝘛𝘈𝘋𝘖 =>` }
+const smsConexion = () => { return `ᥱᥣ ᑲ᥆𝗍 𝖿ᥙᥱ ᥴ᥆ᥒᥱᥴ𝗍ᥲძ᥆ ᥴ᥆ᥒ ᥱ᥊і𝗍᥆` }
 const smsEscaneaQR = () => { return `ESCANEA EL QR, EXPIRA 45 SEG...` }
 const smsConectado = () => { return `YA ESTA CONECTADO CORRECTAMENTE` }
 const smsConexioncerrar = () => { return `⚠️ CONEXION CERRADA, SE INTENTARA RECONECTAR` }
