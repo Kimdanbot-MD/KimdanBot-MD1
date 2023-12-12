@@ -3,6 +3,7 @@ require("./settings")
 const { default: makeWASocket, Browsers, makeInMemoryStore, useMultiFileAuthState, DisconnectReason, proto , jidNormalizedUser,WAMessageStubType, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, msgRetryCounterMap, makeCacheableSignalKeyStore, fetchLatestBaileysVersion, getAggregateVotesInPollMessage } = require("@whiskeysockets/baileys")
 const { state, saveCreds } = await useMultiFileAuthState('./authFolder')
 const chalk = require('chalk')
+const gradient = require('gradient-string')
 const moment = require('moment')
 const fs = require('fs')
 const yargs = require('yargs/yargs')
@@ -513,7 +514,7 @@ say(`BOT EN DESARROLLO`, {
   
 console.log(color(` `,'magenta'))
 console.log(chalk.bold.magenta(`\n┏━━◉━━━⬤━━⪩『 🍒   』⪨━━⬤━━━◉━━┉┉\n┃`) + chalk.bold.red(` ${lenguaje['smsConexion']()} `) + chalk.bold.cyanBright(`┃━━━━━━━━━━━━━━━━`), 
-chalk.bold.rainbow(`┃` + JSON.stringify(sock.user, null, 2)))
+gradient.rainbow(`┃` + JSON.stringify(sock.user, null, 2)))
 } else if (qr !== undefined) {
 console.log(color('[SYS]', '#009FFF'),
 color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
