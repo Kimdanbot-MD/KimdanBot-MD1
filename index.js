@@ -513,8 +513,9 @@ say(`BOT EN DESARROLLO`, {
   gradient: ['red', 'magenta']});
   
 console.log(color(` `,'magenta'))
-console.log(chalk.bold.magenta(`\n┏━━◉━━━⬤━━⪩『 🍒   』⪨━━⬤━━━◉━━┉┉\n┃`) + chalk.bold.red(` ${lenguaje['smsConexion']()} `) + chalk.bold.cyanBright(`┃━━━━━━━━━━━━━━━━`), 
-gradient.rainbow(`┃` + JSON.stringify(sock.user, null, 2)))
+console.log(chalk.bold.magenta(`\n┏━━◉━━━⬤━━⪩『 🍩   』⪨━━⬤━━━◉━━┉┉\n┃`) + chalk.bold.red(` ${lenguaje['smsConexion']()} `) + chalk.bold.cyanBright(`\n┃━━━━━━━━━━━━━━━━`), 
+gradient.rainbow(JSON.stringify(sock.user, null, 2)),
+chalk.bold.magenta(`\n┗━━◉━━━⬤━━⪩『 🍩   』⪨━━⬤━━━◉━━┉┉\n`))
 } else if (qr !== undefined) {
 console.log(color('[SYS]', '#009FFF'),
 color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
