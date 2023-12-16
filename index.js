@@ -231,12 +231,12 @@ sock.appenTextMessage(prefCmd, chatUpdate)
 sock.ev.on('call', async (fuckedcall) => { 
 sock.user.jid = sock.user.id.split(":")[0] + "@s.whatsapp.net" // jid in user?
 let anticall = global.db.data.settings[numBot].anticall
-if (owner) return m.reply(`ᥱrᥱs ᥆ᥕᥱᥒᥱr ᥲsі́ 𝗊ᥙᥱ ᥒ᥆ 𝗍ᥱ ᑲᥣ᥆𝗊ᥙᥱᥲrᥱ`) 
 if (!anticall) return
 console.log(fuckedcall)
 for (let fucker of fuckedcall) {
 if (fucker.isGroup == false) {
 if (fucker.status == "offer") {
+if (owner) return m.reply(`ᥱrᥱs ᥆ᥕᥱᥒᥱr ᥲsі́ 𝗊ᥙᥱ ᥒ᥆ 𝗍ᥱ ᑲᥣ᥆𝗊ᥙᥱᥲrᥱ`) 
 let call = await sock.sendTextWithMentions(fucker.from, `${lenguaje['smscall']()}\ᥒ @${fucker.from.split('@')[0]} ${lenguaje['smscall2']()}`)
 let vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;👑 ⍴ɾ᥆⍴іᥱ𝗍ᥲɾі᥆ 👑;;;\nFN:⍴ɾ᥆⍴іᥱ𝗍ᥲɾі᥆\nORG:🍒 ⍴ɾ᥆⍴іᥱ𝗍ᥲɾі᥆ 🍒\nTITLE:\nitem1.TEL;waid=573161407118:+57 316 1407118\nitem1.X-ABLabel:🍒 ⍴ɾ᥆⍴іᥱ𝗍ᥲɾі᥆ 🍒\nX-WA-BIZ-DESCRIPTION:⍴᥆ɾ𝖿ᥲ᥎᥆ɾ s᥆ᥣ᥆ ᥱsᥴɾіᑲіɾ ⍴ᥲɾᥲ ᥴ᥆sᥲs s᥆ᑲɾᥱ ᥱᥣ ᑲ᥆𝗍.\nX-WA-BIZ-NAME:᥆ᥕᥒᥱɾ 👑\nEND:VCARD`
 sock.sendMessage(fucker.from, { contacts: { displayName: '🍓 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🍓', contacts: [{ vcard }] }}, {quoted: call, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
