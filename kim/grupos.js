@@ -104,7 +104,7 @@ async function p(conn, m, isBotAdmins, isGroupAdmins, quoted, sender) {
 if (!m.isGroup) return m.reply(mess.group) 
 if (!isBotAdmins) return m.reply(mess.botAdmin)
 if (!isGroupAdmins) return m.reply(mess.admin)
-if (!m.mentionedJid[0] && !m.quoted) return m.reply(`*[ ⚠️ ] A QUIEN LE DOY ADMIN? ETIQUETA A LA PERSONA O RESPONDE A SUS MENSAJES*`)
+if (!m.mentionedJid[0] && !m.quoted) return m.reply(`✾⃛⃛ᬿ⃝⃞🚫 🅴 *𝐑𝐑𝐎𝐑*╰ᬊ _🌸 𝐄𝐓𝐈𝐐𝐔𝐄𝐓𝐀 / 𝐌𝐄𝐍𝐒𝐈𝐎𝐍𝐀 𝐀𝐋 𝐔𝐒𝐔𝐀𝐑𝐈𝐎 𝐐𝐔𝐄 𝐒𝐄𝐑𝐀 𝐀𝐃𝐌𝐈𝐍🌸_`)
 let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net';
   await conn.groupParticipantsUpdate(m.chat, [users], 'promote').then((res) => conn.sendMessage(m.chat, {text: "*🍓꙰ᷜූා𝆺▸ 𝐀𝐓𝐄𝐍𝐂𝐈𝐎́𝐍*\n*╰❥* 𝐓𝐞𝐧𝐞𝐦𝐨𝐬 𝐮𝐧 𝐧𝐮𝐞𝐯𝐨 𝐚𝐝𝐦𝐢𝐧\nli.⏦｡⏦✰⏦｡⏦✰⏦｡⏦✰⏦.li", mentions: participants.map((a) => a.id)}, {quoted: m}),);
 }
