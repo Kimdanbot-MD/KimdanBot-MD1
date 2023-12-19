@@ -378,7 +378,7 @@ text13: `*[ ⚠️ ] INGRESA EL NÚMERO DEL LA PERSONA QUE QUIERA AGREGA*\n*EJEM
 text14: `*⚠️ INGRESA EL NUMERO SIN EL (+)*`, 
 text15: `≡ *INVITACIÓN*\n\nHola un usuario te invito a unirte a este grupos`, 
 text16: `*[ ⚠️ ] A QUIEN CARAJO ELIMINO? ETIQUETA ALGUN USUARIO NO SOY ADIVINO 😯*`, 
-text17: `*[ ⚠️ ] A QUIEN LE DOY ADMIN? ETIQUETA A LA PERSONA O RESPONDE A SUS MENSAJES*`, 
+text17: `✾⃛⃛ᬿ⃝⃞🚫 🅴 *𝐑𝐑𝐎𝐑*\n   ╰ᬊ _🌸 𝐄𝐓𝐈𝐐𝐔𝐄𝐓𝐀 / 𝐌𝐄𝐍𝐒𝐈𝐎𝐍𝐀 𝐀𝐋 𝐔𝐒𝐔𝐀𝐑𝐈𝐎 𝐐𝐔𝐄 𝐒𝐄𝐑𝐀 𝐀𝐃𝐌𝐈𝐍🌸_`, 
 text18: `*[ ⚠️ ] A QUIEN LE QUITO ADMINS? ETIQUETA A LA PERSONA O RESPONDE A SUS MENSAJES*`, 
 text19: `*BOT APAGADO*`, 
 text20: `*BOT ONLINE YA ESTOY DISPONIBLE ✅*`, 
