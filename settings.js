@@ -78,8 +78,11 @@ global.APIKeys = {
 
 // ═════════════𓊈『 LINKS 』𓊉═════════════ 
 global.md = 'https://github.com/Kimdanbot-MD/KimdanBot-MD'
+global.yt = 'https://youtube.com/@universobl?si=HeFdv4RaYDF9HAeX'
+global.tiktok = 'https://www.tiktok.com/@universo_yaoi_bl?_t=8iIlNrlJg1d&_r=1'
+global.faceb = 'https://www.instagram.com/_universo.bl?igshid=OGQ5ZDc2ODk2ZA=='
 
-// ═════════════𓊈『 MESS 』𓊉═════════════ 
+// ═════════════KimdanBot-MD'════════════ 
 global.mess = {
 admin: "✾⃛⃛ᬿ⃝⃞🚫 🅴 *𝐑𝐑𝐎𝐑*\n   ╰ᬊ _🫐 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐄𝐒 𝐒𝐎𝐋𝐎 𝐏𝐀𝐑𝐀 𝐀𝐃𝐌𝐈𝐍𝐒 🫐_",
 owner: "✾⃛⃛ᬿ⃝⃞🚫🅴 *𝐑𝐑𝐎𝐑*\n   ╰ᬊ ~ _🍡 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐋𝐎 𝐏𝐔𝐄𝐃𝐄 𝐔𝐒𝐀𝐑 𝐌𝐈 𝐉𝐄𝐅𝐄 🍡_",
