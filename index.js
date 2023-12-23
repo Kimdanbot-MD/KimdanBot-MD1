@@ -231,9 +231,9 @@ sock.appenTextMessage(prefCmd, chatUpdate)
 sock.ev.on('call', async (fuckedcall) => { 
 sock.user.jid = sock.user.id.split(":")[0] + "@s.whatsapp.net" // jid in user?
 let anticall = global.db.data.settings[numBot].anticall
+if (owner) return m.reply(`ᥱrᥱs ᥆ᥕᥱᥒᥱr ᥲsі́ 𝗊ᥙᥱ ᥒ᥆ 𝗍ᥱ ᑲᥣ᥆𝗊ᥙᥱᥲrᥱ`) 
 if (!anticall) return
 console.log(fuckedcall)
-if (owner) return m.reply(`ᥱrᥱs ᥆ᥕᥱᥒᥱr ᥲsі́ 𝗊ᥙᥱ ᥒ᥆ 𝗍ᥱ ᑲᥣ᥆𝗊ᥙᥱᥲrᥱ`) 
 for (let fucker of fuckedcall) {
 if (fucker.isGroup == false) {
 if (fucker.status == "offer") {
