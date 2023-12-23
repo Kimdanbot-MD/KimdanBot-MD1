@@ -19,9 +19,9 @@ const smscall2 = () => { return `һᥲs ɾᥱᥲᥣіzᥲძ᥆ ᥙᥒᥲ ᥣᥣ
 const smsAntiPv = () => { return `ᴇsᴛᴀ ᴘʀᴏʜɪʙɪᴅᴏ ʜᴀʙʟᴀʀ ᴀʟ ᴘʀɪᴠᴀᴅᴏ ᴅᴇʟ ʙᴏᴛ ᴘᴏʀ ʟᴏ ᴄᴜᴀʟ sᴇʀᴀs ʙʟᴏϙᴜᴇᴀᴅᴏ.*\n*ᴘᴀʀᴀ ᴜsᴀʀ ᴇʟ ʙᴏᴛ ᴜɴɪʀᴛᴇ ᴀʟ ɢʀᴜᴘᴏ ᴅᴇʟ ʙᴏᴛ` }
 
 //detec
-const smsAvisos = () => { return `[ ◌⑅⃝●♡⋆♡ ցɾմթօ cҽɾɾαժօ ♡⋆♡●⃝⑅◌ ]` }
+const smsAvisos = () => { return ` ◌⑅⃝●♡⋆♡ ցɾմթօ cҽɾɾαժօ ♡⋆♡●⃝⑅◌ ` }
 const smsAvisos2 = () => { return `「 *_༺ღ༒🚫𝐀𝐓𝐄𝐍𝐂𝐈𝐎́𝐍 🚫༒ღ༻_* 」\n\n*ᥲһ᥆rᥲ s᥆́ᥣ᥆ ᥲძmіᥒs ⍴ᥙᥱძᥱᥒ mᥲᥒძᥲr mᥱᥒsᥲȷᥱs*` }
-const smsAvisos3 = () => { return `[ ◌⑅⃝●♡⋆♡ ցɾմթօ αճíҽɾԵօ ♡⋆♡●⃝⑅◌ ]` }
+const smsAvisos3 = () => { return ` ◌⑅⃝●♡⋆♡ ցɾմթօ αճíҽɾԵօ ♡⋆♡●⃝⑅◌ ` }
 const smsAvisos4 = () => { return `「 *_༺ღ༒🚫𝐀𝐓𝐄𝐍𝐂𝐈𝐎́𝐍 🚫༒ღ༻_* 」\n\n*grᥙ⍴᥆ ᥲᑲіᥱr𝗍᥆, ᥲһ᥆rᥲ 𝗍᥆ძ᥆s ᥣ᥆s mіᥱmᑲr᥆s ძᥱᥣ grᥙ⍴᥆ ⍴ᥙᥱძᥱᥒ mᥲᥒძᥲr mᥱᥒsᥲȷᥱs*` } 
 const smsAvisos5 = () => { return `「 *_༺ღ༒🚫𝐀𝐓𝐄𝐍𝐂𝐈𝐎́𝐍 🚫༒ღ༻_* 」\n\n` }
 const smsAvisos6 = () => { return `*ᴬʰᵒʳᵃ ˢᵒˡᵒ ˡᵒˢ ᵃᵈᵐᶦⁿˢ ᵖᵘᵉᵈᵉ ᵉᵈᶦᵗᵃʳ ˡᵒˢ ᵃʲᵘˢᵗᵉ ᵈᵉˡ ᵍʳᵘᵖᵒ*` } 
