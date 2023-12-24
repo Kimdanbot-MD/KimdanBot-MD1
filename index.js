@@ -425,12 +425,7 @@ const time = moment.tz('America/Bogota').format('HH:mm:ss')
 const date = moment.tz('America/Bogota').format('DD/MM/YYYY')
 let name = num
 const miembros = metadata.participants.length
-sock.sendMessage(anu.id, { text: `*╔═⪼* 🌺 ${metadata.subject} 🌺 *⪻═ ✿*
-*║ 🍒 𝐇𝐎𝐋𝐈 @${num.split("@")[0]}*
-*║ 🍓 𝐒𝐨𝐲 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭 - 𝐌𝐃 🍓*
-*║* 🫐 𝐄𝐬 𝐔𝐧 𝐏𝐥𝐚𝐜𝐞𝐫 𝐃𝐚𝐫𝐭𝐞 𝐋𝐚 𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐚
-*║ 📰  𝐏𝐨𝐫𝐟𝐢𝐬 𝐋𝐞𝐞 𝐋𝐚 𝐃𝐞𝐬𝐜𝐫𝐢𝐩𝐜𝐢𝐨́𝐧 𝐃𝐞𝐥 𝐆𝐫𝐮𝐩𝐨*
-*╚══════════════ ❀*
+sock.sendMessage(anu.id, { text: `${lenguaje.wel.1} *@${num.split("@")[0]} 🍒\n${lenguaje.wel.2}
 ${String.fromCharCode(8206).repeat(850)}
 ${metadata.desc}`, contextInfo:{
 forwardingScore: 9999999,
