@@ -339,7 +339,7 @@ switch (command) {
 //idiomas 
 case 'idioma': case 'Language': case 'idiomas': { 
 let user = global.db.data.users[m.sender]
-if (!text) return m.reply(lenguaje.AvisoMG() + lenguaje.idioma(prefix)) 
+if (!text) return m.reply(`a que idioma cambio?`) 
 if (budy.includes(`1`)) { 
 idioma = 'es' 
 idiomas = 'español'
@@ -349,7 +349,7 @@ idioma = 'en'
 idiomas = 'ingles'
 }
 user.Language = idioma
-m.reply(lenguaje.idioma2() + idiomas)}  
+m.reply(`se cambio a ` + idiomas)}  
 break 
 		
 	/*case 'imagen':
