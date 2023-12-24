@@ -345,7 +345,7 @@ mentionedJid:[m.sender],
 "mediaUrl": md, 
 "sourceUrl": md
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-} else if(!res.desc == ''){
+} else if(!res.desc == true){
 await sleep(2000)
 try {
 ppgroup = await sock.profilePictureUrl(anu.id, 'image')
@@ -353,7 +353,7 @@ ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
 }
 // descripción
-let text = `${lenguaje['smsAvisos8']()}\n${res.desc}`
+let text = `${lenguaje['smsAvisos8']()}\n ❥ ${res.desc}`
 sock.sendMessage(res.id, {text: text,  
 contextInfo:{  
 forwardingScore: 9999999,  
@@ -378,7 +378,7 @@ ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
 }
 // nombre
-let text = `${lenguaje['smsAvisos9']()}\n${res.subject}`
+let text = `${lenguaje['smsAvisos9']()}\n ❥ ${res.subject}`
 sock.sendMessage(res.id, {text: text,  
 contextInfo:{  
 forwardingScore: 9999999,  
