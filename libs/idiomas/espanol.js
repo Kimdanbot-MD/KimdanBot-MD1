@@ -30,25 +30,10 @@ const smsAvisos8 = () => { return ` 『 *_༺ღ༒🚫𝐀𝐓𝐄𝐍𝐂𝐈�
 const smsAvisos9 = () => { return ` 『 *_༺ღ༒🚫𝐀𝐓𝐄𝐍𝐂𝐈𝐎́𝐍 🚫༒ღ༻_* 』\n\n*ᥱᥣ ᥒ᥆mᑲrᥱ ძᥱᥣ grᥙ⍴᥆ 𝖿ᥙᥱ ᥴᥲmᑲіᥲᥒძ᥆ ᥱ᥊і𝗍᥆sᥲmᥱᥒ𝗍ᥱ ᥲ:*` }
 
 //welcome
-const smsWel =  () => { return `Hola` }
-const smsWel2 = () => { return `¿COMO ESTAS? 😃` }
-const smsWel3 = () => { return `¿COMO ESTAS?😃\n\n『Bienvenido A` }
-const smsWel4 = () => { return `Un gusto conocerte amig@ 🤗\n\n_Recuerda leer las reglas del grupo para no tener ningun problema 🧐_\n\n*Solo disfrutar de este grupo y divertite 🥳*` }
-const smsWel5 = () => { return `[ NUEVO MIEMBRO ]\n\n` }
-const smsWel6 = () => { return `𝘓𝘦 𝘥𝘢𝘮𝘰𝘴 𝘭𝘢 𝘣𝘪𝘦𝘯𝘷𝘦𝘯𝘪𝘥𝘢 𝘢` }
-const smsWel7 = () => { return `⪨────[ ＷＥＬＣＯＭＥ ]────⪩\n\n` }
-const smsWel8 = () => { return `💫 *Bienvenido a :*` }
-const smsWel9 = () => { return `💫 *Participarte*` }
-const smsWel10 = () => { return `💫 *Fecha*` }
-const smsWel11 = () => { return `📢 *Lee la descripcion* 📢\n` }
-const smsBye = () => { return `Adios` }
-const smsBye2 = () => { return `Bueno, se fue` }
-const smsBye3 = () => { return `Que dios lo bendiga 😎` }
-const smsBye4 = () => { return `Salió del grupo._` }
-const smsBye5 = () => { return `se fue\n┃ un fan del bts` }
-const promote = () => { return `Felicidades ahora eres parte staff 🎉` }
-const demote = () => { return `ya no eres admins 🥲` }
-
+const wel = {
+1: `*╔═⪼ 🌺 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🌺 ⪻═ ✿*\n*║ 🍒 һ᥆ᥣі`, 
+2:`*║ 🍓 s᥆ᥡ ძᥲᥒ, ᥱᥣ ᑲ᥆𝗍 ძᥱ ᥱs𝗍ᥱ grᥙ⍴᥆*\n*║ 🫐 ᥱs ᥙᥒ ⍴ᥣᥲᥴᥱr ძᥲr𝗍ᥱ ᥣᥲ ᑲіᥱᥒ᥎ᥱᥒіძᥲ*\n*║ 📰  ⍴᥆r𝖿іs ᥣᥱᥱ ᥣᥲ ძᥱsᥴrі⍴ᥴі᥆́ᥒ*\n*╚══════════════ ❀*`
+}
 //mensaje el la consola inicio
 const smsConexion = () => { return `ᥱᥣ ᑲ᥆𝗍 𝖿ᥙᥱ ᥴ᥆ᥒᥱᥴ𝗍ᥲძ᥆ ᥴ᥆ᥒ ᥱ᥊і𝗍᥆` }
 const smsEscaneaQR = () => { return `ESCANEA EL QR, EXPIRA 45 SEG...` }
@@ -546,4 +531,4 @@ text3: `*Responda un sticker para robar`,
 text4: `ingresa algo para convertirlo a sticker :v`, 
 text5: `_*Calma crack estoy haciendo tu texto a sticker 👏*_\n\n_*Esto puede demorar unos minutos....*_` }
 
-module.exports = { lenguaje, tmp, session, errorsession, archivo, archborrado, archivoborrado, purgesessions, purgesubbots, purgeoldfiles, smscall, smscall2, smsAvisos, smsAvisos2, smsAvisos3, smsAvisos4, smsAvisos5, smsAvisos6, smsAvisos7, smsAvisos8, smsAvisos9, smsWel, smsWel2, smsWel3, smsWel4, smsWel5, smsWel6, smsWel7, smsWel8, smsWel9, smsWel10, smsWel11, smsBye, smsBye2, smsBye3, smsBye4, smsBye5, smsConexion, smsEscaneaQR, smsConectado, smsConexioncerrar, nivel, nivel2, admin, botAdmin, propietario, group, private, bot, error, advertencia, registra, limit, AntiNsfw, endLimit, result, lengua, sms, Bio, smsAntiFake, smsAntiArabe, smsAntiLink, smsAntiLink2, smsAntiLink3, smsAntiLink4, smsAntiLink5, smsAutoSicker, smsAutonivel, smsAutonivel2, smsAutonivel3, smsAutonivel4, smsAutonivel5, smsAutonivel6, smsAutonivel7, smsAutonivel8, smsAutonivel9, smsAntiPv, info, menu, jadibot, descargar, demote, promote, enable, grupos, juegos, nsfw, owner, ramdow, rpg, sticker}
+module.exports = { lenguaje, tmp, session, errorsession, archivo, archborrado, archivoborrado, purgesessions, purgesubbots, purgeoldfiles, smscall, smscall2, smsAvisos, smsAvisos2, smsAvisos3, smsAvisos4, smsAvisos5, smsAvisos6, smsAvisos7, smsAvisos8, smsAvisos9, wel, smsConexion, smsEscaneaQR, smsConectado, smsConexioncerrar, nivel, nivel2, admin, botAdmin, propietario, group, private, bot, error, advertencia, registra, limit, AntiNsfw, endLimit, result, lengua, sms, Bio, smsAntiFake, smsAntiArabe, smsAntiLink, smsAntiLink2, smsAntiLink3, smsAntiLink4, smsAntiLink5, smsAutoSicker, smsAutonivel, smsAutonivel2, smsAutonivel3, smsAutonivel4, smsAutonivel5, smsAutonivel6, smsAutonivel7, smsAutonivel8, smsAutonivel9, smsAntiPv, info, menu, jadibot, descargar, demote, promote, enable, grupos, juegos, nsfw, owner, ramdow, rpg, sticker}
