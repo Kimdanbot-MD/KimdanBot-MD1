@@ -323,8 +323,35 @@ chalk.bold.magenta(`${lenguaje.Bio.usuario}`) + chalk.magenta(pushname) + '  ➜
 m.isGroup ? chalk.bold.yellow(`${lenguaje.Bio.grupo}`) + chalk.yellow(groupName) + '  ❥ ': chalk.bold.yellow(`${lenguaje.Bio.priv}`), 
 chalk.bold.cyanBright('\n┃') + chalk.bold.white(`${lenguaje.Bio.mensaje}${msgs(m.text)}`) + chalk.bold.cyanBright(`\n┗━━━━━━━━━━━━━━━━━━━━━━━━┅┅\n`)
 )))}
+
+//multilenguaje
+const { en, es } = require('./libs/idiomas/total-idiomas.js')
+let user = global.db.data.users[m.sender]
+if (user.Language == 'es') {
+global.lenguaje = es
+} else if (user.Language == 'en') {
+global.lenguaje = en
+} else {
+global.lenguaje = es
+}   	
 	
 switch (command) {
+//idiomas 
+case 'idioma': case 'Language': case 'idiomas': { 
+let user = global.db.data.users[m.sender]
+if (!text) return m.reply(lenguaje.AvisoMG() + lenguaje.idioma(prefix)) 
+if (budy.includes(`1`)) { 
+idioma = 'es' 
+idiomas = 'español'
+}
+if (budy.includes(`2`)) {
+idioma = 'en'
+idiomas = 'ingles'
+}
+user.Language = idioma
+m.reply(lenguaje.idioma2() + idiomas)}  
+break 
+		
 	/*case 'imagen':
 let pp = await conn.profilePictureUrl(m.chat, 'image')	
 await conn.sendMessage(m.chat, pp) 		
