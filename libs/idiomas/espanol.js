@@ -90,6 +90,7 @@ const limit = () => { return `*ᴅɪᴀᴍᴀɴᴛᴇ 💎 ᴜsᴀᴅᴏ*` }
 const AntiNsfw = () => { return `*Los comando +18 esta desactivado*\nSi eres admin y quiere activarlos usar:\n• modocaliente on` }
 const endLimit = () => { return `*😢 NOO TENER MAS DIAMANTE 💎*\n\nPuede comprar mas usando el comando: #buy` }
 const result = () => { return `*Resultados de :*` }
+const demote = () => { return `ya no eres admins 🥲` }
 
 //Buscadores
 const lengua = { 
