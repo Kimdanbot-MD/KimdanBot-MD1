@@ -83,7 +83,7 @@ const smsAutonivel9 = () => { return `*🎅 FELICIDADES LLEGARTE A UN NUEVO NIVE
 //info
 const nivel = () => { return `[ ❇️ ] ɴᴇᴄᴇsɪᴛᴀ ᴇʟ ɴɪᴠᴇʟ` }
 const nivel2 = () => { return `ᴘᴀʀᴀ ᴘᴏᴅᴇʀ ᴜsᴀʀ ᴇsᴛᴇ ᴄᴏᴍᴀɴᴅᴏ ᴄᴏᴍᴘʀᴜᴇʙᴀ ᴛᴜ ɴɪᴠᴇʟ ᴀᴄᴛᴜᴀʟ ᴄᴏɴ ᴇʟ ᴄᴏᴍᴀɴᴅᴏ` }
-const admin = () => { return `*⚠️ Tu no eres admins 🤡 solo los admins puede usar este comando*` }
+const admin = () => { return `✾⃛⃛ᬿ⃝⃞🚫 🅴 *𝐑𝐑𝐎𝐑*\n   ╰ᬊ _🫐 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐄𝐒 𝐒𝐎𝐋𝐎 𝐏𝐀𝐑𝐀 𝐀𝐃𝐌𝐈𝐍𝐒 🫐_` }
 const botAdmin = () => { return `*⚠️ Hey primero el bot osea (Yo), Necesito ser admins para usar este comando*` }
 const propietario = () => { return `*⚠️ Quien carajo eres tu? solo mi jefe puede usar este comando*` }
 const group = () => { return `*⚠️ Pendejo este comando solo se puede usar el grupo*` }
