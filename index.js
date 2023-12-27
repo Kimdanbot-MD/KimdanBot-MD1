@@ -456,8 +456,7 @@ body: wm,
 "thumbnailUrl": ``,     
 "thumbnail": leave,
 "sourceUrl": md}}}) 
-      } else if (anu.action == "promote") {
-        sock.sen} else if (anu.action == 'promote') {
+} else if (anu.action == "promote") {
 const buffer = await getBuffer(ppuser)
 const groupAdmins = participants.filter((p) => p.admin)
 const mentionsString = [m.sender, m.messageStubParameters[0], ...groupAdmins.map((v) => v.id)]
@@ -477,7 +476,7 @@ sock.sendMessage(anu.id, { text: `@${m.messageStubParameters[0].split`@`[0]}\n A
 } else if (anu.action == 'demote') {
 const buffer = await getBuffer(ppuser)
 let name = num
-sock.sendMessage(anu.id, { text: `@${name.split("@")[0]} Joderte ya no eres admin 🥲`,
+sock.sendMessage(anu.id, { text: `@${m.messageStubParameters[0].split`@`[0]}\n Ahora ya no es admin del grupo @${m.sender.split`@`[0]}`, 
  contextInfo:{
  mentionedJid:[num],
  "externalAdReply": {"showAdAttribution": true,
