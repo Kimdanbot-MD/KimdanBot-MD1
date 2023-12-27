@@ -436,6 +436,7 @@ mentionedJid:[num],
 "title": `${lenguaje.wel.w}`,
 body: wm,
 "previewType": "PHOTO",
+"thumbnailUrl": ``,
 "thumbnail": welc,
 "sourceUrl": md}}}) 							
 } else if (anu.action == "remove") {
@@ -452,6 +453,7 @@ mentionedJid:[num],
 "title": `   ${lenguaje.wel.x}`, 
 body: wm,
 "previewType": "PHOTO",
+"thumbnailUrl": ``,     
 "thumbnail": leave,
 "sourceUrl": md}}}) 
       } else if (anu.action == "promote") {
