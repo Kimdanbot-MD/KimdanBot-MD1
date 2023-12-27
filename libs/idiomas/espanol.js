@@ -94,13 +94,14 @@ const propietario = () => { return `✾⃛⃛ᬿ⃝⃞🚫🅴 *𝐑𝐑𝐎𝐑
 const group = () => { return `✾⃛⃛ᬿ⃝⃞🚫🅴 *𝐑𝐑𝐎𝐑*\n   ╰ᬊ ~ _🍨 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐏𝐀𝐑𝐀 𝐆𝐑𝐔𝐏𝐎𝐒 🍨_` }
 const private = () => { return `✾⃛⃛ᬿ⃝⃞🚫🅴 *𝐑𝐑𝐎𝐑*\n   ╰ᬊ ~ _🍫 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐒𝐄 𝐏𝐔𝐄𝐃𝐄 𝐔𝐒𝐀𝐑 𝐄𝐍 𝐂𝐇𝐀𝐓 𝐏𝐑𝐈𝐕𝐀𝐃𝐎 🍫_` }
 const bot = () => { return `*⚠️ Este comando solo (YO) los puedo usar*` }
-const error = () => { return `⪨╼╼≪⚠️ ERROR ⚠️≫╾╼⪩\n\nOCURRIÓ UN ERROR INESPERADO, (API CAIDA 😢)` }
+const error = () => { return `*✾⃛⃛ᬿ⃝⃞🚫* 🅴 *𝐑𝐑𝐎𝐑*` }
 const advertencia = () => { return `[ ⚠️ ＡＤＶＥＲＴＥＮＣＩＡ ]` }
 const registra = () => { return `*𓊈『🍒 𝐒𝐓𝐎𝐏 𝐃𝐄𝐁𝐄𝐒 𝐑𝐄𝐆𝐈𝐒𝐓𝐑𝐀𝐑𝐓𝐄 🍒』𓊉*\n\n🍓 𝐃𝐢𝐜𝐞 𝐞𝐥 𝐉𝐨𝐬𝐞́ 𝐉𝐚𝐯𝐢𝐞𝐫 𝐪𝐮𝐞 𝐧𝐨 𝐞𝐬𝐭𝐚𝐬 𝐞𝐧 𝐥𝐚 𝐛𝐚𝐬𝐞 𝐝𝐞 𝐝𝐚𝐭𝐨𝐬 🍓\n\n𝐓𝐢𝐞𝐧𝐞𝐬 𝐪𝐮𝐞 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐫𝐭𝐞 𝐩𝐚𝐫𝐚 𝐩𝐨𝐝𝐞𝐫 𝐮𝐬𝐚𝐫 𝐚 *_𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃_*\n\n🌺 *≪ 𝐄𝐉𝐄𝐌𝐏𝐋𝐎 ≫* 🌺\n#reg nombre.edad` }
 const limit = () => { return `*ᴅɪᴀᴍᴀɴᴛᴇ 💎 ᴜsᴀᴅᴏ*` }
 const AntiNsfw = () => { return `*Los comando +18 esta desactivado*\nSi eres admin y quiere activarlos usar:\n• modocaliente on` }
 const endLimit = () => { return `*😢 NOO TENER MAS DIAMANTE 💎*\n\nPuede comprar mas usando el comando: #buy` }
 const result = () => { return `*〖✅〗𝐋𝐈𝐒𝐓𝐎 🌺*` }
+const carga = () => { return `_𝐂𝐚𝐫𝐠𝐚𝐧𝐝𝐨..._` }
 
 const demote = () => { return `ya no eres admins 🥲` }
 const promote = () => { return `Felicidades ahora eres parte staff 🎉` }
