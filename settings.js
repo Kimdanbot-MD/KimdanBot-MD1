@@ -98,7 +98,7 @@ advertencia: `${lenguaje['advertencia']()}`,
 limit: `${lenguaje['limit']()}`, 
 AntiNsfw: `${lenguaje['AntiNsfw']()}`,
 endLimit: `${lenguaje['endLimit']()}`, }
-}
+
 
 // ═════════════𓊈『 CARGA 』𓊉═════════════ 
 global.info = {
