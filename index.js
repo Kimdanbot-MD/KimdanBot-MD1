@@ -433,12 +433,12 @@ isForwarded: true,
 mentionedJid:[num],
 "externalAdReply": {"showAdAttribution": true,
 "containsAutoReply": true,
-"title": `乂 ＷＥＬＣＯＭＥ 乂`,
-body: `${metadata.subject}`,
+"title": `${lenguaje.wel.w}`,
+body: wm,
 "previewType": "PHOTO",
-"thumbnailUrl": ``,
+"thumbnailUrl": md,
 "thumbnail": welc,
-"sourceUrl": `enlace`}}}) 							
+"sourceUrl": md}}}) 							
 } else if (anu.action == "remove") {
         const buffer = await getBuffer(ppuser)
 let name = num
@@ -450,10 +450,10 @@ isForwarded: true,
 mentionedJid:[num],
 "externalAdReply": {"showAdAttribution": true,
 "containsAutoReply": true,
-"title": '乂 ＡＤＩＯ́Ｓ 乂', 
-body: `Esperemos que no vuelva -_-`,
+"title": `${lenguaje.wel.x}`, 
+body: wm,
 "previewType": "PHOTO",
-"thumbnailUrl": ``,
+"thumbnailUrl": md,
 "thumbnail": leave,
 "sourceUrl": md}}}) 
       } else if (anu.action == "promote") {
