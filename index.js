@@ -459,8 +459,11 @@ body: wm,
       } else if (anu.action == "promote") {
         sock.sen} else if (anu.action == 'promote') {
 const buffer = await getBuffer(ppuser)
+const groupAdmins = participants.filter((p) => p.admin)
+const mentionsString = [m.sender, m.messageStubParameters[0], ...groupAdmins.map((v) => v.id)]
+const mentionsContentM = [m.sender, m.messageStubParameters[0]]
 let name = num
-sock.sendMessage(anu.id, { text: `@${name.split("@")[0]} Ahora eres admin del grupo 🥳`, 
+sock.sendMessage(anu.id, { text: `@${m.messageStubParameters[0].split`@`[0]}\n Ahora eres admin del grupo @${m.sender.split`@`[0]}`, 
  contextInfo:{
  mentionedJid:[num],
  "externalAdReply": {"showAdAttribution": true,
