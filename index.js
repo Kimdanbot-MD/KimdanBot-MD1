@@ -443,7 +443,7 @@ body: `${metadata.subject}`,
         const buffer = await getBuffer(ppuser)
 let name = num
 const members = metadata.participants.length
-sock.sendMessage(anu.id, { text: `Se fue @${name.split("@")[0]} nadie los van extraña 😹`,
+sock.sendMessage(anu.id, { text: `${lenguaje.wel.C} @${name.split("@")[0]} 🍇*\n${lenguaje.wel.D}`,
 contextInfo:{
 forwardingScore: 9999999,
 isForwarded: true, 
