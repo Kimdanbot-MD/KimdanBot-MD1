@@ -91,7 +91,7 @@ const private = () => { return `✾⃛⃛ᬿ⃝⃞🚫🅴 *𝐑𝐑𝐎𝐑*\n 
 const bot = () => { return `*⚠️ Este comando solo (YO) los puedo usar*` }
 const error = () => { return `⪨╼╼≪⚠️ ERROR ⚠️≫╾╼⪩\n\nOCURRIÓ UN ERROR INESPERADO, (API CAIDA 😢)` }
 const advertencia = () => { return `[ ⚠️ ＡＤＶＥＲＴＥＮＣＩＡ ]` }
-const registra = () => { return `*[ 🔴 HEY ALTO NO ESTAS REGISTRADO 🔴 ]*\n\nNO APARECES EN MI BASE DE DATOS ✋\n\nPara poder usar el bot necesita esta registrado:\n\n#reg nombre.edad` }
+const registra = () => { return `*𓊈『🍒 𝐒𝐓𝐎𝐏 𝐃𝐄𝐁𝐄𝐒 𝐑𝐄𝐆𝐈𝐒𝐓𝐑𝐀𝐑𝐓𝐄 🍒』𓊉*\n\n🍓 𝐃𝐢𝐜𝐞 𝐞𝐥 𝐉𝐨𝐬𝐞́ 𝐉𝐚𝐯𝐢𝐞𝐫 𝐪𝐮𝐞 𝐧𝐨 𝐞𝐬𝐭𝐚𝐬 𝐞𝐧 𝐥𝐚 𝐛𝐚𝐬𝐞 𝐝𝐞 𝐝𝐚𝐭𝐨𝐬 🍓\n\n𝐓𝐢𝐞𝐧𝐞𝐬 𝐪𝐮𝐞 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐫𝐭𝐞 𝐩𝐚𝐫𝐚 𝐩𝐨𝐝𝐞𝐫 𝐮𝐬𝐚𝐫 𝐚 *_𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃_*\n\n🌺 *≪ 𝐄𝐉𝐄𝐌𝐏𝐋𝐎 ≫* 🌺\n#reg nombre.edad` }
 const limit = () => { return `*ᴅɪᴀᴍᴀɴᴛᴇ 💎 ᴜsᴀᴅᴏ*` }
 const AntiNsfw = () => { return `*Los comando +18 esta desactivado*\nSi eres admin y quiere activarlos usar:\n• modocaliente on` }
 const endLimit = () => { return `*😢 NOO TENER MAS DIAMANTE 💎*\n\nPuede comprar mas usando el comando: #buy` }
