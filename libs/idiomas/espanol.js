@@ -91,6 +91,7 @@ const AntiNsfw = () => { return `*Los comando +18 esta desactivado*\nSi eres adm
 const endLimit = () => { return `*😢 NOO TENER MAS DIAMANTE 💎*\n\nPuede comprar mas usando el comando: #buy` }
 const result = () => { return `*Resultados de :*` }
 const demote = () => { return `ya no eres admins 🥲` }
+const promote = () => { return `Felicidades ahora eres parte staff 🎉` }
 
 //Buscadores
 const lengua = { 
