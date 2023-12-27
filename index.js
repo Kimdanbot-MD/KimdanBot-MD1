@@ -436,7 +436,6 @@ mentionedJid:[num],
 "title": `${lenguaje.wel.w}`,
 body: wm,
 "previewType": "PHOTO",
-"thumbnailUrl": md,
 "thumbnail": welc,
 "sourceUrl": md}}}) 							
 } else if (anu.action == "remove") {
@@ -450,10 +449,9 @@ isForwarded: true,
 mentionedJid:[num],
 "externalAdReply": {"showAdAttribution": true,
 "containsAutoReply": true,
-"title": `${lenguaje.wel.x}`, 
+"title": `  ${lenguaje.wel.x}`, 
 body: wm,
 "previewType": "PHOTO",
-"thumbnailUrl": md,
 "thumbnail": leave,
 "sourceUrl": md}}}) 
       } else if (anu.action == "promote") {
