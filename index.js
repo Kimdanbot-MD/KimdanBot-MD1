@@ -518,7 +518,7 @@ chalk.bold.magenta(`\n┗━━◉━━━━⬤━━━⪩『 🍩   』⪨�
 } else if (qr !== undefined) {
 console.log(color('[SYS]', '#009FFF'),
 color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
-color(`\n╭━─━─━─≪ ${vs} ≫─━─━─━╮\n│${lenguaje['smsEscaneaQR']()}\n╰━─━━─━─≪ 🟢 ≫─━─━━─━╯`, '#f12711'))
+color(`\n┏━━━━◉━━━━━⬤━━━━━⪩『 🫐 ${vs} 🫐   』⪨━━━━━⬤━━━━━◉━━┉┉\n${lenguaje['smsEscaneaQR']()}\n┗━━━━◉━━━━━⬤━━━━━⪩『 🫐 ${vs} 🫐   』⪨━━━━━⬤━━━━━◉━━┉┉\n` + receivedPendingNotifications, '#38ef7d'), '#f12711'))
 } else if (connection === 'close') {
 console.log(color('[SYS]', '#009FFF'),
 color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
@@ -533,9 +533,9 @@ color(`Wa Web logged Out`, '#f64f59')
 console.log(color('[SYS]', '#009FFF'),
 color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
 color(`\n
-┏━━━━◉━━━━━⬤━━━━━⪩『 🫐 ${vs} 🫐   』⪨━━━━━⬤━━━━━◉━━━┉┉
+┏━━━━◉━━━━━⬤━━━━━⪩『 🫐 ${vs} 🫐   』⪨━━━━━⬤━━━━━◉━━┉┉
 ┃ 𝗍іᥱᥒᥱs 𝟒𝟓 sᥱցᥙᥒძօs ᥲᥒ𝗍ᥱs ძᥱ 𝗊ᥙᥱ ᥱ᥊⍴іrᥱ ᥱᥣ ᥴօძіցօ զɾ
-┗━━━━◉━━━━━⬤━━━━━⪩『 🫐 ${vs} 🫐   』⪨━━━━━⬤━━━━━◉━━━┉┉\n` + receivedPendingNotifications, '#38ef7d')
+┗━━━━◉━━━━━⬤━━━━━⪩『 🫐 ${vs} 🫐   』⪨━━━━━⬤━━━━━◉━━┉┉\n` + receivedPendingNotifications, '#38ef7d')
 );
 if (!sock.user.connect) {
 /*let res = await sock.groupAcceptInvite(global.nna2);
