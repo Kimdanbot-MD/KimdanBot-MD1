@@ -16,7 +16,7 @@ async function reg(conn, m, sender, text, fkontak, delay) {
 let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 let user = global.db.data.users[m.sender]
 if (user.registered === true) return m.reply(`*Ya estas registrado 🧐*`) 
-if (!Reg.test(text)) return m.reply(`🌺◌⑅⃝●♡⋆♡ *𝐕 𝐄 𝐑 𝐈 𝐅 𝐈 𝐂 𝐀 𝐑*♡⋆♡●⑅⃝◌🌺\n\nrᥱᥴᥙᥱrძᥲ іᥒgrᥱsᥲr 𝗍ᥙ ᥒ᥆mᑲrᥱ/ 𝐚𝐩𝐨𝐝𝐨 𝐲 𝐭𝐮 𝐞𝐝𝐚𝐝 𝐩𝐚𝐫𝐚 𝐩𝐨𝐝𝐞𝐫 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐫𝐭𝐞. \n\n*_🫐𝐄 𝐉 𝐄 𝐌 𝐏 𝐋 𝐎🫐_*\n#verificar Kimdan.18`) 
+if (!Reg.test(text)) return m.reply(`${lenguaje.reg.a}\n${command} Kimdan.18`) 
 let [_, name, splitter, age] = text.match(Reg)
 if (!name) return m.reply('El nombre no puede esta vacio') 
 if (!age) return m.reply('La edad no puede esta vacia (Numeros)') 
