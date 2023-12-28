@@ -18,11 +18,11 @@ let user = global.db.data.users[m.sender]
 if (user.registered === true) return m.reply(`${lenguaje.reg.registrado}`) 
 if (!Reg.test(text)) return m.reply(`${lenguaje.reg.a}\n${command} Kimdan.18`) 
 let [_, name, splitter, age] = text.match(Reg)
-if (!name) return m.reply('El nombre no puede esta vacio') 
-if (!age) return m.reply('La edad no puede esta vacia (Numeros)') 
+if (!name) return m.reply(`${lenguaje.reg.largo}`) 
+if (!age) return m.reply(`${lenguaje.reg.largo}`) 
 age = parseInt(age)
-if (age > 90) return m.reply(`${lenguaje.reg.grande}`) 
-if (age < 8) return m.reply(`${lenguaje.reg.pequeño}`) 
+if (age > 90) return m.reply(`${lenguaje.reg.er}`) 
+if (age < 8) return m.reply(`${lenguaje.reg.err}`) 
 if (name.length >= 30) return m.reply(`${lenguaje.reg.largo}`) 
 user.name = name + 'ꈍᴗꈍ'.trim()
 user.age = age
@@ -59,7 +59,7 @@ const {createHash} = require('crypto')
 if (!args[0]) return m.reply(`${lenguaje.reg.ingrese}`) 
 const user = global.db.data.users[m.sender];
 const sn = createHash('md5').update(m.sender).digest('hex');
-if (args[0] !== sn) return m.reply('*[ ⚠️ ] *Número de serie incorrecto*\n\n*Usar : #myns*') 
+if (args[0] !== sn) return m.reply(`${lenguaje.reg.incorrecto}`) 
 user.registered = false; 
 global.db.data.users[m.sender].limit -= 2
 global.db.data.users[m.sender].exp -= 200
