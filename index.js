@@ -532,7 +532,10 @@ color(`Wa Web logged Out`, '#f64f59')
 } else if (connection == 'open') {
 console.log(color('[SYS]', '#009FFF'),
 color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
-color(`\n╭━─━─━─≪ ${vs} ≫─━─━─━╮\n│${lenguaje['smsConectado']()}\n╰━─━━─━─≪ 🟢 ≫─━─━━─━╯` + receivedPendingNotifications, '#38ef7d')
+color(`\n
+┏━━━━◉━━━━━⬤━━━━━⪩『 🫐 ${vs} 🫐   』⪨━━━━━⬤━━━━━◉━━━┉┉
+┃ 𝗍іᥱᥒᥱs 𝟒𝟓 sᥱցᥙᥒძօs ᥲᥒ𝗍ᥱs ძᥱ 𝗊ᥙᥱ ᥱ᥊⍴іrᥱ ᥱᥣ ᥴօძіցօ զɾ
+┗━━━━◉━━━━━⬤━━━━━⪩『 🫐 ${vs} 🫐   』⪨━━━━━⬤━━━━━◉━━━┉┉\n` + receivedPendingNotifications, '#38ef7d')
 );
 if (!sock.user.connect) {
 /*let res = await sock.groupAcceptInvite(global.nna2);
