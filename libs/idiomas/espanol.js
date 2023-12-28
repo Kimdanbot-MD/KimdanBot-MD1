@@ -60,6 +60,18 @@ grupo: `\n┃📨  grᥙ⍴᥆ 📨 : `,
 priv: `\n┃📨  ᥴһᥲ𝗍 ⍴rі᥎ᥲძ᥆ ᥴ᥆ᥒ ᥱᥣ ᑲ᥆𝗍 📨`, 
 mensaje: `💬  mᥱᥒsᥲȷᥱ 💬 : `}
 
+//verificación
+const reg = {
+ r:`*_彡彡🌺 𝐑𝐄𝐆𝐈𝐒𝐓𝐑𝐎 𝐂𝐎𝐌𝐏𝐋𝐄𝐓𝐀𝐃𝐎 🌺ミミ_*\n`, 
+name:`🍒❥ *ᥒ᥆mᑲrᥱ*:`, 
+edad:`🫐❥ *ᥱძᥲძ*:`,  
+hora:`🌻❥ *һ᥆rᥲ*:`,  
+fecha:`🌸❥ *𝖿ᥱᥴһᥲ*:`, 
+num:`🧁❥ *ᥒᥙ́mᥱr᥆*:`, 
+serie:`🍩❥ *Número de sᥱrіᥱ*:\n➥`, 
+text:`\n🎁 *𝐑𝐞𝐜𝐨𝐦𝐩𝐞𝐧𝐬𝐚𝐬*: 🎁\n  ➥ 2 ძіᥲmᥲᥒ𝗍ᥱs 💎\n  ➥ 200 ᥱ᥊⍴ 🌟\n\n🍨❥ *𝐏𝐚𝐫𝐚 𝐯𝐞𝐫 𝐥𝐨𝐬 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬 𝐝𝐞𝐥 𝐛𝐨𝐭 𝐮𝐬𝐚𝐫*:\n   ╰ᬊ .mᥱᥒᥙ\n\n✨ *grᥲᥴіᥲs ⍴᥆r rᥱgіs𝗍rᥲr𝗍ᥱ, ძіs𝖿rᥙ𝗍ᥲ ძᥱ 𝗍ᥙ rᥱᥴ᥆m⍴ᥱᥒsᥲ ᥡ ᥱ᥊⍴ᥣ᥆rᥲ ᥣᥲs 𝖿ᥙᥒᥴі᥆ᥒᥱs ძᥱᥣ ᑲ᥆𝗍*. ✨`
+}
+
 //antiarabe
 const smsAntiFake = () => { return `✳️ El este grupo no esta permitido numero fake sera expulsado...` }
 const smsAntiArabe = () => { return `✳️ En este grupo no esta permitido numero arabe hasta la próxima...` }
@@ -546,4 +558,4 @@ text3: `*Responda un sticker para robar`,
 text4: `ingresa algo para convertirlo a sticker :v`, 
 text5: `_*Calma crack estoy haciendo tu texto a sticker 👏*_\n\n_*Esto puede demorar unos minutos....*_` }
 
-module.exports = { carga, lenguaje, tmp, session, errorsession, archivo, archborrado, archivoborrado, purgesessions, purgesubbots, purgeoldfiles, smscall, smscall2, smsAvisos, smsAvisos2, smsAvisos3, smsAvisos4, smsAvisos5, smsAvisos6, smsAvisos7, smsAvisos8, smsAvisos9, wel, smsConexion, smsEscaneaQR, smsConectado, smsConexioncerrar, nivel, nivel2, admin, botAdmin, propietario, group, private, bot, error, advertencia, registra, limit, AntiNsfw, endLimit, result, lengua, sms, Bio, smsAntiFake, smsAntiArabe, smsAntiLink, smsAntiLink2, smsAntiLink3, smsAntiLink4, smsAntiLink5, smsAutoSicker, smsAutonivel, smsAutonivel2, smsAutonivel3, smsAutonivel4, smsAutonivel5, smsAutonivel6, smsAutonivel7, smsAutonivel8, smsAutonivel9, smsAntiPv, info, menu, jadibot, descargar, demote, promote, enable, grupos, juegos, nsfw, owner, ramdow, rpg, sticker}
+module.exports = { reg, carga, lenguaje, tmp, session, errorsession, archivo, archborrado, archivoborrado, purgesessions, purgesubbots, purgeoldfiles, smscall, smscall2, smsAvisos, smsAvisos2, smsAvisos3, smsAvisos4, smsAvisos5, smsAvisos6, smsAvisos7, smsAvisos8, smsAvisos9, wel, smsConexion, smsEscaneaQR, smsConectado, smsConexioncerrar, nivel, nivel2, admin, botAdmin, propietario, group, private, bot, error, advertencia, registra, limit, AntiNsfw, endLimit, result, lengua, sms, Bio, smsAntiFake, smsAntiArabe, smsAntiLink, smsAntiLink2, smsAntiLink3, smsAntiLink4, smsAntiLink5, smsAutoSicker, smsAutonivel, smsAutonivel2, smsAutonivel3, smsAutonivel4, smsAutonivel5, smsAutonivel6, smsAutonivel7, smsAutonivel8, smsAutonivel9, smsAntiPv, info, menu, jadibot, descargar, demote, promote, enable, grupos, juegos, nsfw, owner, ramdow, rpg, sticker}
