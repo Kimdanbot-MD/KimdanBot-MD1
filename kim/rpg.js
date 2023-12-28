@@ -15,15 +15,15 @@ const {createHash} = require('crypto')
 async function reg(conn, m, sender, text, fkontak, delay) { 
 let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 let user = global.db.data.users[m.sender]
-if (user.registered === true) return m.reply(`*Ya estas registrado 🧐*`) 
+if (user.registered === true) return m.reply(`${lenguaje.reg.registrado}`) 
 if (!Reg.test(text)) return m.reply(`${lenguaje.reg.a}\n${command} Kimdan.18`) 
 let [_, name, splitter, age] = text.match(Reg)
 if (!name) return m.reply('El nombre no puede esta vacio') 
 if (!age) return m.reply('La edad no puede esta vacia (Numeros)') 
 age = parseInt(age)
-if (age > 100) return m.reply('Esta Viejo (。-`ω´-)') 
-if (age < 6) return m.reply('🚼  Basado, los bebes saber escribir.✍️😳') 
-if (name.length >= 30) return m.reply('🐈 Fua que basado, el nombre es muy largo que quiere un puente como nombre😹') 
+if (age > 90) return m.reply(`${lenguaje.reg.grande}`) 
+if (age < 8) return m.reply(`${lenguaje.reg.pequeño}`) 
+if (name.length >= 30) return m.reply(`${lenguaje.reg.largo}`) 
 user.name = name + 'ꈍᴗꈍ'.trim()
 user.age = age
 user.regTime = + new Date
@@ -43,12 +43,12 @@ isForwarded: true,
 "externalAdReply": {
 "showAdAttribution": true,
 "containsAutoReply": true,
-"title": `${botname}`,
-"body": `${name}`,
+"title": `◌⑅⃝●♡⋆♡ ɾҽցմsԵɾαժօ ♡⋆♡●⃝⑅◌`,
+"body": `${wm}`,
 "previewType": "PHOTO",
 "thumbnailUrl": ``,
 "thumbnail": imagen1, 
-"sourceUrl": 'link'}}},
+"sourceUrl": md}}},
 { quoted: fkontak})
 await delay(2 * 2000)
 conn.sendMessage(m.chat, { text: sn, contextInfo:{forwardingScore: 9999999, isForwarded: true, }}, { quoted: m})
@@ -56,19 +56,19 @@ conn.sendMessage(m.chat, { text: sn, contextInfo:{forwardingScore: 9999999, isFo
 
 async function reg1(args, m, sender) { 
 const {createHash} = require('crypto') 
-if (!args[0]) return m.reply('*[ ✳️ ] Ingrese número de serie*\n*Verifique su número de serie con el comando #myns*') 
+if (!args[0]) return m.reply(`${lenguaje.reg.ingrese}`) 
 const user = global.db.data.users[m.sender];
 const sn = createHash('md5').update(m.sender).digest('hex');
 if (args[0] !== sn) return m.reply('*[ ⚠️ ] *Número de serie incorrecto*\n\n*Usar : #myns*') 
 user.registered = false; 
 global.db.data.users[m.sender].limit -= 2
 global.db.data.users[m.sender].exp -= 200
-m.reply(`*✅ ᴿᵉᵍᶦˢᵗʳᵒ ᵉˡᶦᵐᶦⁿᵃᵈᵒ*`)}
+m.reply(`${lenguaje.reg.eliminado}`)}
 
 async function reg2(sender, m) { 
 const {createHash} = require('crypto') 
 let sn = createHash('md5').update(m.sender).digest('hex')
-m.reply(`*👇 ᴱˢᵗᵉ ᵉˢ ˢᵘˢ ⁿᵘᵐᵉʳᵒ ᵈᵉˡ ˢᵉʳᶦᵉ :*\n\n${sn}`)}
+m.reply(`${lenguaje.reg.nserie} ${sn}`)}
 
 async function rob(conn, m, sender, fkontak) {
 const user = global.db.data.users[m.sender]
