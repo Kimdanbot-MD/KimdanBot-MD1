@@ -35,7 +35,7 @@ const time = moment.tz('America/Bogota').format('LT')
 let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
 global.db.data.users[m.sender].limit += 2
 global.db.data.users[m.sender].exp += 200
-conn.sendMessage(m.chat, { text: `${lenguaje.reg.r}\n${lenguaje.reg.name} ${name} ${user.registered === true ? '✔' : ''}\n${lenguaje.reg.edad} ${age} ${lenguaje.reg.años}\n${lenguaje.reg.hora} ${time}\n${lenguaje.reg.fecha} ${date}\n${lenguaje.reg.num} wa.me/${sender.split("@")[0]}\n ${lenguaje.reg.serie} ${sn}\n${lenguaje.reg.text} ${rtotalreg}`,
+conn.sendMessage(m.chat, { text: `${lenguaje.reg.r}\n${lenguaje.reg.name} ${name} ${user.registered === true ? '✔' : ''}\n${lenguaje.reg.edad} ${age} ${lenguaje.reg.años}\n${lenguaje.reg.hora} ${time}\n${lenguaje.reg.fecha} ${date}\n${lenguaje.reg.num} wa.me/${sender.split("@")[0]}\n${lenguaje.reg.serie} ${sn}\n${lenguaje.reg.text} ${rtotalreg}`,
 contextInfo:{
 mentionedJid:[name],
 forwardingScore: 9999999,
