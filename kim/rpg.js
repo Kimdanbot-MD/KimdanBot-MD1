@@ -16,7 +16,7 @@ async function reg(conn, m, sender, text, fkontak, delay) {
 let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 let user = global.db.data.users[m.sender]
 if (user.registered === true) return m.reply(`*Ya estas registrado 🧐*`) 
-if (!Reg.test(text)) return m.reply(`*❌ Forma incorrecta*\n\nuse de esta forma\nEjemplo: ${prefix}reg nombre.edad`) 
+if (!Reg.test(text)) return m.reply(`🌺◌⑅⃝●♡⋆♡ *𝐕 𝐄 𝐑 𝐈 𝐅 𝐈 𝐂 𝐀 𝐑*♡⋆♡●⑅⃝◌🌺\n\nrᥱᥴᥙᥱrძᥲ іᥒgrᥱsᥲr 𝗍ᥙ ᥒ᥆mᑲrᥱ/ 𝐚𝐩𝐨𝐝𝐨 𝐲 𝐭𝐮 𝐞𝐝𝐚𝐝 𝐩𝐚𝐫𝐚 𝐩𝐨𝐝𝐞𝐫 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐫𝐭𝐞. \n\n*_🫐𝐄 𝐉 𝐄 𝐌 𝐏 𝐋 𝐎🫐_*\n#verificar Kimdan.18`) 
 let [_, name, splitter, age] = text.match(Reg)
 if (!name) return m.reply('El nombre no puede esta vacio') 
 if (!age) return m.reply('La edad no puede esta vacia (Numeros)') 
@@ -24,14 +24,14 @@ age = parseInt(age)
 if (age > 100) return m.reply('Esta Viejo (。-`ω´-)') 
 if (age < 6) return m.reply('🚼  Basado, los bebes saber escribir.✍️😳') 
 if (name.length >= 30) return m.reply('🐈 Fua que basado, el nombre es muy largo que quiere un puente como nombre😹') 
-user.name = name + 'ͧͧͧͦꙶͣͤ✓'.trim()
+user.name = name + '✔'.trim()
 user.age = age
 user.regTime = + new Date
 user.registered = true
 const sn = createHash('md5').update(m.sender).digest('hex');
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : m.fromMe ? conn.user.jid : m.sender
 const date = moment.tz('America/Bogota').format('DD/MM/YYYY')
-const time = moment.tz('America/Argentina/Buenos_Aires').format('LT')
+const time = moment.tz('America/Bogota').format('LT')
 let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
 global.db.data.users[m.sender].limit += 2
 global.db.data.users[m.sender].exp += 200
