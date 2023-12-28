@@ -35,8 +35,7 @@ const time = moment.tz('America/Argentina/Buenos_Aires').format('LT')
 let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
 global.db.data.users[m.sender].limit += 2
 global.db.data.users[m.sender].exp += 200
-conn.sendMessage(m.chat, { text: `[ ✅ REGISTRO COMPLETADO ]\n\n ◉ *Nombre:* ${name} ${user.registered === true ? 'ͧͧͧͦꙶͣͤ✓' : ''}\n ◉ *Edad:* ${age} años\n ◉ *Hora:* ${time}\n ◉ *Fecha:* ${date}\n ◉ *Número:* wa.me/${sender.split("@")[0]}\n ◉ *Numero del serie*\n ⤷ ${sn}\n\n 🎁 *Recompensa:*\n ⤷ 2 diamante 💎\n ⤷ 200 exp\n\n *◉ Para ver los comandos del bot usar:*
- ${prefix}menu\n\n ◉ *Total de usuários registrados:* ${rtotalreg}`,
+conn.sendMessage(m.chat, { text: `${lenguaje.reg.r}\n${lenguaje.reg.name} ${name} ${user.registered === true ? '✔' : ''}\n${lenguaje.reg.edad} ${age} ${lenguaje.reg.años}\n${lenguaje.reg.hora} ${time}\n${lenguaje.reg.fecha} ${date}\n${lenguaje.reg.num} wa.me/${sender.split("@")[0]}\n ${lenguaje.reg.serie} ${sn}\n${lenguaje.reg.text} ${rtotalreg}`,
 contextInfo:{
 mentionedJid:[name],
 forwardingScore: 9999999,
