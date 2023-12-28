@@ -47,7 +47,7 @@ z:``
 }
 //mensaje el la consola inicio
 const smsConexion = () => { return `ᥱᥣ ᑲ᥆𝗍 𝖿ᥙᥱ ᥴ᥆ᥒᥱᥴ𝗍ᥲძ᥆ ᥴ᥆ᥒ ᥱ᥊і𝗍᥆` }
-const smsEscaneaQR = () => { return `ESCANEA EL QR, EXPIRA 45 SEG...` }
+const smsEscaneaQR = () => { return `┃ 𝗍іᥱᥒᥱs 𝟒𝟓 sᥱցᥙᥒძօs ᥲᥒ𝗍ᥱs ძᥱ 𝗊ᥙᥱ ᥱ᥊⍴іrᥱ ᥱᥣ ᥴօძіցօ զɾ` }
 const smsConectado = () => { return `YA ESTA CONECTADO CORRECTAMENTE` }
 const smsConexioncerrar = () => { return `⚠️ CONEXION CERRADA, SE INTENTARA RECONECTAR` }
 
