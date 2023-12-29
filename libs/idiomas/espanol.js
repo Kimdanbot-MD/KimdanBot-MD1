@@ -48,8 +48,8 @@ z:``
 //mensaje el la consola inicio
 const smsConexion = () => { return `ᥱᥣ ᑲ᥆𝗍 𝖿ᥙᥱ ᥴ᥆ᥒᥱᥴ𝗍ᥲძ᥆ ᥴ᥆ᥒ ᥱ᥊і𝗍᥆` }
 const smsEscaneaQR = () => { return `┃ 𝗍іᥱᥒᥱs 𝟒𝟓 sᥱցᥙᥒძօs ᥲᥒ𝗍ᥱs ძᥱ 𝗊ᥙᥱ ᥱ᥊⍴іrᥱ ᥱᥣ ᥴօძіցօ զɾ` }
-const smsConectado = () => { return `YA ESTA CONECTADO CORRECTAMENTE` }
-const smsConexioncerrar = () => { return `⚠️ CONEXION CERRADA, SE INTENTARA RECONECTAR` }
+const smsConectado = () => { return `┃ ᥙᥕᥙ 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 𝖿ᥙᥱ ᥴ᥆ᥒᥱᥴ𝗍ᥲძ᥆ ᥱ᥊і𝗍᥆sᥲmᥱᥒ𝗍ᥱ` }
+const smsConexioncerrar = () => { return `┃ sᥱ ᥴᥱrr᥆́ ᥣᥲ ᥴ᥆ᥒᥱᥴᥴі᥆́ᥒ, sᥱ іᥒ𝗍ᥱᥒ𝗍ᥲrᥲ́ rᥱᥴ᥆ᥒᥱᥴ𝗍ᥲr` }
 
 //consola
 const Bio = { 
