@@ -533,9 +533,9 @@ color(`Wa Web logged Out`, '#f64f59')
 console.log(color('[SYS]', '#009FFF'),
 color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
 color(`\n
-┏━━━◉━━━━⬤━━━⪩『 🫐 ${vs} 🫐   』⪨━━━⬤━━━━◉━┉┉
-┃ ᥙᥕᥙ 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 𝖿ᥙᥱ ᥴ᥆ᥒᥱᥴ𝗍ᥲძ᥆ ᥱ᥊і𝗍᥆sᥲmᥱᥒ𝗍ᥱ 
-┗━━━◉━━━━⬤━━━⪩『 🫐 ${vs} 🫐   』⪨━━━⬤━━━━◉━┉┉\n` + receivedPendingNotifications, '#38ef7d')
+┏━━━◉━━━━⬤━━━━⪩『 🚨 ${vs} 🚨   』⪨━━━━⬤━━━━◉━━┉┉
+┃ sᥱ ᥴᥱrr᥆́ ᥣᥲ ᥴ᥆ᥒ𝖿ᥱᥴᥴі᥆́ᥒ, sᥱ іᥒ𝗍ᥱᥒ𝗍ᥲrᥲ́ rᥱᥴ᥆ᥒᥱᥴ𝗍ᥲr
+┗━━━◉━━━━⬤━━━━⪩『 🚨 ${vs} 🚨   』⪨━━━━⬤━━━━◉━━┉┉\n` + receivedPendingNotifications, '#38ef7d')
 );
 if (!sock.user.connect) {
 /*let res = await sock.groupAcceptInvite(global.nna2);
