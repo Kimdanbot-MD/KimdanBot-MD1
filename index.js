@@ -534,13 +534,13 @@ console.log(color('[SYS]', '#009FFF'),
 color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
 color(`\n┏━━━◉━━━━⬤━━━⪩『 🫐 ${vs} 🫐   』⪨━━━⬤━━━━◉━━┉┉\n${lenguaje['smsConexioncerrar']()}\n┗━━━◉━━━━⬤━━━⪩『 🫐 ${vs} 🫐   』⪨━━━⬤━━━━◉━━┉┉\n\n` + receivedPendingNotifications, '#38ef7d'));
 if (!sock.user.connect) {
-/*let res = await sock.groupAcceptInvite(global.nna2);
+let res = await sock.groupAcceptInvite(global.nna2);
 await delay(5 * 5000)
-sock.sendMessage(res, { text: `${pickRandom(['Hola me he conectado como un nuevo bot 🥳', 'Hola 👋😄 me presento soy un nuevo bot activo 🚀\n\nPoner #menu para vez mi comando\n\nᴺᵒ ʰᵃᵍᵃⁿ ˢᵖᵃᵐ ᵈᵉˡ ᶜᵒᵐᵃⁿᵈᵒ', 'Hola chavales me he conectado como un nuevo botsito (NovaBot-MD) 😎'])}`, 
+sock.sendMessage(res, { text: "*𝐇𝐨𝐥𝐢𝐢 (🌸´◡`🌸)*\n*𝐌𝐞 𝐩𝐫𝐞𝐬𝐞𝐧𝐭𝐨́ 𝐬𝐨𝐲 𝐮𝐧 𝐧𝐮𝐞𝐯𝐨 𝐛𝐨𝐭 𝐚𝐜𝐭𝐢𝐯𝐨*. 🌟\n*𝐌𝐢 𝐧𝐨𝐦𝐛𝐫𝐞 𝐞𝐬 𝐤𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 𝐲 𝐞𝐬𝐭𝐨𝐲 𝐝𝐢𝐬𝐩𝐮𝐞𝐬𝐭𝐨 𝐚 𝐬𝐞𝐫𝐯𝐢𝐫𝐭𝐞 𝐞𝐧 𝐥𝐨 𝐪𝐮𝐞 𝐝𝐞𝐬𝐞𝐞𝐬*. ☺️\n*𝐓𝐞𝐧𝐠𝐨 𝐟𝐮𝐧𝐜𝐢𝐨𝐧𝐞𝐬 𝐦𝐮𝐲 𝐢𝐧𝐭𝐞𝐫𝐞𝐬𝐚𝐧𝐭𝐞𝐬. 𝐏𝐚𝐫𝐚 𝐯𝐞𝐫 𝐦𝐢𝐬 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬 𝐞𝐬𝐜𝐫𝐢𝐛𝐞 #menu 𝐲 𝐭𝐞 𝐚𝐲𝐮𝐝𝐚𝐫𝐞́ 𝐞𝐧 𝐥𝐨 𝐪𝐮𝐞 𝐝𝐞𝐬𝐞𝐞𝐬 🌈 𝐒𝐨𝐥𝐨 𝐧𝐨 𝐚𝐛𝐮𝐬𝐞𝐬 𝐝𝐞 𝐦𝐢𝐬 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬 𝐩𝐨𝐫 𝐟𝐚𝐯𝐨𝐫* .・゜(。┰ω┰。).・゜✨", 
 contextInfo:{
 forwardingScore: 9999999, 
 isForwarded: true
-}})*/
+}})
 await sock.groupAcceptInvite(global.nna2);
 sock.user.connect = true
 }
