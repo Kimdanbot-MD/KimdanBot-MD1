@@ -518,7 +518,7 @@ chalk.bold.magenta(`\n┗━━◉━━━━⬤━━━⪩『 🍩   』⪨�
 } else if (qr !== undefined) {
 console.log(color('[SYS]', '#009FFF'),
 color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
-color(`\n┏━━━━◉━━━━━⬤━━━━━⪩『 🫐 ${vs} 🫐   』⪨━━━━━⬤━━━━━◉━━┉┉\n${lenguaje['smsEscaneaQR']()}\n┗━━━━◉━━━━━⬤━━━━━⪩『 🫐 ${vs} 🫐   』⪨━━━━━⬤━━━━━◉━━┉┉\n` + receivedPendingNotifications, '#38ef7d'), '#f12711'))
+color(`\n┏━━━━◉━━━━━⬤━━━━━⪩『 🫐 ${vs} 🫐   』⪨━━━━━⬤━━━━━◉━━┉┉\n${lenguaje['smsEscaneaQR']()}\n┗━━━━◉━━━━━⬤━━━━━⪩『 🫐 ${vs} 🫐   』⪨━━━━━⬤━━━━━◉━━┉┉\n`, '#f12711'))
 } else if (connection === 'close') {
 console.log(color('[SYS]', '#009FFF'),
 color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
