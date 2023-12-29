@@ -355,7 +355,7 @@ break
 	/*case 'imagen':
 let pp = await conn.profilePictureUrl(m.chat, 'image')	
 await conn.sendMessage(m.chat, pp) 		
-	break*/
+	break
 case 'serbot': case 'qr':
 jadibot(conn, m, command)  
 break  
@@ -372,7 +372,7 @@ const replyMessage = message.length === 0 ? '' : message;
 const totalUsers = user.length;
 const responseMessage = `*𝘚𝘜𝘉𝘉𝘖𝘛𝘚 𝘊𝘖𝘕𝘌𝘊𝘛𝘈𝘋𝘖𝘚:* ${totalUsers || '0'}\n\n${replyMessage.trim()}`.trim();
 await conn.sendMessage(m.chat, {text: responseMessage, mentions: conn.parseMention(responseMessage)}, {quoted: m});
-break
+break*/ 
 		
 // 𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐂𝐈𝐎𝐍 𝐃𝐄 𝐊𝐈𝐌𝐃𝐀𝐍𝐁𝐎𝐓-𝐌𝐃
 case 'estado': case 'heydan': case 'status':
