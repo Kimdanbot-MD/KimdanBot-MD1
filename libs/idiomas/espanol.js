@@ -127,9 +127,6 @@ const endLimit = () => { return `*😢 NOO TENER MAS DIAMANTE 💎*\n\nPuede com
 const result = () => { return `*〖✅〗𝐋𝐈𝐒𝐓𝐎 🌺*` }
 const carga = () => { return `_𝐂𝐚𝐫𝐠𝐚𝐧𝐝𝐨..._` }
 
-const demote = () => { return `ya no eres admins 🥲` }
-const promote = () => { return `Felicidades ahora eres parte staff 🎉` }
-
 //Buscadores
 const lengua = { 
 ejem: `Ejemplo :`, 
@@ -570,4 +567,4 @@ text3: `*Responda un sticker para robar`,
 text4: `ingresa algo para convertirlo a sticker :v`, 
 text5: `_*Calma crack estoy haciendo tu texto a sticker 👏*_\n\n_*Esto puede demorar unos minutos....*_` }
 
-module.exports = { reg, carga, lenguaje, tmp, session, errorsession, archivo, archborrado, archivoborrado, purgesessions, purgesubbots, purgeoldfiles, smscall, smscall2, smsAvisos, smsAvisos2, smsAvisos3, smsAvisos4, smsAvisos5, smsAvisos6, smsAvisos7, smsAvisos8, smsAvisos9, wel, smsConexion, smsEscaneaQR, smsConectado, smsConexioncerrar, nivel, nivel2, admin, botAdmin, propietario, group, private, bot, error, advertencia, registra, limit, AntiNsfw, endLimit, result, lengua, sms, Bio, smsAntiFake, smsAntiArabe, smsAntiLink, smsAntiLink2, smsAntiLink3, smsAntiLink4, smsAntiLink5, smsAutoSicker, smsAutonivel, smsAutonivel2, smsAutonivel3, smsAutonivel4, smsAutonivel5, smsAutonivel6, smsAutonivel7, smsAutonivel8, smsAutonivel9, smsAntiPv, info, menu, jadibot, descargar, demote, promote, enable, grupos, juegos, nsfw, owner, ramdow, rpg, sticker}
+module.exports = { reg, carga, lenguaje, tmp, session, errorsession, archivo, archborrado, archivoborrado, purgesessions, purgesubbots, purgeoldfiles, smscall, smscall2, smsAvisos, smsAvisos2, smsAvisos3, smsAvisos4, smsAvisos5, smsAvisos6, smsAvisos7, smsAvisos8, smsAvisos9, wel, smsConexion, smsEscaneaQR, smsConectado, smsConexioncerrar, nivel, nivel2, admin, botAdmin, propietario, group, private, bot, error, advertencia, registra, limit, AntiNsfw, endLimit, result, lengua, sms, Bio, smsAntiFake, smsAntiArabe, smsAntiLink, smsAntiLink2, smsAntiLink3, smsAntiLink4, smsAntiLink5, smsAutoSicker, smsAutonivel, smsAutonivel2, smsAutonivel3, smsAutonivel4, smsAutonivel5, smsAutonivel6, smsAutonivel7, smsAutonivel8, smsAutonivel9, smsAntiPv, info, menu, jadibot, descargar, enable, grupos, juegos, nsfw, owner, ramdow, rpg, sticker}
