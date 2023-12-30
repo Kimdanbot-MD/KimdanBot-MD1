@@ -293,7 +293,7 @@ if (!m.message) return !0;
 if (m.text.includes('PIEDRA') || m.text.includes('PAPEL') || m.text.includes('TIJERA') ||  m.text.includes('menu') ||  m.text.includes('estado') || m.text.includes('bots') ||  m.text.includes('serbot') || m.text.includes('jadibot')) return !0
 const chat = global.db.data.chats[m.chat];
 const bot = global.db.data.settings[numBot]
-await conn.sendMessage(m.chat, {text: `*ʜᴏʟᴀ @${sender.split`@`[0]}, ᴇsᴛᴀ ᴘʀᴏʜɪʙɪᴅᴏ ʜᴀʙʟᴀʀ ᴀʟ ᴘʀɪᴠᴀᴅᴏ ᴅᴇʟ ʙᴏᴛ ᴘᴏʀ ʟᴏ ᴄᴜᴀʟ sᴇʀᴀs ʙʟᴏϙᴜᴇᴀᴅᴏ.*\n*ᴘᴀʀᴀ ᴜsᴀʀ ᴇʟ ʙᴏᴛ ᴜɴɪʀᴛᴇ ᴀʟ ɢʀᴜᴘᴏ ᴅᴇʟ ʙᴏᴛ*\n\n${nn2}`, mentions: [sender], },{quoted: m})
+await conn.sendMessage(m.chat, {text: `${lenguaje.smsAntiPv}\n${nn2}`, mentions: [sender], },{quoted: m})
 await conn.updateBlockStatus(m.chat, 'block')
 return !1;
 }
