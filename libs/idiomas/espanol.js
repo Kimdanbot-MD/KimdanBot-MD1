@@ -85,8 +85,8 @@ text:`\n🎁 *𝐑𝐞𝐜𝐨𝐦𝐩𝐞𝐧𝐬𝐚𝐬*: 🎁\n  ➥ 2 ძі
 }
 
 //antiarabe
-const smsAntiFake = () => { return `✳️ El este grupo no esta permitido numero fake sera expulsado...` }
-const smsAntiArabe = () => { return `✳️ En este grupo no esta permitido numero arabe hasta la próxima...` }
+const smsAntiFake = () => { return "🍒 *ᥱᥒ ᥱs𝗍ᥱ grᥙ⍴᥆ ᥒ᥆ ᥱs𝗍ᥲ́ ⍴ᥱrmі𝗍іძ᥆ ᥙsᥲr ᥙᥒ ᥒᥙ́mᥱr᥆ 𝖿ᥲkᥱ ᥎ᥲs ᥲ sᥱr ᥱᥣіmіᥒᥲძ᥆*...\n*(💢○｀д´)ﾉｼ*" }
+const smsAntiArabe = () => { return "🪷 *ᥱᥒ ᥱs𝗍ᥱ grᥙ⍴᥆ ᥒ᥆ ᥱs𝗍ᥲ́ ⍴ᥱrmі𝗍іძ᥆ ❌ ᥒіᥒgᥙ́ᥒ ᥒᥙ́mᥱr᥆ ᥲ́rᥲᑲᥱ һᥲs𝗍ᥲ ᥣᥲ ⍴r᥆́᥊іmᥲ*...\n*👋(´꒳`)*" }
 
 //antilink
 const smsAntiLink = () => { return `\`\`\`「 ANTILINK DETECTADO 」\`\`\`\n\n` }
