@@ -222,7 +222,7 @@ if (db.data.chats[m.chat].antilink) {
 if (budy.match(`chat.whatsapp.com`)) {
 let delet = m.key.participant
 let bang = m.key.id
-user = m.sender	
+let user = m.sender	
 conn.sendMessage(m.chat, {text: `*「 ANTI LINK 」*\n\n*𝚕𝚒𝚗𝚔 𝚍𝚎𝚝𝚎𝚌𝚝𝚊𝚍𝚘*`})
 if (!isBotAdmins) return reply(`𝚎𝚕 𝚋𝚘𝚝 𝚗𝚎𝚌𝚎𝚜𝚒𝚝𝚊 𝚜𝚎𝚛 𝚊𝚍𝚖𝚒𝚗`)
 if (isGroupAdmins) return reply(`no serás eliminado ya que eres admin`)
