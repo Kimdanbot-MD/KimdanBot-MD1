@@ -276,15 +276,28 @@ const str = `*「 FELICIDADES LEVEL UP 🆙🥳 」*\n\n🥳 Felicidades @${send
 return conn.sendMessage(m.chat, { text: str, contextInfo:{mentionedJid:[sender]}}, { quoted: fkontak })}}
 
 //═════════════𓊈『 CHATBOT』𓊉═════════════
-if (global.db.data.chats[m.chat].simi && prefix) {
-try {     
+if (global.db.data.chats[m.chat].simi) {
+let textodem = budy
+try {
 await conn.sendPresenceUpdate('composing', m.chat)
-let anu = await fetchJson(`https://api.simsimi.net/v2/?text=${budy}&lc=es&cf=false`)
-let res = anu.success;
-m.reply(res)
-} catch { 
-return m.reply(`*Api simsimi caida, desactive el ChatBot con:*\n#chatbot off`)}}
-
+const ressimi = await fetch(`https://api.simsimi.net/v2/?text=${encodeURIComponent(textodem)}&lc=es`)
+const data = await ressimi.json()
+if (data.success == 'No s\u00e9 lo qu\u00e9 est\u00e1s diciendo. Por favor ense\u00f1ame.') return m.reply(`${lol}`); /* EL TEXTO "lol" NO ESTA DEFINIDO PARA DAR ERROR Y USAR LA OTRA API */
+await m.reply(data.success)
+} catch {
+/*🟢 SI DA ERROR USARA ESTA OTRA OPCION DE API DE IA QUE RECUERDA EL NOMBRE DE LA PERSONA */
+if (textodem.includes('Hola','𝐇𝐨𝐥𝐚','һ᥆ᥣᥲ')) textodem = textodem.replace('𝐇𝐨𝐥𝐚', '𝐇𝐞𝐥𝐥𝐨')
+if (textodem.includes('hola','𝐡𝐨𝐥𝐚','һ᥆ᥣᥲ')) textodem = textodem.replace('𝐡𝐨𝐥𝐚', '𝐡𝐞𝐥𝐥𝐨')
+if (textodem.includes('HOLA','𝐇𝐎𝐋𝐀','һ᥆ᥣᥲ')) textodem = textodem.replace('𝐇𝐎𝐋𝐀', '𝐇𝐄𝐋𝐋𝐎')
+const reis = await fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=en&dt=t&q=' + textodem)
+const resu = await reis.json()
+const nama = m.pushName || '1'
+const api = await fetch('http://api.brainshop.ai/get?bid=153868&key=rcKonOgrUFmn5usX&uid=' + nama + '&msg=' + resu[0][0][0])
+const res = await api.json()
+const reis2 = await fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=es&dt=t&q=' + res.cnt)
+const resu2 = await reis2.json()
+await m.reply(resu2[0][0][0])}}
+	
 //═════════════𓊈『 ANTIPRIV 』𓊉═════════════
 if (global.db.data.chats[m.chat].antiprivado && !isCreator) {
 if (m.isBaileys && m.fromMe) return !0;
