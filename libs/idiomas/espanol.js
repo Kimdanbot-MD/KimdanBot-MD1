@@ -96,7 +96,10 @@ const smsAntiLink4 = () => { return `ᴱˡ ᵇᵒᵗ ⁿᵉᶜᵉˢᶦᵗᵃ ᵃ
 const smsAntiLink5 = () => { return `Te salvarte por que eres un admins :v` }
 
 //autosticker
-const smsAutoSicker = () => { return `🤡 Hey Donde carajo viste un stickes que dure tanto bobo 🤣. (Máximo 15 segundos)` }
+const smsAutoSicker = { 
+ espera:`︶ִֶָ⏝︶ִֶָ⏝˖ ࣪ ୨❄✧❄୧ ࣪ ˖⏝ִֶָ︶⏝ִֶָ︶\n\n ̗̗̀̀🍓.ꦿ✧ *𝗍ᥱᥒ ⍴ᥲᥴіᥱᥒᥴіᥲ ᥴ᥆m᥆ ძᥲᥒ ᥴ᥆ᥒ ȷᥲᥱkᥡᥙᥒg 🍩, 𝗍ᥙ s𝗍іᥴkᥱr sᥱ ᥱs𝗍ᥲ́ ⍴r᥆ᥴᥱsᥲᥒძ᥆ (♥´∀｀)／*\n\n*_╰⪩ 𝐀𝐔𝐓𝐎 - 𝐒𝐓𝐈𝐂𝐊𝐄𝐑  𝐀𝐂𝐓𝐈𝐕𝐎 ⪨╯_* \n\n  ꈍᴗꈍ         █║▌║║▌║█║║█`, 
+ tiempo:`🫐 ⃟᮪〭۬̇〬⃟˖⸱ೇ *mᥲ́᥊іm᥆ 𝟒𝟎 sᥱg*\n\n*_╰⪩ 𝐀𝐔𝐓𝐎 - 𝐒𝐓𝐈𝐂𝐊𝐄𝐑  𝐀𝐂𝐓𝐈𝐕𝐎 ⪨╯_* \n\n 🍒 ꈍᴗꈍ 🍒        █║▌║║▌║█║║█`
+}
 
 //autonivel
 const smsAutonivel = () => { return `*「 FELICIDADES LEVEL UP 🆙🥳 」*\n\n🥳 Felicidades` }
