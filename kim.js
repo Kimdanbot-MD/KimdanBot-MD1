@@ -282,10 +282,9 @@ try {
 await conn.sendPresenceUpdate('composing', m.chat)
 const ressimi = await fetch(`https://api.simsimi.net/v2/?text=${encodeURIComponent(textodem)}&lc=es`)
 const data = await ressimi.json()
-if (data.success == 'No s\u00e9 lo qu\u00e9 est\u00e1s diciendo. Por favor ense\u00f1ame.') return m.reply(`${lol}`); /* EL TEXTO "lol" NO ESTA DEFINIDO PARA DAR ERROR Y USAR LA OTRA API */
+if (data.success == 'No s\u00e9 lo qu\u00e9 est\u00e1s diciendo. Por favor ense\u00f1ame.') return m.reply(`${lol}`) 
 await m.reply(data.success)
 } catch {
-/*🟢 SI DA ERROR USARA ESTA OTRA OPCION DE API DE IA QUE RECUERDA EL NOMBRE DE LA PERSONA */
 if (textodem.includes('Hola','𝐇𝐨𝐥𝐚','һ᥆ᥣᥲ')) textodem = textodem.replace('𝐇𝐨𝐥𝐚', '𝐇𝐞𝐥𝐥𝐨')
 if (textodem.includes('hola','𝐡𝐨𝐥𝐚','һ᥆ᥣᥲ')) textodem = textodem.replace('𝐡𝐨𝐥𝐚', '𝐡𝐞𝐥𝐥𝐨')
 if (textodem.includes('HOLA','𝐇𝐎𝐋𝐀','һ᥆ᥣᥲ')) textodem = textodem.replace('𝐇𝐎𝐋𝐀', '𝐇𝐄𝐋𝐋𝐎')
