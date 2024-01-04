@@ -103,7 +103,7 @@ const smsAutoSicker = {
 
 //autonivel
 const smsAutonivel = () => { return *「 FELICIDADES LEVEL UP 🆙🥳 」*\n\n🥳 Felicidades }
-const smsAutonivel2 = () => { return 👏 subiste de nivel sigue asi 👏\n\n }
+const smsAutonivel2 = () => { return 🍥 sᥙᑲіs𝗍ᥱ ძᥱ ᥒі᥎ᥱᥣ, sіgᥙᥱ ᥲsі́!*\n🌟 ~ (◠ω◕🌸)\n╭┈┈┈❀✿❀┈┈┈╯\n▷🍇 ❥ *𝐍𝐈𝐕𝐄𝐋 𝐀𝐍𝐓𝐄𝐑𝐈𝐎𝐑:* }
 const smsAutonivel3 = () => { return *🎅 NIVEL :* }
 const smsAutonivel4 = () => { return `🎅 NIVEL ANTERIOR : ` }
 const smsAutonivel5 = () => { return *🎅 NIVEL ACTUAL :* }
