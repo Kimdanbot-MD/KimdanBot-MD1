@@ -102,14 +102,22 @@ const smsAutoSicker = {
 }
 
 //autonivel
-const smsAutonivel = () => { return `*「 FELICIDADES LEVEL UP 🆙🥳 」*\n\n🥳 Felicidades` }
-const smsAutonivel2 = () => { return `👏 subiste de nivel sigue asi 👏\n\n` }
+const smsAutonivel = () => { return `*。 • ˚ ˚ ˛ ˚ ˛ • 。* 。° 。* 。 • ˚• ˚ ˚ ˛ ˚ ˛ • 。* 。° 。* 
+✄┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+꧁ 𝐅𝐄𝐋𝐈𝐂𝐈𝐃𝐀𝐃𝐄𝐒 𝐏𝐎𝐑 𝐓𝐔 𝐍𝐔𝐄𝐕𝐎 𝐍𝐈𝐕𝐄𝐋 ꧂ 
+                           🌟ヾ(〃^∇^)ﾉ🌟
+✄┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+。 • ˚ ˚ ˛ ˚ ˛ • 。* 。° 。* 。 • ˚• ˚ ˚ ˛ ˚ ˛ • 。* 。° 。* ` }
+const smsAutonivel2 = () => { return 🪷 ¡mᥙᥡ ᑲіᥱᥒ @    🍥 sᥙᑲіs𝗍ᥱ ძᥱ ᥒі᥎ᥱᥣ, sіgᥙᥱ ᥲsі́! 🌟 ~ (◠ω◕🌸)\n\n` 
+╭┈┈┈❀✿❀┈┈┈╯}
 const smsAutonivel3 = () => { return `*🎅 NIVEL :*` }
-const smsAutonivel4 = () => { return `*🎅 NIVEL ANTERIOR :* ` }
-const smsAutonivel5 = () => { return `*🎅 NIVEL ACTUAL :*` }
-const smsAutonivel6 = () => { return `*🎅 RANGO :*` }
-const smsAutonivel7 = () => { return `*🎅 FECHA :*` }
-const smsAutonivel8 = () => { return `_*Para saber cual es tu puerto del top, coloca el comando #lb*_` }
+const smsAutonivel4 = () => { return `*▷🍇 ❥ 𝐍𝐈𝐕𝐄𝐋 𝐀𝐍𝐓𝐄𝐑𝐈𝐎𝐑:* ` }
+const smsAutonivel5 = () => { return `*▷🌺 ❥ 𝐍𝐈𝐕𝐄𝐋 𝐀𝐂𝐓𝐔𝐀𝐋:*` }
+const smsAutonivel6 = () => { return `*▷🫐 𝐑𝐀𝐍𝐆𝐎:*` }
+const smsAutonivel7 = () => { return `*▷🍓 𝐅𝐄𝐂𝐇𝐀: *` 
+╰┈┈┈❀✿❀┈┈┈╮
+}
+const smsAutonivel8 = () => { return `_*🍒 𝐏ᥲrᥲ sᥲᑲᥱr ᥴᥙᥲᥣ ᥱs 𝗍ᥙ ⍴ᥙᥱs𝗍᥆ ძᥱᥣ 𝗍᥆⍴, ᥴ᥆ᥣ᥆ᥴᥲ ᥱᥣ ᥴ᥆mᥲᥒძ᥆ .lb 🍒*_` }
 const smsAutonivel9 = () => { return `*🎅 FELICIDADES LLEGARTE A UN NUEVO NIVEL 🎊*\n\n` }
 
 //info
