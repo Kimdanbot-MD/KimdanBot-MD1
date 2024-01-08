@@ -348,6 +348,16 @@ global.lenguaje = es
 }   	
 	
 switch (command) {
+case 'priv':{
+if (!isCreator) return m.reply(mess.owner)
+if (!text) return m.reply(`y el texto`)
+if (args[0] === "on") {
+global.db.data.chats[m.chat].antiprivado = true
+m.reply(`✅ activado`)
+} else if (args[0] === "off") {
+global.db.data.chats[m.chat].antiprivado = false
+m.reply(`🟢 desactivado`)}}
+break		
 //idiomas 
 case 'idioma': case 'Language': case 'idiomas': { 
 let user = global.db.data.users[m.sender]
