@@ -348,7 +348,7 @@ global.lenguaje = es
 }   	
 	
 switch (command) {
-case 'priv':{
+case 'priv': {
 if (!isCreator) return m.reply(mess.owner)
 if (!text) return m.reply(`y el texto`)
 if (args[0] === "on") {
