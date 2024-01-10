@@ -81,7 +81,7 @@ global.APIKeys = {
 global.md = 'https://github.com/Kimdanbot-MD/KimdanBot-MD'
 global.yt = 'https://youtube.com/@universobl?si=HeFdv4RaYDF9HAeX'
 global.tiktok = 'https://www.tiktok.com/@universo_yaoi_bl?_t=8iIlNrlJg1d&_r=1'
-global.faceb = 'https://www.instagram.com/_universo.bl?igshid=OGQ5ZDc2ODk2ZA=='
+global.fb = 'https://www.instagram.com/_universo.bl?igshid=OGQ5ZDc2ODk2ZA=='
 
 global.nna = 'https://whatsapp.com/channel/0029Va6RzW57dmeXNFXvr647' //canal
 global.nn = 'https://chat.whatsapp.com/C0lYCnklEtg1HUkbR4uPxA' //kim
