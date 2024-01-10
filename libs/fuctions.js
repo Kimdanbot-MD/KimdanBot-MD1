@@ -48,6 +48,24 @@ function pickRandom(list) {
 return list[Math.floor(list.length * Math.random())]
 }
 
+//información del usuario
+exports.getUserProfilePic = async (conn, sender) => {
+  try {
+    const userProfilePicUrl = await conn.profilePictureUrl(sender, "image");
+    return await getBuffer(userProfilePicUrl);
+  } catch {
+    return fs.readFileSync("./media/Menu1");
+  }
+}
+
+exports.getUserBio = async (conn, sender) => {
+  try {
+    const statusData = await conn.fetchStatus(sender);
+    return statusData.status;
+  } catch {
+    return "";
+  }}
+
 // Tiempo de Actividad del bot
 const used = process.memoryUsage()
 const cpus = os.cpus().map(cpu => {
@@ -538,7 +556,7 @@ let chats = global.db.data.chats[m.chat]
   } 
 
 global.db.data.sticker = global.db.data.sticker || {} // sticker for addcmd
-if (user) { //@skidy89
+if (user) { 
 if (user.level <= 3) {
   user.role = 'NOVATO(A) I'
 } else if (user.level <= 6) {
