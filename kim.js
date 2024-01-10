@@ -83,9 +83,9 @@ var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == '
 // ═════════════𓊈『 ATRIBUTOS 』𓊉═════════════
 if (m.key.id.startsWith("BAE5")) return
 var budy = (typeof m.text == 'string' ? m.text : '') // Asignar a la variable budy el valor m.text si es cadena	
-//var prefix = prefa ? /^[°•π÷×¶∆£¢€¥®™+✓_=/|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=/|~!?@#$%^&.©^]/gi)[0] : "" : prefa ?? global.prefix
-global.prefix = new RegExp('^[°•π÷×¶∆£¢€¥®™+✓_=/|~!?@#$%^&.©^' + '*/!#$%+£¢€¥^°=¶∆×÷π√✓©®:;?&.\\-.@'.replace(/[|\\{}()[\]^$+*?.\-\^]/g, '\\$&') + ']', 'i')
-var prefix = global.prefix.test(body) ? body.match(global.prefix)[0] : '' // Almacenar el prefijo predeterminado
+//var prefix = prefa ? /^[°•π÷×¶∆£¢€¥®™+✓_=/|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=/|~!?@#$%^&.©^]/gi)[0] : "" : prefa ?? global.prefix = new RegExp('^[°•π÷×¶∆£¢€¥®™+✓_=/|~!?@#$%^&.©^' + '*/!#$%+£¢€¥^°=¶∆×÷π√✓©®:;?&.\\-.@'.replace(/[|\\{}()[\]^$+*?.\-\^]/g, '\\$&') + ']', 'i')
+global.prefix = body.match(/^[/.*#]/)  
+const prefix = global.prefix
 const isCmd = body.startsWith(prefix) // Verificar si el contenido de body comienza con el valor almacenado en prefix.
 const from = m.chat // Remitente del mensaje
 const msg = JSON.parse(JSON.stringify(mek, undefined, 2)) // Mensaje convertido a formato JSON
@@ -94,6 +94,7 @@ const type = m.mtype // Tipo de mensaje
 const arg = body.substring(body.indexOf(' ') + 1) // Argumento extraído del cuerpo del mensaje
 const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase() // Comando extraído del cuerpo del mensaje
 const args = body.trim().split(/ +/).slice(1) // Obtiene los argumentos del comando
+const full_args = body.replace(command, '').slice(1).trim()
 const q = args.join(" ") // Une los argumentos en una sola cadena separada por espacios
 let t = m.messageTimestamp // Marca de tiempo de mensaje
 const pushname = m.pushName || "Sin nombre" // Obtiene el nombre de visualización del usuario de lo contrario será "Sin nombre"
@@ -275,7 +276,7 @@ if (before !== user.level) {
 const str = `${lenguaje['smsAutonivel']()} @${sender.split`@`[0]}\n${lenguaje['smsAutonivel2']()} ${before} ⟿ ${user.level}\n${lenguaje['smsAutonivel6']()} ${user.role}\n${lenguaje['smsAutonivel7']()} ${new Date().toLocaleString('id')}\n${lenguaje['smsAutonivel8']()} ${new Date().toLocaleString('ID')}\n${lenguaje['smsAutonivel9']()}`.trim()
 return conn.sendMessage(m.chat, { text: str, contextInfo:{mentionedJid:[sender]}}, { quoted: fkontak })}}
 
-//═════════════𓊈『 CHATBOT』𓊉═════════════
+//═════════════𓊈『 CHATBOT 』𓊉═════════════
 if (global.db.data.chats[m.chat].simi) {
 let textodem = budy
 try {
@@ -300,9 +301,9 @@ await m.reply(resu2[0][0][0])}}
 //═════════════𓊈『 ANTIPRIV 』𓊉═════════════
 if (global.db.data.chats[m.chat].antiprivado && !isCreator) {
 if (m.isBaileys && m.fromMe) return !0;
-if (m.isGroup) return !1;
-if (!m.message) return !0;
-if (m.text.includes('PIEDRA') || m.text.includes('PAPEL') || m.text.includes('TIJERA') ||  m.text.includes('menu') ||  m.text.includes('estado') || m.text.includes('bots') ||  m.text.includes('serbot') || m.text.includes('jadibot')) return !0
+if (m.isGroup) return !0;
+if (!m.message) return !1;
+if (budy.includes('menu') || budy.includes('estado') || budy.includes('bots') ||  budy.includes('serbot') || budy.includes('jadibot')) return !1
 const chat = global.db.data.chats[m.chat];
 const bot = global.db.data.settings[numBot]
 await conn.sendMessage(m.chat, {text: `${lenguaje.smsAntiPv}\n${nn2}`, mentions: [sender], },{quoted: m})
@@ -336,7 +337,7 @@ m.isGroup ? chalk.bold.yellow(`${lenguaje.Bio.grupo}`) + chalk.yellow(groupName)
 chalk.bold.cyanBright('\n┃') + chalk.bold.white(`${lenguaje.Bio.mensaje}${msgs(m.text)}`) + chalk.bold.cyanBright(`\n┗━━━━━━━━━━━━━━━━━━━━━━━━┅┅\n`)
 )))}
 
-//multilenguaje
+// ═════════════𓊈『 MULTILENGUAJE 』𓊉═════════════	
 const { en, es } = require('./libs/idiomas/total-idiomas.js')
 let user = global.db.data.users[m.sender]
 if (user.Language == 'es') {
@@ -346,6 +347,20 @@ global.lenguaje = en
 } else {
 global.lenguaje = es
 }   	
+
+// ═════════════𓊈『 AUTOMATIC 』𓊉═════════════	
+let mensaje
+if (mensaje) {  
+if (m.isGroup) return !1;
+if (!m.message) return !0;
+let str = [nna, md, yt, tiktok, fb] 
+let info = str[Math.floor(Math.random() * str.length)]
+let totalreg = Object.keys(global.db.data.users).length
+let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length
+conn.sendMessage(m.chat, { text: `*Hola @${sender.split`@`[0]} 👋😄 Mi nombre es ${botname} Soy un bot de WhatsApp con multi funcione 👾, registrarte para poder usar mi comando 👌*\n\n*💫 MI INFO:*\n*👑 Mi creador es:* wa.me/5492266466080\n*👥 Usuarios:* ${totalreg}\n*✨ Registrado:* ${rtotalreg}\n*🤖 Estoy activa desde:* ${runtime(process.uptime())}\n*⚠️ PD:* No hagan spam del comando o te van baneado\n\n• *PORFAVOR LEE LAS REGLAS:*\n#reglas\n\n• *QUIERES VER QUE HAY DE NUEVO?*\n*Escribe:* #nuevo\n\n• *¿QUIERE SOLICITA UN BOT PARA TU GRUPO?*\n*Escribe:* #solicitud\n\n*💫 ¿Quieres apoyar este proyecto para que siga actualizándose?*\n• #donar\n\n*✨ CUENTA OFICIALES*\n• #cuentas`, contextInfo:{mentionedJid:[sender], forwardingScore: 9999999, isForwarded: true, "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": wm, thumbnail: imagen2, sourceUrl: info}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})							  
+mensaje = true
+return !1;
+}
 	
 switch (command) {
 case 'priv': {
