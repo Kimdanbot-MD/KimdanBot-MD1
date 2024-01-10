@@ -714,7 +714,7 @@ conn.sendMessage(m.chat, {image: {url: "https://api.boxmine.xyz/api/nsfw/yaoi"}}
 }		
 break
 
-	case: 'autolevel': case 'lvl':		
+case 'autolevel': case 'lvl': {	
 if (!m.isGroup) return m.reply(mess.group)
 if (!text) return m.reply(`usado erróneamente`)
 if (args[0] === "on") {
@@ -722,7 +722,7 @@ global.db.data.chats[m.chat].autolevelup = true
 m.reply(`activo`)
 } else if (args[0] === "off") {
 global.db.data.chats[m.chat].autolevelup = false
-m.reply(`desactivado`)}}}	
+m.reply(`desactivado`)}}	
 break 
 
 case 'getcase': {
