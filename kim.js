@@ -190,14 +190,14 @@ if (global.db.data.chats[m.chat].antifake && !isGroupAdmins) {
 let forbidPrefixes = ["1", "994", "48", "43", "40", "41", "49"];
 for (let prefix of forbidPrefixes) {
 if (m.sender.startsWith(prefix)) {
-m.reply('✳️ El este grupo no esta permitido numero fake sera expulsado...', m.sender)
+m.reply(`${lenguaje.smsAntiFake}`, m.sender)
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}}}
 if (global.db.data.chats[m.chat].antiarabe && !isGroupAdmins) {
 let forbidPrefixes = ["212", "265", "234", "258", "263", "967", "20", "92", "91"];
 //if (m.chat && m.sender.startsWith('212')) return
 for (let prefix of forbidPrefixes) {
 if (m.sender.startsWith(prefix)) {
-m.reply('✳️ En este grupo no esta permitido numero arabe hasta la próxima...', m.sender)
+m.reply(`${lenguaje.smsAntiArabe}`, m.sender)
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}}}
 	
 // ═════════════𓊈『 AUTOBIO 』𓊉═════════════	
@@ -251,12 +251,12 @@ return
 if (global.db.data.chats[m.chat].autosticker) {  
 if (/image/.test(mime)) {  
 await conn.sendPresenceUpdate('composing', m.chat)
-m.reply(`_Calma crack estoy haciendo tu sticker 👏_\n\n_*Autosticker esta activado*_`)   
+m.reply(`${lenguaje.smsAutoSicker.espera}`)   
 media = await quoted.download()  
 let encmedia = await conn.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author, contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: botname, body: `h`, mediaType: 2, sourceUrl: nn6, thumbnail: imagen1}}}, { quoted: m })
 await fs.unlinkSync(encmedia)   
 } else if (/video/.test(mime)) {  
-if ((quoted.msg || quoted).seconds > 40) return reply('¡Máximo 40 segundos!')  
+if ((quoted.msg || quoted).seconds > 40) return reply(`${lenguaje.smsAutoSicker.tiempo}`)  
 media = await quoted.download()  
 let encmedia = await conn.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: goblal.author, contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: wm, body: `h`, mediaType: 2, sourceUrl: nn6, thumbnail: imagen1}}}, { quoted: m })
 await new Promise((resolve) => setTimeout(resolve, 2000));   
