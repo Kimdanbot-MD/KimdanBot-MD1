@@ -87,7 +87,7 @@ global.nna = 'https://whatsapp.com/channel/0029Va6RzW57dmeXNFXvr647' //canal
 global.nn = 'https://chat.whatsapp.com/C0lYCnklEtg1HUkbR4uPxA' //kim
 global.nn2 = 'https://chat.whatsapp.com/Fj2edZ8XtV48tyNLZn3rdE' //kim2
 
-// ═════════════KimdanBot-MD'════════════ 
+// ═════════════𓊈『 GLOBAL 』𓊉════════════ 
 global.mess = {
 admin: `${lenguaje['admin']()}`, 
 botAdmin: `${lenguaje['botAdmin']()}`, 
@@ -127,6 +127,7 @@ global.wm = "                𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃"
 global.packname = "🍓 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🍓"
 global.author = "🍒𝐃𝐚𝐧𝐨𝐧𝐢𝐧𝐨🍒"
 global.vs = '𝟏.𝟎.𝟎'
+global.phoneNumber = ""
 
 // ═════════════𓊈『 LISTAS 』𓊉═════════════ 
 global.mods = []
