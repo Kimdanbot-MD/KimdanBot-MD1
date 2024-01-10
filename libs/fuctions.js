@@ -404,6 +404,7 @@ if (!('registered' in user)) user.registered = false
 if (!user.registered) {
 if (!('name' in user)) user.name = m.name
 if (!('Language' in user)) user.Language = m.Language
+if (!('mensaje' in user)) user.mensaje = 0
 if (!isNumber(user.age)) user.age = -1
 if (!isNumber(user.regTime)) user.regTime = -1
 }
@@ -456,6 +457,7 @@ if (!isNumber(user.regTime)) user.regTime = -1
   lastclaim: 0,
   name: m.name,
   Language: 0,
+  mensaje: 0,
   age: -1,
   regTime: -1,
   afk: -1,
