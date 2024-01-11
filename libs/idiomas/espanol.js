@@ -102,15 +102,15 @@ const smsAutoSicker = {
 }
 
 //autonivel
-const smsAutonivel = () => { return `。 • ˚ ˚ ˛ ˚ ˛ • 。* 。° 。* 。 • ˚• ˚ ˚ ˛ ˚ ˛ • 。* 。° 。* \n✄┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n꧁ *𝐅𝐄𝐋𝐈𝐂𝐈𝐃𝐀𝐃𝐄𝐒 𝐏𝐎𝐑 𝐓𝐔 𝐍𝐔𝐄𝐕𝐎 𝐍𝐈𝐕𝐄𝐋* ꧂ \n                          🌟ヾ(〃^∇^)ﾉ🌟\n✄┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n。 • ˚ ˚ ˛ ˚ ˛ • 。* 。° 。* 。 • ˚• ˚ ˚ ˛ ˚ ˛ • 。* 。° 。* \n\n🪷 *¡mᥙᥡ ᑲіᥱᥒ` }
-const smsAutonivel2 = () => { return `🍥 sᥙᑲіs𝗍ᥱ ძᥱ ᥒі᥎ᥱᥣ, sіgᥙᥱ ᥲsі́!*\n🌟 ~ (◠ω◕🌸)\n╭┈┈┈❀✿❀┈┈┈╯\n▷🍇 ❥ *𝐍𝐈𝐕𝐄𝐋 𝐀𝐍𝐓𝐄𝐑𝐈𝐎𝐑:*` }
-const smsAutonivel3 = () => { return `︴      \n▷🌺 ❥ *𝐍𝐈𝐕𝐄𝐋 𝐀𝐂𝐓𝐔𝐀𝐋:*` }
+const smsAutonivel = () => { return `。 • ˚ ˚ ˛ ˚ ˛ • 。* 。° 。* 。 • ˚• ˚ ˚ ˛ ˚ ˛ • 。* 。° 。\n✄┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n  ꧁ *𝐅𝐄𝐋𝐈𝐂𝐈𝐃𝐀𝐃𝐄𝐒 𝐏𝐎𝐑 𝐓𝐔 𝐀𝐒𝐂𝐄𝐍𝐒𝐎* ꧂ \n                         🌟ヾ(〃^∇^)ﾉ🌟\n✄┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n。 • ˚ ˚ ˛ ˚ ˛ • 。* 。° 。* 。 • ˚• ˚ ˚ ˛ ˚ ˛ • 。* 。° 。\n\n🪷 *¡mᥙᥡ ᑲіᥱᥒ` }
+const smsAutonivel2 = () => { return `🍥 sᥙᑲіs𝗍ᥱ ძᥱ ᥒі᥎ᥱᥣ, sіgᥙᥱ ᥲsі́!*\n🌟 ~ (◠ω◕🌸)\n*╭┈┈┈❀✿❀┈┈┈╯*\n*▷🍇 ❥ 𝐍𝐈𝐕𝐄𝐋 𝐀𝐍𝐓𝐄𝐑𝐈𝐎𝐑:*` }
+const smsAutonivel3 = () => { return `*︴*      \n*▷🌺 ❥ 𝐍𝐈𝐕𝐄𝐋 𝐀𝐂𝐓𝐔𝐀𝐋:*` }
 const smsAutonivel4 = () => { return `🎅 NIVEL ANTERIOR : ` }
-const smsAutonivel5 = () => { return `︴\n▷🍧 *𝐍𝐈𝐕𝐄𝐋:*` }
-const smsAutonivel6 = () => { return `︴\n▷🫐 *𝐑𝐀𝐍𝐆𝐎:*` }
-const smsAutonivel7 = () => { return `︴\n▷🍓 *𝐅𝐄𝐂𝐇𝐀:*` }
-const smsAutonivel8 = () => { return `︴\n▷🍨 *𝐇𝐎𝐑𝐀:*` }
-const smsAutonivel9 = () => { return `╰┈┈┈❀✿❀┈┈┈╮\n\n🍒 *𝐏ᥲrᥲ sᥲᑲᥱr ᥴᥙᥲᥣ ᥱs 𝗍ᥙ ⍴ᥙᥱs𝗍᥆ ძᥱᥣ 𝗍᥆⍴, ᥴ᥆ᥣ᥆ᥴᥲ ᥱᥣ ᥴ᥆mᥲᥒძ᥆ .lb* 🍒` }
+const smsAutonivel5 = () => { return `*︴*\n*▷🍧 𝐍𝐈𝐕𝐄𝐋:*` }
+const smsAutonivel6 = () => { return `*︴*\n*▷🫐 𝐑𝐀𝐍𝐆𝐎:*` }
+const smsAutonivel7 = () => { return `*︴*\n*▷🍓 𝐅𝐄𝐂𝐇𝐀:*` }
+const smsAutonivel8 = () => { return `*︴*\n*▷🍨 𝐇𝐎𝐑𝐀:*` }
+const smsAutonivel9 = () => { return `*╰┈┈┈❀✿❀┈┈┈╮*\n\n🍒 *𝐏ᥲrᥲ sᥲᑲᥱr ᥴᥙᥲᥣ ᥱs 𝗍ᥙ ⍴ᥙᥱs𝗍᥆ ძᥱᥣ 𝗍᥆⍴, ᥙsᥲ ᥱᥣ ᥴ᥆mᥲᥒძ᥆ .lb* 🍒` }
 
 //info
 const nivel = () => { return `[ ❇️ ] ɴᴇᴄᴇsɪᴛᴀ ᴇʟ ɴɪᴠᴇʟ` }
