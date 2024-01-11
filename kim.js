@@ -306,8 +306,8 @@ await m.reply(resu2[0][0][0])}}
 //═════════════𓊈『 ANTIPRIV 』𓊉═════════════
 if (global.db.data.chats[m.chat].antiprivado && !isCreator) {
 if (m.isBaileys && m.fromMe) return !0;
-if (m.isGroup) return !0;
-if (!m.message) return !1;
+if (m.isGroup) return !0
+if (!m.message) return !1
 if (budy.includes('menu') || budy.includes('estado') || budy.includes('bots') ||  budy.includes('serbot') || budy.includes('jadibot')) return !1
 const chat = global.db.data.chats[m.chat];
 const bot = global.db.data.settings[numBot]
