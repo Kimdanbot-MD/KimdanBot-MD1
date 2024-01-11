@@ -275,10 +275,10 @@ while (canLevelUp(user.level, user.exp, global.multiplier))
 user.level++
 //user.role = global.rpg.role(user.level).name
 if (before !== user.level) {
-var x = before;
+/*var x = before;
 var y = user.level;
-let z = y -- x;
-const str = `${lenguaje['smsAutonivel']()} @${sender.split`@`[0]} ${lenguaje['smsAutonivel2']()} ${before}\n${lenguaje['smsAutonivel3']()} ${user.level}\n${lenguaje['smsAutonivel5']()} ${z}\n${lenguaje['smsAutonivel6']()} ${user.role}\n${lenguaje['smsAutonivel7']()} ${date}\n${lenguaje['smsAutonivel8']()} ${time}\n${lenguaje['smsAutonivel9']()}`.trim()
+let z = y -- x;*/
+const str = `${lenguaje['smsAutonivel']()} @${sender.split`@`[0]} ${lenguaje['smsAutonivel2']()} ${before}\n${lenguaje['smsAutonivel3']()} ${user.level}\n${lenguaje['smsAutonivel5']()}\n${lenguaje['smsAutonivel6']()} ${user.role}\n${lenguaje['smsAutonivel7']()} ${date}\n${lenguaje['smsAutonivel8']()} ${time}\n${lenguaje['smsAutonivel9']()}`.trim()
 return conn.sendMessage(m.chat, { text: str, contextInfo:{mentionedJid:[sender]}}, { quoted: fkontak })}}
 
 //═════════════𓊈『 CHATBOT 』𓊉═════════════
