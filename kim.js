@@ -266,6 +266,8 @@ await fs.unlinkSync(encmedia)
 //═════════════𓊈『 AUTOLEVELUP 』𓊉═════════════
 if (global.db.data.users[m.sender].autolevelup) {	
 let user = global.db.data.users[m.sender]
+const date = moment.tz('America/Bogota').format('DD/MM/YYYY')
+const time = moment.tz('America/Bogota').format('LT')
 if (!user.autolevelup)
 return !0
 let before = user.level * 1
@@ -273,7 +275,7 @@ while (canLevelUp(user.level, user.exp, global.multiplier))
 user.level++
 //user.role = global.rpg.role(user.level).name
 if (before !== user.level) {
-const str = `${lenguaje['smsAutonivel']()} @${sender.split`@`[0]}\n${lenguaje['smsAutonivel2']()} ${before} ⟿ ${user.level}\n${lenguaje['smsAutonivel6']()} ${user.role}\n${lenguaje['smsAutonivel7']()} ${new Date().toLocaleString('id')}\n${lenguaje['smsAutonivel8']()} ${new Date().toLocaleString('ID')}\n${lenguaje['smsAutonivel9']()}`.trim()
+const str = `${lenguaje['smsAutonivel']()} @${sender.split`@`[0]} ${lenguaje['smsAutonivel2']()} ${before} ${lenguaje['smsAutonivel3']()} ${user.level}\n${lenguaje['smsAutonivel6']()} ${user.role}\n${lenguaje['smsAutonivel7']()} ${date}\n${lenguaje['smsAutonivel8']()} ${time}\n${lenguaje['smsAutonivel9']()}`.trim()
 return conn.sendMessage(m.chat, { text: str, contextInfo:{mentionedJid:[sender]}}, { quoted: fkontak })}}
 
 //═════════════𓊈『 CHATBOT 』𓊉═════════════
