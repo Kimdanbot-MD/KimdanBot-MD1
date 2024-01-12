@@ -225,15 +225,17 @@ if (db.data.chats[m.chat].antilink) {
 if (budy.match(`chat.whatsapp.com`)) {
 let delet = m.key.participant
 let bang = m.key.id
-let user = m.sender	
-if (!isBotAdmins) return reply(`𝚎𝚕 𝚋𝚘𝚝 𝚗𝚎𝚌𝚎𝚜𝚒𝚝𝚊 𝚜𝚎𝚛 𝚊𝚍𝚖𝚒𝚗`)
-if (isGroupAdmins) return reply(`no serás eliminado ya que eres admin`)
+let user = m.sender
+const groupAdmins = participants.filter((p) => p.admin)
+const listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v.id.split('@')[0]}`).join('\n     〣⃟❥')	
+if (!isBotAdmins) return reply(`${lenguaje.smsAntiLink3}\n${String.fromCharCode(8206).repeat(850)}\n${lenguaje.smsAntiLink4} ${listAdmin}`)
+if (isGroupAdmins) return reply(`${lenguaje.smsAntiLink2}`)
 let gclink = (`https://chat.whatsapp.com/`+await conn.groupInviteCode(m.chat))
 let isLinkThisGc = new RegExp(gclink, 'i')
 let isgclink = isLinkThisGc.test(m.text)
-if (isgclink) return reply(`el link es de este grupo, no serás eliminado`)
+if (isgclink) return !0
 conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
-conn.sendMessage(m.chat, {text: `*「 ANTI LINK 」*\n\n*𝚕𝚒𝚗𝚔 𝚍𝚎𝚝𝚎𝚌𝚝𝚊𝚍𝚘*`})
+conn.sendMessage(m.chat, {text: `${lenguaje.smsAntiLink}`})
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}}
 
 //═════════════𓊈『 PUBLIC Y PRIVADO 』𓊉═════════════
