@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ."
-  },
+    "qr": "node index.js qr",
+  "code": "node index.js code",
+  "vortexus": "bash vortexus.sh" },
+  
   "author": "José.ofc",
   "license": "ISC",
     "dependencies": {
