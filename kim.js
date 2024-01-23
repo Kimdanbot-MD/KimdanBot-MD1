@@ -86,8 +86,7 @@ var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == '
 if (m.key.id.startsWith("BAE5")) return
 var budy = (typeof m.text == 'string' ? m.text : '') // Asignar a la variable budy el valor m.text si es cadena	
 //var prefix = prefa ? /^[°•π÷×¶∆£¢€¥®™+✓_=/|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=/|~!?@#$%^&.©^]/gi)[0] : "" : prefa ?? global.prefix = new RegExp('^[°•π÷×¶∆£¢€¥®™+✓_=/|~!?@#$%^&.©^' + '*/!#$%+£¢€¥^°=¶∆×÷π√✓©®:;?&.\\-.@'.replace(/[|\\{}()[\]^$+*?.\-\^]/g, '\\$&') + ']', 'i')
-global.prefix = body.match(/^[/.*#]/)  
-const prefix = global.prefix
+var prefix = body.match(/^[/.*#]/)  
 const isCmd = body.startsWith(prefix) // Verificar si el contenido de body comienza con el valor almacenado en prefix.
 const from = m.chat // Remitente del mensaje
 const msg = JSON.parse(JSON.stringify(mek, undefined, 2)) // Mensaje convertido a formato JSON
@@ -104,6 +103,8 @@ const botnm = conn.user.id.split(":")[0] + "@s.whatsapp.net"
 const userSender = m.key.fromMe ? botnm : m.isGroup && m.key.participant.includes(":") ? m.key.participant.split(":")[0] + "@s.whatsapp.net" : m.key.remoteJid.includes(":") ? m.key.remoteJid.split(":")[0] + "@s.whatsapp.net" : m.key.fromMe ? botnm : m.isGroup ? m.key.participant : m.key.remoteJid
 const isCreator = global.owner.map(([numero]) => numero.replace(/[^\d\s().+:]/g, '').replace(/\s/g, '') + '@s.whatsapp.net').includes(userSender) // Eliminar todo a excepción de números
 const isOwner = isCreator || m.fromMe;
+const isMods = isOwner || global.mods.map((v) => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender);
+//const isCreator = global.owner.map(([numero]) => numero.replace(/[^\d\s().+:]/g, '').replace(/\s/g, '') + '@s.whatsapp.net').includes(userSender) 
 const itsMe = m.sender == conn.user.id ? true : false // Verifica si el remitente del mensaje es el propio bot	
 const text = args.join(" ") // Unir rgumentos en una sola cadena separada por espacios
 const quoted = m.quoted ? m.quoted : m // Obtiene el mensaje citado si existe, de lo contrario, se establece como el propio mensaje
@@ -177,6 +178,7 @@ conn.ev.emit('messages.upsert', msg)}
 
 //═════════════𓊈『 AUTOREAD 』𓊉═════════════
 if (!conn.autoread && m.message && prefix) {
+await delay(1 * 1000) 
 await conn.sendPresenceUpdate('composing', m.chat)
 conn.readMessages([m.key])}
 
@@ -196,7 +198,6 @@ m.reply(`${lenguaje.smsAntiFake}`, m.sender)
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}}}
 if (global.db.data.chats[m.chat].antiarabe && !isGroupAdmins) {
 let forbidPrefixes = ["212", "265", "234", "258", "263", "967", "20", "92", "91"];
-//if (m.chat && m.sender.startsWith('212')) return
 for (let prefix of forbidPrefixes) {
 if (m.sender.startsWith(prefix)) {
 m.reply(`${lenguaje.smsAntiArabe}`, m.sender)
@@ -221,52 +222,71 @@ if (db.data.settings[numBot].autobio) {
  }}
 	
 //═════════════𓊈『 ANTILINK 』𓊉═════════════
-if (db.data.chats[m.chat].antilink) {
+if (global.db.data.chats[m.chat].antilink) {
 if (budy.match(`chat.whatsapp.com`)) {
 let delet = m.key.participant
 let bang = m.key.id
 let user = m.sender
 const groupAdmins = participants.filter((p) => p.admin)
 const listAdmin = groupAdmins.map((v) => `@${v.id.split('@')[0]}`).join('\n〣⃟❥ ')	
-let ofc = [nna, nn, nn2, nn3, nn4, nn5, nn6, nn7, nn8, nn9, nn10]
+let isofc = [nna, nn, nn2, nn3, nn4, nn5, nn6, nn7, nn8, nn9, nn10]
 if (!isBotAdmins) return reply(`${lenguaje['smsAntiLink3']()}\n${String.fromCharCode(8206).repeat(850)}\n${lenguaje['smsAntiLink4']()} ${listAdmin}`)
 if (isGroupAdmins) return reply(`${lenguaje['smsAntiLink2']()}`)
-if (ofc) return reply(`${lenguaje['smsAntiLink5']()}`)
+if (isofc) return reply(`${lenguaje['smsAntiLink5']()}`)
 let gclink = (`https://chat.whatsapp.com/`+await conn.groupInviteCode(m.chat))
 let isLinkThisGc = new RegExp(gclink, 'i')
 let isgclink = isLinkThisGc.test(m.text)
-if (isgclink) return !0
+if (isgclink) return
 conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
 conn.sendMessage(m.chat, {text: `${lenguaje['smsAntiLink']()}`})
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}}
 
+//═════════════𓊈『 ANTITOXIC 』𓊉═════════════
+if (global.db.data.chats[m.chat].antitoxic && !isCreator) {   
+if (budy.match(`g0re|g0r3|g.o.r.e|sap0|sap4|malparido|malparida|malparidos|malparidas|m4lp4rid0|m4lp4rido|m4lparido|malp4rido|m4lparid0|malp4rid0|chocha|chup4la|chup4l4|chupalo|chup4lo|chup4l0|chupal0|chupon|chupameesta|sabandija|hijodelagranputa|hijodeputa|hijadeputa|hijadelagranputa|kbron|kbrona|cajetuda|laconchadedios|putita|putito|put1t4|putit4|putit0|put1to|put1ta|pr0stitut4s|pr0stitutas|pr05titutas|pr0stitut45|prostitut45|prostituta5|pr0stitut45|fanax|f4nax|drogas|droga|dr0g4|nepe|p3ne|p3n3|pen3|p.e.n.e|pvt0|puto|pvto|put0|hijodelagransetentamilparesdeputa|Chingadamadre|coño|c0ño|coñ0|c0ñ0|afeminado|drog4|cocaína|marihuana|chocho|chocha|cagon|pedorro|agrandado|agrandada|pedorra|sape|nmms|mamar|chigadamadre|hijueputa|chupa|kaka|caca|bobo|boba|loco|loca|chupapolla|estupido|estupida|estupidos|polla|pollas|idiota|maricon|chucha|verga|vrga|naco|zorra|zorro|zorras|zorros|pito|huevon|huevona|huevones|rctmre|mrd|ctm|csm|cp|cepe|sepe|sepesito|cepecito|cepesito|hldv|ptm|baboso|babosa|babosos|babosas|feo|fea|feos|feas|webo|webos|mamawebos|chupame|bolas|qliao|imbecil|embeciles|kbrones|cabron|capullo|carajo|gore|gorre|gorreo|sapo|sapa|mierda|cerdo|cerda|puerco|puerca|perra|perro|joden|jodemos|dumb|fuck|shit|bullshit|cunt|cum|semen|bitch|motherfucker|foker|fucking`)) { 
+if (m.isBaileys && m.fromMe) { 
+return !0 }   
+if (!m.isGroup) { 
+return !1 }
+if (isGroupAdmins) return
+const user = global.db.data.users[m.sender];
+const chat = global.db.data.chats[m.chat];
+const bot = global.db.data.settings[conn.user.jid] || {};
+const isToxic = budy.match; 
+user.warn += 1;
+if (!(user.warn >= 4)) await conn.sendMessage(m.chat, {text: `Hey @${m.sender.split('@')[0]} decir la palabra *(${budy})* Esta prohibida En este grupo, No seas Toxico(a)\n\nADVERTENCIA\n⚠️ *${user.warn}/4*\n\n${botname}`, mentions: [m.sender]}, {quoted: m})
+if (user.warn >= 4) {
+user.warn = 0;
+await conn.sendMessage(m.chat, {text: `*@${m.sender.split('@')[0]} superaste las 4 advertencias serás eliminado de este grupo 😐....*`, mentions: [m.sender]}, {quoted: m})
+user.banned = true
+await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}
+return !1;
+}} 
+
 //═════════════𓊈『 PUBLIC Y PRIVADO 』𓊉═════════════
 if (!conn.public && !isCreator) {
-if (!m.key.fromMe) return
-}        	
+if (!m.key.fromMe) return }   
+	
 //═════════════𓊈『 BANCHAT 』𓊉═════════════
 if (global.db.data.chats[m.chat].isBanned) {
-return
-}
+return }
+	
 //═════════════𓊈『 MODO ADMIN 』𓊉═════════════
 if (global.db.data.chats[m.chat].modeadmin && !isGroupAdmins) {
-return
-}
+return }
 	
-  //═════════════𓊈『 AUTOSTICKER』𓊉═════════════
-if (global.db.data.chats[m.chat].autosticker) {  
-if (/image/.test(mime)) {  
+//═════════════𓊈『 AUTOSTICKER』𓊉═════════════
+if (global.db.data.chats[m.chat].autosticker) {    
 await conn.sendPresenceUpdate('composing', m.chat)
+if (/image/.test(mime) && !/webp/.test(mime)) {
 m.reply(`${lenguaje.smsAutoSicker.espera}`)   
-media = await quoted.download()  
-let encmedia = await conn.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author, contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: botname, body: `h`, mediaType: 2, sourceUrl: nn6, thumbnail: imagen1}}}, { quoted: m })
-await fs.unlinkSync(encmedia)   
+let media = await quoted.download()  
+await conn.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author, contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: botname, body: `h`, mediaType: 2, sourceUrl: nn6, thumbnail: imagen1}}}, { quoted: m })
+console.log(`Auto sticker detected`)
 } else if (/video/.test(mime)) {  
 if ((quoted.msg || quoted).seconds > 40) return reply(`${lenguaje.smsAutoSicker.tiempo}`)  
-media = await quoted.download()  
-let encmedia = await conn.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: goblal.author, contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: wm, body: `h`, mediaType: 2, sourceUrl: nn6, thumbnail: imagen1}}}, { quoted: m })
-await new Promise((resolve) => setTimeout(resolve, 2000));   
-await fs.unlinkSync(encmedia)  
+let media = await quoted.download()  
+await conn.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: goblal.author, contextInfo: { 'forwardingScore': 200, 'isForwarded': false, externalAdReply:{ showAdAttribution: false, title: wm, body: `h`, mediaType: 2, sourceUrl: nn6, thumbnail: imagen1}}}, { quoted: m })
 }}
 
 //═════════════𓊈『 AUTOLEVELUP 』𓊉═════════════
@@ -321,7 +341,8 @@ await conn.sendMessage(m.chat, {text: `${lenguaje.smsAntiPv}\n${nn2}`, mentions:
 await conn.updateBlockStatus(m.chat, 'block')
 return !1;
 }
-
+	
+//═════════════𓊈『 AFK 』𓊉═════════════
 let mentionUser = [...new Set([...(m.mentionedJid || []), ...(m.quoted ? [m.quoted.sender] : [])])]
 for (let jid of mentionUser) {
 let user = global.db.data.users[jid]
@@ -360,7 +381,7 @@ global.lenguaje = es
 }   	
 
 // ═════════════𓊈『 AUTOMATIC 』𓊉═════════════	
-let mensaje
+/*let mensaje
 if (mensaje) {  
 if (m.isGroup) return !1;
 if (!m.message) return !0;
@@ -371,7 +392,7 @@ let rtotalreg = Object.values(global.db.data.users).filter(user => user.register
 conn.sendMessage(m.chat, { text: `*Hola @${sender.split`@`[0]} 👋😄 Mi nombre es ${botname} Soy un bot de WhatsApp con multi funcione 👾, registrarte para poder usar mi comando 👌*\n\n*💫 MI INFO:*\n*👑 Mi creador es:* wa.me/5492266466080\n*👥 Usuarios:* ${totalreg}\n*✨ Registrado:* ${rtotalreg}\n*🤖 Estoy activa desde:* ${runtime(process.uptime())}\n*⚠️ PD:* No hagan spam del comando o te van baneado\n\n• *PORFAVOR LEE LAS REGLAS:*\n#reglas\n\n• *QUIERES VER QUE HAY DE NUEVO?*\n*Escribe:* #nuevo\n\n• *¿QUIERE SOLICITA UN BOT PARA TU GRUPO?*\n*Escribe:* #solicitud\n\n*💫 ¿Quieres apoyar este proyecto para que siga actualizándose?*\n• #donar\n\n*✨ CUENTA OFICIALES*\n• #cuentas`, contextInfo:{mentionedJid:[sender], forwardingScore: 9999999, isForwarded: true, "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": wm, thumbnail: imagen2, sourceUrl: info}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})							  
 mensaje = true
 return !1;
-}
+}*/
 	
 switch (command) {
 case 'priv': {
