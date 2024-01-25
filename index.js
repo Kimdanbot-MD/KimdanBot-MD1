@@ -176,7 +176,7 @@ stream: 'store'
 
 async function startBot() {
 
-//Código de prueba 
+//Código de prueba desde aqui
 let opcion
 if (methodCodeQR) {
 opcion = '1'
@@ -255,6 +255,7 @@ console.log(chalk.bold.white(chalk.bgMagenta(`👑 CÓDIGO DE VINCULACIÓN 👑:
 }, 2000)
 }}
 }
+//hasta aqui
 
 sock.ev.on('messages.upsert', async chatUpdate => {
 //console.log(JSON.stringify(chatUpdate, undefined, 2))
@@ -313,7 +314,6 @@ await sock.updateBlockStatus(fucker.from, "block")
 //detect
 sock.ev.on("groups.update", async (json) => {
 console.log(color(json, '#009FFF'))
-//console.log(json)
 const res = json[0];
 let detect = global.db.data.chats[res.id].detect
 if (!detect) return
@@ -371,7 +371,7 @@ ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 } catch (err) {
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
 }
-//let text = `「 𝐀𝐉𝐔𝐒𝐓𝐄𝐒 𝐃𝐄𝐋 𝐆𝐑𝐔𝐏𝐎 」\n\n*ᴬʰᵒʳᵃ ˢᵒˡᵒ ˡᵒˢ ᵃᵈᵐᶦⁿˢ ᵖᵘᵉᵈᵉ ᵉᵈᶦᵗᵃʳ ˡᵒˢ ᵃʲᵘˢᵗᵉ ᵈᵉˡ ᵍʳᵘᵖᵒ*`
+//solo admin pueden editar los ajustes
 sock.sendMessage(res.id, {text: lenguaje['smsAvisos6'](),
 contextInfo:{  
 forwardingScore: 9999999,  
@@ -395,7 +395,7 @@ ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 } catch (err) {
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
 }
-//let text = `「 𝐀𝐉𝐔𝐒𝐓𝐄𝐒 𝐃𝐄𝐋 𝐆𝐑𝐔𝐏𝐎 」\n\n*ᴬʰᵒʳᵃ ᵗᵒᵈᵒˢ ˡᵒˢ ᵖᵃʳᵗᶦᶜᶦᵖᵃʳᵗᵉ ᵖᵘᵉᵈᵉ ᵉᵈᶦᵗᵃʳ ˡᵒˢ ᵃʲᵘˢᵗᵉ ᵈᵉˡ ᵍʳᵘᵖᵒ*`
+//todos pueden editar los ajustes
 sock.sendMessage(res.id, {text: lenguaje['smsAvisos7'](),  
 contextInfo:{  
 forwardingScore: 9999999,  
@@ -505,7 +505,8 @@ body: wm,
 "previewType": "PHOTO",
 "thumbnailUrl": ``,
 "thumbnail": welc,
-"sourceUrl": md}}}) 							
+"sourceUrl": md}}}) 	
+// despedida
 } else if (anu.action == "remove") {
         const buffer = await getBuffer(ppuser)
 let name = num
@@ -523,6 +524,7 @@ body: wm,
 "thumbnailUrl": ``,     
 "thumbnail": leave,
 "sourceUrl": md}}}) 
+//nuevo admin
 } else if (anu.action == "promote") {
 const buffer = await getBuffer(ppuser)
 const groupAdmins = participants.filter((p) => p.admin)
@@ -540,6 +542,7 @@ sock.sendMessage(anu.id, { text: `@${m.messageStubParameters[0].split("@")[0]}\n
 "thumbnailUrl": ``,
 "thumbnail": welc,
 "sourceUrl": md}}})
+// admin menos
 } else if (anu.action == 'demote') {
 const buffer = await getBuffer(ppuser)
 let name = num
@@ -589,12 +592,15 @@ startBot()
 if (opcion == '1' || methodCodeQR) {
 console.log(color('[SYS]', '#009FFF'),
 color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
-//añadir marco
+color(`\n┏━━━━◉━━━━━⬤━━━━━⪩『 🫐  ${vs} 🫐   』⪨━━━━━⬤━━━━━◉━━━┉┉\n${lenguaje['smsEscaneaQR']()}\n┗━━━━◉━━━━━⬤━━━━━⪩『 🫐  ${vs} 🫐   』⪨━━━━━⬤━━━━━◉━━━┉┉\n`, '#f12711'))
+
 color(`Wa Web logged Out`, '#f64f59')
 );
 } else if (connection == 'open') {
 console.log(color(` `,'magenta'))
-console.log(color(`\n${lenguaje['smsConexion']()} ` + JSON.stringify(sock.user, null, 2), 'yellow'))
+console.log(chalk.bold.magenta(`\n┏━━◉━━━━⬤━━━⪩『 🍩   』⪨━━━⬤━━━━◉━━┉┉\n┃`) + chalk.bold.cyanBright(` ${lenguaje['smsConexion']()} `) + chalk.bold.magenta(`\n┃━━━━━━━━━━━━━━━━━┉┉`), 
+gradient.rainbow(JSON.stringify(sock.user, null, 2)),
+chalk.bold.magenta(`\n┗━━◉━━━━⬤━━━⪩『 🍩   』⪨━━━⬤━━━━◉━━┉┉\n`))
 console.log(color('[SYS]', '#009FFF'),
 color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
 color(`\n┏━━━◉━━━━⬤━━━⪩『 🍒  ${vs} 🍒   』⪨━━━⬤━━━━◉━━━┉┉\n${lenguaje['smsConectado']()}\n┗━━━◉━━━━⬤━━━⪩『 🍒  ${vs} 🍒   』⪨━━━⬤━━━━◉━━━┉┉\n\n` + receivedPendingNotifications, '#38ef7d'));
@@ -604,7 +610,7 @@ let index = 0;
 
 function printRainbowMessage() {
 const color = rainbowColors[index];
-console.log(chalk.keyword(color)('\n\n⏳️ Cargado los mensajes....'));
+console.log(chalk.keyword(color)('\n\n⏳ sᥱ ᥱs𝗍ᥲ́ᥒ ᥴᥲrgᥲᥒძ᥆ ᥣ᥆s mᥱᥒsᥲȷᥱs ⏳'));
 index = (index + 1) % rainbowColors.length;
 setTimeout(printRainbowMessage, 60000) //Ajuste el tiempo de espera a la velocidad deseada
 }
