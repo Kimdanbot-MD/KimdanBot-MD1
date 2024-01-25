@@ -217,9 +217,11 @@ if (db.data.settings[numBot].autobio) {
  if (new Date() * 1 - setting.status > 1000) { 
  //let uptime = await runtime(process.uptime()) 
  const bio = `${XD}\n${runtime(process.uptime())}` 
- await conn.updateProfileStatus(bio) 
+ await sock.updateProfileStatus(bio) 
  setting.status = new Date() * 1 
- }}
+} catch {
+console.log(`[𝚄𝙿𝙳𝙰𝚃𝙴]\n𝙿𝚒𝚗𝚐: ${latensi.toFixed(4)}`) 
+}}} 
 	
 //═════════════𓊈『 ANTILINK 』𓊉═════════════
 if (global.db.data.chats[m.chat].antilink) {
@@ -330,7 +332,7 @@ const resu2 = await reis2.json()
 await m.reply(resu2[0][0][0])}}
 	
 //═════════════𓊈『 ANTIPRIV 』𓊉═════════════
-if (global.db.data.chats[m.chat].antiprivado && !isCreator) {
+if (global.db.data.settings[numBot].antiprivado && !isCreator) { 
 if (m.isBaileys && m.fromMe) return !0;
 if (m.isGroup) return !0
 if (!m.message) return !1
@@ -395,16 +397,18 @@ return !1;
 }*/
 	
 switch (command) {
+		
 case 'priv': {
 if (!isCreator) return m.reply(mess.owner)
 if (!text) return m.reply(`y el texto`)
 if (args[0] === "on") {
-global.db.data.chats[m.chat].antiprivado = true
-m.reply(`✅ activado`)
+global.db.data.settings[numBot].antiprivado = true
+	m.reply(`✅ activado`)
 } else if (args[0] === "off") {
-global.db.data.chats[m.chat].antiprivado = false
-m.reply(`🟢 desactivado`)}}
-break		
+global.db.data.settings[numBot].antiprivado = false
+	m.reply(`🟢 desactivado`)}}
+break	
+		
 //idiomas 
 case 'idioma': case 'Language': case 'idiomas': { 
 let user = global.db.data.users[m.sender]
