@@ -628,7 +628,7 @@ isForwarded: true
 sock.user.connect = true
 return !1;
 }
-}}}
+}}});
 
 sock.public = true
 store.bind(sock.ev)
