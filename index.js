@@ -625,8 +625,8 @@ forwardingScore: 9999999,
 isForwarded: true
 }})
 //await sock.groupAcceptInvite(global.nna2)
-sock.user.connect = true
-return !1;
+sock.user.connect = true;
+return false;
 }
 }}});
 
