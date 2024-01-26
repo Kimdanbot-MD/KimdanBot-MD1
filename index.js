@@ -636,7 +636,8 @@ sock.ev.on('creds.update', saveCreds)
 process.on('uncaughtException', console.log)
 process.on('unhandledRejection', console.log)
 process.on('RefenceError', console.log)
-
+}
+	
 startBot()
 
 })()
