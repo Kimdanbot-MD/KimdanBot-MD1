@@ -181,7 +181,7 @@ let opcion
 if (methodCodeQR) {
 opcion = '1'
 }
-if (!methodCodeQR && !methodCode && !fs.existsSync(`./sessions/creds.json`)) {
+if (!methodCodeQR && !methodCode && !fs.existsSync(`./authFolder/creds.json`)) {
 do {        
 let lineM = '┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅'
 opcion = await question(`┏${lineM}  
