@@ -212,12 +212,13 @@ conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}}}
     ];
     const XD = sk[Math.floor(Math.random() * sk.length)];
 
-if (db.data.settings[numBot].autobio) { 
- let setting = global.db.data.settings[numBot] 
- if (new Date() * 1 - setting.status > 1000) { 
- //let uptime = await runtime(process.uptime()) 
- const bio = `${XD}\n${runtime(process.uptime())}` 
- await sock.updateProfileStatus(bio) 
+if (global.db.data.settings[numBot].autobio) {
+let setting = global.db.data.settings[numBot]
+if (new Date() * 1 - setting.status > 1000) {
+let uptime = await runtime(process.uptime())
+ let bio = `${XD}\n${runtime(process.uptime())}` 
+try {
+await conn.updateProfileStatus(bio) 
  setting.status = new Date() * 1 
 } catch {
 console.log(`[𝚄𝙿𝙳𝙰𝚃𝙴]\n𝙿𝚒𝚗𝚐: ${latensi.toFixed(4)}`) 
