@@ -1031,8 +1031,8 @@ case 'hidetag':
 
 case 'tagall': case 'invocar': {
   if (!m.isGroup) return reply(mess.group);
-  //if (!isBotAdmins) return reply(mess.botAdmin);
-  //if (!isGroupAdmins) return reply(mess.admin);
+  if (!isBotAdmins) return reply(mess.botAdmin);
+  if (!isGroupAdmins) return reply(mess.admin);
   let teks = `✿ ━〔 *🍬 𝐈𝐍𝐕𝐎𝐂𝐀𝐂𝐈𝐎́𝐍 𝐌𝐀𝐒𝐈𝐕𝐀  🍬* 〕━ ✿\n\n`
   teks += `✿ 𝐒𝐔 𝐀𝐃𝐌𝐈𝐍 𝐋𝐎𝐒 𝐈𝐍𝐕𝐎𝐂𝐀, 𝐑𝐄𝐕𝐈𝐕𝐀𝐍\n\n`
   teks += `✿ 𝐌𝐄𝐍𝐒𝐀𝐉𝐄: ${q ? q : 'no message'}\n\n`
