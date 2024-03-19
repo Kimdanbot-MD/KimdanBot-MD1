@@ -29,6 +29,7 @@ const useMobile = process.argv.includes("--mobile")
 const MethodMobile = process.argv.includes("mobile")
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
 const question = (text) => new Promise((resolve) => rl.question(text, resolve))
+const msgRetry = (MessageRetryMap) => { }
 let { version, isLatest } = await fetchLatestBaileysVersion()
 const msgRetryCounterCache = new NodeCache() //para mensaje de reintento, "mensaje en espera"   
 
@@ -169,14 +170,10 @@ setInterval(async () => {
 }, 1000 * 60 * 60);
 //___________
 
-const store = makeInMemoryStore({logger: pino().child({
-level: 'silent',
-stream: 'store'
-})})
+const store = makeInMemoryStore({logger: pino().child({level: 'silent', stream: 'store' })})
 
-async function startBot() {
-
-//Código de prueba desde aqui
+	
+//Código de prueba desde aqui	
 let opcion
 if (methodCodeQR) {
 opcion = '1'
@@ -202,29 +199,31 @@ if (!/^[1-2]$/.test(opcion)) {
 console.log(chalk.bold.redBright(`NO SE PERMITE NÚMEROS QUE NO SEAN ${chalk.bold.greenBright("1")} O ${chalk.bold.greenBright("2")}, TAMPOCO LETRAS O SÍMBOLOS ESPECIALES.\n${chalk.bold.yellowBright("CONSEJO: COPIE EL NÚMERO DE LA OPCIÓN Y PÉGUELO EN LA CONSOLA.")}`))
 }} while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./authFolder/creds.json`))
 }
+
+async function startBot() {
 	
-const sock = makeWASocket({
-logger: pino({ level: 'silent' }),
+console.info = () => {}
+const socketSettings = {
 printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
+logger: pino({ level: 'silent' }),
+auth: { creds: state.creds, keys: makeCacheableSignalKeyStore(state.keys, pino({level: 'silent'})) },
 mobile: MethodMobile, 
-browser: opcion == '1' ? ['KimdanBot-MD', 'Chrome', '2.0.0'] : methodCodeQR ? ['KimdanBot-MD', 'Chrome', '2.0.0'] : ['Ubuntu', 'Chrome', '110.0.5585.95'],
-auth: {
-creds: state.creds,
-keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
-},
-browser: ['Ubuntu', 'Chrome', '110.0.5585.95'], //
-markOnlineOnConnect: true, //establecer falso para fuera de línea
-generateHighQualityLinkPreview: true, //hacer enlace de vista previa alta
+browser: opcion == '1' ? ['NovaBot-MD', 'Safari', '1.0.0'] : methodCodeQR ? ['NovaBot-MD', 'Safari', '1.0.0'] : ['Ubuntu', 'Chrome', '2.0.0'],
+markOnlineOnConnect: true, 
+generateHighQualityLinkPreview: true, 
+syncFullHistory: true,
 getMessage: async (key) => {
 let jid = jidNormalizedUser(key.remoteJid)
 let msg = await store.loadMessage(jid, key.id)
-return msg?.message || ""
+return (msg?.message || "").replace(/(?:Closing stale open|Closing open session)/g, "")
 },
-msgRetryCounterCache, //Resolver mensajes en espera
-defaultQueryTimeoutMs: undefined, //
-})
+msgRetryCounterCache, // Resolver mensajes en espera
+msgRetry, 
+defaultQueryTimeoutMs: undefined,
+version,  
+}
 
-store.bind(sock.ev)
+const sock = makeWASocket(socketSettings)
 
 if (!fs.existsSync(`./authFolder/creds.json`)) {
 if (opcion === '2' || methodCode) {
@@ -247,7 +246,8 @@ break
 console.log(chalk.bold.redBright("Asegúrese de agregar el código de país."))
 }}
 rl.close()  
-}
+} 
+
 setTimeout(async () => {
 let codeBot = await sock.requestPairingCode(addNumber)
 codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
@@ -256,6 +256,13 @@ console.log(chalk.bold.white(chalk.bgMagenta(`👑 CÓDIGO DE VINCULACIÓN 👑:
 }}
 }
 //hasta aqui
+async function getMessage(key) {
+if (store) {
+const msg = store.loadMessage(key.remoteJid, key.id)
+return msg.message
+} return {
+conversation: 'SimpleBot',
+}}
 
 sock.ev.on('messages.upsert', async chatUpdate => {
 //console.log(JSON.stringify(chatUpdate, undefined, 2))
@@ -282,13 +289,10 @@ console.log(err)
 
 sock.ev.on('messages.update', async chatUpdate => {
 for(const { key, update } of chatUpdate) {
-if(update.pollUpdates && key.fromMe) {
+if (update.pollUpdates && key.fromMe) {
 const pollCreation = await getMessage(key)
-if(pollCreation) {
-const pollUpdate = await getAggregateVotesInPollMessage({
-message: pollCreation,
-pollUpdates: update.pollUpdates,
-})
+if (pollCreation) {
+const pollUpdate = await getAggregateVotesInPollMessage({message: pollCreation, pollUpdates: update.pollUpdates, })
 var toCmd = pollUpdate.filter(v => v.voters.length !== 0)[0]?.name
 if (toCmd == undefined) return
 var prefCmd = prefix+toCmd
@@ -437,7 +441,7 @@ mentionedJid:[m.sender],
 "mediaUrl": md,  
 "sourceUrl": md
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-} else {
+} else if(!res.subject == ``){
 await sleep(2000)
 try {
 ppgroup = await sock.profilePictureUrl(anu.id, 'image')
@@ -462,7 +466,109 @@ mentionedJid:[m.sender],
 "mediaUrl": md,  
 "sourceUrl": md
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+//pruebas
+} else {
+await sleep(2000)
+try {
+ppgroup = await sock.profilePictureUrl(anu.id, 'image')
+} catch (err) {
+ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
+}
+// 1
+let text = `${lenguaje['smsAvisos9']()}\n ❥ 1`
+sock.sendMessage(res.id, {text: text,  
+contextInfo:{  
+forwardingScore: 9999999,  
+isForwarded: true,   
+mentionedJid:[m.sender],  
+"externalAdReply": {  
+"showAdAttribution": true,  
+"containsAutoReply": false,
+"renderLargerThumbnail": false,  
+"title": lenguaje['smsAvisos5'](),
+"body": wm, 
+"mediaType": 1,   
+"thumbnail": imagen1, 
+"mediaUrl": md,  
+"sourceUrl": md
+}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+} else {
+await sleep(2000)
+try {
+ppgroup = await sock.profilePictureUrl(anu.id, 'image')
+} catch (err) {
+ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
+}
+// 2
+let text = `${lenguaje['smsAvisos9']()}\n ❥ 2`
+sock.sendMessage(res.id, {text: text,  
+contextInfo:{  
+forwardingScore: 9999999,  
+isForwarded: true,   
+mentionedJid:[m.sender],  
+"externalAdReply": {  
+"showAdAttribution": true,  
+"containsAutoReply": false,
+"renderLargerThumbnail": false,  
+"title": lenguaje['smsAvisos5'](),
+"body": wm, 
+"mediaType": 1,   
+"thumbnail": imagen1, 
+"mediaUrl": md,  
+"sourceUrl": md
+}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+} else {
+await sleep(2000)
+try {
+ppgroup = await sock.profilePictureUrl(anu.id, 'image')
+} catch (err) {
+ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
+}
+// 3
+let text = `${lenguaje['smsAvisos9']()}\n ❥ 3`
+sock.sendMessage(res.id, {text: text,  
+contextInfo:{  
+forwardingScore: 9999999,  
+isForwarded: true,   
+mentionedJid:[m.sender],  
+"externalAdReply": {  
+"showAdAttribution": true,  
+"containsAutoReply": false,
+"renderLargerThumbnail": false,  
+"title": lenguaje['smsAvisos5'](),
+"body": wm, 
+"mediaType": 1,   
+"thumbnail": imagen1, 
+"mediaUrl": md,  
+"sourceUrl": md
+}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+} else {
+await sleep(2000)
+try {
+ppgroup = await sock.profilePictureUrl(anu.id, 'image')
+} catch (err) {
+ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
+}
+// 4
+let text = `${lenguaje['smsAvisos9']()}\n ❥ 4`
+sock.sendMessage(res.id, {text: text,  
+contextInfo:{  
+forwardingScore: 9999999,  
+isForwarded: true,   
+mentionedJid:[m.sender],  
+"externalAdReply": {  
+"showAdAttribution": true,  
+"containsAutoReply": false,
+"renderLargerThumbnail": false,  
+"title": lenguaje['smsAvisos5'](),
+"body": wm, 
+"mediaType": 1,   
+"thumbnail": imagen1, 
+"mediaUrl": md,  
+"sourceUrl": md
+}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 }})
+	
 
 //Welcome adaptado
 sock.ev.on('group-participants.update', async (anu) => {
@@ -527,13 +633,16 @@ body: wm,
 //nuevo admin
 } else if (anu.action == "promote") {
 const buffer = await getBuffer(ppuser)
-const groupAdmins = participants.filter((p) => p.admin)
-const mentionsString = [m.sender, m.messageStubParameters[0], ...groupAdmins.map((v) => v.id)]
-const mentionsContentM = [m.sender, m.messageStubParameters[0]]
+const} else if (anu.action == 'promote') {
+//let users = participants.map(u => sock.decodeJid(u.id))
+const groupAdmins = participants.filter(p => p.admin)
+const listAdmin = groupAdmins.map((v, i) => `*» ${i + 1}. @${v.id.split('@')[0]}*`).join('\n')
+const buffer = await getBuffer(ppuser)
 let name = num
-sock.sendMessage(anu.id, { text: `@${m.messageStubParameters[0].split("@")[0]}\n Ahora eres admin del grupo @${m.sender.split("@")[0]}`, 
+let usuario = anu.author
+sock.sendMessage(anu.id, { text: `${pickRandom(['[ NUEVO ADMINS ]\n\n', 'Hey'])} @${name.split("@")[0]} ${pickRandom(['Ahora eres admin del grupo 🥳', 'Felicidades ahora eres parte staff 🎉'])}\n\n🫵 Acción echa por : @${usuario.split("@")[0]}`, mentions: [...groupAdmins.map(v => v.id)], 
  contextInfo:{
- mentionedJid:[num],
+ mentionedJid: [num, usuario],
  "externalAdReply": {"showAdAttribution": true,
  "containsAutoReply": true,
  "title": `乂 ＮＵＥＶＯ ＡＤＭＩＮ 乂`,
@@ -541,14 +650,15 @@ sock.sendMessage(anu.id, { text: `@${m.messageStubParameters[0].split("@")[0]}\n
  "previewType": "PHOTO",
 "thumbnailUrl": ``,
 "thumbnail": welc,
-"sourceUrl": md}}})
-// admin menos
+"sourceUrl": `${pickRandom([nna, md, yt])}`}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+//un admin menos
 } else if (anu.action == 'demote') {
 const buffer = await getBuffer(ppuser)
 let name = num
-sock.sendMessage(anu.id, { text: `@${m.messageStubParameters[0].split("@")[0]}\n Ahora ya no es admin del grupo @${m.sender.split("@")[0]}`, 
+let usuario = anu.author
+sock.sendMessage(anu.id, { text: `@${name.split("@")[0]} ${pickRandom(['Joderte ya no eres admin 🥲', 'jjjjj ya no eres admin culiado 🤣'])}\n\n🫵 Acción echa por : @${usuario.split("@")[0]}`,
  contextInfo:{
- mentionedJid:[num],
+ mentionedJid:[num, usuario],
  "externalAdReply": {"showAdAttribution": true,
  "containsAutoReply": true,
  "title": `乂 ＵＮ ＡＤＭＩＮ ＭＥＮＯＳ  乂`,
@@ -556,7 +666,7 @@ sock.sendMessage(anu.id, { text: `@${m.messageStubParameters[0].split("@")[0]}\n
  "previewType": "PHOTO",
 "thumbnailUrl": ``,
 "thumbnail": leave,
-"sourceUrl": md}}})
+"sourceUrl": `${pickRandom([nna, md, yt])}`}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 }}} catch (err) {
 console.log(err)
 }})
@@ -581,20 +691,40 @@ say(`BOT EN DESARROLLO`, {
   font: 'console',
   align: 'center',
   gradient: ['red', 'magenta']});
-  
 
-} else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode != 401) {
-console.log(color('[SYS]', '#009FFF'),
-color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
-color(`\n┏━━━◉━━━━⬤━━━━⪩『 🚨  ${vs} 🚨   』⪨━━━━⬤━━━━◉━━┉┉┉\n${lenguaje['smsConexioncerrar']()}\n┗━━━◉━━━━⬤━━━━⪩『 🚨  ${vs} 🚨   』⪨━━━━⬤━━━━◉━━┉┉┉\n`, '#f64f59'));
-startBot()
 } else if (opcion == '1' || methodCodeQR && qr !== undefined) {
 if (opcion == '1' || methodCodeQR) {
 console.log(color('[SYS]', '#009FFF'),
 color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
 color(`\n┏━━━━◉━━━━━⬤━━━━━⪩『 🫐  ${vs} 🫐   』⪨━━━━━⬤━━━━━◉━━━┉┉\n${lenguaje['smsEscaneaQR']()}\n┗━━━━◉━━━━━⬤━━━━━⪩『 🫐  ${vs} 🫐   』⪨━━━━━⬤━━━━━◉━━━┉┉\n`, '#f12711'))
+}}
+	
+/*try {
+let reason = new Boom(lastDisconnect?.error)?.output.statusCode
+if (connection === 'close') {
+if (reason === DisconnectReason.badSession) {
+console.log(chalk.yellow(`${lenguaje['smsConexionOFF']()}`)) 
+startBot();
+} else if (reason === DisconnectReason.connectionClosed) {
+console.log(chalk.yellow(`${lenguaje['smsConexioncerrar']()}`)) 
+startBot();
+} else if (reason === DisconnectReason.connectionLost) {
+console.log(chalk.yellow(`${lenguaje['smsConexionperdida']()}`)) 
+startBot();
+} else if (reason === DisconnectReason.connectionReplaced) {
+console.log(chalk.yellow(`${lenguaje['smsConexionreem']()}`)) 
+startBot();
+} else if (reason === DisconnectReason.loggedOut) {
+console.log(chalk.yellow(`${lenguaje['smsConexionOFF']()}`))
+startBot();
+} else if (reason === DisconnectReason.restartRequired) {
+console.log(chalk.yellow(`${lenguaje['smsConexionreinicio']()}`)) 
+startBot();
+} else if (reason === DisconnectReason.timedOut) {
+console.log(chalk.yellow(`${lenguaje['smsConexiontiem']()}`)) 
+startBot();
+} else sock.end(`${lenguaje['smsConexiondescon']()} ${reason || ''}: ${connection || ''}`)*/
 
-color(`Wa Web logged Out`, '#f64f59')
 } else if (connection == 'open') {
 console.log(color(` `,'magenta'))
 console.log(chalk.bold.magenta(`\n┏━━◉━━━━⬤━━━⪩『 🍩   』⪨━━━⬤━━━━◉━━┉┉\n┃`) + chalk.bold.cyanBright(` ${lenguaje['smsConexion']()} `) + chalk.bold.magenta(`\n┃━━━━━━━━━━━━━━━━━┉┉`), 
@@ -604,31 +734,11 @@ console.log(color('[SYS]', '#009FFF'),
 color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
 color(`\n┏━━━◉━━━━⬤━━━⪩『 🍒  ${vs} 🍒   』⪨━━━⬤━━━━◉━━━┉┉\n${lenguaje['smsConectado']()}\n┗━━━◉━━━━⬤━━━⪩『 🍒  ${vs} 🍒   』⪨━━━⬤━━━━◉━━━┉┉\n\n` + receivedPendingNotifications, '#38ef7d'));
 
-const rainbowColors = ['red', 'yellow', 'green', 'blue', 'purple'];
-let index = 0;
 
-function printRainbowMessage() {
-const color = rainbowColors[index];
-console.log(chalk.keyword(color)('\n\n⏳ sᥱ ᥱs𝗍ᥲ́ᥒ ᥴᥲrgᥲᥒძ᥆ ᥣ᥆s mᥱᥒsᥲȷᥱs ⏳'));
-index = (index + 1) % rainbowColors.length;
-setTimeout(printRainbowMessage, 60000) //Ajuste el tiempo de espera a la velocidad deseada
-}
-
-printRainbowMessage();
-
-if (!sock.user.connect) {
-//let res = await sock.groupAcceptInvite(global.nna2);
-await delay(3 * 3000)
-sock.sendMessage("573161407118@s.whatsapp.net", { text: "*𝐇𝐨𝐥𝐢𝐢 (🌸´◡`🌸)*\n*𝐌𝐞 𝐩𝐫𝐞𝐬𝐞𝐧𝐭𝐨́ 𝐬𝐨𝐲 𝐮𝐧 𝐧𝐮𝐞𝐯𝐨 𝐛𝐨𝐭 𝐚𝐜𝐭𝐢𝐯𝐨*. 🌟\n*𝐌𝐢 𝐧𝐨𝐦𝐛𝐫𝐞 𝐞𝐬 𝐤𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 𝐲 𝐞𝐬𝐭𝐨𝐲 𝐝𝐢𝐬𝐩𝐮𝐞𝐬𝐭𝐨 𝐚 𝐬𝐞𝐫𝐯𝐢𝐫𝐭𝐞 𝐞𝐧 𝐥𝐨 𝐪𝐮𝐞 𝐝𝐞𝐬𝐞𝐞𝐬*. ☺️\n*𝐓𝐞𝐧𝐠𝐨 𝐟𝐮𝐧𝐜𝐢𝐨𝐧𝐞𝐬 𝐦𝐮𝐲 𝐢𝐧𝐭𝐞𝐫𝐞𝐬𝐚𝐧𝐭𝐞𝐬. 𝐏𝐚𝐫𝐚 𝐯𝐞𝐫 𝐦𝐢𝐬 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬 𝐞𝐬𝐜𝐫𝐢𝐛𝐞 #menu 𝐲 𝐭𝐞 𝐚𝐲𝐮𝐝𝐚𝐫𝐞́ 𝐞𝐧 𝐥𝐨 𝐪𝐮𝐞 𝐝𝐞𝐬𝐞𝐞𝐬 🌈 𝐒𝐨𝐥𝐨 𝐧𝐨 𝐚𝐛𝐮𝐬𝐞𝐬 𝐝𝐞 𝐦𝐢𝐬 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬 𝐩𝐨𝐫 𝐟𝐚𝐯𝐨𝐫* .・゜(。┰ω┰。).・゜✨", 
-contextInfo:{
-forwardingScore: 9999999, 
-isForwarded: true
-}})
-//await sock.groupAcceptInvite(global.nna2)
-sock.user.connect = true;
-return false;
-}
-}}});
+} catch (err) {
+console.log('Error en Connection.update '+err)
+startBot()
+}});
 
 sock.public = true
 store.bind(sock.ev)
