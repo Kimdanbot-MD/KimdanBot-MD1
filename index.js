@@ -467,7 +467,7 @@ mentionedJid:[m.sender],
 "sourceUrl": md
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 //pruebas
-} else if{
+} else if(res.requestParticipants == false) {
 await sleep(2000)
 try {
 ppgroup = await sock.profilePictureUrl(anu.id, 'image')
@@ -492,8 +492,7 @@ mentionedJid:[m.sender],
 "mediaUrl": md,  
 "sourceUrl": md
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-
-} else if{
+} else if(res.requestParticipants == true) {
 await sleep(2000)
 try {
 ppgroup = await sock.profilePictureUrl(anu.id, 'image')
@@ -518,7 +517,7 @@ mentionedJid:[m.sender],
 "mediaUrl": md,  
 "sourceUrl": md
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-} else if{
+} else {
 await sleep(2000)
 try {
 ppgroup = await sock.profilePictureUrl(anu.id, 'image')
