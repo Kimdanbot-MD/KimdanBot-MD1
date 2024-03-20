@@ -707,7 +707,6 @@ console.log(color('[SYS]', '#009FFF'),
 color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
 color(`\n┏━━━◉━━━━⬤━━━⪩『 🍒  ${vs} 🍒   』⪨━━━⬤━━━━◉━━━┉┉\n${lenguaje['smsConectado']()}\n┗━━━◉━━━━⬤━━━⪩『 🍒  ${vs} 🍒   』⪨━━━⬤━━━━◉━━━┉┉\n\n` + receivedPendingNotifications, '#38ef7d'));
 
-
 } catch (err) {
 console.log('Error en Connection.update '+err)
 startBot()
