@@ -671,14 +671,15 @@ color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
 color(`\n┏━━━━◉━━━━━⬤━━━━━⪩『 🫐  ${vs} 🫐   』⪨━━━━━⬤━━━━━◉━━━┉┉\n${lenguaje['smsEscaneaQR']()}\n┗━━━━◉━━━━━⬤━━━━━⪩『 🫐  ${vs} 🫐   』⪨━━━━━⬤━━━━━◉━━━┉┉\n`, '#f12711'))
 }}
 	
-/*try {
+try {
 let reason = new Boom(lastDisconnect?.error)?.output.statusCode
 if (connection === 'close') {
-if (reason === DisconnectReason.badSession) {
-console.log(chalk.yellow(`${lenguaje['smsConexionOFF']()}`)) 
-startBot();
-} else if (reason === DisconnectReason.connectionClosed) {
+if (reason === DisconnectReason.connectionClosed) {
 console.log(chalk.yellow(`${lenguaje['smsConexioncerrar']()}`)) 
+startBot();
+} 
+/*else if (reason === DisconnectReason.badSession) {
+console.log(chalk.yellow(`${lenguaje['smsConexionOFF']()}`)) 
 startBot();
 } else if (reason === DisconnectReason.connectionLost) {
 console.log(chalk.yellow(`${lenguaje['smsConexionperdida']()}`)) 
