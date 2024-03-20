@@ -542,7 +542,6 @@ mentionedJid:[m.sender],
 "mediaUrl": md,  
 "sourceUrl": md
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-}
 }})
 	
 
