@@ -607,8 +607,6 @@ body: wm,
 "sourceUrl": md}}}) 
 //nuevo admin
 } else if (anu.action == "promote") {
-const buffer = await getBuffer(ppuser)
-//let users = participants.map(u => sock.decodeJid(u.id))
 const groupAdmins = participants.filter(p => p.admin)
 const listAdmin = groupAdmins.map((v, i) => `*» ${i + 1}. @${v.id.split('@')[0]}*`).join('\n')
 const buffer = await getBuffer(ppuser)
