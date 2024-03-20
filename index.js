@@ -542,31 +542,7 @@ mentionedJid:[m.sender],
 "mediaUrl": md,  
 "sourceUrl": md
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-} else {
-await sleep(2000)
-try {
-ppgroup = await sock.profilePictureUrl(anu.id, 'image')
-} catch (err) {
-ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
 }
-// 4
-let text = `${lenguaje['smsAvisos9']()}\n ❥ 4`
-sock.sendMessage(res.id, {text: text,  
-contextInfo:{  
-forwardingScore: 9999999,  
-isForwarded: true,   
-mentionedJid:[m.sender],  
-"externalAdReply": {  
-"showAdAttribution": true,  
-"containsAutoReply": false,
-"renderLargerThumbnail": false,  
-"title": lenguaje['smsAvisos5'](),
-"body": wm, 
-"mediaType": 1,   
-"thumbnail": imagen1, 
-"mediaUrl": md,  
-"sourceUrl": md
-}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 }})
 	
 
