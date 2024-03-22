@@ -57,8 +57,6 @@ global.db = new Low(
       new mongoDB(opts['db']) :
       new JSONFile(`database.json`) //db
 )
-global.__require = function require(dir = require(".meta.url")) {
-return createRequire(dir)}
 global.DATABASE = global.db // Backwards Compatibility
 global.loadDatabase = async function loadDatabase() {
 if (global.db.READ) return new Promise((resolve) => setInterval(function () { (!global.db.READ ? (clearInterval(this), resolve(global.db.data == null ? global.loadDatabase() : global.db.data)) : null) }, 1 * 1000))
@@ -81,7 +79,7 @@ loadDatabase()
 	
 if (global.db) setInterval(async () => {
     if (global.db.data) await global.db.write()
-  }, 30 * 1000)
+  }, 5 * 1000)
 
 //temp
 if (!opts['test']) { 
@@ -103,6 +101,7 @@ return unlinkSync(file); // 3 minutes
 }
 return false;
 })}
+	
 setInterval(async () => {
 await clearTmp()
 console.log(chalk.yellow(lenguaje['tmp']()))}, 180000)
@@ -172,6 +171,7 @@ setInterval(async () => {
 
 const store = makeInMemoryStore({logger: pino().child({level: 'silent', stream: 'store' })})
 
+
 	
 //Código de prueba desde aqui	
 let opcion
@@ -224,7 +224,8 @@ version,
 }
 
 const sock = makeWASocket(socketSettings)
-
+sock.isInit = false
+	
 if (!fs.existsSync(`./authFolder/creds.json`)) {
 if (opcion === '2' || methodCode) {
 opcion = '2'
@@ -318,6 +319,7 @@ await sock.updateBlockStatus(fucker.from, "block")
 //detect
 sock.ev.on("groups.update", async (json) => {
 console.log(color(json, '#009FFF'))
+//console.log(json)
 const res = json[0];
 let detect = global.db.data.chats[res.id].detect
 if (!detect) return
@@ -664,39 +666,17 @@ say(`BOT EN DESARROLLO`, {
   align: 'center',
   gradient: ['red', 'magenta']});
 
+} else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode != 401) {
+console.log(color('[SYS]', '#009FFF'),
+color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
+color(`${lenguaje['smsConexioncerrar']()}`, '#f64f59'));
+startBot()
 } else if (opcion == '1' || methodCodeQR && qr !== undefined) {
 if (opcion == '1' || methodCodeQR) {
 console.log(color('[SYS]', '#009FFF'),
 color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
 color(`\n┏━━━━◉━━━━━⬤━━━━━⪩『 🫐  ${vs} 🫐   』⪨━━━━━⬤━━━━━◉━━━┉┉\n${lenguaje['smsEscaneaQR']()}\n┗━━━━◉━━━━━⬤━━━━━⪩『 🫐  ${vs} 🫐   』⪨━━━━━⬤━━━━━◉━━━┉┉\n`, '#f12711'))
-}}
-	
-try {
-let reason = new Boom(lastDisconnect?.error)?.output.statusCode
-if (connection === 'close') {
-if (reason === DisconnectReason.connectionClosed) {
-console.log(chalk.yellow(`${lenguaje['smsConexioncerrar']()}`)) 
-startBot(); 
-/*}else if (reason === DisconnectReason.badSession) {
-console.log(chalk.yellow(`${lenguaje['smsConexionOFF']()}`)) 
-startBot();
-} else if (reason === DisconnectReason.connectionLost) {
-console.log(chalk.yellow(`${lenguaje['smsConexionperdida']()}`)) 
-startBot();
-} else if (reason === DisconnectReason.connectionReplaced) {
-console.log(chalk.yellow(`${lenguaje['smsConexionreem']()}`)) 
-startBot();
-} else if (reason === DisconnectReason.loggedOut) {
-console.log(chalk.yellow(`${lenguaje['smsConexionOFF']()}`))
-startBot();
-} else if (reason === DisconnectReason.restartRequired) {
-console.log(chalk.yellow(`${lenguaje['smsConexionreinicio']()}`)) 
-startBot();
-} else if (reason === DisconnectReason.timedOut) {
-console.log(chalk.yellow(`${lenguaje['smsConexiontiem']()}`)) 
-startBot();
-} else sock.end(`${lenguaje['smsConexiondescon']()} ${reason || ''}: ${connection || ''}`)*/
-
+}
 } else if (connection == 'open') {
 console.log(color(` `,'magenta'))
 console.log(chalk.bold.magenta(`\n┏━━◉━━━━⬤━━━⪩『 🍩   』⪨━━━⬤━━━━◉━━┉┉\n┃`) + chalk.bold.cyanBright(` ${lenguaje['smsConexion']()} `) + chalk.bold.magenta(`\n┃━━━━━━━━━━━━━━━━━┉┉`), 
@@ -704,12 +684,27 @@ gradient.rainbow(JSON.stringify(sock.user, null, 2)),
 chalk.bold.magenta(`\n┗━━◉━━━━⬤━━━⪩『 🍩   』⪨━━━⬤━━━━◉━━┉┉\n`))
 console.log(color('[SYS]', '#009FFF'),
 color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
-color(`\n┏━━━◉━━━━⬤━━━⪩『 🍒  ${vs} 🍒   』⪨━━━⬤━━━━◉━━━┉┉\n${lenguaje['smsConectado']()}\n┗━━━◉━━━━⬤━━━⪩『 🍒  ${vs} 🍒   』⪨━━━⬤━━━━◉━━━┉┉\n\n` + receivedPendingNotifications, '#38ef7d'));
-
-} catch (err) {
-console.log('Error en Connection.update '+err)
-startBot()
+color(`\n┏━━━◉━━━━⬤━━━⪩『 🍒  ${vs} 🍒   』⪨━━━⬤━━━━◉━━━┉┉\n${lenguaje['smsConectado']()}\n┗━━━◉━━━━⬤━━━⪩『 🍒  ${vs} 🍒   』⪨━━━⬤━━━━◉━━━┉┉\n\n` + receivedPendingNotifications, '#38ef7d')
+);
+	
+/*if (!sock.user.connect) {
+await sock.groupAcceptInvite(nn2) 
+sock.user.connect = true
+return !1;
+}*/
 }});
+	
+const rainbowColors = ['red', 'yellow', 'green', 'blue', 'purple'];
+let index = 0;
+
+function printRainbowMessage() {
+const color = rainbowColors[index];
+console.log(chalk.keyword(color)('\n[UPTIME]'));
+index = (index + 1) % rainbowColors.length;
+setTimeout(printRainbowMessage, 60000) //Ajuste el tiempo de espera a la velocidad deseada
+}
+
+printRainbowMessage();
 
 sock.public = true
 store.bind(sock.ev)
@@ -718,7 +713,7 @@ process.on('uncaughtException', console.log)
 process.on('unhandledRejection', console.log)
 process.on('RefenceError', console.log)
 }
-	
+
 startBot()
 
-})()
+})()	
