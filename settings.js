@@ -1,4 +1,5 @@
 const chalk = require("chalk")
+const path = require('path')
 const fs = require("fs")
 const { en, es } = require('./libs/idiomas/total-idiomas.js') 
 
@@ -34,6 +35,7 @@ global.imgkim = fs.readFileSync(`${RD}`)
 
 // ═════════════𓊈『 APIS 』𓊉═════════════ 
 global.keysZens = ['LuOlangNgentot', 'c2459db922', '37CC845916', '6fb0eff124', 'hdiiofficial', 'fiktod', 'BF39D349845E', '675e34de8a', '0b917b905e6f']; 
+global.keysZens = ['LuOlangNgentot', 'c2459db922', '37CC845916', '6fb0eff124', 'hdiiofficial', 'fiktod', 'BF39D349845E', '675e34de8a', '0b917b905e6f']; 
 global.keysxxx = keysZens[Math.floor(keysZens.length * Math.random())]; 
 global.keysxteammm = ['29d4b59a4aa687ca', '5LTV57azwaid7dXfz5fzJu', 'cb15ed422c71a2fb', '5bd33b276d41d6b4', 'HIRO', 'kurrxd09', 'ebb6251cc00f9c63']; 
 global.keysxteam = keysxteammm[Math.floor(keysxteammm.length * Math.random())]; 
@@ -44,38 +46,40 @@ global.itsrose = ['4b146102c4d500809da9d1ff'];
 global.API = (name, path = '/', query = {}, apikeyqueryname) => (name in global.APIs ? global.APIs[name] : name) + path + (query || apikeyqueryname ? '?' + new URLSearchParams(Object.entries({...query, ...(apikeyqueryname ? {[apikeyqueryname]: global.APIKeys[name in global.APIs ? global.APIs[name] : name]} : {})})) : '');
 
 global.APIs = {
-  CFROSAPI: 'https://api.cafirexos.com',
-  xteam: 'https://api.xteam.xyz',
-  dzx: 'https://api.dhamzxploit.my.id',
-  lol: 'https://api.lolhuman.xyz',
-  neoxr: 'https://api.neoxr.my.id',
-  zenzapis: 'https://api.zahwazein.xyz',
-  akuari: 'https://api.akuari.my.id',
-  akuari2: 'https://apimu.my.id',
-  fgmods: 'https://api-fgmods.ddns.net',
-  botcahx: 'https://api.botcahx.biz.id',
-  ibeng: 'https://api.ibeng.tech/docs',
-  rose: 'https://api.itsrose.site',
-  popcat: 'https://api.popcat.xyz',
-  xcoders: 'https://api-xcoders.site',
-  vihangayt: 'https://vihangayt.me',
-  erdwpe: 'https://api.erdwpe.com',
-  xyroinee: 'https://api.xyroinee.xyz',
-  nekobot: 'https://nekobot.xyz'
+//ApiEmpire: 'https://',
+CFROSAPI: 'https://api.cafirexos.com',
+nrtm: 'https://fg-nrtm.ddns.net',
+fgmods: 'https://api.fgmods.xyz', 
+xteam: 'https://api.xteam.xyz',
+dzx: 'https://api.dhamzxploit.my.id',
+lol: 'https://api.lolhuman.xyz',
+neoxr: 'https://api.neoxr.my.id',
+zenzapis: 'https://api.zahwazein.xyz',
+akuari: 'https://api.akuari.my.id',
+akuari2: 'https://apimu.my.id',
+botcahx: 'https://api.botcahx.biz.id',
+ibeng: 'https://api.ibeng.tech/docs',
+rose: 'https://api.itsrose.site',
+popcat: 'https://api.popcat.xyz',
+xcoders: 'https://api-xcoders.site',
+vihangayt: 'https://vihangayt.me',
+erdwpe: 'https://api.erdwpe.com',
+xyroinee: 'https://api.xyroinee.xyz',
+nekobot: 'https://nekobot.xyz'
 },
 global.APIKeys = {
-  'https://api.xteam.xyz': `${keysxteam}`,
-  'https://api.lolhuman.xyz': 'GataDios',
-  'https://api.neoxr.my.id': `${keysneoxr}`,
-  'https://api.zahwazein.xyz': `${keysxxx}`,
-  'https://api-fgmods.ddns.net': 'fg-dylux',
-  'https://api.botcahx.biz.id': 'Admin',
-  'https://api.ibeng.tech/docs': 'tamvan',
-  'https://api.itsrose.site': 'Rs-Zeltoria',
-  'https://api-xcoders.site': 'Frieren',
-  'https://api.xyroinee.xyz': 'uwgflzFEh6'
+'https://api.xteam.xyz': `${keysxteam}`,
+'https://api.lolhuman.xyz': 'GataDios',
+'https://api.neoxr.my.id': `${keysneoxr}`,
+'https://api.zahwazein.xyz': `${keysxxx}`,
+'https://api.fgmods.xyz': 'DRLg5kY7', 
+'https://api-fgmods.ddns.net': 'fg-dylux',
+'https://api.botcahx.biz.id': 'Admin',
+'https://api.ibeng.tech/docs': 'tamvan',
+'https://api.itsrose.site': 'Rs-Zeltoria',
+'https://api-xcoders.site': 'Frieren',
+'https://api.xyroinee.xyz': 'uwgflzFEh6'
 };
-
 
 // ═════════════𓊈『 LINKS 』𓊉═════════════ 
 global.md = 'https://github.com/Kimdanbot-MD/KimdanBot-MD'
@@ -135,6 +139,7 @@ global.wm = "                𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃"
 global.packname = "🍓 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🍓"
 global.author = "🍒𝐃𝐚𝐧𝐨𝐧𝐢𝐧𝐨🍒"
 global.vs = '𝟏.𝟎.𝟎'
+global.botNumberCode = "" //Ejemplo: +57
 global.phoneNumber = ""
 
 // ═════════════𓊈『 LISTAS 』𓊉═════════════ 
@@ -149,6 +154,7 @@ global.maxwarn = '4' // máxima advertencias
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
 fs.unwatchFile(file)
+const fileName = path.basename(file)
 console.log(chalk.redBright(`Update'${__filename}'`))
 delete require.cache[file]
 require(file)
