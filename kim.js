@@ -60,18 +60,7 @@ const msgs = (message) => { // Función 'msgs' que toma un parámetro 'message'
 if (message.length >= 10) { // Longitud de 'message' es mayor o igual a 10 caracteres
 return `${message.substr(0, 500)}` // Devuelve los primeros 500 caracteres de 'message'
 } else { // Caso contrario
-return `${message}`}} // Devuelve 'message' completo
-
-const getCmd = (id) => { //Función llamada 'getCmd' que toma un parámetro 'id'
-const stickerdb = JSON.parse(fs.readFileSync('./database/stickerdb.json'))
-let anu = null;
-Object.keys(stickerdb).forEach(nganu => { // Itera sobre las claves del objeto 'stickerdb' utilizando 'forEach'
-if (stickerdb[nganu].id === id) { // Si el valor de la propiedad 'id' en el objeto 'stickerdb[nganu]' es igual a 'id'
-anu = nganu
-}})
-if (anu !== null) { // De lo contrario
-return stickerdb[anu].cmd // Devolver el valor de la propiedad 'cmd' en el objeto 'stickerdb[anu]'
-}}
+return `${message}`}} // Devuelve 'message' ccomplet
 const getFileBuffer = async (mediakey, MediaType) => {
 const stream = await downloadContentFromMessage(mediakey, MediaType)
 let buffer = Buffer.from([])
@@ -84,42 +73,38 @@ var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == '
 	
 // ═════════════𓊈『 ATRIBUTOS 』𓊉═════════════
 if (m.key.id.startsWith("BAE5")) return
-var budy = (typeof m.text == 'string' ? m.text : '') // Asignar a la variable budy el valor m.text si es cadena	
-//var prefix = prefa ? /^[°•π÷×¶∆£¢€¥®™+✓_=/|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=/|~!?@#$%^&.©^]/gi)[0] : "" : prefa ?? global.prefix = new RegExp('^[°•π÷×¶∆£¢€¥®™+✓_=/|~!?@#$%^&.©^' + '*/!#$%+£¢€¥^°=¶∆×÷π√✓©®:;?&.\\-.@'.replace(/[|\\{}()[\]^$+*?.\-\^]/g, '\\$&') + ']', 'i')
-var prefix = body.match(/^[/.*#]/)  
-const isCmd = body.startsWith(prefix) // Verificar si el contenido de body comienza con el valor almacenado en prefix.
-const from = m.chat // Remitente del mensaje
-const msg = JSON.parse(JSON.stringify(mek, undefined, 2)) // Mensaje convertido a formato JSON
-const content = JSON.stringify(m.message) // Contenido del mensaje convertido a formato JSON
-const type = m.mtype // Tipo de mensaje
-const arg = body.substring(body.indexOf(' ') + 1) // Argumento extraído del cuerpo del mensaje
-const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase() // Comando extraído del cuerpo del mensaje
-const args = body.trim().split(/ +/).slice(1) // Obtiene los argumentos del comando
-const full_args = body.replace(command, '').slice(1).trim()
-const q = args.join(" ") // Une los argumentos en una sola cadena separada por espacios
-let t = m.messageTimestamp // Marca de tiempo de mensaje
-const pushname = m.pushName || "Sin nombre" // Obtiene el nombre de visualización del usuario de lo contrario será "Sin nombre"
-const botnm = conn.user.id.split(":")[0] + "@s.whatsapp.net"
-const userSender = m.key.fromMe ? botnm : m.isGroup && m.key.participant.includes(":") ? m.key.participant.split(":")[0] + "@s.whatsapp.net" : m.key.remoteJid.includes(":") ? m.key.remoteJid.split(":")[0] + "@s.whatsapp.net" : m.key.fromMe ? botnm : m.isGroup ? m.key.participant : m.key.remoteJid
-const isCreator = global.owner.map(([numero]) => numero.replace(/[^\d\s().+:]/g, '').replace(/\s/g, '') + '@s.whatsapp.net').includes(userSender) // Eliminar todo a excepción de números
+var body = (typeof m.text == 'string' ? m.text : '')
+var prefix = /^[./*#]/gi.test(body) ? body.match(/^[/.*#]/gi)[0] : ""
+//var prefix = body.match(/^[/.*#]/)   
+const isCmd = body.startsWith(prefix) 
+const command = isCmd ? body.slice(1).trim().split(/ +/).shift().toLocaleLowerCase() : null
+const args = body.trim().split(/ +/).slice(1) 
+const from = m.chat 
+const msg = JSON.parse(JSON.stringify(m, undefined, 2)) 
+const content = JSON.stringify(m.message) 
+const type = m.mtype 
+let t = m.messageTimestamp 
+const pushname = m.pushName || "Sin nombre" 
+const botnm = conn.user.id.split(":")[0] + "@s.whatsapp.net"  
+const _isBot = conn.user.jid
+const userSender = m.key.fromMe ? botnm : m.isGroup && m.key.participant.includes(":") ? m.key.participant.split(":")[0] + "@s.whatsapp.net" : m.key.remoteJid.includes(":") ? m.key.remoteJid.split(":")[0] + "@s.whatsapp.net" : m.key.fromMe ? botnm : m.isGroup ? m.key.participant : m.key.remoteJid  
+const isCreator = [conn.decodeJid(conn.user.id), ...global.owner.map(([numero]) => numero)].map((v) => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender);
 const isOwner = isCreator || m.fromMe;
 const isMods = isOwner || global.mods.map((v) => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender);
 //const isCreator = global.owner.map(([numero]) => numero.replace(/[^\d\s().+:]/g, '').replace(/\s/g, '') + '@s.whatsapp.net').includes(userSender) 
-const itsMe = m.sender == conn.user.id ? true : false // Verifica si el remitente del mensaje es el propio bot	
-const text = args.join(" ") // Unir rgumentos en una sola cadena separada por espacios
-const quoted = m.quoted ? m.quoted : m // Obtiene el mensaje citado si existe, de lo contrario, se establece como el propio mensaje
-const sender = m.key.fromMe ? botnm : m.isGroup ? m.key.participant : m.key.remoteJid // Obtiene el remitente del mensaje según el tipo de chat (individual o grupo)
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))	
-const mime = (quoted.msg || quoted).mimetype || '' // Tipo de archivo adjunto del mensaje citado o del propio mensaje
-const qmsg = (quoted.msg || quoted)	
-const isMedia = /image|video|sticker|audio/.test(mime) // Verifica si el mensaje contiene un archivo multimedia (imagen, video, sticker o audio)
-const numBot = conn.user.id.split(":")[0] + "@s.whatsapp.net" // JID del Bot
-const numBot2 = conn.user.id // Número de teléfono del bot
-const mentions = []
-if (m.message[type].contextInfo) { 
-if (m.message[type].contextInfo.mentionedJid) {
-const msd = m.message[type].contextInfo.mentionedJid
-for (let i = 0; i < msd.length; i++) {
+const itsMe = m.sender == conn.user.id ? true : false 
+const text = args.join(" ") 
+const q = args.join(" ") 
+const quoted = m.quoted ? m.quoted : m 
+const sender = m.key.fromMe ? botnm : m.isGroup ? m.key.participant : m.key.remoteJid 
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+const mime = (quoted.msg || quoted).mimetype || ''  
+const isMedia = /image|video|sticker|audio/.test(mime)
+const mentions = []  
+if (m.message[type].contextInfo) {   
+if (m.message[type].contextInfo.mentionedJid) {  
+const msd = m.message[type].contextInfo.mentionedJid  
+for (let i = 0; i < msd.length; i++) {  
 mentions.push(msd[i])}}}
 	
 // ═════════════𓊈『 GRUPO 』𓊉═════════════
@@ -161,19 +146,16 @@ const isQuotedDocument = type === 'extendedTextMessage' && content.includes('doc
 const isQuotedMsg = type === 'extendedTextMessage' && content.includes('Message') // Mensaje citado de cualquier tipo
 const isViewOnce = (type === 'viewOnceMessage') // Verifica si el tipo de mensaje es (mensaje de vista única)
 
+// Responde cmd con media
 if (isMedia && m.msg.fileSha256 && (m.msg.fileSha256.toString('base64') in global.db.data.sticker)) {
 let hash = global.db.data.sticker[m.msg.fileSha256.toString('base64')]
 let { text, mentionedJid } = hash
-let messages = await generateWAMessage(m.chat, { text: text, mentions: mentionedJid }, {userJid: conn.user.id,
-quoted: m.quoted && m.quoted.fakeObj
-})
+let messages = await generateWAMessage(m.chat, { text: text, mentions: mentionedJid }, {userJid: conn.user.id, quoted: m.quoted && m.quoted.fakeObj })
 messages.key.fromMe = areJidsSameUser(m.sender, conn.user.id)
-messages.key.id = m.key.id
+messages.key.id = m.key.id 
 messages.pushName = m.pushName
 if (m.isGroup) messages.participant = m.sender
-let msg = {...chatUpdate, messages: [proto.WebMessageInfo.fromObject(messages)],
-type: 'append'
-}
+let msg = {...chatUpdate, messages: [proto.WebMessageInfo.fromObject(messages)], type: 'append' }
 conn.ev.emit('messages.upsert', msg)}
 
 //═════════════𓊈『 AUTOREAD 』𓊉═════════════
@@ -184,9 +166,12 @@ conn.readMessages([m.key])}
 
 //═════════════𓊈『 ANTISPAM 』𓊉═════════════
 if (global.db.data.chats[m.chat].antispam && prefix) {
-const date = global.db.data.users[m.sender].spam + 3000; //5 seg
-if (new Date - global.db.data.users[m.sender].spam < 3000) return //conn.sendMessage(m.chat, {text: `_*Espere unos segundos antes de usar otro comando...*_ ✓`, mentions: [sender], },{quoted: m}) 
-global.db.data.users[m.sender].spam = new Date * 1
+let user = global.db.data.users[m.sender]
+let str = [nna, md, yt, tiktok, fb] 
+let info = str[Math.floor(Math.random() * str.length)]
+const date = global.db.data.users[m.sender].spam + 5000; //600000 
+if (new Date - global.db.data.users[m.sender].spam < 5000) return console.log(`[ SPAM ] ➢ ${command} [${args.length}]`)  
+global.db.data.users[m.sender].spam = new Date * 1;
 }
             
 //═════════════𓊈『 ANTIFAKE 』𓊉═════════════
@@ -203,7 +188,7 @@ if (m.sender.startsWith(prefix)) {
 m.reply(`${lenguaje.smsAntiArabe}`, m.sender)
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}}}
 	
-// ═════════════𓊈『 AUTOBIO 』𓊉═════════════	
+/*// ═════════════𓊈『 AUTOBIO 』𓊉═════════════	
     const sk = [
       "𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃🌺🍓",
       "𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃🫐🌸",
@@ -221,8 +206,7 @@ try {
 await conn.updateProfileStatus(bio) 
  setting.status = new Date() * 1 
 } catch {
-console.log(`[𝚄𝙿𝙳𝙰𝚃𝙴]\npepa pig`) 
-}}} 
+console.log(`[𝚄𝙿𝙳𝙰𝚃𝙴]\npepa pig`) medi*/
 	
 //═════════════𓊈『 ANTILINK 』𓊉═════════════
 if (global.db.data.chats[m.chat].antilink) {
@@ -304,9 +288,6 @@ while (canLevelUp(user.level, user.exp, global.multiplier))
 user.level++
 //user.role = global.rpg.role(user.level).name
 if (before !== user.level) {
-/*var x = before;
-var y = user.level;
-let z = y -- x;*/
 const str = `${lenguaje['smsAutonivel']()} @${sender.split`@`[0]} ${lenguaje['smsAutonivel2']()} ${before}\n${lenguaje['smsAutonivel3']()} ${user.level}\n${lenguaje['smsAutonivel5']()}\n${lenguaje['smsAutonivel6']()} ${user.role}\n${lenguaje['smsAutonivel7']()} ${date}\n${lenguaje['smsAutonivel8']()} ${time}\n${lenguaje['smsAutonivel9']()}`.trim()
 return conn.sendMessage(m.chat, { text: str, contextInfo:{mentionedJid:[sender]}}, { quoted: fkontak })}}
 
@@ -318,6 +299,7 @@ await conn.sendPresenceUpdate('composing', m.chat)
 const ressimi = await fetch(`https://api.simsimi.net/v2/?text=${encodeURIComponent(textodem)}&lc=es`)
 const data = await ressimi.json()
 if (data.success == 'No s\u00e9 lo qu\u00e9 est\u00e1s diciendo. Por favor ense\u00f1ame.') return m.reply(`${lol}`);
+await delay(1 * 1000) 
 await m.reply(data.success)
 } catch {
 if (textodem.includes('Hola','𝐇𝐨𝐥𝐚','һ᥆ᥣᥲ')) textodem = textodem.replace('𝐇𝐨𝐥𝐚', '𝐇𝐞𝐥𝐥𝐨')
@@ -330,19 +312,17 @@ const api = await fetch('http://api.brainshop.ai/get?bid=153868&key=rcKonOgrUFmn
 const res = await api.json()
 const reis2 = await fetch('https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=es&dt=t&q=' + res.cnt)
 const resu2 = await reis2.json()
+await delay(3 * 3000) 
 await m.reply(resu2[0][0][0])}}
 	
 //═════════════𓊈『 ANTIPRIV 』𓊉═════════════
-if (global.db.data.settings[numBot].antiprivado && !isCreator) { 
-if (m.isBaileys && m.fromMe) return !0;
-if (m.isGroup) return !0
-if (!m.message) return !1
-if (budy.includes('menu') || budy.includes('estado') || budy.includes('bots') ||  budy.includes('serbot') || budy.includes('jadibot')) return !1
-const chat = global.db.data.chats[m.chat];
-const bot = global.db.data.settings[numBot]
-await conn.sendMessage(m.chat, {text: `${lenguaje.smsAntiPv}\n${nn2}`, mentions: [sender], },{quoted: m})
+if (!m.isGroup && !isCreator) {  
+//const bot = global.db.data.users[m.sender] || {};
+if (global.db.data.settings[numBot].antiprivado) {
+conn.sendMessage(m.chat, {text: `${lenguaje.smsAntiPv}\n${nn2}`, mentions: [sender], },{quoted: m})
+await delay(2 * 2000)
 await conn.updateBlockStatus(m.chat, 'block')
-return !1;
+return
 }
 	
 //═════════════𓊈『 AFK 』𓊉═════════════
@@ -396,8 +376,10 @@ conn.sendMessage(m.chat, { text: `*Hola @${sender.split`@`[0]} 👋😄 Mi nombr
 mensaje = true
 return !1;
 }*/
+
+//falta tictactoe y los otros antilink
 	
-switch (command) {
+switch (prefix && command) {
 		
 case 'priv': {
 if (!isCreator) return m.reply(mess.owner)
