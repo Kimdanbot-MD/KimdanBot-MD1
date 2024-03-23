@@ -213,6 +213,7 @@ console.log(`[𝚄𝙿𝙳𝙰𝚃𝙴]\npepa pig`)
 }}}*/
 	
 //═════════════𓊈『 ANTILINK 』𓊉═════════════
+//WhatsApp
 if (global.db.data.chats[m.chat].antilink) {
 if (budy.match(`chat.whatsapp.com`)) {
 let delet = m.key.participant
@@ -232,6 +233,83 @@ conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang,
 conn.sendMessage(m.chat, {text: `${lenguaje['smsAntiLink']()}`})
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}}
 
+/*	
+if (global.db.data.chats[m.chat].AntiYoutube && !isCreator) {
+if (budy.includes("https://youtu.be/") || budy.includes("https://youtube.com/")) {
+if (isGroupAdmins) return reply(lenguaje['smsAntiLink5']())
+if (!isBotAdmins) return m.reply(lenguaje['smsAntiLink6']())
+if (m.key.fromMe) return
+if (!isCreator) return 
+conn.sendMessage(m.chat, {text:`*LINK DE YOUTUBE DETECTADO 📢*\n@${sender.split("@")[0]} Usted sera eliminado de este grupo`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
+conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+}}
+
+if (global.db.data.chats[m.chat].AntInstagram && !isCreator) {
+if (budy.includes("https://www.instagram.com/")) {
+if (isGroupAdmins) return reply(lenguaje['smsAntiLink5']())
+if (!isBotAdmins) return m.reply(lenguaje['smsAntiLink6']())
+if (m.key.fromMe) return
+if (!isCreator) return 
+conn.sendMessage(m.chat, {text:`*LINK DE INSTAGRAM DETECTADO 📢*\n@${sender.split("@")[0]} Usted sera eliminado de este grupo`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
+conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+}}
+
+if (global.db.data.chats[m.chat].AntiFacebook && !isCreator) {
+if (budy.includes("https://facebook.com/")) {
+if (isGroupAdmins) return reply(lenguaje['smsAntiLink5']())
+if (!isBotAdmins) return m.reply(lenguaje['smsAntiLink6']())
+if (m.key.fromMe) return
+if (!isCreator) return 
+conn.sendMessage(m.chat, {text:`*LINK DE FACEBOOK DETECTADO 📢*\n@${sender.split("@")[0]} Usted sera eliminado de este grupo`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
+conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+}}
+
+if (global.db.data.chats[m.chat].AntiTelegram && !isCreator) {
+if (budy.includes("https://t.me/")) {
+if (isGroupAdmins) return reply(lenguaje['smsAntiLink5']())
+if (!isBotAdmins) return m.reply(lenguaje['smsAntiLink6']())
+if (m.key.fromMe) return
+if (!isCreator) return 
+conn.sendMessage(m.chat, {text:`*LINK DE TELEGRAM DETECTADO 📢*\n@${sender.split("@")[0]} Usted sera eliminado de este grupo`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
+conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+}}
+
+if (global.db.data.chats[m.chat].AntiTiktok && !isCreator) {
+if (budy.match("https://www.tiktok.com/") || budy.match("https://vm.tiktok.com/")) {
+//f (!isCreator) return m.reply(`Es mi creador Salvador`) 
+if (isGroupAdmins) return reply(lenguaje['smsAntiLink5']())
+if (!isBotAdmins) return m.reply(lenguaje['smsAntiLink6']())
+conn.sendMessage(m.chat, {text:`*LINK DE TIKTOK DETECTADO 📢*\n\n@${sender.split("@")[0]} Usted sera eliminado de este grupo...`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
+conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+}}
+
+if (global.db.data.chats[m.chat].AntiTwitter) {
+if (budy.includes("https://twitter.com/")){
+if (isGroupAdmins) return reply(lenguaje['smsAntiLink5']())
+if (!isBotAdmins) return m.reply(lenguaje['smsAntiLink6']())
+if (m.key.fromMe) return m.reply(lenguaje['smsAntiLink5']())
+if (!isCreator) return 
+conn.sendMessage(m.chat, {text:`*LINK DE TWITER (X) DETECTADO 📢*\n@${sender.split("@")[0]} Usted sera eliminado de este grupo`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
+conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+}}
+
+if (global.db.data.chats[m.chat].antiLink2 && !isCreator) {
+if (budy.includes("https://")) {
+if (isGroupAdmins) return reply(lenguaje['smsAntiLink5']()) 
+if (!isBotAdmins) return m.reply(lenguaje['smsAntiLink6']())
+if (m.key.fromMe) return
+if (!isCreator) return 
+conn.sendMessage(m.chat, {text:`*LINK DE HTTPS DETECTADO 📢*\n@${sender.split("@")[0]} Usted sera eliminado de este grupo`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
+conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+}}
+*/
 //═════════════𓊈『 ANTITOXIC 』𓊉═════════════
 if (global.db.data.chats[m.chat].antitoxic && !isCreator) {   
 if (budy.match(`g0re|g0r3|g.o.r.e|sap0|sap4|malparido|malparida|malparidos|malparidas|m4lp4rid0|m4lp4rido|m4lparido|malp4rido|m4lparid0|malp4rid0|chocha|chup4la|chup4l4|chupalo|chup4lo|chup4l0|chupal0|chupon|chupameesta|sabandija|hijodelagranputa|hijodeputa|hijadeputa|hijadelagranputa|kbron|kbrona|cajetuda|laconchadedios|putita|putito|put1t4|putit4|putit0|put1to|put1ta|pr0stitut4s|pr0stitutas|pr05titutas|pr0stitut45|prostitut45|prostituta5|pr0stitut45|fanax|f4nax|drogas|droga|dr0g4|nepe|p3ne|p3n3|pen3|p.e.n.e|pvt0|puto|pvto|put0|hijodelagransetentamilparesdeputa|Chingadamadre|coño|c0ño|coñ0|c0ñ0|afeminado|drog4|cocaína|marihuana|chocho|chocha|cagon|pedorro|agrandado|agrandada|pedorra|sape|nmms|mamar|chigadamadre|hijueputa|chupa|kaka|caca|bobo|boba|loco|loca|chupapolla|estupido|estupida|estupidos|polla|pollas|idiota|maricon|chucha|verga|vrga|naco|zorra|zorro|zorras|zorros|pito|huevon|huevona|huevones|rctmre|mrd|ctm|csm|cp|cepe|sepe|sepesito|cepecito|cepesito|hldv|ptm|baboso|babosa|babosos|babosas|feo|fea|feos|feas|webo|webos|mamawebos|chupame|bolas|qliao|imbecil|embeciles|kbrones|cabron|capullo|carajo|gore|gorre|gorreo|sapo|sapa|mierda|cerdo|cerda|puerco|puerca|perra|perro|joden|jodemos|dumb|fuck|shit|bullshit|cunt|cum|semen|bitch|motherfucker|foker|fucking`)) { 
