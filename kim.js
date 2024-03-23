@@ -99,6 +99,9 @@ const quoted = m.quoted ? m.quoted : m
 const sender = m.key.fromMe ? botnm : m.isGroup ? m.key.participant : m.key.remoteJid 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 const mime = (quoted.msg || quoted).mimetype || ''  
+const numBot = conn.user.id.split(":")[0] + "@s.whatsapp.net" // JID del Bot
+const numBot2 = conn.user.id // Número de teléfono del bot
+const qmsg = (quoted.msg || quoted)
 const isMedia = /image|video|sticker|audio/.test(mime)
 const mentions = []  
 if (m.message[type].contextInfo) {   
@@ -206,7 +209,8 @@ try {
 await conn.updateProfileStatus(bio) 
  setting.status = new Date() * 1 
 } catch {
-console.log(`[𝚄𝙿𝙳𝙰𝚃𝙴]\npepa pig`) medi*/
+console.log(`[𝚄𝙿𝙳𝙰𝚃𝙴]\npepa pig`)
+}}}*/
 	
 //═════════════𓊈『 ANTILINK 』𓊉═════════════
 if (global.db.data.chats[m.chat].antilink) {
