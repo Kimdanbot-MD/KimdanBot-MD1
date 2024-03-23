@@ -4,32 +4,12 @@ const ff = require('fluent-ffmpeg')
 const webp = require("node-webpmux") 
 const path = require("path") 
 
-// Path to the "temp" folder in the same directory as this script
-const tempFolder = path.join(__dirname, "..", "temp");
-
-exports.fetchBuffer = async (url, options) => {
-	try {
-		options ? options : {}
-		const res = await axios({
-			method: "GET",
-			url,
-			headers: {
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36",
-				'DNT': 1,
-				'Upgrade-Insecure-Request': 1
-			},
-			...options,
-			responseType: 'arraybuffer'
-		})
-		return res.data
-	} catch (err) {
-		return err
-	}
-}
+//Ruta a la carpeta "temp" en el mismo directorio que este script
+const tempFolder = path.join(__dirname, "../tmp/");
 
 async function imageToWebp(media) { 
-    const tmpFileOut = path.join(tempFolder, `${Crypto.randomBytes(6).readUIntLE(0, 6).toString(36)}.webp`) 
-    const tmpFileIn = path.join(tempFolder, `${Crypto.randomBytes(6).readUIntLE(0, 6).toString(36)}.jpg`) 
+const tmpFileOut = path.join(tempFolder, `${Crypto.randomBytes(6).readUIntLE(0, 6).toString(36)}.webp`) 
+const tmpFileIn = path.join(tempFolder, `${Crypto.randomBytes(6).readUIntLE(0, 6).toString(36)}.jpg`) 
 
     fs.writeFileSync(tmpFileIn, media) 
 
@@ -153,4 +133,15 @@ async function writeExif(media, metadata) {
     } 
 }
 
-module.exports = { imageToWebp, videoToWebp, writeExifImg, writeExifVid, writeExif }
+function toAudio(buffer, ext) { 
+   return ffmpeg(buffer, [ 
+     '-vn', 
+     '-c:a', 'libopus', 
+     '-b:a', '128k', 
+     '-vbr', 'on', 
+     '-compression_level', '10', 
+   ], ext, 'opus'); 
+ }
+ 
+
+module.exports = { imageToWebp, videoToWebp, writeExifImg, writeExifVid, writeExif, toAudio }
