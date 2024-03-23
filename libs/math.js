@@ -45,4 +45,4 @@ let modes = {
       })
   }
   
-module.exports = { modes, operators, randomInt, pickRandom, genMath }
+module.exports = { modes, operators, randomInt, pickRandom, genMath } 
