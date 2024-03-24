@@ -1270,7 +1270,7 @@ let e = String(err)
 conn.sendMessage("5492266466080@s.whatsapp.net", { text: "Hola Creador/desarrollador, parece haber un error, por favor arreglarlo 🥲\n\n" + util.format(e), 
 contextInfo:{forwardingScore: 9999999, isForwarded: false }})
 process.on('uncaughtException', function (err) {
-console.log('Caught exception: ', err)})}}}}}
+console.log('Caught exception: ', err)})
 
 // ═════════════𓊈『 UPDATE/CONSOLA 』𓊉═════════════
 let file = require.resolve(__filename)
@@ -1279,4 +1279,4 @@ fs.unwatchFile(file)
 console.log(chalk.redBright(`Update ${__filename}`))
 delete require.cache[file]
 require(file)
-})
+})}}}}}
