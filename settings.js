@@ -16,7 +16,7 @@ global.owner = [
 // ═════════════𓊈『 IDIOMAS 』𓊉═════════════ 
 global.place = 'America/Bogota' // Aquí puede encontrar su ubicación https://momentjs.com/timezone/
 global.lenguaje = es // Aquí puede encontrar su idioma https://cloud.google.com/translate/docs/languages?hl=es-419
-global.prefix = [`/`]
+global.prefix = [`.`]
 
 // ═════════════𓊈『 IMAGENES 』𓊉═════════════ 
 global.imagen1 = fs.readFileSync('./src/img_cuadrada.jpg')
