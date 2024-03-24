@@ -1231,38 +1231,35 @@ function pickRandom(list) {return list[Math.floor(list.length * Math.random())]}
 function isNumber(x) {return !isNaN(x)}
 
 // ═════════════𓊈『 AUDIO/TEXTOS 』𓊉═════════════
-	default:
-		
 // ═════════════𓊈『 OWNER 』𓊉═════════════
+default:
 if (budy.startsWith('>')) {
-if (!isCreator) return reply(info.owner)
+if (!isCreator) return
 try {
 return reply(JSON.stringify(eval(budy.slice(2)), null, '\t'))
 } catch (e) {
 e = String(e)
 reply(e)
-}}
+}
+}
 if (budy.startsWith('=>')) {
 if (!isCreator) return
 try {
-return reply(JSON.stringify(eval(`(async () => { ${budy.slice(3)} })()`), null, '\t'))  
+return  reply(JSON.stringify(eval(`(async () => { ${budy.slice(3)} })()`), null, '\t')) 
 } catch (e) {
 e = String(e)
 reply(e)
-}}
+}
+}
 if (budy.startsWith('$')) {
-if (!isCreator) return reply(info.owner) 
+if (!isCreator) return
 try {
 return reply(String(execSync(budy.slice(2), { encoding: 'utf-8' })))
-} catch (err) { 
-console.log(util.format(err))  
- 
-if (isCmd && budy.toLowerCase() != undefined) {
-if (m.chat.endsWith('broadcast')) return
-if (m.isBaileys) return
-let msgs = global.db.data.database
-if (!(budy.toLowerCase() in msgs)) return
-conn.copyNForward(m.chat, msgs[budy.toLowerCase()], true)
+} catch (e) {
+e = String(e)
+reply(e)
+}
+}
 }
  
 // ═════════════𓊈『 REPORTE/ERRORES 』𓊉═════════════
@@ -1270,7 +1267,7 @@ let e = String(err)
 conn.sendMessage("573173090446@s.whatsapp.net", { text: "Hola Creador/desarrollador, parece haber un error, por favor arreglarlo 🥲\n\n" + util.format(e), 
 contextInfo:{forwardingScore: 9999999, isForwarded: false }})
 process.on('uncaughtException', function (err) {
-console.log('Caught exception: ', err)})
+console.log('Caught exception: ', err)})}}
 
 // ═════════════𓊈『 UPDATE/CONSOLA 』𓊉═════════════
 let file = require.resolve(__filename)
@@ -1279,4 +1276,4 @@ fs.unwatchFile(file)
 console.log(chalk.redBright(`Update ${__filename}`))
 delete require.cache[file]
 require(file)
-})}}}}}
+})
