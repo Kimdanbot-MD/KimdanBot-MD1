@@ -1,3 +1,4 @@
+uptime
 // Código desde cero por: https://github.com/ferhacks y comentario hecho por: 
 // @Kimdanbot-MD     
 // @elrebelde21
