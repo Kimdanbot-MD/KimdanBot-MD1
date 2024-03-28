@@ -73,7 +73,7 @@ var budy = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == '
 	
 // ═════════════𓊈『 ATRIBUTOS 』𓊉═════════════
 if (m.key.id.startsWith("BAE5")) return
-var body = (typeof m.text == 'string' ? m.text : '')
+//var body = (typeof m.text == 'string' ? m.text : '')
 var prefix = /^[./*#]/gi.test(body) ? body.match(/^[/.*#]/gi)[0] : ""
 //var prefix = body.match(/^[/.*#]/)   
 const isCmd = body.startsWith(prefix) 
