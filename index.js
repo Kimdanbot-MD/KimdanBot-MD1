@@ -228,7 +228,7 @@ sock.isInit = false
 	
 if (!fs.existsSync(`./authFolder/creds.json`)) {
 if (opcion === '2' || methodCode) {
-opcion = '2'
+opcion = '2' 
 if (!sock.authState.creds.registered) {  
 let addNumber
 if (!!phoneNumber) {
