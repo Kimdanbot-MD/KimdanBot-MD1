@@ -7,10 +7,9 @@ global.owner = [
 ["573148243189", "creador", true],
 ["5214445427870", "darlyn", true],
 ["573244670629"], 
-['50685690440'],
+["50685690440"],
 ["595975740803"], 
-["51929972576"]
-]
+["51929972576"]]
 
 // ═════════════𓊈『 IDIOMAS 』𓊉═════════════ 
 global.place = 'America/Bogota' // Aquí puede encontrar su ubicación https://momentjs.com/timezone/
