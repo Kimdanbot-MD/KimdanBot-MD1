@@ -56,60 +56,68 @@ const {play, play2, play3, play4, mp3, mp4, git, tiktok, letra, mediafire, fb, i
 const {game, game1, game2, game3, game4, game5, game6, game7, game8, game9, game10, game11, game12, game13, game14, game15, game16} = require('./kim/juegos.js')  
 const {sticker, wm2, attp, dado} = require('./kim/stickers.js')
 
+
 const msgs = (message) => { // Función 'msgs' que toma un parámetro 'message'
 if (message.length >= 10) { // Longitud de 'message' es mayor o igual a 10 caracteres
 return `${message.substr(0, 500)}` // Devuelve los primeros 500 caracteres de 'message'
 } else { // Caso contrario
-return `${message}`}} // Devuelve 'message' ccomplet
+return `${message}`}} // Devuelve 'message' completo
+const getCmd = (id) => { //Función llamada 'getCmd' que toma un parámetro 'id'
+const stickerdb = JSON.parse(fs.readFileSync('./database/stickerdb.json'))
+let anu = null;
+Object.keys(stickerdb).forEach(nganu => { // Itera sobre las claves del objeto 'stickerdb' utilizando 'forEach'
+if (stickerdb[nganu].id === id) { // Si el valor de la propiedad 'id' en el objeto 'stickerdb[nganu]' es igual a 'id'
+anu = nganu
+}})
+if (anu !== null) { // De lo contrario
+return stickerdb[anu].cmd // Devolver el valor de la propiedad 'cmd' en el objeto 'stickerdb[anu]'
+}}
 const getFileBuffer = async (mediakey, MediaType) => {
 const stream = await downloadContentFromMessage(mediakey, MediaType)
 let buffer = Buffer.from([])
 for await(const chunk of stream) {
 buffer = Buffer.concat([buffer, chunk]) }
 return buffer}
-
 module.exports = conn = async (conn, m, chatUpdate, mek, store, sock) => { // Raíz "conn" para mensajes y argumentos
-var budy = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
-//var budy = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage' && m.message.imageMessage.caption) ? m.message.imageMessage.caption : (m.mtype == 'videoMessage' && m.message.videoMessage.caption ) ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? m.message.listResponseMessage.singleSelectReply.selectedRowId :  (m.mtype == 'stickerMessage') && (getCmd(m.message.stickerMessage.fileSha256.toString()) !== null && getCmd(m.message.stickerMessage.fileSha256.toString()) !== undefined) ? getCmd(m.message.stickerMessage.fileSha256.toString()) : ''
-  	
+var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage' && m.message.imageMessage.caption) ? m.message.imageMessage.caption : (m.mtype == 'videoMessage' && m.message.videoMessage.caption ) ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? m.message.listResponseMessage.singleSelectReply.selectedRowId :  (m.mtype == 'stickerMessage') && (getCmd(m.message.stickerMessage.fileSha256.toString()) !== null && getCmd(m.message.stickerMessage.fileSha256.toString()) !== undefined) ? getCmd(m.message.stickerMessage.fileSha256.toString()) : ''
 	
 // ═════════════𓊈『 ATRIBUTOS 』𓊉═════════════
 if (m.key.id.startsWith("BAE5")) return
-var body = (typeof m.text == 'string' ? m.text : '')
-var prefix = /^[./*#]/gi.test(body) ? body.match(/^[/.*#]/gi)[0] : ""
-//var prefix = body.match(/^[/.*#]/)   
-const isCmd = body.startsWith(prefix) 
-const command = isCmd ? body.slice(1).trim().split(/ +/).shift().toLocaleLowerCase() : null
-const args = body.trim().split(/ +/).slice(1) 
-const from = m.chat 
-const msg = JSON.parse(JSON.stringify(m, undefined, 2)) 
-const content = JSON.stringify(m.message) 
-const type = m.mtype 
-let t = m.messageTimestamp 
-const pushname = m.pushName || "Sin nombre" 
-const botnm = conn.user.id.split(":")[0] + "@s.whatsapp.net"  
-const _isBot = conn.user.jid
-const userSender = m.key.fromMe ? botnm : m.isGroup && m.key.participant.includes(":") ? m.key.participant.split(":")[0] + "@s.whatsapp.net" : m.key.remoteJid.includes(":") ? m.key.remoteJid.split(":")[0] + "@s.whatsapp.net" : m.key.fromMe ? botnm : m.isGroup ? m.key.participant : m.key.remoteJid  
-const isCreator = [conn.decodeJid(conn.user.id), ...global.owner.map(([numero]) => numero)].map((v) => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender);
+var budy = (typeof m.text == 'string' ? m.text : '') // Asignar a la variable budy el valor m.text si es cadena	
+//var prefix = prefa ? /^[°•π÷×¶∆£¢€¥®™+✓_=/|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=/|~!?@#$%^&.©^]/gi)[0] : "" : prefa ?? global.prefix = new RegExp('^[°•π÷×¶∆£¢€¥®™+✓_=/|~!?@#$%^&.©^' + '*/!#$%+£¢€¥^°=¶∆×÷π√✓©®:;?&.\\-.@'.replace(/[|\\{}()[\]^$+*?.\-\^]/g, '\\$&') + ']', 'i')
+global.prefix = body.match(/^[/.*#]/)  
+const prefix = global.prefix
+const isCmd = body.startsWith(prefix) // Verificar si el contenido de body comienza con el valor almacenado en prefix.
+const from = m.chat // Remitente del mensaje
+const msg = JSON.parse(JSON.stringify(mek, undefined, 2)) // Mensaje convertido a formato JSON
+const content = JSON.stringify(m.message) // Contenido del mensaje convertido a formato JSON
+const type = m.mtype // Tipo de mensaje
+const arg = body.substring(body.indexOf(' ') + 1) // Argumento extraído del cuerpo del mensaje
+const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase() // Comando extraído del cuerpo del mensaje
+const args = body.trim().split(/ +/).slice(1) // Obtiene los argumentos del comando
+const full_args = body.replace(command, '').slice(1).trim()
+const q = args.join(" ") // Une los argumentos en una sola cadena separada por espacios
+let t = m.messageTimestamp // Marca de tiempo de mensaje
+const pushname = m.pushName || "Sin nombre" // Obtiene el nombre de visualización del usuario de lo contrario será "Sin nombre"
+const botnm = conn.user.id.split(":")[0] + "@s.whatsapp.net"
+const userSender = m.key.fromMe ? botnm : m.isGroup && m.key.participant.includes(":") ? m.key.participant.split(":")[0] + "@s.whatsapp.net" : m.key.remoteJid.includes(":") ? m.key.remoteJid.split(":")[0] + "@s.whatsapp.net" : m.key.fromMe ? botnm : m.isGroup ? m.key.participant : m.key.remoteJid
+const isCreator = global.owner.map(([numero]) => numero.replace(/[^\d\s().+:]/g, '').replace(/\s/g, '') + '@s.whatsapp.net').includes(userSender) // Eliminar todo a excepción de números
 const isOwner = isCreator || m.fromMe;
-const isMods = isOwner || global.mods.map((v) => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender);
-const isCreator = global.owner.map(([numero]) => numero.replace(/[^\d\s().+:]/g, '').replace(/\s/g, '') + '@s.whatsapp.net').includes(userSender) 
-const itsMe = m.sender == conn.user.id ? true : false 
-const text = args.join(" ") 
-const q = args.join(" ") 
-const quoted = m.quoted ? m.quoted : m 
-const sender = m.key.fromMe ? botnm : m.isGroup ? m.key.participant : m.key.remoteJid 
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
-const mime = (quoted.msg || quoted).mimetype || ''  
+const itsMe = m.sender == conn.user.id ? true : false // Verifica si el remitente del mensaje es el propio bot	
+const text = args.join(" ") // Unir rgumentos en una sola cadena separada por espacios
+const quoted = m.quoted ? m.quoted : m // Obtiene el mensaje citado si existe, de lo contrario, se establece como el propio mensaje
+const sender = m.key.fromMe ? botnm : m.isGroup ? m.key.participant : m.key.remoteJid // Obtiene el remitente del mensaje según el tipo de chat (individual o grupo)
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))	
+const mime = (quoted.msg || quoted).mimetype || '' // Tipo de archivo adjunto del mensaje citado o del propio mensaje
+const qmsg = (quoted.msg || quoted)	
+const isMedia = /image|video|sticker|audio/.test(mime) // Verifica si el mensaje contiene un archivo multimedia (imagen, video, sticker o audio)
 const numBot = conn.user.id.split(":")[0] + "@s.whatsapp.net" // JID del Bot
 const numBot2 = conn.user.id // Número de teléfono del bot
-const qmsg = (quoted.msg || quoted)
-const isMedia = /image|video|sticker|audio/.test(mime)
-const mentions = []  
-if (m.message[type].contextInfo) {   
-if (m.message[type].contextInfo.mentionedJid) {  
-const msd = m.message[type].contextInfo.mentionedJid  
-for (let i = 0; i < msd.length; i++) {  
+const mentions = []
+if (m.message[type].contextInfo) { 
+if (m.message[type].contextInfo.mentionedJid) {
+const msd = m.message[type].contextInfo.mentionedJid
+for (let i = 0; i < msd.length; i++) {
 mentions.push(msd[i])}}}
 	
 // ═════════════𓊈『 GRUPO 』𓊉═════════════
