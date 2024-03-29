@@ -33,8 +33,8 @@ const translate = require('@vitalets/google-translate-api')
 
 const color = (text, color) => { // Función 'color' que toma un texto y un color como parámetros
 return !color ? chalk.cyanBright(text) : color.startsWith('#') ? chalk.hex(color)(text) : chalk.keyword(color)(text)} // Si no hay color, utilizar el color celeste brillante (por defecto)
-
-// ═════════════𓊈『 LIBS 』𓊉═════════════
+ 
+// ════════════𓊈『 LIBS 』𓊉═════════════
 const scp1 = require('./libs/scraper') 
 const { TelegraPh, UploadFileUgu, webp2mp4File, floNime } = require('./libs/uploader.js')
 const { toAudio, toPTT, toVideo } = require('./libs/convertir.js') 
@@ -56,12 +56,12 @@ const {play, play2, play3, play4, mp3, mp4, git, tiktok, letra, mediafire, fb, i
 const {game, game1, game2, game3, game4, game5, game6, game7, game8, game9, game10, game11, game12, game13, game14, game15, game16} = require('./kim/juegos.js')  
 const {sticker, wm2, attp, dado} = require('./kim/stickers.js')
 
-
 const msgs = (message) => { // Función 'msgs' que toma un parámetro 'message'
 if (message.length >= 10) { // Longitud de 'message' es mayor o igual a 10 caracteres
 return `${message.substr(0, 500)}` // Devuelve los primeros 500 caracteres de 'message'
 } else { // Caso contrario
 return `${message}`}} // Devuelve 'message' completo
+
 const getCmd = (id) => { //Función llamada 'getCmd' que toma un parámetro 'id'
 const stickerdb = JSON.parse(fs.readFileSync('./database/stickerdb.json'))
 let anu = null;
@@ -78,6 +78,7 @@ let buffer = Buffer.from([])
 for await(const chunk of stream) {
 buffer = Buffer.concat([buffer, chunk]) }
 return buffer}
+
 module.exports = conn = async (conn, m, chatUpdate, mek, store, sock) => { // Raíz "conn" para mensajes y argumentos
 var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage' && m.message.imageMessage.caption) ? m.message.imageMessage.caption : (m.mtype == 'videoMessage' && m.message.videoMessage.caption ) ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? m.message.listResponseMessage.singleSelectReply.selectedRowId :  (m.mtype == 'stickerMessage') && (getCmd(m.message.stickerMessage.fileSha256.toString()) !== null && getCmd(m.message.stickerMessage.fileSha256.toString()) !== undefined) ? getCmd(m.message.stickerMessage.fileSha256.toString()) : ''
 	
@@ -103,7 +104,6 @@ const userSender = m.key.fromMe ? botnm : m.isGroup && m.key.participant.include
 const isCreator = global.owner.map(([numero]) => numero.replace(/[^\d\s().+:]/g, '').replace(/\s/g, '') + '@s.whatsapp.net').includes(userSender) // Eliminar todo a excepción de números
 const isOwner = isCreator || m.fromMe;
 const isMods = isOwner || global.mods.map((v) => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender);
-//const isCreator = global.owner.map(([numero]) => numero.replace(/[^\d\s().+:]/g, '').replace(/\s/g, '') + '@s.whatsapp.net').includes(userSender) 
 const itsMe = m.sender == conn.user.id ? true : false // Verifica si el remitente del mensaje es el propio bot	
 const text = args.join(" ") // Unir rgumentos en una sola cadena separada por espacios
 const quoted = m.quoted ? m.quoted : m // Obtiene el mensaje citado si existe, de lo contrario, se establece como el propio mensaje
