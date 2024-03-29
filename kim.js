@@ -137,8 +137,8 @@ const fdoc = {key : {participant : '0@s.whatsapp.net', ...(from ? { remoteJid: `
 const kick = function (from, orangnya) {  
 for (let i of orangnya) {  
 conn.groupParticipantsUpdate(m.chat, [i], "remove")}}  
-const time = moment(Number(msg.messageTimestamp + "000")).locale("es-mx").tz("America/Asuncion").format('MMMM Do YYYY, h:mm:ss a')  
-
+const time = moment(Number(msg.messageTimestamp + "000")).locale("es-mx").tz("America/Asuncion").format('MMMM Do YYYY, h:mm:ss a')
+	
 // ═════════════𓊈『 MENSAJES 』𓊉═════════════
 const reply = (text) => {
 m.reply(text)} // Enviar una respuesta
