@@ -206,7 +206,7 @@ if (m.sender.startsWith(prefix)) {
 m.reply(`${lenguaje.smsAntiArabe}`, m.sender)
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}}}
 	
-/*// ═════════════𓊈『 AUTOBIO 』𓊉═════════════	
+// ═════════════𓊈『 AUTOBIO 』𓊉═════════════	
     const sk = [
       "𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃🌺🍓",
       "𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃🫐🌸",
@@ -225,7 +225,7 @@ await conn.updateProfileStatus(bio)
  setting.status = new Date() * 1 
 } catch {
 console.log(`[𝚄𝙿𝙳𝙰𝚃𝙴]\npepa pig`)
-}}}*/
+}}}
 	
 //═════════════𓊈『 ANTILINK 』𓊉═════════════
 //WhatsApp
