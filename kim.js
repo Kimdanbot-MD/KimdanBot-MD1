@@ -1241,9 +1241,9 @@ case 'fake':
 /////////////////////////////////   
    
 // ═════════════𓊈『 FUNCIONES 』𓊉═════════════
-function pickRandom(list) {return list[Math.floor(list.length * Math.random())]}       
+/*function pickRandom(list) {return list[Math.floor(list.length * Math.random())]}       
 
-function isNumber(x) {return !isNaN(x)}
+function isNumber(x) {return !isNaN(x)}*/
 
 // ═════════════𓊈『 AUDIO/TEXTOS 』𓊉═════════════
 // ═════════════𓊈『 OWNER 』𓊉═════════════
