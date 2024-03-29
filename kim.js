@@ -64,66 +64,6 @@ return `${message.substr(0, 500)}` // Devuelve los primeros 500 caracteres de 'm
 return `${message}`}} // Devuelve 'message' completo
 const getCmd = (id) => { //Función llamada 'getCmd' que toma un parámetro 'id'
 const stickerdb = JSON.parse(fs.readFileSync('./database/stickerdb.json'))
-// Código desde cero por: https://github.com/ferhacks y comentario hecho por: 
-// @Kimdanbot-MD     
-// @elrebelde21
-// ═════════════𓊈『 IMPORTACIONES 』𓊉═════════════ 
-const baileys = require('@whiskeysockets/baileys'); // trabajar a través de descargas por Whatsapp 
-const { WaMessageStubType, areJidsSameUser, downloadContentFromMessage, generateWAMessageContent, generateWAMessageFromContent, generateWAMessage, prepareWAMessageMedia, relayMessage} = require('@whiskeysockets/baileys'); // Importa los objetos 'makeWASocket' y 'proto' desde el módulo '@whiskeysockets/baileys'  
-const { default: makeWASocket, proto } = require("@whiskeysockets/baileys") 
-const moment = require('moment-timezone') // Trabajar con fechas y horas en diferentes zonas horarias
-const gradient = require('gradient-string') // Aplicar gradientes de color al texto   
-const { exec, spawn, execSync } =  require("child_process")// Función 'execSync' del módulo 'child_process' para ejecutar comandos en el sistema operativo 
-const chalk = require('chalk') // Estilizar el texto en la consola  
-const os = require('os') // Proporciona información del sistema operativo 
-const fs = require('fs') // Trabajar con el sistema de archivos   
-const fetch = require('node-fetch')
-const axios = require('axios') 
-const {fileURLToPath} = require('url')
-const cheerio = require('cheerio')
-const yts = require('yt-search')
-const gpt = require('api-dylux')
-const util = require('util')
-const createHash = require('crypto') 
-const mimetype = require("mime-types")  
-const ws = require('ws')
-const JavaScriptObfuscator = require('javascript-obfuscator')
-const webp = require("node-webpmux")
-const Jimp = require('jimp')
-const { File } = require("megajs")
-const speed = require("performance-now")
-const ffmpeg = require("fluent-ffmpeg")
-const similarity = require('similarity') 
-const translate = require('@vitalets/google-translate-api') 
-const color = (text, color) => { // Función 'color' que toma un texto y un color como parámetros
-return !color ? chalk.cyanBright(text) : color.startsWith('#') ? chalk.hex(color)(text) : chalk.keyword(color)(text)} // Si no hay color, utilizar el color celeste brillante (por defecto)
-// ═════════════𓊈『 LIBS 』𓊉═════════════
-const scp1 = require('./libs/scraper') 
-const { TelegraPh, UploadFileUgu, webp2mp4File, floNime } = require('./libs/uploader.js')
-const { toAudio, toPTT, toVideo } = require('./libs/convertir.js') 
-const { canLevelUp, xpRange } = require('./libs/levelling.js')
-const { smsg, fetchBuffer, getBuffer, buffergif, getGroupAdmins, formatp, tanggal, formatDate, getTime, isUrl, sleep, clockString, runtime, fetchJson, jsonformat, delay, format, logic, generateProfilePicture, parseMention, getRandom, msToTime, downloadMediaMessage, convertirMsADiasHorasMinutosSegundos} = require('./libs/fuctions')
-const { ytmp4, ytmp3, ytplay, ytplayvid } = require('./libs/youtube') 
-const { mediafireDl } = require('./libs/mediafire.js') 
-// ═════════════𓊈『 CÓDIGO 』𓊉═════════════
-const { jadibot, listJadibot, killJadibot} = require('./serbot.js')
-//const { jadibot2} = require('./serbot2.js')
-const { Info, ping, col, col1, grupo, estado, dona, cuentas, infobot, listag} = require('./kim/Info')
-const { menu, menu1} = require('./kim/Menu')
-const {grup, del, setpp, hide, setna, setde, add, k, p, d, link, ban, tag, adm, infogr, warn1, warn2, online, listw} = require('./kim/grupos.js')
-const {rob, bal, reg, reg1, reg2, work, mine, buy, claim, perfil, nivel, cofre, lb} = require('./kim/rpg.js') 
-const {buscadores} = require('./kim/Busquedas.js')
-const {efec, url, tomp3, toimg, toanime} = require('./kim/convertidores.js') 
-const {play, play2, play3, play4, mp3, mp4, git, tiktok, letra, mediafire, fb, ig, ig2, apk, spoti} = require('./kim/descargas.js')   
-const {game, game1, game2, game3, game4, game5, game6, game7, game8, game9, game10, game11, game12, game13, game14, game15, game16} = require('./kim/juegos.js')  
-const {sticker, wm2, attp, dado} = require('./kim/stickers.js')
-const msgs = (message) => { // Función 'msgs' que toma un parámetro 'message'
-if (message.length >= 10) { // Longitud de 'message' es mayor o igual a 10 caracteres
-return `${message.substr(0, 500)}` // Devuelve los primeros 500 caracteres de 'message'
-} else { // Caso contrario
-return `${message}`}} // Devuelve 'message' completo
-const getCmd = (id) => { //Función llamada 'getCmd' que toma un parámetro 'id'
-const stickerdb = JSON.parse(fs.readFileSync('./database/stickerdb.json'))
 let anu = null;
 Object.keys(stickerdb).forEach(nganu => { // Itera sobre las claves del objeto 'stickerdb' utilizando 'forEach'
 if (stickerdb[nganu].id === id) { // Si el valor de la propiedad 'id' en el objeto 'stickerdb[nganu]' es igual a 'id'
