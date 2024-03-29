@@ -145,7 +145,7 @@ m.reply(text)} // Enviar una respuesta
 const sendAdMessage = (text, title, body, image, url) => { conn.sendMessage(from, {text: text, contextInfo: { externalAdReply: { title: title, body: body, mediaUrl: url, sourceUrl: url, previewType: 'PHOTO', showAdAttribution: true, thumbnail: image, sourceUrl: url }}}, {})}
 const sendImage = ( image, caption ) => { conn.sendMessage(from, { image: image, caption: caption }, { quoted: m })}
 const sendImageAsUrl = ( url, caption ) => { conn.sendMessage(from, { image:  {url: url }, caption: caption }, { quoted: m })}
-
+	
 // ═════════════𓊈『 TIPOS DE MENSAJES Y CITADOS 』𓊉═════════════
 const isAudio = type == 'audioMessage' // Mensaje de Audio
 const isSticker = type == 'stickerMessage' // Mensaje de Sticker
@@ -163,12 +163,16 @@ const isViewOnce = (type === 'viewOnceMessage') // Verifica si el tipo de mensaj
 if (isMedia && m.msg.fileSha256 && (m.msg.fileSha256.toString('base64') in global.db.data.sticker)) {
 let hash = global.db.data.sticker[m.msg.fileSha256.toString('base64')]
 let { text, mentionedJid } = hash
-let messages = await generateWAMessage(m.chat, { text: text, mentions: mentionedJid }, {userJid: conn.user.id, quoted: m.quoted && m.quoted.fakeObj })
+let messages = await generateWAMessage(m.chat, { text: text, mentions: mentionedJid }, {userJid: conn.user.id,
+quoted: m.quoted && m.quoted.fakeObj
+})
 messages.key.fromMe = areJidsSameUser(m.sender, conn.user.id)
-messages.key.id = m.key.id 
+messages.key.id = m.key.id
 messages.pushName = m.pushName
 if (m.isGroup) messages.participant = m.sender
-let msg = {...chatUpdate, messages: [proto.WebMessageInfo.fromObject(messages)], type: 'append' }
+let msg = {...chatUpdate, messages: [proto.WebMessageInfo.fromObject(messages)],
+type: 'append'
+}
 conn.ev.emit('messages.upsert', msg)}
 
 //═════════════𓊈『 AUTOREAD 』𓊉═════════════
