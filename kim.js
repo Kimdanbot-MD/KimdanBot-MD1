@@ -1272,12 +1272,7 @@ reply(e)
 }
 }
 }
-// ═════════════𓊈『 REPORTE/ERRORES 』𓊉═════════════
-let e = String(err) 
-conn.sendMessage("573173090446@s.whatsapp.net", { text: "Hola Creador/desarrollador, parece haber un error, por favor arreglarlo 🥲\n\n" + util.format(e), 
-contextInfo:{forwardingScore: 9999999, isForwarded: false }})
-process.on('uncaughtException', function (err) {
-console.log('Caught exception: ', err)})}
+}
 
 // ═════════════𓊈『 UPDATE/CONSOLA 』𓊉═════════════
 let file = require.resolve(__filename)
