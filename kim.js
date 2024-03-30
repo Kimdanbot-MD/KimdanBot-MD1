@@ -476,7 +476,7 @@ return !1;
 
 //falta tictactoe y los otros antilink
 	
-switch (prefix && command) {
+switch (command) {
 		
 case 'priv': {
 if (!isCreator) return m.reply(mess.owner)
