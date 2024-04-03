@@ -193,7 +193,7 @@ global.db.data.users[m.sender].spam = new Date * 1;
 }*/
             
 //═════════════𓊈『 ANTIFAKE 』𓊉═════════════
-if (global.db.data.chats[m.chat].antifake && !isGroupAdmins) {	
+/*if (global.db.data.chats[m.chat].antifake && !isGroupAdmins) {	
 let forbidPrefixes = ["1", "994", "48", "43", "40", "41", "49"];
 for (let prefix of forbidPrefixes) {
 if (m.sender.startsWith(prefix)) {
@@ -205,7 +205,7 @@ for (let prefix of forbidPrefixes) {
 if (m.sender.startsWith(prefix)) {
 m.reply(`${lenguaje.smsAntiArabe}`, m.sender)
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}}}
-	
+*/	
 // ═════════════𓊈『 AUTOBIO 』𓊉═════════════	
     const sk = [
       "𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃🌺🍓",
