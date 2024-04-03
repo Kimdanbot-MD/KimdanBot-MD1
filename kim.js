@@ -115,7 +115,7 @@ const isMedia = /image|video|sticker|audio/.test(mime) // Verifica si el mensaje
 const numBot = conn.user.id.split(":")[0] + "@s.whatsapp.net" // JID del Bot
 const numBot2 = conn.user.id // Número de teléfono del bot
 const mentions = []
-if (m.message[type].contextInfo) { 
+if (m.message[type].contextInfo) {
 if (m.message[type].contextInfo.mentionedJid) {
 const msd = m.message[type].contextInfo.mentionedJid
 for (let i = 0; i < msd.length; i++) {
@@ -135,8 +135,8 @@ const thumb = fs.readFileSync("./src/test.jpg")
 const fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${userSender.split('@')[0]}:${userSender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
 const ftroli ={key: {fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "status@broadcast"}, "message": {orderMessage: {itemCount: 2022,status: 200, thumbnail: thumb, surface: 200, message: "ɴᴏᴠᴀʙᴏᴛ-ᴍᴅ", orderTitle: "sᴜᴘᴇʀ ʙᴏᴛ ᴅᴇ ᴡʜᴀᴛsᴀᴘᴘ", sellerJid: '0@s.whatsapp.net'}}, contextInfo: {"forwardingScore":999,"isForwarded":true},sendEphemeral: true}
 const fdoc = {key : {participant : '0@s.whatsapp.net', ...(from ? { remoteJid: `status@broadcast` } : {}) },message: {documentMessage: {title: botname, jpegThumbnail: null}}}
-const kick = function (from, orangnya) {  
-for (let i of orangnya) {  
+const kick = function (from, orangnya) { 
+for (let i of orangnya) {
 conn.groupParticipantsUpdate(m.chat, [i], "remove")}}  
 const time = moment(Number(msg.messageTimestamp + "000")).locale("es-mx").tz("America/Asuncion").format('MMMM Do YYYY, h:mm:ss a')
 	
@@ -626,7 +626,8 @@ p(conn, m, isBotAdmins, isGroupAdmins, quoted, sender)
 break
 case 'demote':
 d(conn, m, isBotAdmins, isGroupAdmins, quoted, sender)
-break */           
+break */     
+
 case 'link': case 'linkgc': 
 link(conn, m, isBotAdmins)
 break                        		
@@ -830,7 +831,7 @@ conn.sendMessage(m.chat, {image: {url: "https://api.boxmine.xyz/api/nsfw/yaoi"}}
 }		
 break
 
-case 'autolevel': case 'lvl': {	
+case 'autolevel': case 'lvl': {
 if (!m.isGroup) return m.reply(mess.group)
 if (!text) return m.reply(`usado erróneamente`)
 if (args[0] === "on") {
@@ -866,7 +867,7 @@ if (!db.data.chats[m.chat].antilink) return m.reply(`3`)
 db.data.chats[m.chat].antilink = false
 m.reply(`4`)
 } else {
-hisoka.sendPoll(m.chat, "este es el ejemplo", [`${command.charAt(0).toUpperCase()+command.slice(1)} On`,`${command.charAt(0).toUpperCase()+command.slice(1)} Off`])
+conn.sendPoll(m.chat, "este es el ejemplo", [`${command.charAt(0).toUpperCase()+command.slice(1)} On`,`${command.charAt(0).toUpperCase()+command.slice(1)} Off`])
 }
 }
 break
@@ -1197,7 +1198,7 @@ if (!q) return reply(`Example ${prefix+command} unicorn_xeon`)
 wait() 
 const aj = await igstalk(`${q}`)
 conn.sendMensage(m.chat, { image: { url : aj.profile }, caption: 
-`*/ Instagram Stalker \\*
+`*Instagram Stalker*
 
 Full name : ${aj.fullname}
 Username : ${aj.username}
