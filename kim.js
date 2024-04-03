@@ -413,14 +413,14 @@ await delay(3 * 3000)
 await m.reply(resu2[0][0][0])}}
 	
 //═════════════𓊈『 ANTIPRIV 』𓊉═════════════
-if (!m.isGroup && !isCreator) {  
+if (!m.isGroup && !isCreator) {
 //const bot = global.db.data.users[m.sender] || {};
 if (global.db.data.settings[numBot].antiprivado) {
 conn.sendMessage(m.chat, {text: `${lenguaje.smsAntiPv}\n${nn2}`, mentions: [sender], },{quoted: m})
 await delay(2 * 2000)
 await conn.updateBlockStatus(m.chat, 'block')
 return
-}
+}}
 	
 //═════════════𓊈『 AFK 』𓊉═════════════
 let mentionUser = [...new Set([...(m.mentionedJid || []), ...(m.quoted ? [m.quoted.sender] : [])])]
@@ -1278,7 +1278,7 @@ reply(e)
 }
 }
 }
-}
+
 
 // ═════════════𓊈『 UPDATE/CONSOLA 』𓊉═════════════
 let file = require.resolve(__filename)
