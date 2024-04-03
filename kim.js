@@ -1249,7 +1249,7 @@ function isNumber(x) {return !isNaN(x)}*/
 // ═════════════𓊈『 OWNER 』𓊉═════════════
 default:
 if (body.startsWith('>')) {
-if (!isCreator) return
+if (!isCreator) return reply('a')
 try {
 return reply(JSON.stringify(eval(body.slice(2)), null, '\t'))
 } catch (e) {
@@ -1258,7 +1258,7 @@ reply(e)
 }
 }
 if (body.startsWith('=>')) {
-if (!isCreator) return
+if (!isCreator) return reply('a')
 try {
 return  reply(JSON.stringify(eval(`${body.slice(3)}`), null, '\t'))
 } catch (e) {
@@ -1267,7 +1267,7 @@ reply(e)
 }
 }
 if (body.startsWith('$')) {
-if (!isCreator) return
+if (!isCreator) return reply('a')
 try {
 return reply(String(execSync(body.slice(2), { encoding: 'utf-8' })))
 } catch (e) {
