@@ -1260,7 +1260,7 @@ reply(e)
 if (budy.startsWith('=>')) {
 if (!isCreator) return
 try {
-return  reply(JSON.stringify(eval(`(async () => { ${budy.slice(3)} })()`), null, '\t')) 
+return  reply(JSON.stringify(eval(`${budy.slice(3)}`), null, '\t')) 
 } catch (e) {
 e = String(e)
 reply(e)
