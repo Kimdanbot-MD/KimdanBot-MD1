@@ -694,7 +694,7 @@ return !1;
 }*/
 }});
 	
-const rainbowColors = ['red', 'yellow', 'green', 'blue', 'purple'];
+/*const rainbowColors = ['red', 'yellow', 'green', 'blue', 'purple'];
 let index = 0;
 
 function printRainbowMessage() {
@@ -704,7 +704,7 @@ index = (index + 1) % rainbowColors.length;
 setTimeout(printRainbowMessage, 60000) //Ajuste el tiempo de espera a la velocidad deseada
 }
 
-printRainbowMessage();
+printRainbowMessage();*/
 
 sock.public = true
 store.bind(sock.ev)
