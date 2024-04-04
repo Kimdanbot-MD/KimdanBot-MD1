@@ -687,24 +687,24 @@ color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
 color(`\n┏━━━◉━━━━⬤━━━⪩『 🍒  ${vs} 🍒   』⪨━━━⬤━━━━◉━━━┉┉\n${lenguaje['smsConectado']()}\n┗━━━◉━━━━⬤━━━⪩『 🍒  ${vs} 🍒   』⪨━━━⬤━━━━◉━━━┉┉\n\n` + receivedPendingNotifications, '#38ef7d')
 );
 	
-/*if (!sock.user.connect) {
+if (!sock.user.connect) {
 await sock.groupAcceptInvite(nn2) 
 sock.user.connect = true
 return !1;
-}*/
+}
 }});
 	
-/*const rainbowColors = ['red', 'yellow', 'green', 'blue', 'purple'];
+const rainbowColors = ['red', 'yellow', 'green', 'blue', 'purple'];
 let index = 0;
 
 function printRainbowMessage() {
 const color = rainbowColors[index];
-console.log(chalk.keyword(color)('\n[UPTIME]'));
+console.log(chalk.keyword(color)('\nʚ❤️ɞ(ू•ᴗ•ू🌸) ｟ 𝐔 𝐏 𝐓 𝐈 𝐌 𝐄 ｠'));
 index = (index + 1) % rainbowColors.length;
 setTimeout(printRainbowMessage, 60000) //Ajuste el tiempo de espera a la velocidad deseada
 }
 
-printRainbowMessage();*/
+printRainbowMessage();
 
 sock.public = true
 store.bind(sock.ev)
