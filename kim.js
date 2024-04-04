@@ -482,10 +482,10 @@ if (!isCreator) return m.reply(mess.owner)
 if (!text) return m.reply(`y el texto`)
 if (args[0] === "on") {
 global.db.data.settings[numBot].antiprivado = true
-	m.reply(`✅ activado`)
+m.reply(`✅ activado`)
 } else if (args[0] === "off") {
 global.db.data.settings[numBot].antiprivado = false
-	m.reply(`🟢 desactivado`)}}
+m.reply(`🟢 desactivado`)}}
 break	
 		
 //idiomas 
@@ -504,10 +504,11 @@ user.Language = idioma
 m.reply(`se cambio a ` + idiomas)}  
 break 
 		
-	case 'imagen':
+case 'imagen':
 let pp = await conn.profilePictureUrl(m.chat, 'image')	
 await conn.sendMessage(m.chat, pp) 		
-	break
+break
+
 /*case 'serbot': case 'qr':
 jadibot(conn, m, command)  
 break  
@@ -671,7 +672,7 @@ let user = global.db.data.users[m.sender]
 user.afkTime = + new Date
 user.afkReason = text
 m.reply(`╭━─━─━─≪ 𝙰𝙺𝙵 ≫─━─━─━╮
-┃ 𝙴𝚂𝚃𝙴 𝚄𝚂𝚄𝙰𝚁𝙸𝙾𝚂 ${pushname}
+┃ 𝙴𝚂𝚃𝙴 𝚄𝚂𝚄𝙰𝚁𝙸𝙾 ${pushname}
 ┃ 𝙴𝚂𝚃𝙰 𝙸𝙽𝙰𝙲𝚃𝙸𝚅𝙾 😴
 ┃ ≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋≋
 ┃ 💤 𝙽𝙾 𝙻𝙾𝚂 𝙴𝚃𝙸𝚀𝚄𝙴𝚃𝙴 💤
@@ -872,19 +873,19 @@ conn.sendPoll(m.chat, "este es el ejemplo", [`${command.charAt(0).toUpperCase()+
 break
 		
 case 'welcome': {
-  if (!m.isGroup) return reply(mess.group);
-  if (!isBotAdmins) return reply(mess.botAdmin);
-  if (!isGroupAdmins) return reply(mess.admin);
-  if (args[0] === "on") {
-  if (global.db.data.chats[m.chat].welcome) return reply (`໒🫐⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐀𝐜𝐭𝐢𝐯𝐚𝐝𝐨 𝐚𝐧𝐭𝐞𝐫𝐢𝐨𝐫𝐦𝐞𝐧𝐭𝐞.*`);  
+if (!m.isGroup) return reply(mess.group);
+if (!isBotAdmins) return reply(mess.botAdmin);
+if (!isGroupAdmins) return reply(mess.admin);
+if (args[0] === "on") {
+if (global.db.data.chats[m.chat].welcome) return reply (`໒🫐⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐀𝐜𝐭𝐢𝐯𝐚𝐝𝐨 𝐚𝐧𝐭𝐞𝐫𝐢𝐨𝐫𝐦𝐞𝐧𝐭𝐞.*`);  
 global.db.data.chats[m.chat].welcome = true;
 reply(`໒🫐⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐒𝐞 𝐚𝐜𝐭𝐢𝐯𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞.*`);
-      }
-  else if (args[0] === "off") {
-    if (!global.db.data.chats[m.chat].welcome) return reply (`໒🍓⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐃𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐝𝐨 𝐚𝐧𝐭𝐞𝐫𝐢𝐨𝐫𝐦𝐞𝐧𝐭𝐞.*`);
-    global.db.data.chats[m.chat].welcome = false;
-    reply(`໒🍓⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐒𝐞 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐨́ 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞.*`);
-    }
+}
+else if (args[0] === "off") {
+if (!global.db.data.chats[m.chat].welcome) return reply (`໒🍓⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐃𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐝𝐨 𝐚𝐧𝐭𝐞𝐫𝐢𝐨𝐫𝐦𝐞𝐧𝐭𝐞.*`);
+global.db.data.chats[m.chat].welcome = false;
+reply(`໒🍓⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐒𝐞 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐨́ 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞.*`);
+}
 }
 break;
 
@@ -896,12 +897,12 @@ m.reply(mess.wait)
 let result = args[0].split('https://chat.whatsapp.com/')[1]
 await conn.groupAcceptInvite(result)
 }
- break
+break
 		
 case 'leave': case 'salte': {
-  if (!isCreator) return reply(mess.owner) 
-  reply(m.chat, `*Adios fue un gusto estar aqui hasta pronto*`);
-  await conn.groupLeave(m.chat);
+if (!isCreator) return reply(mess.owner) 
+reply(m.chat, `*Adios fue un gusto estar aqui hasta pronto*`);
+await conn.groupLeave(m.chat);
 }
 break
 
@@ -916,7 +917,7 @@ await conn.groupRequestParticipantsUpdate(m.chat, users, 'approve')
 } catch {
 await conn.groupRequestParticipantsUpdate(m.chat, response, 'approve')
 }
-    }
+}
 break				
 
 case 'prueba2': {
@@ -929,11 +930,11 @@ await conn.groupRequestParticipantsUpdate(m.chat, response, 'reject')
 break			
 		
 case 'kick': case 'ban': case 'sacar': {
-  if (!m.isGroup) return reply(mess.group);
-  if (!isBotAdmins) return reply(mess.botAdmin);
-  if (!isGroupAdmins) return reply(mess.admin);
-  let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net';
-  conn.groupParticipantsUpdate(m.chat, [users], 'remove');
+if (!m.isGroup) return reply(mess.group);
+if (!isBotAdmins) return reply(mess.botAdmin);
+if (!isGroupAdmins) return reply(mess.admin);
+let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net';
+conn.groupParticipantsUpdate(m.chat, [users], 'remove');
 }
 break
 
@@ -947,20 +948,20 @@ await conn.groupParticipantsUpdate(m.chat, users, 'add')
 break		
 
 case 'promote': case 'daradmin': {
-  if (!m.isGroup) return reply(mess.group);
-  if (!isBotAdmins) return reply(mess.botAdmin);
-  if (!isGroupAdmins) return reply(mess.admin);
-  let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net';
-  await conn.groupParticipantsUpdate(m.chat, [users], 'promote').then((res) => conn.sendMessage(m.chat, {text: "*🍓꙰ᷜූා𝆺▸ 𝐀𝐓𝐄𝐍𝐂𝐈𝐎́𝐍*\n*╰❥* 𝐓𝐞𝐧𝐞𝐦𝐨𝐬 𝐮𝐧 𝐧𝐮𝐞𝐯𝐨 𝐚𝐝𝐦𝐢𝐧\nli.⏦｡⏦✰⏦｡⏦✰⏦｡⏦✰⏦.li", mentions: participants.map((a) => a.id)}, {quoted: m}),).catch((err) => reply("Error"));
+if (!m.isGroup) return reply(mess.group);
+if (!isBotAdmins) return reply(mess.botAdmin);
+if (!isGroupAdmins) return reply(mess.admin);
+let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net';
+await conn.groupParticipantsUpdate(m.chat, [users], 'promote').then((res) => conn.sendMessage(m.chat, {text: "*🍓꙰ᷜූා𝆺▸ 𝐀𝐓𝐄𝐍𝐂𝐈𝐎́𝐍*\n*╰❥* 𝐓𝐞𝐧𝐞𝐦𝐨𝐬 𝐮𝐧 𝐧𝐮𝐞𝐯𝐨 𝐚𝐝𝐦𝐢𝐧\nli.⏦｡⏦✰⏦｡⏦✰⏦｡⏦✰⏦.li", mentions: participants.map((a) => a.id)}, {quoted: m}),).catch((err) => reply("Error"));
 }
 break
 
 case 'demote': case 'quitar': {
-  if (!m.isGroup) return reply(mess.group);
-  if (!isBotAdmins) return reply(mess.botAdmin);
-  if (!isGroupAdmins) return reply(mess.admin);
-  let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net';
-  await conn.groupParticipantsUpdate(m.chat, [users], 'demote').then((res) => reply("Respuesta")).catch((err) => reply("Error"));
+if (!m.isGroup) return reply(mess.group);
+if (!isBotAdmins) return reply(mess.botAdmin);
+if (!isGroupAdmins) return reply(mess.admin);
+let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net';
+await conn.groupParticipantsUpdate(m.chat, [users], 'demote').then((res) => reply("Respuesta")).catch((err) => reply("Error"));
 }
 break
 
@@ -1041,18 +1042,18 @@ m.reply(mess.success)
 break
 		
 case 'banchat': {
-  if (!m.isGroup) return reply(mess.group);
-  if (!isBotAdmins) return reply(mess.botAdmin);
-  if (!isGroupAdmins) return reply(mess.admin);
-  if (args[0] === "on") {
-    if (db.data.chats[m.chat].ban) return reply(`*Chat baneado*`);
-    db.data.chats[m.chat].ban = true;
-    reply(`𝚎𝚜𝚝𝚎 𝚌𝚑𝚊𝚝 𝚏𝚞𝚎 𝚋𝚊𝚗𝚎𝚊𝚍𝚘 𝚌𝚘𝚗 𝚎𝚡𝚒𝚝𝚘`);
-  } else if (args[0] === "off") {
-    if (!db.data.chats[m.chat].ban) return reply(`*Chat desbaneado*`);
-    db.data.chats[m.chat].ban = false;
-    reply(`𝚎𝚜𝚝𝚎 𝚌𝚑𝚊𝚝 𝚏𝚞𝚎 𝚍𝚎𝚜𝚋𝚊𝚗𝚎𝚊𝚍𝚘 𝚌𝚘𝚗 𝚎𝚡𝚒𝚝𝚘`);
-  }
+if (!m.isGroup) return reply(mess.group);
+if (!isBotAdmins) return reply(mess.botAdmin);
+if (!isGroupAdmins) return reply(mess.admin);
+if (args[0] === "on") {
+if (db.data.chats[m.chat].ban) return reply(`*Chat baneado*`);
+db.data.chats[m.chat].ban = true;
+reply(`𝚎𝚜𝚝𝚎 𝚌𝚑𝚊𝚝 𝚏𝚞𝚎 𝚋𝚊𝚗𝚎𝚊𝚍𝚘 𝚌𝚘𝚗 𝚎𝚡𝚒𝚝𝚘`);
+} else if (args[0] === "off") {
+if (!db.data.chats[m.chat].ban) return reply(`*Chat desbaneado*`);
+db.data.chats[m.chat].ban = false;
+reply(`𝚎𝚜𝚝𝚎 𝚌𝚑𝚊𝚝 𝚏𝚞𝚎 𝚍𝚎𝚜𝚋𝚊𝚗𝚎𝚊𝚍𝚘 𝚌𝚘𝚗 𝚎𝚡𝚒𝚝𝚘`);
+}
 }
 break
 
@@ -1096,32 +1097,32 @@ case 'toxic':
 case 'cloud':
 case 'avenger':
 case 'space':
-  if (!text) { m.reply('test') }
-  lol = `https://api.lolhuman.xyz/api/textprome/${command}?apikey=${lolkeysapi}&text=${text}`
-  sendImageAsUrl(lol, `aqui esta su texto en estilo ${command}`)
-  break
+if (!text) { m.reply('test') }
+lol = `https://api.lolhuman.xyz/api/textprome/${command}?apikey=${lolkeysapi}&text=${text}`
+sendImageAsUrl(lol, `aqui esta su texto en estilo ${command}`)
+break
 
 case 'hidetag':
-  if (!m.isGroup) return reply(mess.group);
-  if (isGroupAdmins || isCreator) {
-    conn.sendMessage(m.chat,{ text: q ? q : "", mentions: participants.map((a) => a.id) },{ quoted: isGroupAdmins ? null : m });
-  }
-  break;
+if (!m.isGroup) return reply(mess.group);
+if (isGroupAdmins || isCreator) {
+conn.sendMessage(m.chat,{ text: q ? q : "", mentions: participants.map((a) => a.id) },{ quoted: isGroupAdmins ? null : m });
+}
+break;
 
 case 'tagall': case 'invocar': {
-  if (!m.isGroup) return reply(mess.group);
-  if (!isBotAdmins) return reply(mess.botAdmin);
-  if (!isGroupAdmins) return reply(mess.admin);
-  let teks = `✿ ━〔 *🍬 𝐈𝐍𝐕𝐎𝐂𝐀𝐂𝐈𝐎́𝐍 𝐌𝐀𝐒𝐈𝐕𝐀  🍬* 〕━ ✿\n\n`
-  teks += `✿ 𝐒𝐔 𝐀𝐃𝐌𝐈𝐍 𝐋𝐎𝐒 𝐈𝐍𝐕𝐎𝐂𝐀, 𝐑𝐄𝐕𝐈𝐕𝐀𝐍\n\n`
-  teks += `✿ 𝐌𝐄𝐍𝐒𝐀𝐉𝐄: ${q ? q : 'no message'}\n\n`
-  for (let mem of participants) {
-  teks += `┃ @${mem.id.split('@')[0]}\n⁩`
-  }
-  teks += `┃\n`
-  teks += `┃☛𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝙈𝘿 : 𝐊𝐢𝐦 𝐃𝐚𝐧\n`
-  teks += `╰━━━━━[ *✰ 𝐔𝐰𝐔 ✰* ]━━━━━⬣`
-  conn.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m })
+if (!m.isGroup) return reply(mess.group);
+if (!isBotAdmins) return reply(mess.botAdmin);
+if (!isGroupAdmins) return reply(mess.admin);
+let teks = `✿ ━〔 *🍬 𝐈𝐍𝐕𝐎𝐂𝐀𝐂𝐈𝐎́𝐍 𝐌𝐀𝐒𝐈𝐕𝐀  🍬* 〕━ ✿\n\n`
+teks += `✿ 𝐒𝐔 𝐀𝐃𝐌𝐈𝐍 𝐋𝐎𝐒 𝐈𝐍𝐕𝐎𝐂𝐀, 𝐑𝐄𝐕𝐈𝐕𝐀𝐍\n\n`
+teks += `✿ 𝐌𝐄𝐍𝐒𝐀𝐉𝐄: ${q ? q : 'no message'}\n\n`
+for (let mem of participants) {
+teks += `┃ @${mem.id.split('@')[0]}\n⁩`
+}
+teks += `┃\n`
+teks += `┃☛𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝙈𝘿 : 𝐊𝐢𝐦 𝐃𝐚𝐧\n`
+teks += `╰━━━━━[ *✰ 𝐔𝐰𝐔 ✰* ]━━━━━⬣`
+conn.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m })
 }
 break
 		
@@ -1134,7 +1135,7 @@ conn.sendMessage(m.chat, { forward: m.quoted.fakeObj, mentions: participants.map
 }
 break
 	
-	case 'verificar':
+case 'verificar':
 let verify
 if (text == 1) { 
 verify = 'Ya esta regido'.trim()
@@ -1173,16 +1174,16 @@ m.reply(mess.wait)
 lol = await pinterest(text) //.catch(m.reply)
 result = lol[Math.floor(Math.random() * lol.length)];
 sendImageAsUrl(result, `*-------「 PINTEREST 」-------*\n🤠 busqueda de ${text}\n🔗 url ${result}`)
-  d = Math.floor(Math.random() * 6) + 5
-  global.db.data.users[m.sender].money -= d
-  m.reply(`has gastado ${d} dolares`);
+d = Math.floor(Math.random() * 6) + 5
+global.db.data.users[m.sender].money -= d
+m.reply(`has gastado ${d} dolares`);
 bbrea
 		
-	case 'diego':
-		reply (`⣿⣿⣿⠟⢹⣶⣶⣝⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ ⣿⣿⡟⢰⡌⠿⢿⣿⡾⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⢸⣿⣤⣒⣶⣾⣳⡻⣿⣿⣿⣿⡿⢛⣯⣭⣭⣭⣽⣻⣿⣿⣿ ⣿⣿⣿⢸⣿⣿⣿⣿⢿⡇⣶⡽⣿⠟⣡⣶⣾⣯⣭⣽⣟⡻⣿⣷⡽⣿ ⣿⣿⣿⠸⣿⣿⣿⣿⢇⠃⣟⣷⠃⢸⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣽ ⣿⣿⣿⣇⢻⣿⣿⣯⣕⠧⢿⢿⣇⢯⣝⣒⣛⣯⣭⣛⣛⣣⣿⣿⣿⡇ ⣿⣿⣿⣿⣌⢿⣿⣿⣿⣿⡘⣞⣿⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇ ⣿⣿⣿⣿⣿⣦⠻⠿⣿⣿⣷⠈⢞⡇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇ ⣿⣿⣿⣿⣿⣿⣗⠄⢿⣿⣿⡆⡈⣽⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢻ ⣿⣿⣿⣿⡿⣻⣽⣿⣆⠹⣿⡇⠁⣿⡼⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⣾ ⣿⠿⣛⣽⣾⣿⣿⠿⠋⠄⢻⣷⣾⣿⣧⠟⣡⣾⣿⣿⣿⣿⣿⣿⡇⣿ ⢼⡟⢿⣿⡿⠋⠁⣀⡀⠄⠘⠊⣨⣽⠁⠰⣿⣿⣿⣿⣿⣿⣿⡍⠗⣿ ⡼⣿⠄⠄⠄⠄⣼⣿⡗⢠⣶⣿⣿⡇⠄⠄⣿⣿⣿⣿⣿⣿⣿⣇⢠⣿ ⣷⣝⠄⠄⢀⠄⢻⡟⠄⣿⣿⣿⣿⠃⠄⠄⢹⣿⣿⣿⣿⣿⣿⣿⢹⣿ ⣿⣿⣿⣿⣿⣧⣄⣁⡀⠙⢿⡿⠋⠄⣸⡆⠄⠻⣿⡿⠟⢛⣩⣝⣚⣿ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣤⣤⣤⣾⣿⣿⣄⠄⠄⠄⣴⣿⣿⣿⣇⣿ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣄⡀⠛⠿⣿⣫⣾⣿`) 
-  break 
-	case 'mario':
-		reply (`🟥🟥🟥⬜⬜🟥🟥🟥
+case 'diego':
+reply (`⣿⣿⣿⠟⢹⣶⣶⣝⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ ⣿⣿⡟⢰⡌⠿⢿⣿⡾⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ ⣿⣿⣿⢸⣿⣤⣒⣶⣾⣳⡻⣿⣿⣿⣿⡿⢛⣯⣭⣭⣭⣽⣻⣿⣿⣿ ⣿⣿⣿⢸⣿⣿⣿⣿⢿⡇⣶⡽⣿⠟⣡⣶⣾⣯⣭⣽⣟⡻⣿⣷⡽⣿ ⣿⣿⣿⠸⣿⣿⣿⣿⢇⠃⣟⣷⠃⢸⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣽ ⣿⣿⣿⣇⢻⣿⣿⣯⣕⠧⢿⢿⣇⢯⣝⣒⣛⣯⣭⣛⣛⣣⣿⣿⣿⡇ ⣿⣿⣿⣿⣌⢿⣿⣿⣿⣿⡘⣞⣿⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇ ⣿⣿⣿⣿⣿⣦⠻⠿⣿⣿⣷⠈⢞⡇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇ ⣿⣿⣿⣿⣿⣿⣗⠄⢿⣿⣿⡆⡈⣽⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢻ ⣿⣿⣿⣿⡿⣻⣽⣿⣆⠹⣿⡇⠁⣿⡼⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⣾ ⣿⠿⣛⣽⣾⣿⣿⠿⠋⠄⢻⣷⣾⣿⣧⠟⣡⣾⣿⣿⣿⣿⣿⣿⡇⣿ ⢼⡟⢿⣿⡿⠋⠁⣀⡀⠄⠘⠊⣨⣽⠁⠰⣿⣿⣿⣿⣿⣿⣿⡍⠗⣿ ⡼⣿⠄⠄⠄⠄⣼⣿⡗⢠⣶⣿⣿⡇⠄⠄⣿⣿⣿⣿⣿⣿⣿⣇⢠⣿ ⣷⣝⠄⠄⢀⠄⢻⡟⠄⣿⣿⣿⣿⠃⠄⠄⢹⣿⣿⣿⣿⣿⣿⣿⢹⣿ ⣿⣿⣿⣿⣿⣧⣄⣁⡀⠙⢿⡿⠋⠄⣸⡆⠄⠻⣿⡿⠟⢛⣩⣝⣚⣿ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣤⣤⣤⣾⣿⣿⣄⠄⠄⠄⣴⣿⣿⣿⣇⣿ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣄⡀⠛⠿⣿⣫⣾⣿`) 
+break 
+case 'mario':
+reply (`🟥🟥🟥⬜⬜🟥🟥🟥
 🟥🟥🟥⬜⬜🟥🟥🟥
 🟥🟥🟥🟥🟥🟥🟥🟥
 🏻⬜🟦🏻🏻🟦⬜🏻
@@ -1190,7 +1191,7 @@ bbrea
 🟫🏻🏻🏻🏻🏻🏻🟫
 🟫🟫🏻🏻🏻🏻🟫🟫
 🏻⬛⬛⬛⬛⬛⬛🏻`) 
-		break 
+break 
 
 case 'ig': {
 if (!q) return reply(`Example ${prefix+command} unicorn_xeon`)
@@ -1209,35 +1210,25 @@ Bio : ${aj.bio}` }, { quoted: m } )
 break
 	
 case 'fake':
-    var gh = body.slice(11);
-    var mentioned = m.message.extendedTextMessage && m.message.extendedTextMessage.contextInfo && m.message.extendedTextMessage.contextInfo.mentionedJid ? m.message.extendedTextMessage.contextInfo.mentionedJid[0] : null;
-    var replace = gh.split("-")[0];
-    var target = gh.split("-")[1];
-    var bot = gh.split("-")[2];
+var gh = body.slice(11);
+var mentioned = m.message.extendedTextMessage && m.message.extendedTextMessage.contextInfo && m.message.extendedTextMessage.contextInfo.mentionedJid ? m.message.extendedTextMessage.contextInfo.mentionedJid[0] : null;
+var replace = gh.split("-")[0];
+var target = gh.split("-")[1];
+var bot = gh.split("-")[2];
 
-    if (mentioned && target && bot) {
-      var quotedMessage = {
-        key: {
-          fromMe: false,
-          participant: mentioned
-        },
-        message: {
-          conversation: target
-        }
-      };
+if (mentioned && target && bot) {
+var quotedMessage = {
+key: { fromMe: false, participant: mentioned }, message: { conversation: target}};
 
-      var sendMessageOptions = {
-        text: `${bot}`,
-        quoted: quotedMessage
-      };
+var sendMessageOptions = { text: `${bot}`, quoted: quotedMessage };
 
-      conn.sendMessage(from, sendMessageOptions, { quoted: quotedMessage });
-    } else {
-      conn.sendMessage(from, { text: `❖⃟݊🍒────────────────────╮
+conn.sendMessage(from, sendMessageOptions, { quoted: quotedMessage });
+} else {
+conn.sendMessage(from, { text: `❖⃟݊🍒────────────────────╮
 【🌺】𝐄𝐣𝐞𝐦𝐩𝐥𝐨: ${prefix + command} @tag-𝐏𝐮𝐭𝐨-🥵
 ❖⃟݊🫐────────────────────╯`});
-    }
-    break
+}
+break
 /////////////////////////////////   
    
 // ═════════════𓊈『 FUNCIONES 』𓊉═════════════
@@ -1277,7 +1268,6 @@ reply(e)
 }
 }
 }
-
 
 // ═════════════𓊈『 UPDATE/CONSOLA 』𓊉═════════════
 let file = require.resolve(__filename)
