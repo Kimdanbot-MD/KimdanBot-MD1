@@ -699,7 +699,7 @@ let index = 0;
 
 function printRainbowMessage() {
 const color = rainbowColors[index];
-console.log(chalk.keyword(color)('𓆩❤️𓆪 (ू •մ•ू 🌸 ) ｟ 𝐔 𝐏 𝐓 𝐈 𝐌 𝐄 ｠\n'));
+console.log(chalk.keyword(color)('𓆩❤️ 𓆪 (ू •մ•ू  🌸 ) ｟ 𝐔 𝐏 𝐓 𝐈 𝐌 𝐄 ｠\n'));
 index = (index + 1) % rainbowColors.length;
 setTimeout(printRainbowMessage, 60000) //Ajuste el tiempo de espera a la velocidad deseada
 }
