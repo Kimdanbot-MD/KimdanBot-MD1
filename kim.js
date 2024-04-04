@@ -193,7 +193,7 @@ global.db.data.users[m.sender].spam = new Date * 1;
 }*/
             
 //═════════════𓊈『 ANTIFAKE 』𓊉═════════════
-/*if (global.db.data.chats[m.chat].antifake && !isGroupAdmins) {	
+if (global.db.data.chats[m.chat].antifake && !isGroupAdmins) {	
 let forbidPrefixes = ["1", "994", "48", "43", "40", "41", "49"];
 for (let prefix of forbidPrefixes) {
 if (m.sender.startsWith(prefix)) {
@@ -205,7 +205,7 @@ for (let prefix of forbidPrefixes) {
 if (m.sender.startsWith(prefix)) {
 m.reply(`${lenguaje.smsAntiArabe}`, m.sender)
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}}}
-*/	
+	
 // ═════════════𓊈『 AUTOBIO 』𓊉═════════════	
     const sk = [
       "𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃🌺🍓",
@@ -247,8 +247,7 @@ if (isgclink) return
 conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
 conn.sendMessage(m.chat, {text: `${lenguaje['smsAntiLink']()}`})
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}}
-
-/*	
+	
 if (global.db.data.chats[m.chat].AntiYoutube && !isCreator) {
 if (budy.includes("https://youtu.be/") || budy.includes("https://youtube.com/")) {
 if (isGroupAdmins) return reply(lenguaje['smsAntiLink5']())
@@ -324,7 +323,7 @@ conn.sendMessage(m.chat, {text:`*LINK DE HTTPS DETECTADO 📢*\n@${sender.split(
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }}
-*/
+
 //═════════════𓊈『 ANTITOXIC 』𓊉═════════════
 if (global.db.data.chats[m.chat].antitoxic && !isCreator) {   
 if (budy.match(`g0re|g0r3|g.o.r.e|sap0|sap4|malparido|malparida|malparidos|malparidas|m4lp4rid0|m4lp4rido|m4lparido|malp4rido|m4lparid0|malp4rid0|chocha|chup4la|chup4l4|chupalo|chup4lo|chup4l0|chupal0|chupon|chupameesta|sabandija|hijodelagranputa|hijodeputa|hijadeputa|hijadelagranputa|kbron|kbrona|cajetuda|laconchadedios|putita|putito|put1t4|putit4|putit0|put1to|put1ta|pr0stitut4s|pr0stitutas|pr05titutas|pr0stitut45|prostitut45|prostituta5|pr0stitut45|fanax|f4nax|drogas|droga|dr0g4|nepe|p3ne|p3n3|pen3|p.e.n.e|pvt0|puto|pvto|put0|hijodelagransetentamilparesdeputa|Chingadamadre|coño|c0ño|coñ0|c0ñ0|afeminado|drog4|cocaína|marihuana|chocho|chocha|cagon|pedorro|agrandado|agrandada|pedorra|sape|nmms|mamar|chigadamadre|hijueputa|chupa|kaka|caca|bobo|boba|loco|loca|chupapolla|estupido|estupida|estupidos|polla|pollas|idiota|maricon|chucha|verga|vrga|naco|zorra|zorro|zorras|zorros|pito|huevon|huevona|huevones|rctmre|mrd|ctm|csm|cp|cepe|sepe|sepesito|cepecito|cepesito|hldv|ptm|baboso|babosa|babosos|babosas|feo|fea|feos|feas|webo|webos|mamawebos|chupame|bolas|qliao|imbecil|embeciles|kbrones|cabron|capullo|carajo|gore|gorre|gorreo|sapo|sapa|mierda|cerdo|cerda|puerco|puerca|perra|perro|joden|jodemos|dumb|fuck|shit|bullshit|cunt|cum|semen|bitch|motherfucker|foker|fucking`)) { 
@@ -461,7 +460,7 @@ global.lenguaje = es
 }   	
 
 // ═════════════𓊈『 AUTOMATIC 』𓊉═════════════	
-/*let mensaje
+let mensaje
 if (mensaje) {  
 if (m.isGroup) return !1;
 if (!m.message) return !0;
@@ -472,7 +471,7 @@ let rtotalreg = Object.values(global.db.data.users).filter(user => user.register
 conn.sendMessage(m.chat, { text: `*Hola @${sender.split`@`[0]} 👋😄 Mi nombre es ${botname} Soy un bot de WhatsApp con multi funcione 👾, registrarte para poder usar mi comando 👌*\n\n*💫 MI INFO:*\n*👑 Mi creador es:* wa.me/5492266466080\n*👥 Usuarios:* ${totalreg}\n*✨ Registrado:* ${rtotalreg}\n*🤖 Estoy activa desde:* ${runtime(process.uptime())}\n*⚠️ PD:* No hagan spam del comando o te van baneado\n\n• *PORFAVOR LEE LAS REGLAS:*\n#reglas\n\n• *QUIERES VER QUE HAY DE NUEVO?*\n*Escribe:* #nuevo\n\n• *¿QUIERE SOLICITA UN BOT PARA TU GRUPO?*\n*Escribe:* #solicitud\n\n*💫 ¿Quieres apoyar este proyecto para que siga actualizándose?*\n• #donar\n\n*✨ CUENTA OFICIALES*\n• #cuentas`, contextInfo:{mentionedJid:[sender], forwardingScore: 9999999, isForwarded: true, "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": wm, thumbnail: imagen2, sourceUrl: info}}}, { quoted: fkontak, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})							  
 mensaje = true
 return !1;
-}*/
+}
 
 //falta tictactoe y los otros antilink
 	
@@ -505,7 +504,7 @@ user.Language = idioma
 m.reply(`se cambio a ` + idiomas)}  
 break 
 		
-	/*case 'imagen':
+	case 'imagen':
 let pp = await conn.profilePictureUrl(m.chat, 'image')	
 await conn.sendMessage(m.chat, pp) 		
 	break
@@ -525,7 +524,7 @@ const replyMessage = message.length === 0 ? '' : message;
 const totalUsers = user.length;
 const responseMessage = `*𝘚𝘜𝘉𝘉𝘖𝘛𝘚 𝘊𝘖𝘕𝘌𝘊𝘛𝘈𝘋𝘖𝘚:* ${totalUsers || '0'}\n\n${replyMessage.trim()}`.trim();
 await conn.sendMessage(m.chat, {text: responseMessage, mentions: conn.parseMention(responseMessage)}, {quoted: m});
-break*/ 
+break
 		
 // 𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐂𝐈𝐎𝐍 𝐃𝐄 𝐊𝐈𝐌𝐃𝐀𝐍𝐁𝐎𝐓-𝐌𝐃
 case 'estado': case 'heydan': case 'status':
@@ -594,7 +593,7 @@ dado(conn, lolkeysapi, fkontak, m)
 break
 
 //𝐆𝐑𝐔𝐏𝐎 
-/*case 'grupo': 
+case 'grupo': 
 grup(conn, m, args, isBotAdmins, isGroupAdmins, command, prefix, text)
 break
 case 'delete': case 'del': 
@@ -626,12 +625,12 @@ p(conn, m, isBotAdmins, isGroupAdmins, quoted, sender)
 break
 case 'demote':
 d(conn, m, isBotAdmins, isGroupAdmins, quoted, sender)
-break */     
+break     
 
 case 'link': case 'linkgc': 
 link(conn, m, isBotAdmins)
 break                        		
-/*case 'banchat': 
+case 'banchat': 
 ban(m, text, command, args)
 break              
 case 'tagall': case 'invocar': case 'todos':
@@ -654,7 +653,7 @@ listw(conn, isCreator, m)
 break
 case 'listonline': case 'liston': 
 online(conn, sender, args, store, m) 
-break */
+break
 
 //𝐑𝐏𝐆
 case 'reg': case 'verificar':
