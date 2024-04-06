@@ -343,7 +343,7 @@ mentionedJid:[m.sender],
 "title": lenguaje['smsAvisos'](), 
 "mediaType": 1,   
 "thumbnail": imagen1,  
-"mediaUrl": nna,  
+"mediaUrl": md,  
 "sourceUrl": nna
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else if (res.announce == false) {
