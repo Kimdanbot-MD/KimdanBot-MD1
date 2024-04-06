@@ -248,7 +248,7 @@ conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang,
 conn.sendMessage(m.chat, {text: `${lenguaje['smsAntiLink']()}`})
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}}
 	
-if (global.db.data.chats[m.chat].AntiYoutube && !isCreator) {
+/*if (global.db.data.chats[m.chat].AntiYoutube && !isCreator) {
 if (budy.includes("https://youtu.be/") || budy.includes("https://youtube.com/")) {
 if (isGroupAdmins) return reply(lenguaje['smsAntiLink5']())
 if (!isBotAdmins) return m.reply(lenguaje['smsAntiLink6']())
@@ -322,7 +322,7 @@ if (!isCreator) return
 conn.sendMessage(m.chat, {text:`*LINK DE HTTPS DETECTADO 📢*\n@${sender.split("@")[0]} Usted sera eliminado de este grupo`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-}}
+}}*/
 
 //═════════════𓊈『 ANTITOXIC 』𓊉═════════════
 if (global.db.data.chats[m.chat].antitoxic && !isCreator) {   
@@ -382,9 +382,9 @@ return !0
 let before = user.level * 1
 while (canLevelUp(user.level, user.exp, global.multiplier))
 user.level++
-//user.role = global.rpg.role(user.level).name
+let { exp, role} = global.db.data.users[m.sender]
 if (before !== user.level) {
-const str = `${lenguaje['smsAutonivel']()} @${sender.split`@`[0]} ${lenguaje['smsAutonivel2']()} ${before}\n${lenguaje['smsAutonivel3']()} ${user.level}\n${lenguaje['smsAutonivel5']()}\n${lenguaje['smsAutonivel6']()} ${user.role}\n${lenguaje['smsAutonivel7']()} ${date}\n${lenguaje['smsAutonivel8']()} ${time}\n${lenguaje['smsAutonivel9']()}`.trim()
+const str = `${lenguaje['smsAutonivel']()} @${sender.split`@`[0]} ${lenguaje['smsAutonivel2']()} ${before}\n${lenguaje['smsAutonivel3']()} ${user.level}\n${lenguaje['smsAutonivel5']()} ${exp}\n${lenguaje['smsAutonivel6']()} ${user.role}\n${lenguaje['smsAutonivel7']()} ${date}\n${lenguaje['smsAutonivel8']()} ${time}\n${lenguaje['smsAutonivel9']()}`.trim()
 return conn.sendMessage(m.chat, { text: str, contextInfo:{mentionedJid:[sender]}}, { quoted: fkontak })}}
 
 //═════════════𓊈『 CHATBOT 』𓊉═════════════
