@@ -343,8 +343,8 @@ mentionedJid:[m.sender],
 "title": lenguaje['smsAvisos'](), 
 "mediaType": 1,   
 "thumbnail": imagen1,  
-"mediaUrl": md,  
-"sourceUrl": md
+"mediaUrl": nna,  
+"sourceUrl": nna
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else if (res.announce == false) {
 await sleep(2000)
