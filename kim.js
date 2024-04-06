@@ -384,7 +384,7 @@ while (canLevelUp(user.level, user.exp, global.multiplier))
 user.level++
 let { exp, role} = global.db.data.users[m.sender]
 if (before !== user.level) {
-const str = `${lenguaje['smsAutonivel']()} @${sender.split`@`[0]} ${lenguaje['smsAutonivel2']()} ${before}\n${lenguaje['smsAutonivel3']()} ${user.level}\n${lenguaje['smsAutonivel5']()} ${exp}\n${lenguaje['smsAutonivel6']()} ${user.role}\n${lenguaje['smsAutonivel7']()} ${date}\n${lenguaje['smsAutonivel8']()} ${time}\n${lenguaje['smsAutonivel9']()}`.trim()
+const str = `${lenguaje['smsAutonivel']()} @${sender.split`@`[0]} ${lenguaje['smsAutonivel2']()} ${before}\n${lenguaje['smsAutonivel3']()} ${user.level}\n${lenguaje['smsAutonivel4']()} ${exp}\n${lenguaje['smsAutonivel6']()} ${user.role}\n${lenguaje['smsAutonivel7']()} ${date}\n${lenguaje['smsAutonivel8']()} ${time}\n${lenguaje['smsAutonivel9']()}`.trim()
 return conn.sendMessage(m.chat, { text: str, contextInfo:{mentionedJid:[sender]}}, { quoted: fkontak })}}
 
 //═════════════𓊈『 CHATBOT 』𓊉═════════════
@@ -1193,7 +1193,7 @@ reply (`🟥🟥🟥⬜⬜🟥🟥🟥
 🏻⬛⬛⬛⬛⬛⬛🏻`) 
 break 
 
-case 'ig': {
+case 'iig': {
 if (!q) return reply(`Example ${prefix+command} unicorn_xeon`)
 wait() 
 const aj = await igstalk(`${q}`)
@@ -1232,42 +1232,49 @@ break
 /////////////////////////////////   
    
 // ═════════════𓊈『 FUNCIONES 』𓊉═════════════
-/*function pickRandom(list) {return list[Math.floor(list.length * Math.random())]}       
-
-function isNumber(x) {return !isNaN(x)}*/
+function pickRandom(list) {return list[Math.floor(list.length * Math.random())]}       
+function isNumber(x) {return !isNaN(x)}
 
 // ═════════════𓊈『 AUDIO/TEXTOS 』𓊉═════════════
 // ═════════════𓊈『 OWNER 』𓊉═════════════
 default:
-if (body.startsWith('>')) {
-if (!isCreator) return reply('a')
+if (budy.startsWith('>')) {
+if (!isCreator) return reply(mess.owner)
 try {
-return reply(JSON.stringify(eval(body.slice(2)), null, '\t'))
+return reply(JSON.stringify(eval(budy.slice(2)), null, '\t'))
 } catch (e) {
 e = String(e)
 reply(e)
-}
-}
-if (body.startsWith('=>')) {
-if (!isCreator) return reply('a')
+}}
+if (budy.startsWith('=>')) {
+if (!isCreator) return reply(mess.owner)
 try {
-return  reply(JSON.stringify(eval(`${body.slice(3)}`), null, '\t'))
+return reply(JSON.stringify(eval(`(async () => { ${budy.slice(3)} })()`), null, '\t'))  
 } catch (e) {
 e = String(e)
 reply(e)
-}
-}
-if (body.startsWith('$')) {
-if (!isCreator) return reply('a')
+}}
+if (budy.startsWith('$')) {
+if (!isCreator) return reply(mess.owner) 
 try {
-return reply(String(execSync(body.slice(2), { encoding: 'utf-8' })))
-} catch (e) {
-e = String(e)
-reply(e)
+return reply(String(execSync(budy.slice(2), { encoding: 'utf-8' })))
+} catch (err) { 
+console.log(util.format(err))  
+ 
+if (isCmd && budy.toLowerCase() != undefined) {
+if (m.chat.endsWith('broadcast')) return
+if (m.isBaileys) return
+let msgs = global.db.data.database
+if (!(budy.toLowerCase() in msgs)) return
+conn.copyNForward(m.chat, msgs[budy.toLowerCase()], true)
 }
-}
-}
-}
+
+// ═════════════𓊈『 REPORTE/ERRORS 』𓊉═════════════
+let e = String(err) 
+conn.sendMessage("573173090446@s.whatsapp.net", { text: "Hola Creador/desarrollador, parece haber un error, por favor arreglarlo 🥲\n\n" + util.format(e), 
+contextInfo:{forwardingScore: 9999999, isForwarded: false }})
+process.on('uncaughtException', function (err) {
+console.log('Caught exception: ', err)})}}}}
 
 // ═════════════𓊈『 UPDATE/CONSOLA 』𓊉═════════════
 let file = require.resolve(__filename)
