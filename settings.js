@@ -21,13 +21,6 @@ global.prefix = [`.`]
 global.imagen1 = fs.readFileSync('./src/img_cuadrada.jpg')
 global.imagen2 = fs.readFileSync('./src/IMG-20230727-WA0103.jpg')
 global.imagen3 = fs.readFileSync('./src/Screenshot_2023-07-28-14-06-50-823_com.whatsapp.jpg')
-/*const img = [
-fs.readFileSync('./src/img_cuadrada.jpg'),
-fs.readFileSync('./src/IMG-20230727-WA0103.jpg'),
-fs.readFileSync('./src/Screenshot_2023-07-28-14-06-50-823_com.whatsapp.jpg') 
-];
-const RD = img[Math.floor(Math.random() * img.length)]; 
-global.imgkim = `${RD}`*/
 
 const img = ['./src/img_cuadrada.jpg','./src/IMG-20230727-WA0103.jpg','./src/Screenshot_2023-07-28-14-06-50-823_com.whatsapp.jpg'];
 const RD = img[Math.floor(Math.random() * img.length)]; 
@@ -86,6 +79,10 @@ global.md = 'https://github.com/Kimdanbot-MD/KimdanBot-MD'
 global.yt = 'https://youtube.com/@universobl?si=HeFdv4RaYDF9HAeX'
 global.tiktok = 'https://www.tiktok.com/@universo_yaoi_bl?_t=8iIlNrlJg1d&_r=1'
 global.fb = 'https://www.instagram.com/_universo.bl?igshid=OGQ5ZDc2ODk2ZA=='
+
+const red = [md, yt, tiktok, fb]
+const xd = red[Math.floor(Math.random() * red.length)]; 
+global.redes = xd 
 
 global.nna = 'https://whatsapp.com/channel/0029VaFFJab3QxS5sqmnXR3l' //canal
 global.nn = 'https://chat.whatsapp.com/C0lYCnklEtg1HUkbR4uPxA' //kim
