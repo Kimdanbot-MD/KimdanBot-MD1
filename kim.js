@@ -84,6 +84,7 @@ var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == '
 
 function KimR(list) {return list[Math.floor(list.length * Math.random())]}     
 global.aaaa = KimR(testt)
+global.redes = KimR(red) 
 	
 // ═════════════𓊈『 ATRIBUTOS 』𓊉═════════════
 if (m.key.id.startsWith("BAE5")) return
@@ -1165,7 +1166,7 @@ await conn.sendMessage(from, { text: updatee.toString() }, { quoted: msg })}
 break
 
 case 'testt':
-conn.sendMessage(m.chat, {image: aaaa, caption: `a`}, {quoted: m})
+conn.sendMessage(m.chat, {image: aaaa, caption: redes}, {quoted: m})
 break
 
 case 'reiniciar': case 'restart': {
