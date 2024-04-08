@@ -97,6 +97,9 @@ global.nn8 = 'https://chat.whatsapp.com/Fj2edZ8XtV48tyNLZn3rdE' //kim2
 global.nn9 = 'https://chat.whatsapp.com/Fj2edZ8XtV48tyNLZn3rdE' //kim2
 global.nn10 = 'https://chat.whatsapp.com/Fj2edZ8XtV48tyNLZn3rdE' //kim2
 
+function KimR(list) {return list[Math.floor(list.length * Math.random())]}     
+global.aaaa = KimR(testt)
+
 // ═════════════𓊈『 GLOBAL 』𓊉════════════ 
 global.mess = {
 admin: `${lenguaje['admin']()}`, 
