@@ -83,7 +83,7 @@ global.fb = 'https://www.instagram.com/_universo.bl?igshid=OGQ5ZDc2ODk2ZA=='
 
 // No mames Jose
 global.red = [md, yt, tiktok, fb];
-global redes = red[Math.floor(Math.random() * red.length)];
+global.redes = red[Math.floor(Math.random() * red.length)];
 
 global.nna = 'https://whatsapp.com/channel/0029VaFFJab3QxS5sqmnXR3l' //canal
 global.nn = 'https://chat.whatsapp.com/C0lYCnklEtg1HUkbR4uPxA' //kim
