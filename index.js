@@ -416,7 +416,7 @@ mentionedJid:[m.sender],
 "mediaType": 1,   
 "thumbnail": imagen1, 
 "mediaUrl": md, 
-"sourceUrl": md
+"sourceUrl": redes 
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else if(!res.desc == ``){
 await sleep(2000)
