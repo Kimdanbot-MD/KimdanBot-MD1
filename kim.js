@@ -1165,7 +1165,7 @@ await conn.sendMessage(from, { text: updatee.toString() }, { quoted: msg })}
 break
 
 case 'testt':
-conn.sendMesage(from, { image: aaaa}, {quoted: m})
+conn.sendMessage(m.chat, {image: aaaa, caption: `a`}, {quoted: m})
 break
 
 case 'reiniciar': case 'restart': {
