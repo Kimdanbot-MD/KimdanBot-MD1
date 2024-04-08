@@ -81,6 +81,9 @@ return buffer}
 
 module.exports = conn = async (conn, m, chatUpdate, mek, store, sock) => { // Raíz "conn" para mensajes y argumentos
 var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage' && m.message.imageMessage.caption) ? m.message.imageMessage.caption : (m.mtype == 'videoMessage' && m.message.videoMessage.caption ) ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? m.message.listResponseMessage.singleSelectReply.selectedRowId :  (m.mtype == 'stickerMessage') && (getCmd(m.message.stickerMessage.fileSha256.toString()) !== null && getCmd(m.message.stickerMessage.fileSha256.toString()) !== undefined) ? getCmd(m.message.stickerMessage.fileSha256.toString()) : ''
+
+function KimR(list) {return list[Math.floor(list.length * Math.random())]}     
+var aaaa = KimR(testt)	
 	
 // ═════════════𓊈『 ATRIBUTOS 』𓊉═════════════
 if (m.key.id.startsWith("BAE5")) return
@@ -1159,6 +1162,10 @@ await conn.sendMessage(from, { text: stdout.toString() }, { quoted: msg });
 } catch { 
 let updatee = execSync('git remote set-url origin https://github.com/Kimdanbot-MD/KimdanBot-MD.git && git pull')
 await conn.sendMessage(from, { text: updatee.toString() }, { quoted: msg })}  
+break
+
+case 'testt':
+conn.sendMesage(from, { image: aaaa}, {quoted: m})
 break
 
 case 'reiniciar': case 'restart': {
