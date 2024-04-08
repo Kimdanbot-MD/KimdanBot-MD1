@@ -80,10 +80,7 @@ global.md = 'https://github.com/Kimdanbot-MD/KimdanBot-MD'
 global.yt = 'https://youtube.com/@universobl?si=HeFdv4RaYDF9HAeX'
 global.tiktok = 'https://www.tiktok.com/@universo_yaoi_bl?_t=8iIlNrlJg1d&_r=1'
 global.fb = 'https://www.instagram.com/_universo.bl?igshid=OGQ5ZDc2ODk2ZA=='
-
-// No mames Jose
-global.red = [md, yt, tiktok, fb];
-global.redes = red[Math.floor(Math.random() * red.length)];
+global.red = [md, yt, tiktok, fb]
 
 global.nna = 'https://whatsapp.com/channel/0029VaFFJab3QxS5sqmnXR3l' //canal
 global.nn = 'https://chat.whatsapp.com/C0lYCnklEtg1HUkbR4uPxA' //kim
