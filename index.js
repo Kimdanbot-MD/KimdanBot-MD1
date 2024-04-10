@@ -342,8 +342,8 @@ mentionedJid:[m.sender],
 "renderLargerThumbnail": false,  
 "title": lenguaje['smsAvisos'](), 
 "mediaType": 1,   
-"thumbnail": imagen1,  
-"mediaUrl": md,  
+"thumbnail": ftkim,  
+"mediaUrl": redes,  
 "sourceUrl": nna
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else if (res.announce == false) {
@@ -366,9 +366,9 @@ mentionedJid:[m.sender],
 "renderLargerThumbnail": false,  
 "title": lenguaje['smsAvisos4'](),   
 "mediaType": 1,   
-"thumbnail": imagen1, 
-"mediaUrl": md, 
-"sourceUrl": md  
+"thumbnail": ftkim,  
+"mediaUrl": redes,  
+"sourceUrl": nna
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else if (res.restrict == true) {
 await sleep(2000)
@@ -390,9 +390,9 @@ mentionedJid:[m.sender],
 "title": lenguaje['smsAvisos5'](),
 "body": wm, 
 "mediaType": 1,   
-"thumbnail": imagen1, 
-"mediaUrl": md, 
-"sourceUrl": yt
+"thumbnail": ftkim,  
+"mediaUrl": redes,  
+"sourceUrl": nna
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else if (res.restrict == false) {
 await sleep(2000)
@@ -414,9 +414,9 @@ mentionedJid:[m.sender],
 "title": lenguaje['smsAvisos5'](),
 "body": wm, 
 "mediaType": 1,   
-"thumbnail": imagen1, 
-"mediaUrl": md, 
-"sourceUrl": redes 
+"thumbnail": ftkim,  
+"mediaUrl": redes,  
+"sourceUrl": nna 
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else if(!res.desc == ``){
 await sleep(2000)
@@ -439,9 +439,9 @@ mentionedJid:[m.sender],
 "title": lenguaje['smsAvisos5'](),
 "body": wm, 
 "mediaType": 1,   
-"thumbnail": imagen1, 
-"mediaUrl": md,  
-"sourceUrl": md
+"thumbnail": ftkim,  
+"mediaUrl": redes,  
+"sourceUrl": canales
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else if(!res.subject == ``){
 await sleep(2000)
@@ -464,9 +464,9 @@ mentionedJid:[m.sender],
 "title": lenguaje['smsAvisos5'](),
 "body": wm, 
 "mediaType": 1,   
-"thumbnail": imagen1, 
-"mediaUrl": md,  
-"sourceUrl": md
+"thumbnail": ftkim,  
+"mediaUrl": redes,  
+"sourceUrl": canales
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 //pruebas
 } else if(res.requestParticipants == false) {
