@@ -527,6 +527,9 @@ let chats = global.db.data.chats[m.chat]
   if (!('autosticker' in chats)) chats.autosticker = false
   if (!('detect' in chats)) chats.detect = true
   if (!('autoread' in chats)) chats.autoread = true
+  if (!('autolevelup' in chats)) chats.autolevelup = true
+  if (!('viewonce' in chats)) chats.viewonce = true 
+  if (!('rules' in chats)) chats.rules = ''
   } else global.db.data.chats[m.chat] = {  
   antilink: false,  
   isBanned: false,   
@@ -542,7 +545,10 @@ let chats = global.db.data.chats[m.chat]
   antitoxic: false,
   autosticker: false, 
   detect: true, 
-  autoread: false
+  autoread: false, 
+  autolevelup: true, 
+  viewonce: true, 
+  rules: ''
   }
   
   let setting = global.db.data.settings[conn.user.jid]
