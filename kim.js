@@ -171,9 +171,9 @@ const isViewOnce = (type === 'viewOnceMessage') // Verifica si el tipo de mensaj
 if (isMedia && m.msg.fileSha256 && (m.msg.fileSha256.toString('base64') in global.db.data.sticker)) {
 let hash = global.db.data.sticker[m.msg.fileSha256.toString('base64')]
 let { text, mentionedJid } = hash
-let messages = await generateWAMessage(m.chat, { text: text, mentions: mentionedJid }, {userJid: conn.user.id,
-quoted: m.quoted && m.quoted.fakeObj
-})
+let messages = await generateWAMessage(m.chat, { text: text, mentions: mentionedJid }, {
+userJid: conn.user.id,
+quoted: m.quoted && m.quoted.fakeObj })
 messages.key.fromMe = areJidsSameUser(m.sender, conn.user.id)
 messages.key.id = m.key.id
 messages.pushName = m.pushName
@@ -479,7 +479,22 @@ conn.sendMessage(m.chat, { text: `*Hola @${sender.split`@`[0]} 👋😄 Mi nombr
 mensaje = true
 return !1;
 }*/
-
+	
+// ═════════════𓊈『 viewOnceMessage 』𓊉═════════════	
+if (m.mtype == 'viewOnceMessageV2') { 
+//if (global.db.data.chats[m.chat].viewonce) return
+teks = `\`𝙰𝚀𝚄𝙸 𝙽𝙾 𝚂𝙴 𝙿𝙴𝚁𝙼𝙸𝚃𝙴 𝙾𝙲𝚄𝙻𝚃𝙰𝚁 𝙽𝙰𝙳𝙰\``
+let msg = m.message.viewOnceMessageV2.message
+let type = Object.keys(msg)[0]
+let media = await downloadContentFromMessage(msg[type], type == 'imageMessage' ? 'image' : 'video')
+let buffer = Buffer.from([])
+for await (const chunk of media) {
+buffer = Buffer.concat([buffer, chunk])}
+if (/video/.test(type)) {
+return conn.sendFile(m.chat, buffer, 'error.mp4', `${msg[type].caption} ${teks}`, m)
+} else if (/image/.test(type)) {
+return conn.sendFile(m.chat, buffer, 'error.jpg', `${msg[type].caption} ${teks}`, m)
+}}
 //falta tictactoe y los otros antilink
 	
 switch (command) {
