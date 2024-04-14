@@ -549,7 +549,7 @@ mentionedJid:[m.sender],
 	
 
 //Welcome adaptado
-/*sock.ev.on('group-participants.update', async (anu) => {
+sock.ev.on('group-participants.update', async (anu) => {
 let isWelcome = global.db.data.chats[anu.id].welcome
 if(!isWelcome) return
 console.log(anu)
@@ -644,7 +644,7 @@ sock.sendMessage(anu.id, { text: `@${name.split("@")[0]} ${pickRandom(['Joderte 
 "sourceUrl": `${pickRandom([nna, md, yt])}`}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 }}} catch (err) {
 console.log(err)
-}})*/
+}})
 	
 function pickRandom(list) {
 return list[Math.floor(list.length * Math.random())]
