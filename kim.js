@@ -83,7 +83,7 @@ module.exports = conn = async (conn, m, chatUpdate, mek, store, sock) => { // Ra
 var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage' && m.message.imageMessage.caption) ? m.message.imageMessage.caption : (m.mtype == 'videoMessage' && m.message.videoMessage.caption ) ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? m.message.listResponseMessage.singleSelectReply.selectedRowId :  (m.mtype == 'stickerMessage') && (getCmd(m.message.stickerMessage.fileSha256.toString()) !== null && getCmd(m.message.stickerMessage.fileSha256.toString()) !== undefined) ? getCmd(m.message.stickerMessage.fileSha256.toString()) : ''	
 
 function KimR(list) {return list[Math.floor(list.length * Math.random())]}     
-global.ftkim = KimR(testt)
+global.ftkim = KimR(fotos)
 global.redes = KimR(red) 
 global.wha = KimR(wa) 
 global.canal = KimR(ca) 
@@ -1183,10 +1183,11 @@ let updatee = execSync('git remote set-url origin https://github.com/Kimdanbot-M
 await conn.sendMessage(from, { text: updatee.toString() }, { quoted: msg })}  
 break
 
+//👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄
 case 'testt':
-conn.sendMessage(m.chat, {image: aaaa, caption: redes}, {quoted: m})
+conn.sendMessage(m.chat, {image: {url: ftkim}, caption: redes}, {quoted: m})
 break
-
+//👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄
 case 'reiniciar': case 'restart': {
 if (!isCreator) return conn.sendMessage(from, { text: info.owner }, { quoted: msg });   
 m.reply('_🔄 Reiniciando Bot..._');
