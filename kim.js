@@ -1185,7 +1185,8 @@ break
 
 //👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄
 case 'testt':
-conn.sendMessage(m.chat, {image: {url: ftkim}, caption: redes}, {quoted: m})
+//conn.sendMessage(m.chat, {image: {url: ftkim}, caption: redes}, {quoted: m})
+conn.sendMessage(from, {text: 'azami.js', contextInfo: { forwardingScore: 888, isForwarded: true, forwardedNewsletterMessageInfo: { newsletterJid: '0000000000@newsletter', serverMessageId: '', newsletterName: 'K I M'}, externalAdReply: { title: 'KimBug 🏳️‍🌈', body: 'Ax es Uke', mediaType: 1, renderLargerThumbnail: false, previewType: 'PHOTO', showAdAttribution: true, thumbnailUrl: ftkim, sourceUrl: redes }}}, {quoted: m})
 break
 //👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄
 case 'reiniciar': case 'restart': {
