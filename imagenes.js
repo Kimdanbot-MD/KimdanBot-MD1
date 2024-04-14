@@ -9,5 +9,6 @@ let img6 = 'https://telegra.ph/file/4fe23b2f1dfbf9e228166.jpg'
 let img7 = 'https://telegra.ph/file/9a72dc7935d93ae36f8a2.jpg'
 let img8 = 'https://telegra.ph/file/9b93ce7337f602bb61736.jpg'
 let img9 = 'https://telegra.ph/file/ee5dcfd3e79ef229c14d0.jpg'
+let img10 = 'https://telegra.ph/file/290df36029708f3cea038.png'
 
 global.fotos = [img1, img2, img3, img4, img5, img6, img7, img8, img9]
