@@ -86,7 +86,7 @@ function KimR(list) {return list[Math.floor(list.length * Math.random())]}
 global.ftkim = KimR(fotos)
 global.redes = KimR(red) 
 global.wha = KimR(wa) 
-global.canal = KimR(ca) 
+global.canales = KimR(ca) 
 	
 // ═════════════𓊈『 ATRIBUTOS 』𓊉═════════════
 if (m.key.id.startsWith("BAE5")) return
