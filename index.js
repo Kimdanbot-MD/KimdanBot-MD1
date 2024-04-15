@@ -1,6 +1,6 @@
 (async () => {
 require("./settings")
-require('./imagenes')
+require("./imagenes")
 const { default: makeWASocket, CONNECTING, PHONENUMBER_MCC, Browsers, makeInMemoryStore, useMultiFileAuthState, DisconnectReason, proto , jidNormalizedUser,WAMessageStubType, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, msgRetryCounterMap, makeCacheableSignalKeyStore, fetchLatestBaileysVersion, getAggregateVotesInPollMessage } = require("@whiskeysockets/baileys")
 const { state, saveCreds } = await useMultiFileAuthState('./authFolder')
 const chalk = require('chalk')
@@ -469,85 +469,8 @@ mentionedJid:[m.sender],
 "mediaUrl": redes,  
 "sourceUrl": canales
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-//pruebas
-} else if(res.requestParticipants == false) {
-await sleep(2000)
-try {
-ppgroup = await sock.profilePictureUrl(anu.id, 'image')
-} catch (err) {
-ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
-}
-// 1
-let text = `${lenguaje['smsAvisos9']()}\n ❥ 1`
-sock.sendMessage(res.id, {text: text,  
-contextInfo:{  
-forwardingScore: 9999999,  
-isForwarded: true,   
-mentionedJid:[m.sender],  
-"externalAdReply": {  
-"showAdAttribution": true,  
-"containsAutoReply": false,
-"renderLargerThumbnail": false,  
-"title": lenguaje['smsAvisos5'](),
-"body": wm, 
-"mediaType": 1,   
-"thumbnail": imagen1, 
-"mediaUrl": md,  
-"sourceUrl": md
-}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-} else if(res.requestParticipants == true) {
-await sleep(2000)
-try {
-ppgroup = await sock.profilePictureUrl(anu.id, 'image')
-} catch (err) {
-ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
-}
-// 2
-let text = `${lenguaje['smsAvisos9']()}\n ❥ 2`
-sock.sendMessage(res.id, {text: text,  
-contextInfo:{  
-forwardingScore: 9999999,  
-isForwarded: true,   
-mentionedJid:[m.sender],  
-"externalAdReply": {  
-"showAdAttribution": true,  
-"containsAutoReply": false,
-"renderLargerThumbnail": false,  
-"title": lenguaje['smsAvisos5'](),
-"body": wm, 
-"mediaType": 1,   
-"thumbnail": imagen1, 
-"mediaUrl": md,  
-"sourceUrl": md
-}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-} else {
-await sleep(2000)
-try {
-ppgroup = await sock.profilePictureUrl(anu.id, 'image')
-} catch (err) {
-ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
-}
-// 3
-let text = `${lenguaje['smsAvisos9']()}\n ❥ 3`
-sock.sendMessage(res.id, {text: text,  
-contextInfo:{  
-forwardingScore: 9999999,  
-isForwarded: true,   
-mentionedJid:[m.sender],  
-"externalAdReply": {  
-"showAdAttribution": true,  
-"containsAutoReply": false,
-"renderLargerThumbnail": false,  
-"title": lenguaje['smsAvisos5'](),
-"body": wm, 
-"mediaType": 1,   
-"thumbnail": imagen1, 
-"mediaUrl": md,  
-"sourceUrl": md
-}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 }})
 	
-
 //Welcome adaptado
 sock.ev.on('group-participants.update', async (anu) => {
 let isWelcome = global.db.data.chats[anu.id].welcome
