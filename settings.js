@@ -142,6 +142,14 @@ global.blockList = []
 global.multiplier = 90 // Cuanto más alto, más difícil subir de nivel 
 global.maxwarn = '4' // máxima advertencias 
 
+// RANDOMS
+function KimR(list) {return list[Math.floor(list.length * Math.random())]}     
+global.ftkim = KimR(fotos)
+global.redes = KimR(red) 
+global.wha = KimR(wa) 
+global.canales = KimR(ca) 
+// RANDOMS 
+
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
 fs.unwatchFile(file)
