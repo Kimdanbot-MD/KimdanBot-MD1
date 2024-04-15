@@ -1,3 +1,6 @@
+const chalk = require("chalk")
+const path = require('path')
+const fs = require("fs")
 //Imágenes 
 
 let img1 = 'https://telegra.ph/file/6ef00a79a7c90c05e7043.jpg'
