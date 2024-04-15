@@ -26,3 +26,12 @@ let img23 =  'https://telegra.ph/file/8b4015906ee1c6541269a.jpg'
 let img24 =  'https://telegra.ph/file/1ba2172c40767e58f0a0f.jpg'
 let img25 =  'https://telegra.ph/file/9e7ea03c787c841ba9cb7.jpg'
 global.fotos = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img18, img19, img20, img21, img22, img23, img24, img25]
+
+let file = require.resolve(__filename)
+fs.watchFile(file, () => {
+fs.unwatchFile(file)
+const fileName = path.basename(file)
+console.log(chalk.redBright(`Update'${__filename}'`))
+delete require.cache[file]
+require(file)
+})
