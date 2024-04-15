@@ -343,7 +343,7 @@ mentionedJid:[m.sender],
 "renderLargerThumbnail": false,  
 "title": lenguaje['smsAvisos'](), 
 "mediaType": 1,   
-"thumbnail": ftkim,  
+"thumbnailUrl": ftkim,  
 "mediaUrl": nna,  
 "sourceUrl": redes
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
@@ -367,7 +367,7 @@ mentionedJid:[m.sender],
 "renderLargerThumbnail": false,  
 "title": lenguaje['smsAvisos4'](),   
 "mediaType": 1,   
-"thumbnail": ftkim,  
+"thumbnailUrl": ftkim,  
 "mediaUrl": redes,  
 "sourceUrl": nna
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
@@ -391,7 +391,7 @@ mentionedJid:[m.sender],
 "title": lenguaje['smsAvisos5'](),
 "body": wm, 
 "mediaType": 1,   
-"thumbnail": ftkim,  
+"thumbnailUrl": ftkim,  
 "mediaUrl": redes,  
 "sourceUrl": nna
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
@@ -415,7 +415,7 @@ mentionedJid:[m.sender],
 "title": lenguaje['smsAvisos5'](),
 "body": wm, 
 "mediaType": 1,   
-"thumbnail": ftkim,  
+"thumbnailUrl": ftkim,  
 "mediaUrl": redes,  
 "sourceUrl": nna 
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
@@ -440,7 +440,7 @@ mentionedJid:[m.sender],
 "title": lenguaje['smsAvisos5'](),
 "body": wm, 
 "mediaType": 1,   
-"thumbnail": ftkim,  
+"thumbnailUrl": ftkim,  
 "mediaUrl": redes,  
 "sourceUrl": canales
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
@@ -465,7 +465,7 @@ mentionedJid:[m.sender],
 "title": lenguaje['smsAvisos5'](),
 "body": wm, 
 "mediaType": 1,   
-"thumbnail": ftkim,  
+"thumbnailUrl": ftkim,  
 "mediaUrl": redes,  
 "sourceUrl": canales
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
@@ -510,7 +510,7 @@ mentionedJid:[num],
 "title": `${lenguaje.wel.w}`,
 body: wm,
 "previewType": "PHOTO",
-"thumbnailUrl": ``,
+//"thumbnailUrl": ``,
 "thumbnail": welc,
 "sourceUrl": md}}}) 	
 // despedida
@@ -528,7 +528,7 @@ mentionedJid:[num],
 "title": `   ${lenguaje.wel.x}`, 
 body: wm,
 "previewType": "PHOTO",
-"thumbnailUrl": ``,     
+//"thumbnailUrl": ``,     
 "thumbnail": leave,
 "sourceUrl": md}}}) 
 //nuevo admin
@@ -546,7 +546,7 @@ sock.sendMessage(anu.id, { text: `${pickRandom(['[ NUEVO ADMINS ]\n\n', 'Hey'])}
  "title": `乂 ＮＵＥＶＯ ＡＤＭＩＮ 乂`,
 "body": botname,
  "previewType": "PHOTO",
-"thumbnailUrl": ``,
+//"thumbnailUrl": ``,
 "thumbnail": welc,
 "sourceUrl": `${pickRandom([nna, md, yt])}`}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 //un admin menos
@@ -562,7 +562,7 @@ sock.sendMessage(anu.id, { text: `@${name.split("@")[0]} ${pickRandom(['Joderte 
  "title": `乂 ＵＮ ＡＤＭＩＮ ＭＥＮＯＳ  乂`,
 "body": botname, 
  "previewType": "PHOTO",
-"thumbnailUrl": ``,
+//"thumbnailUrl": ``,
 "thumbnail": leave,
 "sourceUrl": `${pickRandom([nna, md, yt])}`}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 }}} catch (err) {
