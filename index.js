@@ -332,8 +332,7 @@ ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 }
 // grupo cerrado
-sock.sendMessage(res.id, {text: 'Test'}, {quoted: m})
-/*sock.sendMessage(res.id, {text: lenguaje['smsAvisos2'](),  
+sock.sendMessage(res.id, {text: lenguaje['smsAvisos2'](),  
 contextInfo:{  
 forwardingScore: 9999999,  
 isForwarded: true,   
@@ -345,9 +344,8 @@ mentionedJid:[m.sender],
 "title": lenguaje['smsAvisos'](), 
 "mediaType": 1,   
 "thumbnailUrl": ftkim,  
-//"mediaUrl": redes,  
 "sourceUrl": redes
-}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})*/
+}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else if (res.announce == false) {
 await sleep(2000)
 try {
