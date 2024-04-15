@@ -332,7 +332,7 @@ ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 }
 // grupo cerrado
-sock.sendMessage(m.chat, {text: lenguaje['smsAvisos2'](),  
+sock.sendMessage(res.id, {text: lenguaje['smsAvisos2'](),  
 contextInfo:{  
 forwardingScore: 9999999,  
 isForwarded: true,   
@@ -512,7 +512,7 @@ body: wm,
 "previewType": "PHOTO",
 //"thumbnailUrl": ``,
 "thumbnail": welc,
-"sourceUrl": md}}}) 	
+"sourceUrl": md}}}, {quoted: m}) 	
 // despedida
 } else if (anu.action == "remove") {
         const buffer = await getBuffer(ppuser)
@@ -530,7 +530,7 @@ body: wm,
 "previewType": "PHOTO",
 //"thumbnailUrl": ``,     
 "thumbnail": leave,
-"sourceUrl": md}}}) 
+"sourceUrl": md}}}, {quoted: m}) 
 //nuevo admin
 } else if (anu.action == "promote") {
 const groupAdmins = participants.filter(p => p.admin)
@@ -548,7 +548,7 @@ sock.sendMessage(anu.id, { text: `${pickRandom(['[ NUEVO ADMINS ]\n\n', 'Hey'])}
  "previewType": "PHOTO",
 //"thumbnailUrl": ``,
 "thumbnail": welc,
-"sourceUrl": `${pickRandom([nna, md, yt])}`}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+"sourceUrl": redes}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 //un admin menos
 } else if (anu.action == 'demote') {
 const buffer = await getBuffer(ppuser)
@@ -564,7 +564,7 @@ sock.sendMessage(anu.id, { text: `@${name.split("@")[0]} ${pickRandom(['Joderte 
  "previewType": "PHOTO",
 //"thumbnailUrl": ``,
 "thumbnail": leave,
-"sourceUrl": `${pickRandom([nna, md, yt])}`}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+"sourceUrl": redes}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 }}} catch (err) {
 console.log(err)
 }})
