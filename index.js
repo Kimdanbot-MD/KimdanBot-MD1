@@ -329,7 +329,7 @@ await sleep(2000)
 try {
 ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 } catch (err) {
-ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
+ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 }
 // grupo cerrado
 sock.sendMessage(res.id, {text: lenguaje['smsAvisos2'](),  
@@ -352,7 +352,7 @@ await sleep(2000)
 try {
 ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 } catch (err) {
-ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
+ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 }
 //grupo abierto
 sock.sendMessage(res.id, {   
@@ -376,7 +376,7 @@ await sleep(2000)
 try {
 ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 } catch (err) {
-ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
+ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 }
 //solo admin pueden editar los ajustes
 sock.sendMessage(res.id, {text: lenguaje['smsAvisos6'](),
@@ -400,7 +400,7 @@ await sleep(2000)
 try {
 ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 } catch (err) {
-ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
+ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 }
 //todos pueden editar los ajustes
 sock.sendMessage(res.id, {text: lenguaje['smsAvisos7'](),  
@@ -424,7 +424,7 @@ await sleep(2000)
 try {
 ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 } catch (err) {
-ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
+ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 }
 // descripción
 let text = `${lenguaje['smsAvisos8']()}\n ❥ ${res.desc}`
@@ -449,7 +449,7 @@ await sleep(2000)
 try {
 ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 } catch (err) {
-ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
+ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 }
 // nombre
 let text = `${lenguaje['smsAvisos9']()}\n ❥ ${res.subject}`
@@ -475,7 +475,7 @@ await sleep(2000)
 try {
 ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 } catch (err) {
-ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
+ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 }
 // 1
 let text = `${lenguaje['smsAvisos9']()}\n ❥ 1`
@@ -500,7 +500,7 @@ await sleep(2000)
 try {
 ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 } catch (err) {
-ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
+ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 }
 // 2
 let text = `${lenguaje['smsAvisos9']()}\n ❥ 2`
@@ -525,7 +525,7 @@ await sleep(2000)
 try {
 ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 } catch (err) {
-ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
+ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 }
 // 3
 let text = `${lenguaje['smsAvisos9']()}\n ❥ 3`
@@ -560,12 +560,12 @@ for (let num of participants) {
 try {
 ppuser = await sock.profilePictureUrl(num, 'image')
 } catch (err) {
-ppuser = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png?q=60'
+ppuser = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
 }
 try {
 ppgroup = await sock.profilePictureUrl(anu.id, 'image')
 } catch (err) {
-ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png?q=60'
+ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 }
 memb = metadata.participants.length
 welc = await getBuffer(ppuser)
