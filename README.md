@@ -5,9 +5,12 @@
  ### `𝐃𝐔𝐃𝐀𝐒 𝐒𝐎𝐁𝐑𝐄 𝐄𝐋 𝐁𝐎𝐓?, 𝐂𝐎𝐍𝐓𝐀𝐂𝐓𝐀𝐌𝐄`
 <a href="https://wa.me/5"><img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
-### 𝐄𝐃𝐈𝐓𝐎𝐑 𝐘 𝐏𝐑𝐎𝐏𝐈𝐄𝐓𝐀𝐑𝐈𝐎 𝐃𝐄𝐋 𝐁𝐎𝐓
+
+ ### 𝐄𝐃𝐈𝐓𝐎𝐑 𝐘 𝐏𝐑𝐎𝐏𝐈𝐄𝐓𝐀𝐑𝐈𝐎 𝐃𝐄𝐋 𝐁𝐎𝐓
 <a href="https://github.com/Kimdanbot-MD"><img src="https://github.com/Kimdanbot-MD.png?width=280" height="280" alt="𝐉𝐎𝐒𝐄́.𝐎𝐅𝐂"/></a>
+
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
+
 #### 𝐂𝐎𝐋𝐀𝐁𝐎𝐑𝐀𝐃𝐎𝐑𝐄𝐒 𝐃𝐄 𝐁𝐎𝐓
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
