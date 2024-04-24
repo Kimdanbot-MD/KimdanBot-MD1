@@ -422,7 +422,7 @@ await m.reply(resu2[0][0][0])}}
 if (!m.isGroup && !isCreator) {
 //const bot = global.db.data.users[m.sender] || {};
 if (global.db.data.settings[numBot].antiprivado) {
-conn.sendMessage(m.chat, {text: `${lenguaje.smsAntiPv}\n${nn2}`, mentions: [sender], },{quoted: m})
+conn.sendMessage(m.chat, {text: `${lenguaje['smsAntiPv']()}\n${canales}`, mentions: [sender], },{quoted: m})
 await delay(2 * 2000)
 await conn.updateBlockStatus(m.chat, 'block')
 return
