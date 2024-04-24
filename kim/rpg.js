@@ -48,8 +48,8 @@ isForwarded: true,
 "body": `${wm}`,
 "previewType": "PHOTO",
 "thumbnailUrl": ``,
-"thumbnail": imagen1, 
-"sourceUrl": md}}},
+"thumbnail": ftkim, 
+"sourceUrl": canales}}},
 { quoted: fkontak})
 await delay(2 * 2000)
 conn.sendMessage(m.chat, { text: sn, contextInfo:{forwardingScore: 9999999, isForwarded: true, }}, { quoted: m})
