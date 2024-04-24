@@ -6,7 +6,7 @@ const { en, es } = require('./libs/idiomas/total-idiomas.js')
 global.owner = [
 ["573173090446", "creador", true],
 ["5214445427870", "darlyn", true],
-["573244670629"], 
+["573044062173"], 
 ["50685690440"],
 ["595975740803"], 
 ["51929972576"],
