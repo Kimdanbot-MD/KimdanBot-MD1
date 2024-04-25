@@ -171,10 +171,7 @@ setInterval(async () => {
 //___________
 
 const store = makeInMemoryStore({logger: pino().child({level: 'silent', stream: 'store' })})
-
-
 	
-//Código de prueba desde aqui	
 let opcion
 if (methodCodeQR) {
 opcion = '1'
@@ -208,7 +205,7 @@ printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
 logger: pino({ level: 'silent' }),
 auth: { creds: state.creds, keys: makeCacheableSignalKeyStore(state.keys, pino({level: 'silent'})) },
 mobile: MethodMobile, 
-browser: opcion == '1' ? ['KimDanBot-MD', 'Edge', '1.0.0'] : methodCodeQR ? ['KimDanBot-MD', 'Safari', '1.0.0'] : ["Ubuntu", "Chrome", "20.0.04"],
+browser: opcion == '1' ? ['𝐊𝐢𝐦𝐃𝐚𝐧𝐁𝐨𝐭-𝐌𝐃', 'Edge', '1.0.0'] : methodCodeQR ? ['𝐊𝐢𝐦𝐃𝐚𝐧𝐁𝐨𝐭-𝐌𝐃', 'Safari', '1.0.0'] : ["𝐊𝐢𝐦𝐃𝐚𝐧𝐁𝐨𝐭-𝐌𝐃", "Chrome", "20.0.04"],
 markOnlineOnConnect: true, 
 generateHighQualityLinkPreview: true, 
 syncFullHistory: true,
@@ -217,7 +214,7 @@ let jid = jidNormalizedUser(key.remoteJid)
 let msg = await store.loadMessage(jid, key.id)
 return (msg?.message || "").replace(/(?:Closing stale open|Closing open session)/g, "")
 },
-msgRetryCounterCache, // Resolver mensajes en espera
+msgRetryCounterCache, 
 msgRetry, 
 defaultQueryTimeoutMs: undefined,
 version,  
@@ -225,6 +222,8 @@ version,
 
 const sock = makeWASocket(socketSettings)
 sock.isInit = false
+
+	//Código de prueba desde aqui	
 	
 if (!fs.existsSync(`./authFolder/creds.json`)) {
 if (opcion === '2' || methodCode) {
@@ -262,7 +261,7 @@ if (store) {
 const msg = store.loadMessage(key.remoteJid, key.id)
 return msg.message
 } return {
-conversation: 'SimpleBot',
+conversation: '𝐊𝐢𝐦𝐃𝐚𝐧𝐁𝐨𝐭-𝐌𝐃',
 }}
 
 sock.ev.on('messages.upsert', async chatUpdate => {
