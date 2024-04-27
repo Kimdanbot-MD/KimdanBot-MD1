@@ -249,11 +249,11 @@ rl.close()
 setTimeout(async () => {
 let codeBot = await sock.requestPairingCode(addNumber)
 codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
-console.log(chalk.bold.white(chalk.bgMagenta(`👑 CÓDIGO DE VINCULACIÓN 👑: `)), chalk.bold.white(chalk.white(codeBot)))
+console.log(chalk.bold.white(chalk.bgMagenta(`(●'▽'●)ゝ 🩷 𝐂𝐎𝐃𝐈𝐆𝐎 𝐃𝐄 𝐕𝐈𝐍𝐂𝐔𝐋𝐀𝐂𝐈𝐎𝐍 🩷 : `)), chalk.bold.white(chalk.white(codeBot)))
 }, 2000)
 }}
 }
-//hasta aqui
+
 async function getMessage(key) {
 if (store) {
 const msg = store.loadMessage(key.remoteJid, key.id)
