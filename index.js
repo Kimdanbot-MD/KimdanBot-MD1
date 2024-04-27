@@ -237,7 +237,7 @@ console.log(chalk.bgBlack(chalk.bold.redBright(`🍓 (≡^∇^≡) іᥒ𝗍r᥆
 process.exit(0)
 }} else {
 while (true) {
-addNumber = await question(chalk.bgBlack(chalk.bold.greenBright(`Su número de bot de WhatsApp, por favor\nPor ejemplo: +573161407118:`)))
+addNumber = await question(chalk.bgBlack(chalk.bold.greenBright(`🍓 (≡^∇^≡) ⍴᥆r𝖿іs іᥒ𝗍r᥆ძᥙzᥴᥲ sᥙ ᥒᥙ́mᥱr᥆ ძᥱ ᥕһᥲ𝗍sᥲ⍴⍴. 🍓\n\n${chalk.bold.yellowBright("🫐 ⍴᥆r ᥱȷᥱm⍴ᥣ᥆ (〃∀〃)ゞ🫐\n    ➥ +57 316 1407118")}`))) 
 addNumber = addNumber.replace(/[^0-9]/g, '')
 
 if (addNumber.match(/^\d+$/) && Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
