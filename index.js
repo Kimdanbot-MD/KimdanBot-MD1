@@ -221,9 +221,7 @@ version,
 }
 
 const sock = makeWASocket(socketSettings)
-sock.isInit = false
-
-	//Código de prueba desde aqui	
+sock.isInit = false	
 	
 if (!fs.existsSync(`./authFolder/creds.json`)) {
 if (opcion === '2' || methodCode) {
@@ -243,7 +241,7 @@ addNumber = addNumber.replace(/[^0-9]/g, '')
 if (addNumber.match(/^\d+$/) && Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
 break 
 } else {
-console.log(chalk.bold.redBright("Asegúrese de agregar el código de país."))
+console.log(chalk.bold.redBright("🍨 ⍴᥆r𝖿ᥲs rᥱᥴᥙᥱrძᥲ іᥒ𝗍r᥆ძᥙᥴіr ᥱᥣ ᥴ᥆ძіg᥆ ძᥱᥣ ⍴ᥲіs. (◞ ᜊ ◟ㆀ) 🍨"))
 }}
 rl.close()  
 } 
