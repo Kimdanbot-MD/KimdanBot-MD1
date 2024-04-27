@@ -193,7 +193,7 @@ ${chalk.italic.magenta('🍄 ¿𝗊ᥙᥱ́ ᥱᥣᥱᥴᥴі᥆ᥒ ᥱᥣᥱgі
 ${chalk.italic.magenta('s᥆ᥣ᥆ ᥱᥣ ᥒᥙ́mᥱr᥆ ძᥱ ᥣᥲ ᥱᥣᥱᥴᥴі᥆ᥒ. 🍄')}\n
 ${chalk.bold.magentaBright('---> ')}`)
 if (!/^[1-2]$/.test(opcion)) {
-console.log(chalk.blue.bgBlue.bold.cyan(`🌻һᥱᥡᥡᥡᥡ 🌻 ٩(๑꒦ິȏ꒦ິ๑)۶ \n\n${chalk.bold.redBright(`🌸 ᥒ᥆ sᥱ ⍴ᥱrmі𝗍ᥱᥒ mᥲ́s ᥒᥙmᥱr᥆s᥆s ᥲ⍴ᥲr𝗍ᥱ ძᥱ ${chalk.bold.greenBright("➊")} ᥆  ${chalk.bold.greenBright("➋")} 🌸\n🌼 𝗍ᥲm⍴᥆ᥴ᥆ ᥣᥱ𝗍rᥲs ᥒі sіmᑲ᥆ᥣ᥆s ᥱs⍴ᥱᥴіᥲᥣᥱs. (╥﹏╥) 🌼`)}\n\n${chalk.bold.yellowBright("🪻 ♡´･ღ･`♡ 𝗍і⍴ 🪻 : 🌺 ᥴ᥆⍴іᥲ 𝗍ᥙ ᥒᥙ́mᥱr᥆ ძᥱsძᥱ ᥣᥲ ᥲ⍴⍴\n ძᥱ ᥕһᥲ𝗍sᥲ⍴⍴ ᥡ ⍴ᥱgᥲᥣ᥆ ᥱᥒ ᥣᥲ ᥴ᥆ᥒs᥆ᥣᥲ. 🌺")}`))
+console.log(chalk.bold.cyanBright(`🌻  һᥱᥡᥡᥡᥡ 🌻 ٩(๑꒦ິȏ꒦ິ๑)۶ ${chalk.bold.redBright(`🌸  ᥒ᥆ sᥱ ⍴ᥱrmі𝗍ᥱᥒ mᥲ́s ᥒᥙmᥱr᥆s᥆s ᥲ⍴ᥲr𝗍ᥱ ძᥱ ${chalk.bold.greenBright("➊")} ᥆ ${chalk.bold.greenBright("➋")} 🌸\n🌼  𝗍ᥲm⍴᥆ᥴ᥆ ᥣᥱ𝗍rᥲs ᥒі sіmᑲ᥆ᥣ᥆s ᥱs⍴ᥱᥴіᥲᥣᥱs. (╥﹏╥) 🌼`)}\n\n${chalk.bold.yellowBright("🪻 ♡ ´･ღ ･`♡ 𝗍і⍴ 🪻 : 🌺 ᥴ᥆⍴іᥲ 𝗍ᥙ ᥒᥙ́mᥱr᥆ ძᥱsძᥱ ᥣᥲ ᥲ⍴⍴\n ძᥱ ᥕһᥲ𝗍sᥲ⍴⍴ ᥡ ⍴ᥱgᥲᥣ᥆ ᥱᥒ ᥣᥲ ᥴ᥆ᥒs᥆ᥣᥲ. 🌺")}`))
 }} while (opcion !== '1' && opcion !== '2' || fs.existsSync(`./authFolder/creds.json`))
 }
 
@@ -231,17 +231,17 @@ let addNumber
 if (!!phoneNumber) {
 addNumber = phoneNumber.replace(/[^0-9]/g, '')
 if (!Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
-console.log(chalk.bgBlack(chalk.bold.redBright(`🍓 (≡^∇^≡) іᥒ𝗍r᥆ძᥙzᥴᥲ sᥙ ᥒᥙ́mᥱr᥆ ძᥱ ᥕһᥲ𝗍sᥲ⍴⍴, rᥱᥴᥙᥱrძᥲ ᥱm⍴ᥱzᥲr ᥴ᥆ᥒ ᥱᥣ ᥴ᥆ძіg᥆ ძᥱᥣ ⍴ᥲіs. 🍓\n\n${chalk.bold.yellowBright("🫐 ⍴᥆r ᥱȷᥱm⍴ᥣ᥆ (〃∀〃)ゞ🫐\n    ➥ +57 316 1407118")}`))) 
+console.log(chalk.bgBlack(chalk.bold.redBright(`\n🍓  (≡^∇^≡) іᥒ𝗍r᥆ძᥙzᥴᥲ sᥙ ᥒᥙ́mᥱr᥆ ძᥱ ᥕһᥲ𝗍sᥲ⍴⍴, rᥱᥴᥙᥱrძᥲ ᥱm⍴ᥱzᥲr ᥴ᥆ᥒ ᥱᥣ ᥴ᥆ძіg᥆ ძᥱᥣ ⍴ᥲіs. 🍓\n\n${chalk.bold.yellowBright("🫐  ⍴᥆r ᥱȷᥱm⍴ᥣ᥆ (〃∀〃)ゞ🫐\n  ➥ +57 316 1407118")}\n`))) 
 process.exit(0)
 }} else {
 while (true) {
-addNumber = await question(chalk.bgBlack(chalk.bold.greenBright(`🍓 (≡^∇^≡) ⍴᥆r𝖿іs іᥒ𝗍r᥆ძᥙzᥴᥲ sᥙ ᥒᥙ́mᥱr᥆ ძᥱ ᥕһᥲ𝗍sᥲ⍴⍴. 🍓\n\n${chalk.bold.yellowBright("🫐 ⍴᥆r ᥱȷᥱm⍴ᥣ᥆ (〃∀〃)ゞ🫐\n    ➥ +57 316 1407118")}`))) 
+addNumber = await question(chalk.bgBlack(chalk.bold.greenBright(`\n🍓  (≡^∇^≡) ⍴᥆r𝖿іs іᥒ𝗍r᥆ძᥙzᥴᥲ sᥙ ᥒᥙ́mᥱr᥆ ძᥱ ᥕһᥲ𝗍sᥲ⍴⍴. 🍓\n\n${chalk.bold.yellowBright("🫐  ⍴᥆r ᥱȷᥱm⍴ᥣ᥆ (〃∀〃)ゞ🫐\n    ➥ +57 316 1407118")}\n`))) 
 addNumber = addNumber.replace(/[^0-9]/g, '')
 
 if (addNumber.match(/^\d+$/) && Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
 break 
 } else {
-console.log(chalk.bold.redBright("🍨 ⍴᥆r𝖿ᥲs rᥱᥴᥙᥱrძᥲ іᥒ𝗍r᥆ძᥙᥴіr ᥱᥣ ᥴ᥆ძіg᥆ ძᥱᥣ ⍴ᥲіs. (◞ ᜊ ◟ㆀ) 🍨"))
+console.log(chalk.bold.redBright("🍨  ⍴᥆r𝖿ᥲs rᥱᥴᥙᥱrძᥲ іᥒ𝗍r᥆ძᥙᥴіr ᥱᥣ ᥴ᥆ძіg᥆ ძᥱᥣ ⍴ᥲіs. (◞ ᜊ ◟ㆀ) 🍨"))
 }}
 rl.close()  
 } 
@@ -249,7 +249,7 @@ rl.close()
 setTimeout(async () => {
 let codeBot = await sock.requestPairingCode(addNumber)
 codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot
-console.log(chalk.bold.white(chalk.bgMagenta(`(●'▽'●)ゝ 🩷 𝐂𝐎𝐃𝐈𝐆𝐎 𝐃𝐄 𝐕𝐈𝐍𝐂𝐔𝐋𝐀𝐂𝐈𝐎𝐍 🩷 : `)), chalk.bold.white(chalk.white(codeBot)))
+console.log(chalk.bold.white(chalk.bgMagenta(`(●'▽ '●)ゝ 🩷  ᥴ᥆ძіg᥆ ძᥱ ᥎іᥒᥴᥙᥣᥲᥴі᥆ᥒ 🩷 : `)), chalk.bold.white(chalk.white(codeBot)))
 }, 2000)
 }}
 }
