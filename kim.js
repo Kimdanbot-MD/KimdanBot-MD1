@@ -500,8 +500,9 @@ return conn.sendFile(m.chat, buffer, 'error.jpg', `${msg[type].caption} ${teks}`
 switch (command) {
 
 case 'plist':
-client.relayMessage(from, { viewOnceMessage: { message: { interactiveMessage: { header: { title: 'Lista' }, body: { text: 'prueba' }, nativeFlowMessage: { buttons: [ { name: 'single_select', buttonParamsJson: JSON.stringify({ title: 'noc', sections: [ {title: 'Lista', highlight_label: 'Yaoi', rows: [{ header: 'Ping', title: 'prueba', description: 'Click Me', id: '.ping' }]}, { highlight_label: 'ON', rows: [{ header: 'Test', title: 'Click',description: 'Click', id: 'tes'}] }, { highlight_label: 'ON', rows: [ { header: 'Test', title: 'Click', description: 'Click', id: 'te' }]}]})}], messageParamsJson: '' }}}}}, {})
+conn.relayMessage(from, { viewOnceMessage: { message: { interactiveMessage: { header: { title: 'Lista' }, body: { text: '💤' }, nativeFlowMessage: { buttons: [ { name: 'single_select', buttonParamsJson: JSON.stringify({ title: 'Click', sections: [ {title: 'Lista', highlight_label: 'Yaoi', rows: [{ header: 'Ping', title: 'Click Me', description: 'Click Me', id: '.ping' }]}, { highlight_label: 'ON', rows: [{ header: 'Test', title: 'Click',description: 'Click', id: 'tes'}] }, { highlight_label: 'ON', rows: [ { header: 'Test', title: 'Click', description: 'Click', id: 'te' }]}]})}], messageParamsJson: '' }}}}}, {})
 break 
+		
 case 'priv': {
 if (!isCreator) return m.reply(mess.owner)
 if (!text) return m.reply(`y el texto`)
