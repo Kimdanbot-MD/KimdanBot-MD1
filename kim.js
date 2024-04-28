@@ -1,7 +1,9 @@
 // Código desde cero por: https://github.com/ferhacks y comentario hecho por: 
 // @Kimdanbot-MD     
 // @elrebelde21
+
 id
+
 // ═════════════𓊈『 IMPORTACIONES 』𓊉═════════════ 
 const baileys = require('@whiskeysockets/baileys'); // trabajar a través de descargas por Whatsapp 
 const { WaMessageStubType, areJidsSameUser, downloadContentFromMessage, generateWAMessageContent, generateWAMessageFromContent, generateWAMessage, prepareWAMessageMedia, relayMessage} = require('@whiskeysockets/baileys'); // Importa los objetos 'makeWASocket' y 'proto' desde el módulo '@whiskeysockets/baileys'  
