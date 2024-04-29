@@ -21,7 +21,7 @@
     <td align="center"><a href="https://github.com/AzamiJs"><img src="https://github.com/azamijs.png? size=100" width="100px;" alt=""/><br /><sub> <b>Azami</b></sub></a><br /><sub><i>Desarollador Oficial</i></sub></td>
     
     
- 
+ |<img src="https://next.ossinsight.io/widgets/official/analyze-repo-pull-requests-size-per-month/thumbnail.png?repo_id=41986369&image_size=auto" />|<img src="https://next.ossinsight.io/widgets/official/analyze-repo-pull-request-open-to-merged/thumbnail.png?repo_id=41986369&image_size=auto" />|
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
