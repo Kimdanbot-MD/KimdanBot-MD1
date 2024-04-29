@@ -20,6 +20,7 @@
     <td align="center"><a href="https://github.com/elrebelde21"><img src="https://github.com/elrebelde21.png?size=100" width="100px;" alt=""/><br /><sub><b>Mario</b></sub></a><br /><sub><i>Desarollador Oficial</i></sub></td>
     <td align="center"><a href="https://github.com/AzamiJs"><img src="https://github.com/azamijs.png? size=100" width="100px;" alt=""/><br /><sub> <b>Azami</b></sub></a><br /><sub><i>Desarollador Oficial</i></sub></td>
     
+ />|<img src="https://next.ossinsight.io/widgets/official/compose-recent-top-contributors/thumbnail.png?repo_id=41986369&image_size=auto" />|
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
