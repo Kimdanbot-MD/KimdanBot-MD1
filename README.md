@@ -2,7 +2,9 @@
 ## 𝐕𝐈𝐒𝐈𝐓𝐀𝐒 🔍
 <p align="center"><img src="https://profile-counter.glitch.me/{ERLANRAMAT}/count.svg" alt="neoxr :: Visitor's Count" /></p>
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
- 
+
+ |<img src="https://next.ossinsight.io/widgets/official/analyze-repo-stars-map/thumbnail.png?activity=stars&repo_id=41986369&image_size=auto" />|<img src="https://next.ossinsight.io/widgets/official/analyze-repo-stars-history/thumbnail.png?repo_id=41986369&image_size=auto" />|
+
 ### `𝐃𝐔𝐃𝐀𝐒 𝐒𝐎𝐁𝐑𝐄 𝐄𝐋 𝐁𝐎𝐓?, 𝐂𝐎𝐍𝐓𝐀𝐂𝐓𝐀𝐌𝐄`
 <a href="https://wa.me/5"><img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" />
  
