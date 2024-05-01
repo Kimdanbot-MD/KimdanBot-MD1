@@ -134,12 +134,12 @@ await conn.sendMessage(m.chat, {text: listag }, { quoted: m })
 }
 
 
-async function estado(conn, imgkim, sendImage, from, m)  { 
+async function estado(conn, ftkim, sendImage, from, m)  { 
 const totalMemory = Math.round(os.totalmem() / (1024 * 1024 * 1024));
   const freeMemory = Math.round(os.freemem() / (1024 * 1024 * 1024));
   const usedMemory = totalMemory - freeMemory;
   const cpuUsage = os.loadavg()[0];
-  conn.sendMessage(m.chat, {image: imagen1, caption: `*╭𝄗𝄗🌸✦ --𝐄𝐒𝐓𝐀𝐃𝐎-- ✦🌸𝄗𝄗⬣*
+  conn.sendMessage(m.chat, {image: ftkim, caption: `*╭𝄗𝄗🌸✦ --𝐄𝐒𝐓𝐀𝐃𝐎-- ✦🌸𝄗𝄗⬣*
 ⎸ *⍟ 𝐕𝐞𝐫𝐬𝐢𝐨́𝐧*
 ⎸ ❉ 🍓 ➺ 𝟏.𝟎.𝟎
 ⎸ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ 
@@ -152,7 +152,7 @@ const totalMemory = Math.round(os.totalmem() / (1024 * 1024 * 1024));
 *╰𝄗𝄗𝄗𝄗𝄗⬣*` }, { quoted: m });
 }
 
-async function infobot(conn, imagen2, sendImage, from, m)  { 
+async function infobot(conn, ftkim, sendImage, from, m)  { 
   const totalMemory = Math.round(os.totalmem() / (1024 * 1024 * 1024))
 const freeMemory = Math.round(os.freemem() / (1024 * 1024 * 1024))
 const usedMemory = totalMemory - freeMemory
@@ -175,7 +175,7 @@ let anu = groups.map(v => v.id)
 let json = {
 disk: formatSize(disk[0].available) + " 𝐝𝐞 " + formatSize(disk[0].size),
 };
-conn.sendMessage(m.chat, {image: imagen2, caption: `┏ ━ ━ ━
+conn.sendMessage(m.chat, {image: ftkim, caption: `┏ ━ ━ ━
 ┃ ☛『🍓 *𝐈 𝐍 𝐅 𝐎 𝐑 𝐌 𝐀 𝐂 𝐈 𝐎́ 𝐍* 🍓』☚
 ┃🍧꙰᠁❥ *◜𝐂𝐑𝐄𝐀𝐃𝐎𝐑◞* ⇢ *𝐉𝐨𝐬𝐞.𝐎𝐟𝐜*
 ┃🌺꙰᠁❥ *◜𝐂𝐎𝐍𝐓𝐀𝐂𝐓𝐎◞* +57 316 1407118
@@ -199,7 +199,7 @@ conn.sendMessage(m.chat, {image: imagen2, caption: `┏ ━ ━ ━
 ┗ ━ ━ ━ ━` }, { quoted: m });
 }
 
-async function ping(conn, imagen3, sendImage, from, m)  { 
+async function ping(conn, ftkim, sendImage, from, m)  { 
 const speed = require("performance-now")
  var timestamp = speed();
   var latensi = speed() - timestamp
