@@ -560,12 +560,12 @@ break
 case 'ping':  
 var timestamp = speed();  
 var latensi = speed() - timestamp  
-conn.sendMessage(from, { text: `*𝐏𝐨𝐧𝐠 🏓  ${latensi.toFixed(4)}*\n${s}` }, { quoted: msg });  					
+conn.sendMessage(from, { text: `*𝐏𝐨𝐧𝐠 🏓  ${latensi.toFixed(4)}*` }, { quoted: msg });  					
 case 'velocidad':
-await ping(conn, imagen3, sendImage, from, m)
+await ping(conn, ftkim, sendImage, from, m)
 break;		
 case 'infokim': case 'infobot': 
-await infobot(conn, imagen2, sendImage, from, m) 
+await infobot(conn, ftkim, sendImage, from, m) 
 break		
 case 'creador': 
 await Info(conn, m, from, sendImage)
