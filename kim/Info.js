@@ -1,5 +1,6 @@
 //const { smsg, getGroupAdmins, formatp, tanggal, formatDate, getTime, isUrl, sleep, clockString, runtime, fetchJson, getBuffer, jsonformat, delay, format, logic, generateProfilePicture, parseMention, getRandom } = require('./libs/fuctions.js'); 
  const baileys = require('@whiskeysockets/baileys')
+const in = requiere('../kim.js')
  const moment = require('moment-timezone') 
  const gradient = require('gradient-string') 
  const fetch = require('node-fetch') 
