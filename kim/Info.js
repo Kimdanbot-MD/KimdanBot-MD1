@@ -220,7 +220,7 @@ let json = {
   cpu: cpu.avg + " Ghz",
   disk: formatSize(disk[0].available) + " de " + formatSize(disk[0].size),
 };
-  conn.sendMessage(m.chat, {image: imagen3, caption: `*⋊╼╾『 🍒 𝐕𝐄𝐋𝐎𝐂𝐈𝐃𝐀𝐃 : 𝐏𝐈𝐍𝐆 🍒』╼╾⋉*
+  conn.sendMessage(m.chat, {image: ftkim, caption: `*⋊╼╾『 🍒 𝐕𝐄𝐋𝐎𝐂𝐈𝐃𝐀𝐃 : 𝐏𝐈𝐍𝐆 🍒』╼╾⋉*
 
 🚄 *${latensi.toFixed(3)} 𝐦𝐬*
 🚄 *${latensi.toFixed(14)} 𝐦𝐬*
