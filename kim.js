@@ -555,7 +555,7 @@ break*/
 		
 // 𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐂𝐈𝐎𝐍 𝐃𝐄 𝐊𝐈𝐌𝐃𝐀𝐍𝐁𝐎𝐓-𝐌𝐃
 case 'estado': case 'heydan': case 'status':
-await estado(conn, imgkim, sendImage, from, m) 
+await estado(conn, ftkim, sendImage, from, m) 
 break		
 case 'ping':  
 var timestamp = speed();  
