@@ -1,5 +1,6 @@
 require('../kim.js')
 const command = require('../kim.js')
+const ftkim = require('../kim.js');const canales = require('../kim.js')
 const fs = require("fs")
 const { smsg, getGroupAdmins, formatp, tanggal, formatDate, getTime, isUrl, sleep, clockString, runtime, fetchJson, getBuffer, jsonformat, delay, format, logic, generateProfilePicture, parseMention, getRandom } = require('../libs/fuctions.js'); 
 const path = require("path")
