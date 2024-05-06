@@ -1154,8 +1154,8 @@ break
 		
 case 'totag': {
 if (!m.isGroup) return reply (mess.group) 
-if (!isBotAdmins) return reply (mess.botAdmin) 
-if (!isGroupAdmins) return reply (mess.admin) 
+//if (!isBotAdmins) return reply (mess.botAdmin) 
+//if (!isGroupAdmins) return reply (mess.admin) 
 if (!m.quoted) return reply(`Reply pesan dengan caption ${prefix + command}`) 
 conn.sendMessage(m.chat, { forward: m.quoted.fakeObj, mentions: participants.map(a => a.id) })
 }
