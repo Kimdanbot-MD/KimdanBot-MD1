@@ -298,10 +298,10 @@ sock.appenTextMessage(prefCmd, chatUpdate)
 }}}})
 
 //anticall
-if (!owner) {
 sock.ev.on('call', async (fuckedcall) => { 
 sock.user.jid = sock.user.id.split(":")[0] + "@s.whatsapp.net" // jid in user?
 let anticall = global.db.data.settings[numBot].anticall
+if (!owner) {
 if (!anticall) return
 console.log(fuckedcall)
 for (let fucker of fuckedcall) {
@@ -312,7 +312,7 @@ let vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;👑 ⍴ɾ᥆⍴іᥱ𝗍ᥲɾі᥆ �
 sock.sendMessage(fucker.from, { contacts: { displayName: '🍓 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🍓', contacts: [{ vcard }] }}, {quoted: call, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 await sleep(8000)
 await sock.updateBlockStatus(fucker.from, "block")
-}}}})}
+}}}}})
 
 //detect
 sock.ev.on("groups.update", async (json) => {
