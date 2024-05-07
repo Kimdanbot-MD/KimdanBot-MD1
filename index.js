@@ -496,7 +496,7 @@ const time = moment.tz('America/Bogota').format('HH:mm:ss')
 const date = moment.tz('America/Bogota').format('DD/MM/YYYY')
 let name = num
 const miembros = metadata.participants.length
-sock.sendMessage(anu.id, { text: `${lenguaje.wel.A} @${num.split("@")[0]} 🍒*\n${lenguaje.wel.B}
+sock.sendMessage(anu.id, { text: `${lenguaje.wel.A} @${num.split("@")[0]} ${lenguaje.wel.B}
 ${String.fromCharCode(8206).repeat(850)}
 ${metadata.desc}`, contextInfo:{
 forwardingScore: 9999999,
