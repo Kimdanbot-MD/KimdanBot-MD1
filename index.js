@@ -507,7 +507,7 @@ mentionedJid:[num],
 "title": `${lenguaje.wel.w}`,
 body: wm,
 "previewType": "PHOTO",
-//"thumbnailUrl": ``,
+"thumbnailUrl": ``,
 "thumbnail": welc,
 "sourceUrl": md}}}, {quoted: m}) 	
 // despedida
@@ -525,7 +525,7 @@ mentionedJid:[num],
 "title": `   ${lenguaje.wel.x}`, 
 body: wm,
 "previewType": "PHOTO",
-//"thumbnailUrl": ``,     
+"thumbnailUrl": ``,     
 "thumbnail": leave,
 "sourceUrl": md}}}, {quoted: m}) 
 //nuevo admin
