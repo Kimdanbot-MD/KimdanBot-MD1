@@ -496,9 +496,11 @@ const time = moment.tz('America/Bogota').format('HH:mm:ss')
 const date = moment.tz('America/Bogota').format('DD/MM/YYYY')
 let name = num
 const miembros = metadata.participants.length
-sock.sendMessage(anu.id, { text: `${lenguaje.wel.A} @${num.split("@")[0]} ${lenguaje.wel.B}
-${String.fromCharCode(8206).repeat(850)}
-${metadata.desc}`, contextInfo:{
+sock.sendMessage(anu.id, { text: `${lenguaje.wel.A} @${num.split("@")[0]} ${lenguaje.wel.B}\n${String.fromCharCode(8206).repeat(850)}\n${metadata.desc}`, contextInfo:{
+forwardedNewsletterMessageInfo: { 
+newsletterJid: '120363200204060894@newsletter', 
+serverMessageId: '', 
+newsletterName: 'zamhetero' }, 
 forwardingScore: 9999999,
 isForwarded: true, 
 mentionedJid:[num],
@@ -507,9 +509,9 @@ mentionedJid:[num],
 "title": `${lenguaje.wel.w}`,
 body: wm,
 "previewType": "PHOTO",
-"thumbnailUrl": ``,
+"thumbnailUrl": redes,
 "thumbnail": welc,
-"sourceUrl": md}}}, {quoted: m}) 	
+"sourceUrl": nna}}}, {quoted: m}) 	
 // despedida
 } else if (anu.action == "remove") {
         const buffer = await getBuffer(ppuser)
