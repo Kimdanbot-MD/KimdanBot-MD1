@@ -501,7 +501,6 @@ forwardedNewsletterMessageInfo: {
 newsletterJid: '120363200204060894@newsletter', 
 serverMessageId: '', 
 newsletterName: 'zamhetero' },
-forwardingScore: 9999999,
 isForwarded: true, 
 mentionedJid:[num],
 "externalAdReply": {"showAdAttribution": true,
@@ -517,10 +516,14 @@ body: wm,
         const buffer = await getBuffer(ppuser)
 let name = num
 const members = metadata.participants.length
-sock.sendMessage(anu.id, { text: `${lenguaje.wel.C} @${name.split("@")[0]} 🍇*\n${lenguaje.wel.D}`,
-contextInfo:{
+sock.sendMessage(anu.id, { text: `${lenguaje.wel.C} @${name.split("@")[0]} 🍇*\n${lenguaje.wel.D}`, contextInfo:{
+forwardedNewsletterMessageInfo: { 
+newsletterJid: '120363200204060894@newsletter', 
+serverMessageId: '', 
+newsletterName: 'zamhetero' },
 forwardingScore: 9999999,
-isForwarded: true, 
+isForwarded: true,
+remoteJid: anu.id,
 mentionedJid:[num],
 "externalAdReply": {"showAdAttribution": true,
 "containsAutoReply": true,
@@ -529,7 +532,7 @@ body: wm,
 "previewType": "PHOTO",
 "thumbnailUrl": ``,     
 "thumbnail": leave,
-"sourceUrl": md}}}, {quoted: m}) 
+"sourceUrl": redes}}}, {quoted: m}) 
 //nuevo admin
 } else if (anu.action == "promote") {
 const groupAdmins = participants.filter(p => p.admin)
