@@ -502,7 +502,8 @@ newsletterJid: '120363200204060894@newsletter',
 serverMessageId: '', 
 newsletterName: 'zamhetero' }, 
 forwardingScore: 9999999,
-isForwarded: true, 
+isForwarded: true,
+remoteJid: anu.id,
 mentionedJid:[num],
 "externalAdReply": {"showAdAttribution": true,
 "containsAutoReply": true,
@@ -511,7 +512,7 @@ body: wm,
 "previewType": "PHOTO",
 "thumbnailUrl": redes,
 "thumbnail": welc,
-"sourceUrl": redes}}}, {quoted: m}) 	
+"sourceUrl": redes}}}) 	
 // despedida
 } else if (anu.action == "remove") {
         const buffer = await getBuffer(ppuser)
