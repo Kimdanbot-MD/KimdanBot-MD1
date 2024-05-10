@@ -347,7 +347,7 @@ mentionedJid:[m.sender],
 "mediaType": 1,   
 "thumbnailUrl": ftkim,  
 "mediaUrl": redes,  
-"sourceUrl": nna
+"sourceUrl": canales
 }}})
 } else if (res.announce == false) {
 await sleep(2000)
@@ -376,7 +376,7 @@ mentionedJid:[m.sender],
 "mediaType": 1,   
 "thumbnailUrl": ftkim,  
 "mediaUrl": redes,  
-"sourceUrl": nna
+"sourceUrl": canales
 }}})
 } else if (res.restrict == true) {
 await sleep(2000)
@@ -405,7 +405,7 @@ mentionedJid:[m.sender],
 "mediaType": 1,   
 "thumbnailUrl": ftkim,  
 "mediaUrl": redes,  
-"sourceUrl": nna
+"sourceUrl": canales
 }}})
 } else if (res.restrict == false) {
 await sleep(2000)
@@ -434,7 +434,7 @@ mentionedJid:[m.sender],
 "mediaType": 1,   
 "thumbnailUrl": ftkim,  
 "mediaUrl": redes,  
-"sourceUrl": nna 
+"sourceUrl": canales 
 }}})
 } else if(!res.desc == ``){
 await sleep(2000)
@@ -536,7 +536,7 @@ mentionedJid:[num],
 "externalAdReply": {"showAdAttribution": true,
 "containsAutoReply": true,
 "title": `${lenguaje.wel.w}`,
-body: wm,
+"body": `${metadata.subject}`,
 "previewType": "PHOTO",
 "thumbnailUrl": redes,
 "thumbnail": welc,
@@ -550,15 +550,15 @@ sock.sendMessage(anu.id, { text: `${lenguaje.wel.C} @${name.split("@")[0]} 🍇*
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363200204060894@newsletter', 
 serverMessageId: '', 
-newsletterName: 'zamhetero' },
+newsletterName: '༻꫞⃝🧃 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🧃⃝꫞༺' },
 forwardingScore: 9999999,
 isForwarded: true,
 remoteJid: anu.id,
 mentionedJid:[num],
 "externalAdReply": {"showAdAttribution": true,
 "containsAutoReply": true,
-"title": `   ${lenguaje.wel.x}`, 
-body: wm,
+"title": `${lenguaje.wel.x}`, 
+"body": `${metadata.subject}`,
 "previewType": "PHOTO",
 "thumbnailUrl": ``,     
 "thumbnail": leave,
@@ -582,12 +582,12 @@ remoteJid: anu.id,
  mentionedJid: [num, usuario],
  "externalAdReply": {"showAdAttribution": true,
  "containsAutoReply": true,
- "title": `乂 ＮＵＥＶＯ ＡＤＭＩＮ 乂`,
-"body": botname,
- "previewType": "PHOTO",
-//"thumbnailUrl": ``,
-"thumbnail": welc,
-"sourceUrl": redes}}})
+ "title": `${lenguaje.wel.y}`,
+"body": wm, 
+"mediaType": 1,   
+"thumbnailUrl": ftkim,  
+"mediaUrl": redes,  
+"sourceUrl": canales}}})
 //un admin menos
 } else if (anu.action == 'demote') {
 const buffer = await getBuffer(ppuser)
@@ -605,12 +605,12 @@ remoteJid: anu.id,
  mentionedJid:[num, usuario],
  "externalAdReply": {"showAdAttribution": true,
  "containsAutoReply": true,
- "title": `乂 ＵＮ ＡＤＭＩＮ ＭＥＮＯＳ  乂`,
-"body": botname, 
- "previewType": "PHOTO",
-//"thumbnailUrl": ``,
-"thumbnail": leave,
-"sourceUrl": redes}}})
+ "title": `${lenguaje.wel.z}`,
+"body": wm, 
+"mediaType": 1,   
+"thumbnailUrl": ftkim,  
+"mediaUrl": redes,  
+"sourceUrl": canales}}})
 }}} catch (err) {
 console.log(err)
 }})
