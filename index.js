@@ -593,7 +593,7 @@ remoteJid: anu.id,
 const buffer = await getBuffer(ppuser)
 let name = num
 let usuario = anu.author
-sock.sendMessage(anu.id, { text: `${lenguaje.wel.H} @${name.split("@")[0]} ${lenguaje.wel.F} @${usuario.split("@")[0]} ${lenguaje.wel.G}`},
+sock.sendMessage(anu.id, { text: `${lenguaje.wel.H} @${name.split("@")[0]} ${lenguaje.wel.F} @${usuario.split("@")[0]} ${lenguaje.wel.G}`,
  contextInfo:{
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363200204060894@newsletter', 
