@@ -570,7 +570,7 @@ const listAdmin = groupAdmins.map((v, i) => `*» ${i + 1}. @${v.id.split('@')[0]
 const buffer = await getBuffer(ppuser)
 let name = num
 let usuario = anu.author
-sock.sendMessage(anu.id, { text: `${pickRandom(['[ NUEVO ADMINS ]\n\n', 'Hey'])} @${name.split("@")[0]} ${pickRandom(['Ahora eres admin del grupo 🥳', 'Felicidades ahora eres parte staff 🎉'])}\n\n🫵 Acción echa por : @${usuario.split("@")[0]}`, mentions: [...groupAdmins.map(v => v.id)], 
+sock.sendMessage(anu.id, { text: `${lenguaje.wel.E} @${name.split("@")[0]} ${lenguaje.wel.F} @${usuario.split("@")[0]} ${lenguaje.wel.G}`, mentions: [...groupAdmins.map(v => v.id)], 
  contextInfo:{
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363200204060894@newsletter', 
@@ -593,7 +593,7 @@ remoteJid: anu.id,
 const buffer = await getBuffer(ppuser)
 let name = num
 let usuario = anu.author
-sock.sendMessage(anu.id, { text: `@${name.split("@")[0]} ${pickRandom(['Joderte ya no eres admin 🥲', 'jjjjj ya no eres admin culiado 🤣'])}\n\n🫵 Acción echa por : @${usuario.split("@")[0]}`,
+sock.sendMessage(anu.id, { text: `${lenguaje.wel.H} @${name.split("@")[0]} ${lenguaje.wel.F} @${usuario.split("@")[0]}` ${lenguaje.wel.G},
  contextInfo:{
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363200204060894@newsletter', 
