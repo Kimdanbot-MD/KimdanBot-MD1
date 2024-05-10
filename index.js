@@ -331,8 +331,13 @@ ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 // grupo cerrado
 sock.sendMessage(res.id, {text: lenguaje['smsAvisos2'](),  
 contextInfo:{  
+forwardedNewsletterMessageInfo: { 
+newsletterJid: '120363200204060894@newsletter', 
+serverMessageId: '', 
+newsletterName: '༻꫞⃝🧃 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🧃⃝꫞༺' },
 forwardingScore: 9999999,  
-isForwarded: true,   
+isForwarded: true,
+remoteJid: anu.id,
 mentionedJid:[m.sender],  
 "externalAdReply": {  
 "showAdAttribution": true,  
@@ -343,7 +348,7 @@ mentionedJid:[m.sender],
 "thumbnailUrl": ftkim,  
 "mediaUrl": redes,  
 "sourceUrl": nna
-}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+}}})
 } else if (res.announce == false) {
 await sleep(2000)
 try {
@@ -355,8 +360,13 @@ ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 sock.sendMessage(res.id, {   
 text: lenguaje['smsAvisos3'](),  
 contextInfo:{  
-forwardingScore: 9999999,  
-isForwarded: true,   
+forwardedNewsletterMessageInfo: { 
+newsletterJid: '120363200204060894@newsletter', 
+serverMessageId: '', 
+newsletterName: '༻꫞⃝🧃 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🧃⃝꫞༺' },
+forwardingScore: 9999999,
+isForwarded: true,
+remoteJid: anu.id,   
 mentionedJid:[m.sender],  
 "externalAdReply": {  
 "showAdAttribution": true,  
@@ -367,7 +377,7 @@ mentionedJid:[m.sender],
 "thumbnailUrl": ftkim,  
 "mediaUrl": redes,  
 "sourceUrl": nna
-}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+}}})
 } else if (res.restrict == true) {
 await sleep(2000)
 try {
@@ -378,8 +388,13 @@ ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 //solo admin pueden editar los ajustes
 sock.sendMessage(res.id, {text: lenguaje['smsAvisos6'](),
 contextInfo:{  
-forwardingScore: 9999999,  
-isForwarded: true,   
+forwardedNewsletterMessageInfo: { 
+newsletterJid: '120363200204060894@newsletter', 
+serverMessageId: '', 
+newsletterName: '༻꫞⃝🧃 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🧃⃝꫞༺' },
+forwardingScore: 9999999,
+isForwarded: true,
+remoteJid: anu.id,   
 mentionedJid:[m.sender],  
 "externalAdReply": {  
 "showAdAttribution": true,  
@@ -391,7 +406,7 @@ mentionedJid:[m.sender],
 "thumbnailUrl": ftkim,  
 "mediaUrl": redes,  
 "sourceUrl": nna
-}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+}}})
 } else if (res.restrict == false) {
 await sleep(2000)
 try {
@@ -402,8 +417,13 @@ ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 //todos pueden editar los ajustes
 sock.sendMessage(res.id, {text: lenguaje['smsAvisos7'](),  
 contextInfo:{  
-forwardingScore: 9999999,  
-isForwarded: true,   
+forwardedNewsletterMessageInfo: { 
+newsletterJid: '120363200204060894@newsletter', 
+serverMessageId: '', 
+newsletterName: '༻꫞⃝🧃 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🧃⃝꫞༺' },
+forwardingScore: 9999999,
+isForwarded: true,
+remoteJid: anu.id,   
 mentionedJid:[m.sender],  
 "externalAdReply": {  
 "showAdAttribution": true,  
@@ -415,7 +435,7 @@ mentionedJid:[m.sender],
 "thumbnailUrl": ftkim,  
 "mediaUrl": redes,  
 "sourceUrl": nna 
-}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+}}})
 } else if(!res.desc == ``){
 await sleep(2000)
 try {
@@ -427,8 +447,13 @@ ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 let text = `${lenguaje['smsAvisos8']()}\n ❥ ${res.desc}`
 sock.sendMessage(res.id, {text: text,  
 contextInfo:{  
-forwardingScore: 9999999,  
-isForwarded: true,   
+forwardedNewsletterMessageInfo: { 
+newsletterJid: '120363200204060894@newsletter', 
+serverMessageId: '', 
+newsletterName: '༻꫞⃝🧃 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🧃⃝꫞༺' },
+forwardingScore: 9999999,
+isForwarded: true,
+remoteJid: anu.id,   
 mentionedJid:[m.sender],  
 "externalAdReply": {  
 "showAdAttribution": true,  
@@ -440,7 +465,7 @@ mentionedJid:[m.sender],
 "thumbnailUrl": ftkim,  
 "mediaUrl": redes,  
 "sourceUrl": canales
-}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+}}})
 } else if(!res.subject == ``){
 await sleep(2000)
 try {
@@ -452,8 +477,13 @@ ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 let text = `${lenguaje['smsAvisos9']()}\n ❥ ${res.subject}`
 sock.sendMessage(res.id, {text: text,  
 contextInfo:{  
-forwardingScore: 9999999,  
-isForwarded: true,   
+forwardedNewsletterMessageInfo: { 
+newsletterJid: '120363200204060894@newsletter', 
+serverMessageId: '', 
+newsletterName: '༻꫞⃝🧃 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🧃⃝꫞༺' },
+forwardingScore: 9999999,
+isForwarded: true,
+remoteJid: anu.id,
 mentionedJid:[m.sender],  
 "externalAdReply": {  
 "showAdAttribution": true,  
@@ -465,7 +495,7 @@ mentionedJid:[m.sender],
 "thumbnailUrl": ftkim,  
 "mediaUrl": redes,  
 "sourceUrl": canales
-}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+}}})
 }})
 	
 //Welcome adaptado
@@ -542,6 +572,13 @@ let name = num
 let usuario = anu.author
 sock.sendMessage(anu.id, { text: `${pickRandom(['[ NUEVO ADMINS ]\n\n', 'Hey'])} @${name.split("@")[0]} ${pickRandom(['Ahora eres admin del grupo 🥳', 'Felicidades ahora eres parte staff 🎉'])}\n\n🫵 Acción echa por : @${usuario.split("@")[0]}`, mentions: [...groupAdmins.map(v => v.id)], 
  contextInfo:{
+forwardedNewsletterMessageInfo: { 
+newsletterJid: '120363200204060894@newsletter', 
+serverMessageId: '', 
+newsletterName: '༻꫞⃝🧃 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🧃⃝꫞༺' },
+forwardingScore: 9999999,
+isForwarded: true,
+remoteJid: anu.id,	 
  mentionedJid: [num, usuario],
  "externalAdReply": {"showAdAttribution": true,
  "containsAutoReply": true,
@@ -550,7 +587,7 @@ sock.sendMessage(anu.id, { text: `${pickRandom(['[ NUEVO ADMINS ]\n\n', 'Hey'])}
  "previewType": "PHOTO",
 //"thumbnailUrl": ``,
 "thumbnail": welc,
-"sourceUrl": redes}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+"sourceUrl": redes}}})
 //un admin menos
 } else if (anu.action == 'demote') {
 const buffer = await getBuffer(ppuser)
@@ -558,6 +595,13 @@ let name = num
 let usuario = anu.author
 sock.sendMessage(anu.id, { text: `@${name.split("@")[0]} ${pickRandom(['Joderte ya no eres admin 🥲', 'jjjjj ya no eres admin culiado 🤣'])}\n\n🫵 Acción echa por : @${usuario.split("@")[0]}`,
  contextInfo:{
+forwardedNewsletterMessageInfo: { 
+newsletterJid: '120363200204060894@newsletter', 
+serverMessageId: '', 
+newsletterName: '༻꫞⃝🧃 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🧃⃝꫞༺' },
+forwardingScore: 9999999,
+isForwarded: true,
+remoteJid: anu.id,	 
  mentionedJid:[num, usuario],
  "externalAdReply": {"showAdAttribution": true,
  "containsAutoReply": true,
@@ -566,7 +610,7 @@ sock.sendMessage(anu.id, { text: `@${name.split("@")[0]} ${pickRandom(['Joderte 
  "previewType": "PHOTO",
 //"thumbnailUrl": ``,
 "thumbnail": leave,
-"sourceUrl": redes}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+"sourceUrl": redes}}})
 }}} catch (err) {
 console.log(err)
 }})
