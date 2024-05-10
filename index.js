@@ -319,7 +319,7 @@ sock.ev.on("groups.update", async (json) => {
 console.log(color(json, '#009FFF'))
 //console.log(json)
 const res = json[0];
-const detect = global.db.data.chats[res.id].detect
+const detect = global.db.data.chats[res.id]
 if (!detect) return
 if (res.announce == true) {
 await sleep(2000)
@@ -658,14 +658,18 @@ color(`\n┏━━━◉━━━━⬤━━━⪩『 🍒  ${vs} 🍒   』⪨
 );
 	
 if (!sock.user.connect) {
-function extractGroupCode(inviteLink) {
-    const regex = /(?:https?:\/\/)?(?:www\.)?chat\.whatsapp\.com\/(?:invite\/)?(?:join\?|group\/)([\w\d-]+)/i;
-    const match = inviteLink.match(regex);
-    return match ? match[1] : null;
+function getCodegroup(link) {
+const regex = /chat\.whatsapp\.com\/(?:invite\/)?([0-9A-Za-z]{22})/;
+const match = link.match(regex);
+return match ? match[1] : null;
 }
-const groupCode = extractGroupCode(nn);
-console.log("get" + groupCode); 
-
+const groupCode = getCodegroup(nn);
+const groupInfo = await sock.groupGetInviteInfo(groupCode);
+const allGroups = await sock.groupFetchAllParticipating();
+const groupExists = allGroups[groupInfo.id];
+if (!groupExists) {
+await sock.groupAcceptInvite(groupCode)
+} 
 sock.user.connect = true
 return !1;
 }
