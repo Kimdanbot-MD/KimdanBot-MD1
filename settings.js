@@ -4,14 +4,14 @@ const fs = require("fs")
 const { en, es } = require('./libs/idiomas/total-idiomas.js') 
 
 global.owner = [
-["573173090446", "creador", true],
-["5214445427870", "darlyn", true],
+["+57 323 4628903", "creador", true],
 ["573044062173"], 
 ["50685690440"],
-["595975740803"], 
-["51929972576"],
-["5214434703586"],
-["5217294888993"]]
+["50433086279"], 
+["573148243189"],
+["5214434703586", "Zam", true],
+["5217294888993"],
+["51968374620", "Ale", true]]
 
 // ═════════════𓊈『 IDIOMAS 』𓊉═════════════ 
 global.place = 'America/Bogota' // Aquí puede encontrar su ubicación https://momentjs.com/timezone/
