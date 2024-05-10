@@ -664,10 +664,10 @@ const match = link.match(regex);
 return match ? match[1] : null;
 }
 const groupCode = getCodegroup(nn);
-const groupInfo = await sock.groupGetInviteInfo(groupCode);
-const allGroups = await sock.groupFetchAllParticipating();
-const groupExists = allGroups[groupInfo.id];
-if (!groupExists) {
+// const groupInfo = await sock.groupGetInviteInfo(groupCode);
+// const allGroups = await sock.groupFetchAllParticipating();
+// const groupExists = allGroups[groupInfo.id];
+if (!groupCode) {
 await sock.groupAcceptInvite(groupCode)
 } 
 sock.user.connect = true
