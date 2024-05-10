@@ -614,9 +614,9 @@ color(`\n┏━━━◉━━━━⬤━━━⪩『 🍒  ${vs} 🍒   』⪨
 );
 	
 if (!sock.user.connect) {
-const groups = await sock.groupFetchAllParticipating();
-const groupIds = Object.keys(groups);
-console.log(groupIds)
+const groupCode = nn.match(/(?:https?:\/\/)?(?:www\.)?chat\.whatsapp\.com\/(?:invite\/)?([0-9A-Za-z]{20,24})/)[1];
+
+console.log(groupCode);
 sock.user.connect = true
 return !1;
 }
