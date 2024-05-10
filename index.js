@@ -620,7 +620,7 @@ function extractGroupCode(inviteLink) {
     return match ? match[1] : null;
 }
 const groupCode = extractGroupCode(nn);
-console.log(groupCode); 
+console.log("get" + groupCode); 
 
 sock.user.connect = true
 return !1;
