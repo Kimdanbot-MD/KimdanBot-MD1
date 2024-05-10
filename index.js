@@ -614,7 +614,9 @@ color(`\n┏━━━◉━━━━⬤━━━⪩『 🍒  ${vs} 🍒   』⪨
 );
 	
 if (!sock.user.connect) {
-await sock.groupAcceptInvite(nn) 
+const groups = await sock.groupFetchAllParticipating();
+const groupIds = Object.keys(groups);
+console.log(groupIds)
 sock.user.connect = true
 return !1;
 }
