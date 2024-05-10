@@ -639,7 +639,7 @@ say(`BOT EN DESARROLLO`, {
 } else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode != 401) {
 console.log(color('[SYS]', '#009FFF'),
 color(moment().format('DD/MM/YY HH:mm:ss'), '#A1FFCE'),
-color(`${lenguaje['smsConexioncerrar']()}`, '#f64f59'));
+color(`\n┏━━━◉━━━━⬤━━━⪩『 🛑  ${vs} 🛑   』⪨━━━⬤━━━━◉━━━┉┉\n${lenguaje['smsConexioncerrar']()}\n┗━━━◉━━━━⬤━━━⪩『 🛑  ${vs} 🛑   』⪨━━━⬤━━━━◉━━━┉┉\n`, '#f64f59'));
 startBot()
 } else if (opcion == '1' || methodCodeQR && qr !== undefined) {
 if (opcion == '1' || methodCodeQR) {
