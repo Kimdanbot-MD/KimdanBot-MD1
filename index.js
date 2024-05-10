@@ -1,4 +1,3 @@
-punycode
 (async () => {
 require("./settings")
 require("./imagenes")
