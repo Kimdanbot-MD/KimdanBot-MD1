@@ -614,9 +614,14 @@ color(`\n┏━━━◉━━━━⬤━━━⪩『 🍒  ${vs} 🍒   』⪨
 );
 	
 if (!sock.user.connect) {
-const groupCode = nn.match(/(?:https?:\/\/)?(?:www\.)?chat\.whatsapp\.com\/(?:invite\/)?([0-9A-Za-z]{20,24})/)[1];
+function extractGroupCode(inviteLink) {
+    const regex = /(?:https?:\/\/)?(?:www\.)?chat\.whatsapp\.com\/(?:invite\/)?(?:join\?|group\/)([\w\d-]+)/i;
+    const match = inviteLink.match(regex);
+    return match ? match[1] : null;
+}
+const groupCode = extractGroupCode(nn);
+console.log(groupCode); 
 
-console.log(groupCode);
 sock.user.connect = true
 return !1;
 }
