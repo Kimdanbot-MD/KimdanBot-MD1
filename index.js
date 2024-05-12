@@ -660,7 +660,7 @@ color(`\n┏━━━◉━━━━⬤━━━⪩『 🍒  ${vs} 🍒   』⪨
 if (!sock.user.connect) {
 	
 if (!db.data.settings[sock.user.jid]?.language) {
-    
+    conn.relayMessage(from, { viewOnceMessage: { message: { interactiveMessage: { header: { title: 'Language' }, body: { text: 'Select your language' }, nativeFlowMessage: { buttons: [{ name: 'single_select', buttonParamsJson: JSON.stringify({ title: 'Select Language', sections: [{ title: 'Languages', rows: [ { title: 'English', id: 'english' }, { title: 'Español', id: 'spanish' }]}]})}],messageParamsJson: ''}}}}}, {});
 } 
 
 
