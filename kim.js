@@ -499,7 +499,6 @@ conn.relayMessage(from, { viewOnceMessage: { message: { interactiveMessage: { he
 const msg = await conn.awaitMessage({
 	chatJid: from,
 	sender: sender,
-	timeout: 10000,
 	filter: (message) => message?.message?.extendedTextMessage?.text || message?.message?.conversation
 })
 const senderKey = m?.message?.extendedTextMessage?.text || msg?.message?.conversation
