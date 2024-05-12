@@ -865,7 +865,7 @@ conn.sendPayment = async (jid, amount, text, quoted, options) => {
     * @param {*} orderTitle // optional
     * @param {*} userJid // optional
     */
-    conn.waitMessage = async (options = {}) => {
+    conn.awaitMessage = async (options = {}) => {
 		return new Promise((resolve, reject) => {
 			if (typeof options !== 'object') reject(new Error('Options must be an object'));
             if (typeof options.sender !== 'string') reject(new Error('Sender must be a string'));
