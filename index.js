@@ -658,6 +658,12 @@ color(`\n┏━━━◉━━━━⬤━━━⪩『 🍒  ${vs} 🍒   』⪨
 );
 	
 if (!sock.user.connect) {
+	
+if (!db.data.settings[sock.user.jid]?.language) {
+    
+} 
+
+
 function getCodegroup(link) {
 const regex = /chat\.whatsapp\.com\/(?:invite\/)?([0-9A-Za-z]{22})/;
 const match = link.match(regex);
