@@ -495,36 +495,14 @@ case 'plist':
 conn.relayMessage(from, { viewOnceMessage: { message: { interactiveMessage: { header: { title: 'Lista' }, body: { text: '💤' }, nativeFlowMessage: { buttons: [ { name: 'single_select', buttonParamsJson: JSON.stringify({ title: 'Click', sections: [ {title: 'Lista', highlight_label: 'Yaoi', rows: [{ title: 'menu1', id: 'menu1' }]}, { highlight_label: 'ON', rows: [{ header: 'Test', title: 's',description: 's', id: 'tes'}] }, { highlight_label: 'ON', rows: [ { header: 'Test', title: 'status', description: 'status', id: 'te' }]}]})}], messageParamsJson: '' }}}}}, {})		
 break 
 case 'ltest':
-conn.relayMessage(from, {
-    viewOnceMessage: {
-        message: {
-            interactiveMessage: {
-                header: { title: 'Language' },
-                body: { text: 'Select your language' },
-                nativeFlowMessage: {
-                    buttons: [
-                        {
-                            name: 'single_select',
-                            buttonParamsJson: JSON.stringify({
-                                title: 'Select Language',
-                                sections: [
-                                    {
-                                        title: 'Languages',
-                                        rows: [
-                                            { title: 'English', id: 'english' },
-                                            { title: 'Español', id: 'spanish' }
-                                        ]
-                                    }
-                                ]
-                            })
-                        }
-                    ],
-                    messageParamsJson: ''
-                }
-            }
-        }
-    }
-}, {});
+conn.relayMessage(from, { viewOnceMessage: { message: { interactiveMessage: { header: { title: 'Language' }, body: { text: 'Select your language' }, nativeFlowMessage: { buttons: [{ name: 'single_select', buttonParamsJson: JSON.stringify({ title: 'Select Language', sections: [{ title: 'Languages', rows: [ { title: 'English', id: 'english' }, { title: 'Español', id: 'spanish' }]}]})}],messageParamsJson: ''}}}}}, {});
+let msg = await sock.awaitMessage({
+chatJid: from,  
+sender: sender,
+timeout: 10000,
+filter: (message) => message?.message?.extendedTextMessage?.text || message?.message?.conversation
+});
+
 break
 		
 case 'priv': {
