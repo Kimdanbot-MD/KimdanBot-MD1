@@ -590,7 +590,7 @@ case 'test2': {
     },
   },
 }, {})}*/
-const testZ = generateWAMessageFromContent(from, { viewOnceMessage: { message: { "messageContextInfo": { "deviceListMetadata": {}, "deviceListMetadataVersion": 2 }, interactiveMessage: proto.Message.InteractiveMessage.create({ body: proto.Message.InteractiveMessage.Body.create({ text: '' }), footer: proto.Message.InteractiveMessage.Footer.create({ text: 'Zam' }), header: proto.Message.InteractiveMessage.Header.create({ title: 'Jose Gay', subtitle: 'Zam', hasMediaAttachment: false }), nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({ buttons: [ { "name": "quick_reply", "buttonParamsJson": `{"display_text":"Gay","id":"gay"}` }, { "name": "quick_reply", "buttonParamsJson": `{"display_text":"Mario","id":"mario"}` } ], })})}}}, {})
+const testZ = generateWAMessageFromContent(from, { viewOnceMessage: { message: { "messageContextInfo": { "deviceListMetadata": {}, "deviceListMetadataVersion": 2 }, interactiveMessage: proto.Message.InteractiveMessage.create({ body: proto.Message.InteractiveMessage.Body.create({ text: '' }), footer: proto.Message.InteractiveMessage.Footer.create({ text: 'Zam' }), header: proto.Message.InteractiveMessage.Header.create({ title: 'Jose Gay', subtitle: 'Zam', hasMediaAttachment: false }), nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({ buttons: [ { "name": "quick_reply", "buttonParamsJson": `{"display_text":"Gay","id":".gay"}` }, { "name": "quick_reply", "buttonParamsJson": `{"display_text":"Mario","id":".mario"}` } ], })})}}}, {})
 conn.relayMessage(testZ.key.remoteJid, testZ.message, { messageId: testZ.key.id }, {quoted: m})
 break 
 case 'plist':
