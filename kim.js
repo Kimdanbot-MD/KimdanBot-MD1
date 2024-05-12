@@ -491,7 +491,7 @@ return conn.sendFile(m.chat, buffer, 'error.jpg', `${msg[type].caption} ${teks}`
 	
 switch (prefix && command) { 
 case 'test2': {
- client.relayMessage(m.chat, {
+ conn.relayMessage(m.chat, {
   viewOnceMessage: {
     message: {
       interactiveMessage: {
