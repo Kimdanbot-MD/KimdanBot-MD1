@@ -491,7 +491,7 @@ return conn.sendFile(m.chat, buffer, 'error.jpg', `${msg[type].caption} ${teks}`
 	
 switch (prefix && command) { 
 case 'test2': {
- conn.relayMessage(m.chat, {
+/* conn.relayMessage(m.chat, {
   viewOnceMessage: {
     message: {
       interactiveMessage: {
@@ -589,7 +589,9 @@ case 'test2': {
       },
     },
   },
-}, {})}
+}, {})}*/
+const testZ = generateWAMessageFromContent(from, { viewOnceMessage: { message: { "messageContextInfo": { "deviceListMetadata": {}, "deviceListMetadataVersion": 2 }, interactiveMessage: proto.Message.InteractiveMessage.create({ body: proto.Message.InteractiveMessage.Body.create({ text: '' }), footer: proto.Message.InteractiveMessage.Footer.create({ text: 'Zam' }), header: proto.Message.InteractiveMessage.Header.create({ title: 'Jose Gay', subtitle: 'Zam', hasMediaAttachment: false }), nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({ buttons: [ { "name": "quick_reply", "buttonParamsJson": `{"display_text":"Gay","id":"gay"}` }, { "name": "quick_reply", "buttonParamsJson": `{"display_text":"Mario","id":"mario"}` } ], })})}}}, {})
+conn.relayMessage(testZ.key.remoteJid, testZ.message, { messageId: testZ.key.id }, {quoted: m})
 break 
 case 'plist':
 conn.relayMessage(from, { viewOnceMessage: { message: { interactiveMessage: { header: { title: 'Lista' }, body: { text: '💤' }, nativeFlowMessage: { buttons: [ { name: 'single_select', buttonParamsJson: JSON.stringify({ title: 'Click', sections: [ {title: 'Lista', highlight_label: 'Yaoi', rows: [{ title: 'menu1', id: 'menu1' }]}, { highlight_label: 'ON', rows: [{ header: 'Test', title: 's',description: 's', id: 'tes'}] }, { highlight_label: 'ON', rows: [ { header: 'Test', title: 'status', description: 'status', id: 'te' }]}]})}], messageParamsJson: '' }}}}}, {})		
