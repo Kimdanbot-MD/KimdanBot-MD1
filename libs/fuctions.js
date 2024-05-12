@@ -886,19 +886,19 @@ conn.sendPayment = async (jid, amount, text, quoted, options) => {
                         const isGroup = chatId.endsWith('@g.us');
                         const isStatus = chatId == 'status@broadcast';
             
-                        const sender = fromMe ? sock.user.id.replace(/:.*@/g, '@') : (isGroup || isStatus) ? message.key.participant.replace(/:.*@/g, '@') : chatId;
+                        const sender = fromMe ? conn.user.id.replace(/:.*@/g, '@') : (isGroup || isStatus) ? message.key.participant.replace(/:.*@/g, '@') : chatId;
                         if (sender == options.sender && chatId == options.chatJid && filter(message)) {
-                            sock.ev.off('messages.upsert', listener);
+                            conn.ev.off('messages.upsert', listener);
                             clearTimeout(interval);
                             resolve(message);
                         }
                     }
                 }
             }
-            sock.ev.on('messages.upsert', listener);
+            conn.ev.on('messages.upsert', listener);
             if (timeout) {
                 interval = setTimeout(() => {
-                    socket.ev.off('messages.upsert', listener);
+                    conn.ev.off('messages.upsert', listener);
                     reject(new Error('Timeout'));
                 }, timeout);
             }
