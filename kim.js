@@ -1287,12 +1287,42 @@ break
 
 case 'update': case `actualizar`:
 //if (!isCreator) return conn.sendMessage(from, { text: `*ESTE COMANDO ES PARA MI JEFE*` }, { quoted: msg });    
-try {    
+/*try {    
 let stdout = execSync('git pull' + (m.fromMe && q ? ' ' + q : ''))
 await conn.sendMessage(from, { text: stdout.toString() }, { quoted: msg });
 } catch { 
 let updatee = execSync('git remote set-url origin https://github.com/Kimdanbot-MD/KimdanBot-MD.git && git pull')
-await conn.sendMessage(from, { text: updatee.toString() }, { quoted: msg })}  
+await conn.sendMessage(from, { text: updatee.toString() }, { quoted: msg })}*/
+try {
+const stdout = execSync('git pull' + (m.fromMe && q ? ' ' + q : ''))
+let message = stdout.toString()
+if (message.includes('Already up to date.')) message = 'Nada por actualizar'
+if (message.includes('Updating')) message = 'Actualizado\n\n' + stdout.toString()
+m.reply(message)
+} catch (e) {
+try {
+const status = execSync('git status --porcelain')
+if (status.length > 0) {
+const conflictedFiles = status.toString().split('\n').filter(line => line.trim() !== '').map(line => {
+if (line.includes('.npm/') || line.includes('.cache/') || line.includes('tmp/') || line.includes('sessions/') || line.includes('npm-debug.log')) {
+return null
+}
+return '*- ' + line.slice(3) + '*'
+}).filter(Boolean)
+if (conflictedFiles.length > 0) {
+const errorMessage = `Archivos en Conflicto\n\n${conflictedFiles.join('\n')}`
+await m.reply(errorMessage)
+}
+}
+} catch (error) {
+console.error(error)
+let errorMessage2 = 'Error'
+if (error.message) {
+errorMessage2 += '\n*Mensaje de error:* ' + error.message
+}
+await reply(errorMessage2)
+}
+}
 break
 
 //👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄👄
