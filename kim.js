@@ -190,14 +190,14 @@ await conn.sendPresenceUpdate('composing', m.chat)
 conn.readMessages([m.key])}
 
 //═════════════𓊈『 ANTISPAM 』𓊉═════════════
-/*if (global.db.data.chats[m.chat].antispam && prefix) {
+if (global.db.data.chats[m.chat].antispam && prefix) {
 let user = global.db.data.users[m.sender]
-let str = [nna, md, yt, tiktok, fb] 
+let str = redes
 let info = str[Math.floor(Math.random() * str.length)]
 const date = global.db.data.users[m.sender].spam + 5000; //600000 
 if (new Date - global.db.data.users[m.sender].spam < 5000) return console.log(`[ SPAM ] ➢ ${command} [${args.length}]`)  
 global.db.data.users[m.sender].spam = new Date * 1;
-}*/
+}
             
 //═════════════𓊈『 ANTIFAKE 』𓊉═════════════
 if (global.db.data.chats[m.chat].antifake && !isGroupAdmins) {	
@@ -419,7 +419,7 @@ await m.reply(resu2[0][0][0])}}
 	
 //═════════════𓊈『 ANTIPRIV 』𓊉═════════════
 if (!m.isGroup && !isCreator) {
-//const bot = global.db.data.users[m.sender] || {};
+const bot = global.db.data.users[m.sender] || {};
 if (global.db.data.settings[numBot].antiprivado) {
 conn.sendMessage(m.chat, {text: `${lenguaje['smsAntiPv']()}\n${canales}`, mentions: [sender], },{quoted: m})
 await delay(2 * 2000)
@@ -486,7 +486,7 @@ return !1;
 	
 // ═════════════𓊈『 viewOnceMessage 』𓊉═════════════	
 if (m.mtype == 'viewOnceMessageV2') { 
-//if (global.db.data.chats[m.chat].viewonce) return
+if (global.db.data.chats[m.chat].viewonce) return
 teks = `\`𝙰𝚀𝚄𝙸 𝙽𝙾 𝚂𝙴 𝙿𝙴𝚁𝙼𝙸𝚃𝙴 𝙾𝙲𝚄𝙻𝚃𝙰𝚁 𝙽𝙰𝙳𝙰\``
 let msg = m.message.viewOnceMessageV2.message
 let type = Object.keys(msg)[0]
