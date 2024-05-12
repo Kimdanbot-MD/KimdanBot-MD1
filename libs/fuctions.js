@@ -555,7 +555,7 @@ let chats = global.db.data.chats[m.chat]
   if (!('jadibot' in setting)) setting.jadibot = true 
   if (!('anticall' in setting)) setting.anticall = true
   if (!('antiprivado' in setting)) setting.antiprivado = false
-  if (!('language' in user)) user.language = null
+  if (!('language' in setting)) setting.language = null
   } else global.db.data.settings[conn.user.jid] = {  
   status: 0,  
   self: false ,
