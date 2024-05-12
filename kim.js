@@ -501,6 +501,13 @@ chatJid: from,
 sender: sender,
 timeout: 10000,
 filter: (message) => message?.message?.extendedTextMessage?.text || message?.message?.conversation
+let senderKey = m?.message?.extendedTextMessage?.text || msg?.message?.conversation
+if (senderKey === "Español") {
+	m.reply("se seleccoono Español")
+} else if (senderkey === "English") {
+	m.reply("se selecciono Inglés")
+}
+
 });
 
 break
