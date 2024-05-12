@@ -837,24 +837,29 @@ conn.sendPayment = async (jid, amount, text, quoted, options) => {
     * @param {*} thumbnail
     * @param {*} quoted
     */
-    conn.adReply = (jid, caption, thumbnail, quoted, inTrue) => {
-    conn.sendMessage(jid ? jid : m.chat, {   
-    text: caption,  
-    contextInfo:{  
-    forwardingScore: 9999999,  
-    isForwarded: true,   
-    mentionedJid:[m.sender],  
-    "externalAdReply": {  
-    "showAdAttribution": true,  
-    "containsAutoReply": true,
-    "renderLargerThumbnail": inTrue ? inTrue : false,  
-    "title": botname,   
-    "containsAutoReply": false,  
-    "mediaType": 1,   
-    "thumbnail": thumbnail ? thumbnail : global.imagen1,  
-    "mediaUrl": md,  
-    "sourceUrl": md
-    }}}, { quoted: quoted ? quoted : m }) 
+    conn.adReply = (jid, caption, thumbnail, quoted, inTrue, newsletterJid, newsletterName) => {
+	sock.sendMessage(jid ? jid : m.chat, {   
+	text: caption,  
+	contextInfo:{  
+	forwardedNewsletterMessageInfo: { 
+	newsletterJid: newsletterJid ? newsletterJid : '120363200204060894@newsletter', 
+	serverMessageId: '', 
+	newsletterName: newsletterName ? newsletterName: '༻꫞⃝🧃 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🧃⃝꫞༺' },
+	forwardingScore: 9999999,
+	isForwarded: true,
+	remoteJid: anu.id,   
+	mentionedJid:[m.sender],  
+	"externalAdReply": {  
+	"showAdAttribution": true,  
+	"containsAutoReply": false,
+	"renderLargerThumbnail": inTrue ? inTrue : false,  
+	"title": botname,
+	"body": wm,
+	"mediaType": 1,   
+	"thumbnailUrl": thumbnail ? thumbnail : ftkim,  
+	"mediaUrl": wha,  
+	"sourceUrl": wha
+	}}}) 
     }
     
     /**
