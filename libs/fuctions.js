@@ -42,8 +42,6 @@ return resultado;
 function pickRandom(list) {
 return list[Math.floor(Math.random() * list.length)];
 }
-
-module.exports = { convertirMsADiasHorasMinutosSegundos, pickRandom };
 //información del usuario
 exports.getUserProfilePic = async (conn, sender) => {
   try {
