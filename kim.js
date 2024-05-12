@@ -490,7 +490,7 @@ return conn.sendFile(m.chat, buffer, 'error.jpg', `${msg[type].caption} ${teks}`
 //*. : ｡✿ * ﾟ * .: ｡ ✿ * ﾟ  * . : ｡ ✿ *
 	
 switch (prefix && command) { 
-case 'test2': {
+case 'test2':
 /* conn.relayMessage(m.chat, {
   viewOnceMessage: {
     message: {
