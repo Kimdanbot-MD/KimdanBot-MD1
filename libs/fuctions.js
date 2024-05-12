@@ -928,10 +928,10 @@ conn.user.chat = m.chat // chat in user?????????
     await conn.sendPresenceUpdate('recording', jid)
     await conn.sendMessage(jid, { audio: { url: audio }, fileName: 'error.mp3', mimetype: 'audio/mp4', ptt: ppt ? ptt : true, contextInfo:{  externalAdReply: { showAdAttribution: true,
     mediaType:  1,
-    mediaUrl: link ? link : md,
-    title: name ? name : global.botname,
-    sourceUrl: link ? link : md, 
-    thumbnail: image ? image : global.imagen1
+    mediaUrl: link ? link : wha,
+    title: name ? name : botname,
+    sourceUrl: link ? link : wha, 
+    thumbnail: image ? image : ftkim 
     }}}, { quoted: quoted ? quoted : m })
     }
     
