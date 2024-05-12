@@ -24,30 +24,26 @@ function convertirMsADiasHorasMinutosSegundos(ms) {
 var segundos = Math.floor(ms / 1000);
 var minutos = Math.floor(segundos / 60);
 var horas = Math.floor(minutos / 60);
-var días = Math.floor(horas / 24);
+var dias = Math.floor(horas / 24);
+var semanas = Math.floor(dias / 7);
 segundos %= 60;
 minutos %= 60;
 horas %= 24;
+dias %= 7;
 var resultado = "";
-if (días !== 0) {
-resultado += días + " días, ";
-}
-if (horas !== 0) {
-resultado += horas + " horas, ";
-}
-if (minutos !== 0) {
-resultado += minutos + " minutos, ";
-}
-if (segundos !== 0) {
-resultado += segundos + " segundos";
-}
+if (semanas !== 0) { resultado += semanas + (semanas === 1 ? " sҽოαղα, " : " sҽოαղαs, ") }
+if (dias !== 0) { resultado += dias + (dias === 1 ? " ժíα, " : " ժíαs, ") }
+if (horas !== 0) { resultado += horas + (horas === 1 ? " հօɾα, " : " հօɾαs, ") }
+if (minutos !== 0) { resultado += minutos + (minutos === 1 ? " ოíղᥙ𝗍օ, " : " ოíղᥙ𝗍օs, ") }
+if (segundos !== 0 || resultado === "") { resultado += segundos + (segundos === 1 ? " sҽցᥙղժօ" : " sҽցᥙղժօs") }
 return resultado;
 }
 
 function pickRandom(list) {
-return list[Math.floor(list.length * Math.random())]
+return list[Math.floor(Math.random() * list.length)];
 }
 
+module.exports = { convertirMsADiasHorasMinutosSegundos, pickRandom };
 //información del usuario
 exports.getUserProfilePic = async (conn, sender) => {
   try {
