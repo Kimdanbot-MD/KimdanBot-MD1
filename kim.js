@@ -490,7 +490,107 @@ return conn.sendFile(m.chat, buffer, 'error.jpg', `${msg[type].caption} ${teks}`
 //*. : ｡✿ * ﾟ * .: ｡ ✿ * ﾟ  * . : ｡ ✿ *
 	
 switch (prefix && command) { 
-
+case 'test2': {
+ client.relayMessage(m.chat, {
+  viewOnceMessage: {
+    message: {
+      interactiveMessage: {
+        header: { title: 'Test' },
+        body: { text: 'Test' },
+        nativeFlowMessage: {
+          buttons: [
+            {
+              name: 'single_select',
+              buttonParamsJson: JSON.stringify({
+                title: 'Click Me',
+                sections: [
+                  {
+                    title: 'List',
+                    highlight_label: 'ON',
+                    rows: [
+                      {
+                        header: 'Test',
+                        title: '', 
+                        description: 'menu',
+                        id: '.menu',
+                      },
+                    ],
+                  },
+                  {
+                    highlight_label: 'ON',
+                    rows: [
+                      {
+                        header: 'Test',
+                        title: '', 
+                        description: 'ping',
+                        id: '.ping',
+                      },
+                    ],
+                  },
+                  {
+                    highlight_label: 'ON',
+                    rows: [
+                      {
+                        header: 'menu',
+                        title: '', 
+                        description: 'menuu',
+                        id: '.menu', 
+                      },
+                    ],
+                  },
+                ],
+              }),
+            },
+                        {
+              name: 'quick_reply',
+              buttonParamsJson: JSON.stringify({
+                title: 'Menu',
+                sections: [
+                  {
+                    title: 'List',
+                    highlight_label: 'ON',
+                    rows: [
+                      {
+                        header: 'Test',
+                        title: 'Click Me',
+                        description: 'Click Me',
+                        id: '.menu',
+                      },
+                    ],
+                  },
+                  {
+                    highlight_label: 'ON',
+                    rows: [
+                      {
+                        header: 'Test',
+                        title: 'Click Me',
+                        description: 'Click Me',
+                        id: '.menu',
+                      },
+                    ],
+                  },
+                  {
+                    highlight_label: 'FUNCIÓN',
+                    rows: [
+                      {
+                        header: 'menu',
+                        title: '',
+                        description: 'menuu',
+                        id: '.menu',
+                      },
+                    ],
+                  },
+                ],
+              }),
+            },
+          ],
+          messageParamsJson: '',
+        },
+      },
+    },
+  },
+}, {})}
+break 
 case 'plist':
 conn.relayMessage(from, { viewOnceMessage: { message: { interactiveMessage: { header: { title: 'Lista' }, body: { text: '💤' }, nativeFlowMessage: { buttons: [ { name: 'single_select', buttonParamsJson: JSON.stringify({ title: 'Click', sections: [ {title: 'Lista', highlight_label: 'Yaoi', rows: [{ title: 'menu1', id: 'menu1' }]}, { highlight_label: 'ON', rows: [{ header: 'Test', title: 's',description: 's', id: 'tes'}] }, { highlight_label: 'ON', rows: [ { header: 'Test', title: 'status', description: 'status', id: 'te' }]}]})}], messageParamsJson: '' }}}}}, {})		
 break 
