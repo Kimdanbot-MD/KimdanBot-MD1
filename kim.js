@@ -496,11 +496,7 @@ conn.relayMessage(from, { viewOnceMessage: { message: { interactiveMessage: { he
 break 
 case 'ltest':
 conn.relayMessage(from, { viewOnceMessage: { message: { interactiveMessage: { header: { title: 'Language' }, body: { text: 'Select your language' }, nativeFlowMessage: { buttons: [{ name: 'single_select', buttonParamsJson: JSON.stringify({ title: 'Select Language', sections: [{ title: 'Languages', rows: [ { title: 'English', id: 'english' }, { title: 'Español', id: 'spanish' }]}]})}],messageParamsJson: ''}}}}}, {});
-const msg = await conn.awaitMessage({
-chatJid: from,  
-sender: sender,
-timeout: 10000,
-filter: (message) => message?.message?.extendedTextMessage?.text || message?.message?.conversation
+const msg = await conn.awaitMessage({ chatJid: from, sender: sender, timeout: 10000, filter: (message) => message?.message?.extendedTextMessage?.text || message?.message?.conversation })
 const senderKey = m?.message?.extendedTextMessage?.text || msg?.message?.conversation
 if (senderKey === "Español") {
 	m.reply("se seleccoono Español")
