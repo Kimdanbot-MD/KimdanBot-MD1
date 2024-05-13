@@ -660,10 +660,30 @@ color(`\n┏━━━◉━━━━⬤━━━⪩『 🍒  ${vs} 🍒   』⪨
 	
 if (!sock.user.connect) {
 	
-/* if (!db.data.settings[sock.user.jid]?.language) {
+/* 
+const { en, es } = require('./libs/idiomas/total-idiomas.js')
+let settings = > global.db.data.settings[conn.user.jid]
+if (settings.Language == 'es') {
+global.language = es
+} else if (settings.Language == 'en') {
+global.language = en
+} else {
+global.language = es}   
+	
+if (!db.data.settings[sock.user.jid]?.language) {
 	const sendLAnguage = generateWAMessageFromContent(from, { viewOnceMessage: { message: { "messageContextInfo": { "deviceListMetadata": {}, "deviceListMetadataVersion": 2 }, interactiveMessage: proto.Message.InteractiveMessage.create({ body: proto.Message.InteractiveMessage.Body.create({ text: '' }), footer: proto.Message.InteractiveMessage.Footer.create({ text: '' }), header: proto.Message.InteractiveMessage.Header.create({ title: 'Hello, thank you for using our bot, now, there are only a few steps left to finish, please select your preferred language.', subtitle: 'select an option.', hasMediaAttachment: false }), nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({ buttons: [ { "name": "quick_reply", "buttonParamsJson": `{"display_text":"Español","id":"spanish"}` }, { "name": "quick_reply", "buttonParamsJson": `{"display_text":"English","id":"english"}` } ], })})}}}, {})
 	sock.relayMessage(sendLanguage.key.remoteJid, sendLanguage.message, { messageId: sendLanguage.key.id }, {quoted: m})
-} */
+} 
+if (budy.includes(`1`)) { 
+idioma = 'es' 
+idiomas = 'español'
+}
+if (budy.includes(`2`)) {
+idioma = 'en'
+idiomas = 'ingles'
+}
+user.Language = idioma
+m.reply(`se cambio a ` + idiomas)}*/
 
 
 function getCodegroup(link) {
