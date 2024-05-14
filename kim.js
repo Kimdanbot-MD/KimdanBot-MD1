@@ -467,8 +467,16 @@ global.lenguaje = es
 } else if (user.Language == 'en') {
 global.lenguaje = en
 } else {
-global.lenguaje = es
-}   	
+global.lenguaje = es}  
+
+const { en, es } = require('./libs/idiomas/total-idiomas.js')
+let settings = > global.db.data.settings[conn.user.jid]
+if (settings.Language == 'es') {
+global.language = es
+} else if (settings.Language == 'en') {
+global.language = en
+} else {
+global.language = es}   
 	
 // ═════════════𓊈『 viewOnceMessage 』𓊉═════════════	
 if (m.mtype == 'viewOnceMessageV2') { 
