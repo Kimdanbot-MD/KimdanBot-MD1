@@ -469,7 +469,6 @@ global.lenguaje = en
 } else {
 global.lenguaje = es}  
 
-const { en, es } = require('./libs/idiomas/total-idiomas.js')
 let settings = > global.db.data.settings[conn.user.jid]
 if (settings.Language == 'es') {
 global.language = es
