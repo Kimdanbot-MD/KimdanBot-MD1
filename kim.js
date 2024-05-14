@@ -545,7 +545,7 @@ if (budy.includes(`2`)) {
 idioma = 'en'
 idiomas = 'ingles'
 }
-user.Language = idioma
+settings.Language = idioma
 m.reply(`se cambio a ` + idiomas)}
 break 
 		
