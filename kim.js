@@ -535,11 +535,11 @@ break
 case 'idioma': {
 let settings = global.db.data.settings[conn.user.jid]
 if (!text) return m.reply(`a que idioma cambio?`) 
-if (budy.includes(`es`)) { 
+if (body.includes(`1`)) { 
 idioma = 'es' 
 idiomas = 'español'
 }
-if (budy.includes(`en`)) {
+if (body.includes(`2`)) {
 idioma = 'en'
 idiomas = 'ingles'
 }
@@ -552,11 +552,11 @@ break
 case 'Language': case 'idiomas': { 	
 	let user = global.db.data.users[m.sender]
 if (!text) return m.reply(`a que idioma cambio?`) 
-if (budy.includes(`1`)) { 
+if (body.includes(`1`)) { 
 idioma = 'es' 
 idiomas = 'español'
 }
-if (budy.includes(`2`)) {
+if (body.includes(`2`)) {
 idioma = 'en'
 idiomas = 'ingles'
 }
