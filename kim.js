@@ -469,7 +469,7 @@ global.lenguaje = en
 } else {
 global.lenguaje = es}  
 
-let settings = > global.db.data.settings[conn.user.jid]
+let settings = global.db.data.settings[conn.user.jid]
 if (settings.Language == 'es') {
 global.language = es
 } else if (settings.Language == 'en') {
