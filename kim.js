@@ -80,7 +80,7 @@ buffer = Buffer.concat([buffer, chunk]) }
 return buffer}
 
 module.exports = conn = async (conn, m, chatUpdate, mek, store, sock) => { // Raíz "conn" para mensajes y argumentos
-var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage' && m.message.imageMessage.caption) ? m.message.imageMessage.caption : (m.mtype == 'videoMessage' && m.message.videoMessage.caption ) ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? m.message.listResponseMessage.singleSelectReply.selectedRowId :  (m.mtype == 'stickerMessage') && (getCmd(m.message.stickerMessage.fileSha256.toString()) !== null && getCmd(m.message.stickerMessage.fileSha256.toString()) !== undefined) ? getCmd(m.message.stickerMessage.fileSha256.toString()) : ''	
+var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
 
 function KimR(list) {return list[Math.floor(list.length * Math.random())]}     
 global.ftkim = KimR(fotos)
@@ -536,6 +536,7 @@ case 'idioma': {
 let settings = global.db.data.settings[conn.user.jid]
 const sendLanguage = generateWAMessageFromContent(conn.user.id.split(":")[0] + "@s.whatsapp.net", { viewOnceMessage: { message: { "messageContextInfo": { "deviceListMetadata": {}, "deviceListMetadataVersion": 2 }, interactiveMessage: proto.Message.InteractiveMessage.create({ body: proto.Message.InteractiveMessage.Body.create({ text: '' }), footer: proto.Message.InteractiveMessage.Footer.create({ text: '' }), header: proto.Message.InteractiveMessage.Header.create({ title: 'Hello, thank you for using our bot, now, there are only a few steps left to finish, please select your preferred language.', subtitle: 'select an option.', hasMediaAttachment: false }), nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({ buttons: [ { "name": "quick_reply", "buttonParamsJson": `{"display_text":"Español","id":".idioma es"}` }, { "name": "quick_reply", "buttonParamsJson": `{"display_text":"English","id":".idioma en"}` } ], })})}}}, {})
 conn.relayMessage(sendLanguage.key.remoteJid, sendLanguage.message, { messageId: sendLanguage.key.id })
+try {
 if (body.includes(`1`)) { 
 idioma = 'es' 
 idiomas = 'español'
@@ -545,8 +546,10 @@ idioma = 'en'
 idiomas = 'ingles'
 }
 settings.language = idioma
-m.reply(`se cambio a ` + idiomas)}
-break 
+m.reply(`se cambio a ` + idiomas)
+} catch (e) {
+m.reply(`error`)}}	
+	break 
 		
 case 'Language': case 'idiomas': { 	
 	let user = global.db.data.users[m.sender]
