@@ -139,7 +139,7 @@ const totalMemory = Math.round(os.totalmem() / (1024 * 1024 * 1024));
   const freeMemory = Math.round(os.freemem() / (1024 * 1024 * 1024));
   const usedMemory = totalMemory - freeMemory;
   const cpuUsage = os.loadavg()[0];
-  conn.sendMessage(m.chat, {image: ftkim, caption: `*╭𝄗𝄗🌸✦ --𝐄𝐒𝐓𝐀𝐃𝐎-- ✦🌸𝄗𝄗⬣*
+  conn.sendMessage(m.chat, {image: {url: ftkim}, caption: `*╭𝄗𝄗🌸✦ --𝐄𝐒𝐓𝐀𝐃𝐎-- ✦🌸𝄗𝄗⬣*
 ⎸ *⍟ 𝐕𝐞𝐫𝐬𝐢𝐨́𝐧*
 ⎸ ❉ 🍓 ➺ 𝟏.𝟎.𝟎
 ⎸ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ 
