@@ -227,12 +227,9 @@ let setting = global.db.data.settings[numBot]
 if (new Date() * 1 - setting.status > 1000) {
 let uptime = await runtime(process.uptime())
  let bio = `${XD}\n${runtime(process.uptime())}` 
-try {
 await conn.updateProfileStatus(bio) 
  setting.status = new Date() * 1 
-} catch {
-console.log(`[𝚄𝙿𝙳𝙰𝚃𝙴]\npepa pig`)
-}}}
+}} 
 	
 //═════════════𓊈『 ANTILINK 』𓊉═════════════
 //WhatsApp
