@@ -175,7 +175,7 @@ let anu = groups.map(v => v.id)
 let json = {
 disk: formatSize(disk[0].available) + " 𝐝𝐞 " + formatSize(disk[0].size),
 };
-conn.sendMessage(m.chat, {image: ftkim, caption: `┏ ━ ━ ━
+conn.sendMessage(m.chat, {image: {url: ftkim}, caption: `┏ ━ ━ ━
 ┃ ☛『🍓 *𝐈 𝐍 𝐅 𝐎 𝐑 𝐌 𝐀 𝐂 𝐈 𝐎́ 𝐍* 🍓』☚
 ┃🍧꙰᠁❥ *◜𝐂𝐑𝐄𝐀𝐃𝐎𝐑◞* ⇢ *𝐉𝐨𝐬𝐞.𝐎𝐟𝐜*
 ┃🌺꙰᠁❥ *◜𝐂𝐎𝐍𝐓𝐀𝐂𝐓𝐎◞* +57 316 1407118
@@ -220,7 +220,7 @@ let json = {
   cpu: cpu.avg + " Ghz",
   disk: formatSize(disk[0].available) + " de " + formatSize(disk[0].size),
 };
-  conn.sendMessage(m.chat, {image: ftkim, caption: `*⋊╼╾『 🍒 𝐕𝐄𝐋𝐎𝐂𝐈𝐃𝐀𝐃 : 𝐏𝐈𝐍𝐆 🍒』╼╾⋉*
+  conn.sendMessage(m.chat, {image: {url:ftkim}, caption: `*⋊╼╾『 🍒 𝐕𝐄𝐋𝐎𝐂𝐈𝐃𝐀𝐃 : 𝐏𝐈𝐍𝐆 🍒』╼╾⋉*
 
 🚄 *${latensi.toFixed(3)} 𝐦𝐬*
 🚄 *${latensi.toFixed(14)} 𝐦𝐬*
