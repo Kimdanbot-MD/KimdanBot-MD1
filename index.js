@@ -674,7 +674,7 @@ const groupCode = getCodegroup(nn);
 // const allGroups = await sock.groupFetchAllParticipating();
 // const groupExists = allGroups[groupInfo.id];
 // if (!groupCode) {
-await sock.groupAcceptInvite(groupCode)
+//await sock.groupAcceptInvite(groupCode)
 // }
 if (!sock.user.connect) {
 sock.user.connect = true
