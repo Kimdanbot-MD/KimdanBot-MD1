@@ -518,6 +518,7 @@ break
 //idiomas 
 		
 case 'idioma': {
+let idioma = global.db.data.settings[conn.user.jid].language 
 let settings = global.db.data.settings[conn.user.jid]
 if (body.includes(`es`)) { 
 idioma = 'es' 
