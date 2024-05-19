@@ -532,7 +532,8 @@ break
 	case 'lenguaje': {
 const sendLanguage = generateWAMessageFromContent(conn.user.id.split(":")[0] + "@s.whatsapp.net", { viewOnceMessage: { message: { "messageContextInfo": { "deviceListMetadata": {}, "deviceListMetadataVersion": 2 }, interactiveMessage: proto.Message.InteractiveMessage.create({ body: proto.Message.InteractiveMessage.Body.create({ text: '' }), footer: proto.Message.InteractiveMessage.Footer.create({ text: '' }), header: proto.Message.InteractiveMessage.Header.create({ title: 'Hello, thank you for using our bot, now, there are only a few steps left to finish, please select your preferred language.', subtitle: 'select an option.', hasMediaAttachment: false }), nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({ buttons: [ { "name": "quick_reply", "buttonParamsJson": `{"display_text":"Español","id":".idioma es"}` }, { "name": "quick_reply", "buttonParamsJson": `{"display_text":"English","id":".idioma en"}` } ], })})}}}, {})
 return conn.relayMessage(sendLanguage.key.remoteJid, sendLanguage.message, { messageId: sendLanguage.key.id }, {quoted: m})
- break 
+	}
+break 
 		
 case 'idioma': {
 let settings = global.db.data.settings[conn.user.jid]
