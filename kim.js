@@ -547,19 +547,20 @@ m.reply(`se cambio a ` + idiomas)
 	break 
 		
 case 'Language': case 'idiomas': { 	
-	let user = global.db.data.users[m.sender]
+let idioma = global.db.data.users[m.sender].Language 
+let user = global.db.data.users[m.sender]
 if (!text) return m.reply(`a que idioma cambio?`) 
-if (budy.includes(`1`)) { 
+if (body.includes(`1`)) { 
 idioma = 'es' 
 idiomas = 'español'
 }
-if (budy.includes(`2`)) {
+if (body.includes(`2`)) {
 idioma = 'en'
 idiomas = 'ingles'
 }
 user.Language = idioma
 m.reply(`se cambio a ` + idiomas)}  
-break 
+break
 		
 case 'imagen':
 let pp = await conn.profilePictureUrl(m.chat, 'image')	
