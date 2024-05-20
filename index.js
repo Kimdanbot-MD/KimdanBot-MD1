@@ -542,8 +542,11 @@ mentionedJid:[num],
 "thumbnailUrl": redes,
 "thumbnail": welc,
 "sourceUrl": redes}}}) 	
+}
 // despedida
-} else if (anu.action == "remove") {
+let isBye = global.db.data.chats[anu.id].bye
+if(!isBye) return
+if (anu.action == "remove") {
         const buffer = await getBuffer(ppuser)
 let name = num
 const members = metadata.participants.length
@@ -564,8 +567,11 @@ mentionedJid:[num],
 "thumbnailUrl": ``,     
 "thumbnail": leave,
 "sourceUrl": redes}}}, {quoted: m}) 
+}
 //nuevo admin
-} else if (anu.action == "promote") {
+let isAdmn = global.db.data.chats[anu.id].adm
+if(!isAdm) return
+ if (anu.action == "promote") {
 const groupAdmins = participants.filter(p => p.admin)
 const listAdmin = groupAdmins.map((v, i) => `*» ${i + 1}. @${v.id.split('@')[0]}*`).join('\n')
 const buffer = await getBuffer(ppuser)
