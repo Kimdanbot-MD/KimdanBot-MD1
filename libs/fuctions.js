@@ -510,6 +510,8 @@ let chats = global.db.data.chats[m.chat]
   if (!('isBanned' in chats)) chats.isBanned = false
   if (!('modeadmin' in chats)) chats.modeadmin = false  
   if (!('welcome' in chats)) chats.welcome = true
+  if (!('bye' in chats)) chats.bye = true
+  if (!('adm' in chats)) chats.adm = true
   if (!('audios' in chats)) chats.audios = true
   if (!('simi' in chats)) chats.simi = false
   if (!('antiNsfw' in chats)) chats.antiNsfw = true
@@ -529,6 +531,8 @@ let chats = global.db.data.chats[m.chat]
   isBanned: false,   
   modeAdmin: false,  
   welcome: true, 
+  bye: true,
+  adm: true,
   audios: true, 
   simi: false, 
   antiNsfw: true, 
