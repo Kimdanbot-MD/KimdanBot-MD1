@@ -481,7 +481,7 @@ if (!sock.user.connect) {
 sock.user.connect = true
 return !1;
 }
-}}})
+}
 
 KimBot()
 } catch (e) {
@@ -496,4 +496,4 @@ fs.unwatchFile(file)
 console.log(chalk.redBright(`Update ${__filename}`))   
 delete require.cache[file]   
 require(file)   
-})
+}) 
