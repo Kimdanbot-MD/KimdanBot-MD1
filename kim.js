@@ -240,10 +240,10 @@ let bang = m.key.id
 let user = m.sender
 const groupAdmins = participants.filter((p) => p.admin)
 const listAdmin = groupAdmins.map((v) => `@${v.id.split('@')[0]}`).join('\n〣⃟❥ ')	
-let isofc = [nna, nn, nn2, nn3, nn4, nn5, nn6, nn7, nn8, nn9, nn10]
+let ofc = [nna, nn, nn2, nn3, nn4, nn5, nn6, nn7, nn8, nn9, nn10]
 if (!isBotAdmins) return reply(`${lenguaje['smsAntiLink3']()}\n${String.fromCharCode(8206).repeat(850)}\n${lenguaje['smsAntiLink4']()} ${listAdmin}`)
 if (isGroupAdmins) return reply(`${lenguaje['smsAntiLink2']()}`)
-if (isofc) return reply(`${lenguaje['smsAntiLink5']()}`)
+if (ofc) return reply(`${lenguaje['smsAntiLink5']()}`)
 let gclink = (`https://chat.whatsapp.com/`+await conn.groupInviteCode(m.chat))
 let isLinkThisGc = new RegExp(gclink, 'i')
 let isgclink = isLinkThisGc.test(m.text)
