@@ -944,9 +944,9 @@ global.db.data.chats[m.chat].bye = true;
 global.db.data.chats[m.chat].adm = true;
 reply(`໒🫐⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐒𝐞 𝐚𝐜𝐭𝐢𝐯𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞.*`);
 } else if (args[0] === 'off') {
-global.db.data.chats[m.chat].welcome = true;
-global.db.data.chats[m.chat].bye = true;
-global.db.data.chats[m.chat].adm = true;
+global.db.data.chats[m.chat].welcome = false;
+global.db.data.chats[m.chat].bye = false;
+global.db.data.chats[m.chat].adm = false;
 reply(`໒🍓⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐒𝐞 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐨́ 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞.*`);
 } else reply('debe seleccionar on/off')
 }
