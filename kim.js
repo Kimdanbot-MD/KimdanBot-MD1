@@ -259,7 +259,7 @@ if (!isBotAdmins) return reply(`${lenguaje['smsAntiLink3']()}\n${String.fromChar
 if (isGroupAdmins) return reply(`${lenguaje['smsAntiLink2']()}`)
 if (m.key.fromMe) return
 if (!isCreator) return 
-conn.sendMessage(m.chat, {text:`*${lenguaje['smsAntiLink']()}`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+conn.sendMessage(m.chat, {text:`${lenguaje['smsAntiLink']()}`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }}
@@ -270,7 +270,7 @@ if (!isBotAdmins) return reply(`${lenguaje['smsAntiLink3']()}\n${String.fromChar
 if (isGroupAdmins) return reply(`${lenguaje['smsAntiLink2']()}`)
 if (m.key.fromMe) return
 if (!isCreator) return 
-conn.sendMessage(m.chat, {text:`*${lenguaje['smsAntiLink']()}`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+conn.sendMessage(m.chat, {text:`${lenguaje['smsAntiLink']()}`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }}
@@ -281,7 +281,7 @@ if (!isBotAdmins) return reply(`${lenguaje['smsAntiLink3']()}\n${String.fromChar
 if (isGroupAdmins) return reply(`${lenguaje['smsAntiLink2']()}`)
 if (m.key.fromMe) return
 if (!isCreator) return 
-conn.sendMessage(m.chat, {text:`*${lenguaje['smsAntiLink']()}`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+conn.sendMessage(m.chat, {text:`${lenguaje['smsAntiLink']()}`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }}
@@ -292,7 +292,7 @@ if (!isBotAdmins) return reply(`${lenguaje['smsAntiLink3']()}\n${String.fromChar
 if (isGroupAdmins) return reply(`${lenguaje['smsAntiLink2']()}`)
 if (m.key.fromMe) return
 if (!isCreator) return 
-conn.sendMessage(m.chat, {text:`*${lenguaje['smsAntiLink']()}`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+conn.sendMessage(m.chat, {text:`${lenguaje['smsAntiLink']()}`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }}
@@ -303,7 +303,7 @@ if (!isBotAdmins) return reply(`${lenguaje['smsAntiLink3']()}\n${String.fromChar
 if (isGroupAdmins) return reply(`${lenguaje['smsAntiLink2']()}`)
 if (m.key.fromMe) return
 if (!isCreator) return 
-conn.sendMessage(m.chat, {text:`*${lenguaje['smsAntiLink']()}`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+conn.sendMessage(m.chat, {text:`${lenguaje['smsAntiLink']()}`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }}
@@ -314,7 +314,7 @@ if (!isBotAdmins) return reply(`${lenguaje['smsAntiLink3']()}\n${String.fromChar
 if (isGroupAdmins) return reply(`${lenguaje['smsAntiLink2']()}`)
 if (m.key.fromMe) return m.reply(lenguaje['smsAntiLink5']())
 if (!isCreator) return 
-conn.sendMessage(m.chat, {text:`*${lenguaje['smsAntiLink']()}`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+conn.sendMessage(m.chat, {text:`${lenguaje['smsAntiLink']()}`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }}
@@ -479,7 +479,7 @@ global.language = es}
 // ═════════════𓊈『 viewOnceMessage 』𓊉═════════════	
 if (m.mtype == 'viewOnceMessageV2') { 
 if (global.db.data.chats[m.chat].viewonce) return
-teks = `\`𝙰𝚀𝚄𝙸 𝙽𝙾 𝚂𝙴 𝙿𝙴𝚁𝙼𝙸𝚃𝙴 𝙾𝙲𝚄𝙻𝚃𝙰𝚁 𝙽𝙰𝙳𝙰\``
+teks = `${lenguaje['smsViwonce']()}`
 let msg = m.message.viewOnceMessageV2.message
 let type = Object.keys(msg)[0]
 let media = await downloadContentFromMessage(msg[type], type == 'imageMessage' ? 'image' : 'video')
