@@ -94,27 +94,7 @@ const smsAntiLink2 = () => { return `🫐╮╯╭╰╭╰╭╯╰╭╰╯╮
 const smsAntiLink3 = () => { return `🫐╮╯╭╰╭╰╭╯╰╭╰╯╮╰╮╯╭╰🫐\n         *☆ 𝐀𝐍𝐓𝐈𝐋𝐈𝐍𝐊 𝐀𝐂𝐓𝐈𝐕𝐎 ☆*     \n                 *🍒 𝐖𝐢𝐮 𝐰𝐢𝐮 🍒*               \n🫐╮╯╭╰╭╰╭╯╰╭╰╯╮╰╮╯╭╰🫐\n\n*𖠁𓊈🌺𓊉ཾ̥ 𝗍ᥱ 𝐬ᥲᥣ᥎ᥲ𝐬𝗍ᥱ ⋌༼ •̀ ⌂ •́ ༽⋋  ᥒ᥆ ⍴ᥙᥱძ᥆*\n*ᥱᥣіmіᥒᥲr𝗍ᥱ ᥡᥲ 𝗊ᥙᥱ ᥒ᥆ s᥆ᥡ ᥲძmіᥒ ᯤ  ࣪◜｡ ୨🍥୧*\n˓𓄹 ࣪˖   ❄  ˖ ࣪ ִֶָ        ⸰❄ 𖥔 ͙ࣳ      ⸰ֺ⭑` }
 const smsAntiLink4 = () => { return `˚˙༓࿇༓˙˚˙༓࿇˙༓࿇༓˙˚˙༓࿇༓˙˚˙༓࿇༓˙˚˙༓࿇༓˙˚\n     🍧 *𝐈𝐍𝐕𝐎𝐂𝐀𝐍𝐃𝐎 𝐀𝐃𝐌𝐈𝐍𝐒* 🍧   \n\n〣⃟❥ ` }
 const smsAntiLink5 = () => { return '🫐╮╯╭╰╭╰╭╯╰╭╰╯╮╰╮╯╭╰🫐\n         *☆ 𝐀𝐍𝐓𝐈𝐋𝐈𝐍𝐊 𝐀𝐂𝐓𝐈𝐕𝐎 ☆*     \n                 *🍒 𝐖𝐢𝐮 𝐰𝐢𝐮 🍒*               \n🫐╮╯╭╰╭╰╭╯╰╭╰╯╮╰╮╯╭╰🫐\n*✤ ⧼🍨⧽ ཾ̥ ᥱᥒ᥎іᥲs𝗍ᥱ ᥙᥒ ᥣіᥒk ᥆𝖿іᥴіᥲᥣ ♡´･ᴗ･`♡*\n*grᥲᥴіᥲs ⍴᥆r ᥴ᥆m⍴ᥲr𝗍іɾlօs 💕 ᯤ  ࣪◜｡ ୨🍬୧*\n˓𓄹 ࣪˖   🍒  ˖ ࣪ ִֶָ       ⸰ 𖥔 ͙ࣳ  🍒    ⸰ֺ⭑' }
-const antiyt = {
- 1
-}
-const antiig {
- 1
-}
-const antifb {
- 1
-}
-const antitl {
- 1
-}
-const antitk {
- 1
-}
-const antix {
- 1
-}
-const antilink {
- 1
-}
+
 //autosticker
 const smsAutoSicker = { 
  espera:`︶ִֶָ⏝︶ִֶָ⏝˖ ࣪ ୨❄✧❄୧ ࣪ ˖⏝ִֶָ︶⏝ִֶָ︶\n\n ̗̗̀̀🍓.ꦿ✧ *𝗍ᥱᥒ ⍴ᥲᥴіᥱᥒᥴіᥲ ᥴ᥆m᥆ ძᥲᥒ ᥴ᥆ᥒ ȷᥲᥱkᥡᥙᥒg 🍩, 𝗍ᥙ s𝗍іᥴkᥱr sᥱ ᥱs𝗍ᥲ́ ⍴r᥆ᥴᥱsᥲᥒძ᥆ (♥´∀｀)／*\n\n*_╰⪩ 𝐀𝐔𝐓𝐎 - 𝐒𝐓𝐈𝐂𝐊𝐄𝐑  𝐀𝐂𝐓𝐈𝐕𝐎 ⪨╯_* \n\n  ꈍᴗꈍ         █║▌║║▌║█║║█`, 
@@ -590,4 +570,4 @@ text3: `*Responda un sticker para robar`,
 text4: `ingresa algo para convertirlo a sticker :v`, 
 text5: `_*Calma crack estoy haciendo tu texto a sticker 👏*_\n\n_*Esto puede demorar unos minutos....*_` }
 
-module.exports = { antiyt, antiig, antifb, antitl, antitk, antix, antilink, reg, carga, lenguaje, tmp, session, errorsession, archivo, archborrado, archivoborrado, purgesessions, purgesubbots, purgeoldfiles, smscall, smscall2, smsAvisos, smsAvisos2, smsAvisos3, smsAvisos4, smsAvisos5, smsAvisos6, smsAvisos7, smsAvisos8, smsAvisos9, wel, smsConexion, smsEscaneaQR, smsConectado, smsConexioncerrar, nivel, nivel2, admin, botAdmin, propietario, group, private, bot, error, advertencia, registra, limit, AntiNsfw, endLimit, result, lengua, sms, Bio, smsAntiFake, smsAntiArabe, smsAntiLink, smsAntiLink2, smsAntiLink3, smsAntiLink4, smsAntiLink5, smsAutoSicker, smsAutonivel, smsAutonivel2, smsAutonivel3, smsAutonivel4, smsAutonivel5, smsAutonivel6, smsAutonivel7, smsAutonivel8, smsAutonivel9, smsAntiPv, info, menu, jadibot, descargar, enable, grupos, juegos, nsfw, owner, ramdow, rpg, sticker}
+module.exports = { reg, carga, lenguaje, tmp, session, errorsession, archivo, archborrado, archivoborrado, purgesessions, purgesubbots, purgeoldfiles, smscall, smscall2, smsAvisos, smsAvisos2, smsAvisos3, smsAvisos4, smsAvisos5, smsAvisos6, smsAvisos7, smsAvisos8, smsAvisos9, wel, smsConexion, smsEscaneaQR, smsConectado, smsConexioncerrar, nivel, nivel2, admin, botAdmin, propietario, group, private, bot, error, advertencia, registra, limit, AntiNsfw, endLimit, result, lengua, sms, Bio, smsAntiFake, smsAntiArabe, smsAntiLink, smsAntiLink2, smsAntiLink3, smsAntiLink4, smsAntiLink5, smsAutoSicker, smsAutonivel, smsAutonivel2, smsAutonivel3, smsAutonivel4, smsAutonivel5, smsAutonivel6, smsAutonivel7, smsAutonivel8, smsAutonivel9, smsAntiPv, info, menu, jadibot, descargar, enable, grupos, juegos, nsfw, owner, ramdow, rpg, sticker}
