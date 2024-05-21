@@ -934,6 +934,15 @@ reply(`໒🍓⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐒𝐞 𝐝𝐞𝐬𝐚𝐜𝐭𝐢�
 }
 }
 break;
+case 'groupConfig' : {
+if (!m.isGroup) return reply(mess.group);
+if (!isBotAdmins) return reply(mess.botAdmin);
+if (!isGroupAdmins) return reply(mess.admin);
+if (args[0] === 'on') {
+} else if (args[0] === 'off') {
+} else reply('debe seleccionar on/off')
+}
+break
 
 case 'join': case 'unete': {
 if (!isCreator) return reply(mess.owner) 
