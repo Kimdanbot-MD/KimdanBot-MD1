@@ -569,7 +569,7 @@ mentionedJid:[num],
 "sourceUrl": redes}}}, {quoted: m}) 
 }
 //nuevo admin
-let isAdmn = global.db.data.chats[anu.id].adm
+let isAdm = global.db.data.chats[anu.id].adm
 if(!isAdm) return
  if (anu.action == "promote") {
 const groupAdmins = participants.filter(p => p.admin)
