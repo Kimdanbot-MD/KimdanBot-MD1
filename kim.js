@@ -232,7 +232,7 @@ await conn.updateProfileStatus(bio)
 }} 
 	
 //═════════════𓊈『 ANTILINK 』𓊉═════════════
-//WhatsApp
+
 if (global.db.data.chats[m.chat].antilink) {
 if (budy.match(`chat.whatsapp.com`)) {
 let delet = m.key.participant
@@ -248,85 +248,87 @@ let gclink = (`https://chat.whatsapp.com/`+await conn.groupInviteCode(m.chat))
 let isLinkThisGc = new RegExp(gclink, 'i')
 let isgclink = isLinkThisGc.test(m.text)
 if (isgclink) return
+if (!isCreator) return
 conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: delet }})
 conn.sendMessage(m.chat, {text: `${lenguaje['smsAntiLink']()}`})
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}}
 	
-/*if (global.db.data.chats[m.chat].AntiYoutube && !isCreator) {
+if (global.db.data.chats[m.chat].AntiYoutube && !isCreator) {
 if (budy.includes("https://youtu.be/") || budy.includes("https://youtube.com/")) {
-if (isGroupAdmins) return reply(lenguaje['smsAntiLink5']())
-if (!isBotAdmins) return m.reply(lenguaje['smsAntiLink6']())
+if (!isBotAdmins) return reply(`${lenguaje['smsAntiLink3']()}\n${String.fromCharCode(8206).repeat(850)}\n${lenguaje['smsAntiLink4']()} ${listAdmin}`)
+if (isGroupAdmins) return reply(`${lenguaje['smsAntiLink2']()}`)
 if (m.key.fromMe) return
 if (!isCreator) return 
-conn.sendMessage(m.chat, {text:`*LINK DE YOUTUBE DETECTADO 📢*\n@${sender.split("@")[0]} Usted sera eliminado de este grupo`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+conn.sendMessage(m.chat, {text:`*${lenguaje['smsAntiLink']()}`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }}
 
 if (global.db.data.chats[m.chat].AntInstagram && !isCreator) {
 if (budy.includes("https://www.instagram.com/")) {
-if (isGroupAdmins) return reply(lenguaje['smsAntiLink5']())
-if (!isBotAdmins) return m.reply(lenguaje['smsAntiLink6']())
+if (!isBotAdmins) return reply(`${lenguaje['smsAntiLink3']()}\n${String.fromCharCode(8206).repeat(850)}\n${lenguaje['smsAntiLink4']()} ${listAdmin}`)
+if (isGroupAdmins) return reply(`${lenguaje['smsAntiLink2']()}`)
 if (m.key.fromMe) return
 if (!isCreator) return 
-conn.sendMessage(m.chat, {text:`*LINK DE INSTAGRAM DETECTADO 📢*\n@${sender.split("@")[0]} Usted sera eliminado de este grupo`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+conn.sendMessage(m.chat, {text:`*${lenguaje['smsAntiLink']()}`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }}
 
 if (global.db.data.chats[m.chat].AntiFacebook && !isCreator) {
 if (budy.includes("https://facebook.com/")) {
-if (isGroupAdmins) return reply(lenguaje['smsAntiLink5']())
-if (!isBotAdmins) return m.reply(lenguaje['smsAntiLink6']())
+if (!isBotAdmins) return reply(`${lenguaje['smsAntiLink3']()}\n${String.fromCharCode(8206).repeat(850)}\n${lenguaje['smsAntiLink4']()} ${listAdmin}`)
+if (isGroupAdmins) return reply(`${lenguaje['smsAntiLink2']()}`)
 if (m.key.fromMe) return
 if (!isCreator) return 
-conn.sendMessage(m.chat, {text:`*LINK DE FACEBOOK DETECTADO 📢*\n@${sender.split("@")[0]} Usted sera eliminado de este grupo`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+conn.sendMessage(m.chat, {text:`*${lenguaje['smsAntiLink']()}`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }}
 
 if (global.db.data.chats[m.chat].AntiTelegram && !isCreator) {
 if (budy.includes("https://t.me/")) {
-if (isGroupAdmins) return reply(lenguaje['smsAntiLink5']())
-if (!isBotAdmins) return m.reply(lenguaje['smsAntiLink6']())
+if (!isBotAdmins) return reply(`${lenguaje['smsAntiLink3']()}\n${String.fromCharCode(8206).repeat(850)}\n${lenguaje['smsAntiLink4']()} ${listAdmin}`)
+if (isGroupAdmins) return reply(`${lenguaje['smsAntiLink2']()}`)
 if (m.key.fromMe) return
 if (!isCreator) return 
-conn.sendMessage(m.chat, {text:`*LINK DE TELEGRAM DETECTADO 📢*\n@${sender.split("@")[0]} Usted sera eliminado de este grupo`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+conn.sendMessage(m.chat, {text:`*${lenguaje['smsAntiLink']()}`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }}
 
 if (global.db.data.chats[m.chat].AntiTiktok && !isCreator) {
 if (budy.match("https://www.tiktok.com/") || budy.match("https://vm.tiktok.com/")) {
-//f (!isCreator) return m.reply(`Es mi creador Salvador`) 
-if (isGroupAdmins) return reply(lenguaje['smsAntiLink5']())
-if (!isBotAdmins) return m.reply(lenguaje['smsAntiLink6']())
-conn.sendMessage(m.chat, {text:`*LINK DE TIKTOK DETECTADO 📢*\n\n@${sender.split("@")[0]} Usted sera eliminado de este grupo...`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+if (!isBotAdmins) return reply(`${lenguaje['smsAntiLink3']()}\n${String.fromCharCode(8206).repeat(850)}\n${lenguaje['smsAntiLink4']()} ${listAdmin}`)
+if (isGroupAdmins) return reply(`${lenguaje['smsAntiLink2']()}`)
+if (m.key.fromMe) return
+if (!isCreator) return 
+conn.sendMessage(m.chat, {text:`*${lenguaje['smsAntiLink']()}`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }}
 
 if (global.db.data.chats[m.chat].AntiTwitter) {
 if (budy.includes("https://twitter.com/")){
-if (isGroupAdmins) return reply(lenguaje['smsAntiLink5']())
-if (!isBotAdmins) return m.reply(lenguaje['smsAntiLink6']())
+if (!isBotAdmins) return reply(`${lenguaje['smsAntiLink3']()}\n${String.fromCharCode(8206).repeat(850)}\n${lenguaje['smsAntiLink4']()} ${listAdmin}`)
+if (isGroupAdmins) return reply(`${lenguaje['smsAntiLink2']()}`)
 if (m.key.fromMe) return m.reply(lenguaje['smsAntiLink5']())
 if (!isCreator) return 
-conn.sendMessage(m.chat, {text:`*LINK DE TWITER (X) DETECTADO 📢*\n@${sender.split("@")[0]} Usted sera eliminado de este grupo`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+conn.sendMessage(m.chat, {text:`*${lenguaje['smsAntiLink']()}`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 }}
 
 if (global.db.data.chats[m.chat].antiLink2 && !isCreator) {
 if (budy.includes("https://")) {
-if (isGroupAdmins) return reply(lenguaje['smsAntiLink5']()) 
-if (!isBotAdmins) return m.reply(lenguaje['smsAntiLink6']())
+if (!isBotAdmins) return reply(`${lenguaje['smsAntiLink3']()}\n${String.fromCharCode(8206).repeat(850)}\n${lenguaje['smsAntiLink4']()} ${listAdmin}`)
+if (isGroupAdmins) return reply(`${lenguaje['smsAntiLink2']()}`)
 if (m.key.fromMe) return
 if (!isCreator) return 
-conn.sendMessage(m.chat, {text:`*LINK DE HTTPS DETECTADO 📢*\n@${sender.split("@")[0]} Usted sera eliminado de este grupo`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+conn.sendMessage(m.chat, {text:`*${lenguaje['smsAntiLink']()}`, mentions: [sender], },{quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 await conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: m.key.id, participant: m.key.participant }})
 conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-}}*/
+}}
 
 //═════════════𓊈『 ANTITOXIC 』𓊉═════════════
 if (global.db.data.chats[m.chat].antitoxic && !isCreator) {   
