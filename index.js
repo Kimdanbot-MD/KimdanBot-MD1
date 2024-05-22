@@ -531,7 +531,7 @@ sock.sendMessage(anu.id, { text: `${lenguaje.wel.A} @${num.split("@")[0]} ${leng
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363200204060894@newsletter', 
 serverMessageId: '', 
-newsletterName: 'zamhetero' },
+newsletterName: '༻꫞⃝🧃 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🧃⃝꫞༺' },
 isForwarded: true, 
 mentionedJid:[num],
 "externalAdReply": {"showAdAttribution": true,
