@@ -98,7 +98,8 @@ const smsAntiLink5 = () => { return '🫐╮╯╭╰╭╰╭╯╰╭╰╯╮
 //antitoxic 
 const smsAntiToxic = { 
 malo:` decir malas palabras esta prohibido En este grupo, No seas Toxico(a)\n\nADVERTENCIA\n⚠️`, 
-malito:`la mala palabra que dijiste fue:`}
+malito:`la mala palabra que dijiste fue:`,
+eliminado:`superaste las 4 advertencias serás eliminado de este grupo unu.`}
 
 //autosticker
 const smsAutoSicker = { 
