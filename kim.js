@@ -952,6 +952,7 @@ if (args[0] === 'on') {
     reply(`໒🍓⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐒𝐞 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐨́ 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞.*`);
 }
 }
+break
 case 'allmessage' : {
 if (!m.isGroup) return reply(mess.group);
 if (!isBotAdmins) return reply(mess.botAdmin);
