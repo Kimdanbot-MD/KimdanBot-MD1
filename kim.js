@@ -348,7 +348,7 @@ if (user.warn >= 4) {
 user.warn = 0;
 await conn.sendMessage(m.chat, {text: `*@${m.sender.split('@')[0]} superaste las 4 advertencias serás eliminado de este grupo 😐....*`, mentions: [m.sender]}, {quoted: m})
 user.banned = true
-await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}
+await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 return !1;
 }} 
 
