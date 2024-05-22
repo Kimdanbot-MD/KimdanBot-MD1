@@ -344,12 +344,11 @@ user.warn += 1;
 if (!(user.warn >= 4)) { await conn.sendMessage(m.chat, {text: `Hey @${m.sender.split('@')[0]} ${(lenguaje.smsAntiToxic.malo)} ${user.warn}/4 ${(lenguaje.smsAntiToxic.malito)} ${isToxic}`, mentions: [m.sender]}, {quoted: m}) } 
 if (user.warn >= 4) {
 user.warn = 0;
-await conn.sendMessage(m.chat, {text: `*@${m.sender.split('@')[0]} superaste las 4 advertencias serás eliminado de este grupo 😐....*`, mentions: [m.sender]}, {quoted: m});
+await conn.sendMessage(m.chat, {text: `*@${m.sender.split('@')[0]} ${(lenguaje.smsAntiToxic.eliminado)}`, mentions: [m.sender]}, {quoted: m});
 user.banned = true;
 await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')}
 return !1
-}
-}
+}}
 
 //═════════════𓊈『 PUBLIC Y PRIVADO 』𓊉═════════════
 if (!conn.public && !isCreator) {
@@ -444,7 +443,7 @@ let user = global.db.data.users[m.sender]
 m.reply(`*🕔 𝙳𝙴𝙹𝙰𝚂𝚃𝙴 𝙳𝙴 𝙴𝚂𝚃𝙰 𝙰𝙵𝙺 🕔*\n${user.afkReason ? '\n*𝚁𝙰𝚉𝙾𝙽 :* ' + user.afkReason : ''}\n*𝙴𝚂𝚃𝚄𝚅𝙾 𝙸𝙽𝙰𝙲𝚃𝙸𝚅𝙾 𝙳𝚄𝚁𝙰𝙽𝚃𝙴 :* ${clockString(new Date - user.afkTime)}`.trim())
 user.afkTime = -1
 user.afkReason = ''
-}    
+}
 	
 // ═════════════𓊈『 CONSOLA 』𓊉═════════════	
 if (m.message) {
