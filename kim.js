@@ -495,9 +495,7 @@ return conn.sendFile(m.chat, buffer, 'error.jpg', `${msg[type].caption} ${teks}`
 //*. : ｡✿ * ﾟ * .: ｡ ✿ * ﾟ  * . : ｡ ✿ *
 
 // gei
-let welcome = global.db.data.chats[m.chat].welcome
-let bye = global.db.data.chats[m.chat].bye
-let adm = global.db.data.chats[m.chat].adm
+let settings = global.db.data.chats[m.chat]
 
 switch (command) { 
 		
@@ -903,7 +901,19 @@ m.reply("*🚩 Case no encontrado.*")
 }
 }
 break;
+	
+case 'antitoxic': {
+if (!m.isGroup) return reply(mess.group);
+if (!isBotAdmins) return reply(mess.botAdmin);
+if (!isGroupAdmins) return reply(mess.admin);
+if (args[0] === 'on') {
 
+} else if (args[0] === 'off') {
+	
+}
+}
+break
+		
 case 'antilink': {
 if (!m.isGroup) return reply(mess.group);
 if (!isBotAdmins) return reply(mess.botAdmin);
@@ -944,10 +954,10 @@ if (!m.isGroup) return reply(mess.group);
 if (!isBotAdmins) return reply(mess.botAdmin);
 if (!isGroupAdmins) return reply(mess.admin);
 if (args[0] === 'on') {
-    bye = true
+    settings.bye = true
     reply(`໒🫐⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐒𝐞 𝐚𝐜𝐭𝐢𝐯𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞.*`);
 } else if (args[0] === 'off') {
-    bye = false
+    settings.bye = false
     reply(`໒🍓⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐒𝐞 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐨́ 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞.*`);
 }
 }
@@ -957,10 +967,10 @@ if (!m.isGroup) return reply(mess.group);
 if (!isBotAdmins) return reply(mess.botAdmin);
 if (!isGroupAdmins) return reply(mess.admin);
 if (args[0] === 'on') {
-welcome = true; bye = true; adm = true;
+settings.welcome = true; settings.bye = true; settings.adm = true;
 reply(`໒🫐⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐒𝐞 𝐚𝐜𝐭𝐢𝐯𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞.*`);
 } else if (args[0] === 'off') {
-welcome = false; bye = false; adm = false;
+settings.welcome = false; settings.bye = false; settings.adm = false;
 reply(`໒🍓⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐒𝐞 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐨́ 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞.*`);
 } else reply('debe seleccionar on/off')
 }
