@@ -343,7 +343,7 @@ const chat = global.db.data.chats[m.chat];
 const bot = global.db.data.settings[conn.user.jid] || {};
 const isToxic = budy.match; 
 user.warn += 1;
-if (!(user.warn >= 4)) conn.sendMessage(m.chat, {text: `Hey @${m.sender.split('@')[0]} ${smsAntiToxic.1} ${user.warn}/4* ${smsAntiToxic.2} ${budy}` , mentions: [m.sender]}, {quoted: m})
+if (!(user.warn >= 4)) conn.sendMessage(m.chat, {text: `Hey @${m.sender.split('@')[0]} ${lenguaje.smsAntiToxic.1} ${user.warn}/4* ${lenguaje.smsAntiToxic.2} ${budy}`, mentions: [m.sender]}, {quoted: m} )
 if (user.warn >= 4) {
 user.warn = 0;
 await conn.sendMessage(m.chat, {text: `*@${m.sender.split('@')[0]} superaste las 4 advertencias serás eliminado de este grupo 😐....*`, mentions: [m.sender]}, {quoted: m})
