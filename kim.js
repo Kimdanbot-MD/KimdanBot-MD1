@@ -497,6 +497,9 @@ return conn.sendFile(m.chat, buffer, 'error.jpg', `${msg[type].caption} ${teks}`
 
 // gei
 let welcome = global.db.data.chats[m.chat].welcome
+let bye = global.db.data.chats[m.chat].bye
+let adm = global.db.data.chats[m.chat].adm
+
 switch (command) { 
 		
 case 'plist':
@@ -919,7 +922,7 @@ conn.sendPoll(m.chat, "este es el ejemplo", [`${command.charAt(0).toUpperCase()+
 }
 }
 break
-		
+
 case 'welcome': {
 if (!m.isGroup) return reply(mess.group);
 if (!isBotAdmins) return reply(mess.botAdmin);
@@ -936,19 +939,28 @@ reply(`໒🍓⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐒𝐞 𝐝𝐞𝐬𝐚𝐜𝐭𝐢�
 }
 }
 break;
+
+case 'bye': {
+if (!m.isGroup) return reply(mess.group);
+if (!isBotAdmins) return reply(mess.botAdmin);
+if (!isGroupAdmins) return reply(mess.admin);
+if (args[0] === 'on') {
+    bye = true
+    reply(`໒🫐⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐒𝐞 𝐚𝐜𝐭𝐢𝐯𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞.*`);
+} else if (args[0] === 'off') {
+    bye = false
+    reply(`໒🍓⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐒𝐞 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐨́ 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞.*`);
+}
+}
 case 'allmessage' : {
 if (!m.isGroup) return reply(mess.group);
 if (!isBotAdmins) return reply(mess.botAdmin);
 if (!isGroupAdmins) return reply(mess.admin);
 if (args[0] === 'on') {
-global.db.data.chats[m.chat].welcome = true;
-global.db.data.chats[m.chat].bye = true;
-global.db.data.chats[m.chat].adm = true;
+welcome = true; bye = true; adm = true;
 reply(`໒🫐⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐒𝐞 𝐚𝐜𝐭𝐢𝐯𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞.*`);
 } else if (args[0] === 'off') {
-global.db.data.chats[m.chat].welcome = false;
-global.db.data.chats[m.chat].bye = false;
-global.db.data.chats[m.chat].adm = false;
+welcome = false; bye = false; adm = false;
 reply(`໒🍓⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐒𝐞 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐨́ 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞.*`);
 } else reply('debe seleccionar on/off')
 }
