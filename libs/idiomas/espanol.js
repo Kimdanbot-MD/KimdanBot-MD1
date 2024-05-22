@@ -96,8 +96,9 @@ const smsAntiLink4 = () => { return `˚˙༓࿇༓˙˚˙༓࿇˙༓࿇༓˙˚˙�
 const smsAntiLink5 = () => { return '🫐╮╯╭╰╭╰╭╯╰╭╰╯╮╰╮╯╭╰🫐\n         *☆ 𝐀𝐍𝐓𝐈𝐋𝐈𝐍𝐊 𝐀𝐂𝐓𝐈𝐕𝐎 ☆*     \n                 *🍒 𝐖𝐢𝐮 𝐰𝐢𝐮 🍒*               \n🫐╮╯╭╰╭╰╭╯╰╭╰╯╮╰╮╯╭╰🫐\n*✤ ⧼🍨⧽ ཾ̥ ᥱᥒ᥎іᥲs𝗍ᥱ ᥙᥒ ᥣіᥒk ᥆𝖿іᥴіᥲᥣ ♡´･ᴗ･`♡*\n*grᥲᥴіᥲs ⍴᥆r ᥴ᥆m⍴ᥲr𝗍іɾlօs 💕 ᯤ  ࣪◜｡ ୨🍬୧*\n˓𓄹 ࣪˖   🍒  ˖ ࣪ ִֶָ       ⸰ 𖥔 ͙ࣳ  🍒    ⸰ֺ⭑' }
 
 //antitoxic 
-const smsAntiToxic = () => { return `Hey @${m.sender.split('@')[0]} decir la palabra *(${budy})* Esta prohibida En este grupo, No seas Toxico(a)\n\nADVERTENCIA\n⚠️ *${user.warn}/4*\n\n${botname}`}
-
+const smsAntiToxic = { 
+1:` decir malas palabras esta prohibido En este grupo, No seas Toxico(a)\n\nADVERTENCIA\n⚠️`, 
+2:`la mala palabra que dijiste fue:`}
 
 //autosticker
 const smsAutoSicker = { 
