@@ -495,7 +495,7 @@ return conn.sendFile(m.chat, buffer, 'error.jpg', `${msg[type].caption} ${teks}`
 //*. : ｡✿ * ﾟ * .: ｡ ✿ * ﾟ  * . : ｡ ✿ *
 
 // gei
-let settings = global.db.data.chats[m.chat]
+let group = global.db.data.chats[m.chat]
 
 switch (command) { 
 		
@@ -956,10 +956,10 @@ if (!m.isGroup) return reply(mess.group);
 if (!isBotAdmins) return reply(mess.botAdmin);
 if (!isGroupAdmins) return reply(mess.admin);
 if (args[0] === 'on') {
-    settings.bye = true
+    group.bye = true
     reply(`໒🫐⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐒𝐞 𝐚𝐜𝐭𝐢𝐯𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞.*`);
 } else if (args[0] === 'off') {
-    settings.bye = false
+    group.bye = false
     reply(`໒🍓⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐒𝐞 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐨́ 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞.*`);
 }
 }
@@ -969,10 +969,10 @@ if (!m.isGroup) return reply(mess.group);
 if (!isBotAdmins) return reply(mess.botAdmin);
 if (!isGroupAdmins) return reply(mess.admin);
 if (args[0] === 'on') {
-settings.welcome = true; settings.bye = true; settings.adm = true;
+group.welcome = true; group.bye = true; group.adm = true;
 reply(`໒🫐⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐒𝐞 𝐚𝐜𝐭𝐢𝐯𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞.*`);
 } else if (args[0] === 'off') {
-settings.welcome = false; settings.bye = false; settings.adm = false;
+group.welcome = false; group.bye = false; group.adm = false;
 reply(`໒🍓⃟𓄻໋⃕ꦶꦹꫂ⊁ *𝐒𝐞 𝐝𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐨́ 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞.*`);
 } else reply('debe seleccionar on/off')
 }
