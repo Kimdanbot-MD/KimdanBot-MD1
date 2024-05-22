@@ -494,7 +494,9 @@ return conn.sendFile(m.chat, buffer, 'error.jpg', `${msg[type].caption} ${teks}`
 //falta tictactoe
 
 //*. : ｡✿ * ﾟ * .: ｡ ✿ * ﾟ  * . : ｡ ✿ *
-	
+
+// gei
+let welcome = global.db.data.chats[m.chat].welcome
 switch (command) { 
 		
 case 'plist':
