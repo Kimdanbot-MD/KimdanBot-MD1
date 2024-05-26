@@ -4,7 +4,7 @@ const fs = require("fs")
 const { en, es } = require('./libs/idiomas/total-idiomas.js') 
 
 global.owner = [
-["+57 323 4628903", "creador", true],
+["573234628903", "creador", true],
 ["573044062173"], 
 ["50685690440"],
 ["50433086279"], 
