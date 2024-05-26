@@ -681,9 +681,9 @@ break
 case 'banchat': 
 ban(m, text, command, args)
 break              
-case 'tagall': case 'invocar': case 'todos':
+/*case 'tagall': case 'invocar': case 'todos':
 tag(conn, m, isBotAdmins, isGroupAdmins, participants, q)
-break            
+break */           
 case 'admins': case 'administradores': 
 adm(conn, participants, groupMetadata, args, m) 
 break
