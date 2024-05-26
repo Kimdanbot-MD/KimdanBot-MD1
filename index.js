@@ -555,9 +555,7 @@ forwardedNewsletterMessageInfo: {
 newsletterJid: '120363200204060894@newsletter', 
 serverMessageId: '', 
 newsletterName: '༻꫞⃝🧃 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🧃⃝꫞༺' },
-forwardingScore: 9999999,
-isForwarded: true,
-remoteJid: anu.id,
+isForwarded: true, 
 mentionedJid:[num],
 "externalAdReply": {"showAdAttribution": true,
 "containsAutoReply": true,
@@ -566,7 +564,7 @@ mentionedJid:[num],
 "previewType": "PHOTO",
 "thumbnailUrl": ``,     
 "thumbnail": leave,
-"sourceUrl": redes}}}, {quoted: m}) 
+"sourceUrl": redes}}})
 }
 //nuevo admin
 let isAdm = global.db.data.chats[anu.id].adm
