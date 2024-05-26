@@ -437,7 +437,7 @@ mentionedJid:[m.sender],
 "mediaUrl": redes,  
 "sourceUrl": canales 
 }}})
-} else if(!res.desc == ``){
+} else if(!res.desc == ''){
 await sleep(2000)
 try {
 ppgroup = await sock.profilePictureUrl(anu.id, 'image')
@@ -467,7 +467,7 @@ mentionedJid:[m.sender],
 "mediaUrl": redes,  
 "sourceUrl": canales
 }}})
-} else if(!res.subject == ``){
+} else if(!res.subject == ''){
 await sleep(2000)
 try {
 ppgroup = await sock.profilePictureUrl(anu.id, 'image')
