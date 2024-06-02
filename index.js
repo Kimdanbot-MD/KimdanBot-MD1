@@ -320,7 +320,7 @@ sock.ev.on("groups.update", async (json) => {
 console.log(color(json, '#009FFF'))
 //console.log(json)
 const res = json[0];
-const detect = global.db.data.chats[res.id].detec
+const detect = global.db.data.chats[res.id].detect
 if (!detect) return
 if (res.announce == true) {
 await sleep(2000)
