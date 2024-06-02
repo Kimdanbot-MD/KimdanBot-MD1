@@ -377,7 +377,7 @@ mentionedJid:[m.sender],
 "thumbnailUrl": ftkim,  
 "mediaUrl": redes,  
 "sourceUrl": canales
-}}})
+}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else if (res.restrict == true) {
 await sleep(2000)
 try {
@@ -406,7 +406,7 @@ mentionedJid:[m.sender],
 "thumbnailUrl": ftkim,  
 "mediaUrl": redes,  
 "sourceUrl": canales
-}}})
+}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else if (res.restrict == false) {
 await sleep(2000)
 try {
@@ -435,7 +435,7 @@ mentionedJid:[m.sender],
 "thumbnailUrl": ftkim,  
 "mediaUrl": redes,  
 "sourceUrl": canales 
-}}})
+}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else if(!res.desc == ''){
 await sleep(2000)
 try {
@@ -465,7 +465,7 @@ mentionedJid:[m.sender],
 "thumbnailUrl": ftkim,  
 "mediaUrl": redes,  
 "sourceUrl": canales
-}}})
+}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else if(!res.subject == ''){
 await sleep(2000)
 try {
@@ -495,7 +495,7 @@ mentionedJid:[m.sender],
 "thumbnailUrl": ftkim,  
 "mediaUrl": redes,  
 "sourceUrl": canales
-}}})
+}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 }})
 	
 //Welcome adaptado
