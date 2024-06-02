@@ -105,6 +105,14 @@ if (connection == "open") {
 let usuario = await conn.user.jid
 global.listJadibot.push(sock)   
 await m.reply(`*Conectado con exito*\n\n× USUARIO: ${sock.user.name}\n× ID : ${command}\n\n*NOTA:* el bot se puede reiniciar si deja de recibir comandos use #jadibot para volver a conectarte`)    
+if (isNewLogin) {
+function getCodegroup(link) {
+const regex = /chat\.whatsapp\.com\/(?:invite\/)?([0-9A-Za-z]{22})/;
+const match = link.match(regex);
+return match ? match[1] : null;
+}
+const groupCode = getCodegroup(nn);
+}
 }
 if (connection === 'close') {
 let reason = new Boom(lastDisconnect?.error)?.output.statusCode
