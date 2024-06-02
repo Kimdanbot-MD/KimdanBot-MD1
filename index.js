@@ -338,7 +338,6 @@ serverMessageId: '',
 newsletterName: '༻꫞⃝🧃 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🧃⃝꫞༺' },
 forwardingScore: 9999999,  
 isForwarded: true,
-remoteJid: anu.id,
 mentionedJid:[m.sender],  
 "externalAdReply": {  
 "showAdAttribution": true,  
@@ -349,7 +348,7 @@ mentionedJid:[m.sender],
 "thumbnailUrl": ftkim,  
 "mediaUrl": redes,  
 "sourceUrl": canales
-}}})
+}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 } else if (res.announce == false) {
 await sleep(2000)
 try {
