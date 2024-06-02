@@ -325,7 +325,7 @@ if (!detect) return
 if (res.announce == true) {
 await sleep(2000)
 try {
-ppgroup = await sock.profilePictureUrl(anu.id, 'image')
+ppgroup = await sock.profilePictureUrl(res.id, 'image')
 } catch (err) {
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 }
@@ -353,7 +353,7 @@ mentionedJid:[m.sender],
 } else if (res.announce == false) {
 await sleep(2000)
 try {
-ppgroup = await sock.profilePictureUrl(anu.id, 'image')
+ppgroup = await sock.profilePictureUrl(res.id, 'image')
 } catch (err) {
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 }
@@ -382,7 +382,7 @@ mentionedJid:[m.sender],
 } else if (res.restrict == true) {
 await sleep(2000)
 try {
-ppgroup = await sock.profilePictureUrl(anu.id, 'image')
+ppgroup = await sock.profilePictureUrl(res.id, 'image')
 } catch (err) {
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 }
@@ -411,7 +411,7 @@ mentionedJid:[m.sender],
 } else if (res.restrict == false) {
 await sleep(2000)
 try {
-ppgroup = await sock.profilePictureUrl(anu.id, 'image')
+ppgroup = await sock.profilePictureUrl(res.id, 'image')
 } catch (err) {
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 }
@@ -440,7 +440,7 @@ mentionedJid:[m.sender],
 } else if(!res.desc == ''){
 await sleep(2000)
 try {
-ppgroup = await sock.profilePictureUrl(anu.id, 'image')
+ppgroup = await sock.profilePictureUrl(res.id, 'image')
 } catch (err) {
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 }
@@ -470,7 +470,7 @@ mentionedJid:[m.sender],
 } else if(!res.subject == ''){
 await sleep(2000)
 try {
-ppgroup = await sock.profilePictureUrl(anu.id, 'image')
+ppgroup = await sock.profilePictureUrl(res.id, 'image')
 } catch (err) {
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 }
