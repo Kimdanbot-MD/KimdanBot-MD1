@@ -84,6 +84,11 @@ años:`ᥲᥒ̃᥆s`,
 text:`\n🎁 *𝐑𝐞𝐜𝐨𝐦𝐩𝐞𝐧𝐬𝐚𝐬*: 🎁\n  ➥ 2 ძіᥲmᥲᥒ𝗍ᥱs 💎\n  ➥ 200 ᥱ᥊⍴ 🌟\n\n🍨❥ *𝐏𝐚𝐫𝐚 𝐯𝐞𝐫 𝐥𝐨𝐬 𝐜𝐨𝐦𝐚𝐧𝐝𝐨𝐬 𝐝𝐞𝐥 𝐛𝐨𝐭 𝐮𝐬𝐚𝐫*:\n   ╰ᬊ .mᥱᥒᥙ\n\n✨ *grᥲᥴіᥲs ⍴᥆r rᥱgіs𝗍rᥲr𝗍ᥱ, ძіs𝖿rᥙ𝗍ᥲ ძᥱ 𝗍ᥙ rᥱᥴ᥆m⍴ᥱᥒsᥲ ᥡ ᥱ᥊⍴ᥣ᥆rᥲ ᥣᥲs 𝖿ᥙᥒᥴі᥆ᥒᥱs ძᥱᥣ ᑲ᥆𝗍*.\n\n*_❄ 𝐔𝐬𝐮𝐚𝐫𝐢𝐨𝐬 𝐑𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐝𝐨𝐬: ❄_*`
 }
 
+//inactivo 
+const afk = {
+text1: `[ 💤 𝙽𝙾 𝙻𝙾𝚂 𝙴𝚃𝙸𝚀𝚄𝙴𝚃𝙴 💤 ]\n\n𝙴𝚜𝚝𝚎 𝚞𝚜𝚞𝚊𝚛𝚒𝚘 𝚚𝚞𝚎 𝚖𝚎𝚗𝚌𝚒𝚘𝚗𝚊𝚜 𝚎𝚜𝚝𝚊 𝙰𝙵𝙺\n\n${reason ? '🔸️ *𝚁𝙰𝚉𝙾𝙽* : ' + reason : '🔸️ *𝚁𝙰𝚉𝙾𝙽* : 𝚂𝚒𝚗 𝚛𝚊𝚣𝚘𝚗'}\n🔸️ *𝙴𝚂𝚃𝚄𝚅𝙾 𝙸𝙽𝙰𝙲𝚃𝙸𝚅𝙾 𝙳𝚄𝚁𝙰𝙽𝚃𝙴 : ${clockString(new Date - afkTime)}`
+text2:*🕔 𝙳𝙴𝙹𝙰𝚂𝚃𝙴 𝙳𝙴 𝙴𝚂𝚃𝙰 𝙰𝙵𝙺 🕔*\n${user.afkReason ? '\n*𝚁𝙰𝚉𝙾𝙽 :* ' + user.afkReason : ''}\n*𝙴𝚂𝚃𝚄𝚅𝙾 𝙸𝙽𝙰𝙲𝚃𝙸𝚅𝙾 𝙳𝚄𝚁𝙰𝙽𝚃𝙴 :* ${clockString(new Date - user.afkTime)}`.trim())
+
 //antiarabe
 const smsAntiFake = () => { return "🍒 *ᥱᥒ ᥱs𝗍ᥱ grᥙ⍴᥆ ᥒ᥆ ᥱs𝗍ᥲ́ ⍴ᥱrmі𝗍іძ᥆ ᥙsᥲr ᥙᥒ ᥒᥙ́mᥱr᥆ 𝖿ᥲkᥱ ᥎ᥲs ᥲ sᥱr ᥱᥣіmіᥒᥲძ᥆*...\n*(💢○｀д´)ﾉｼ*" }
 const smsAntiArabe = () => { return "🪷 *ᥱᥒ ᥱs𝗍ᥱ grᥙ⍴᥆ ᥒ᥆ ᥱs𝗍ᥲ́ ⍴ᥱrmі𝗍іძ᥆ ❌ ᥒіᥒgᥙ́ᥒ ᥒᥙ́mᥱr᥆ ᥲ́rᥲᑲᥱ/іᥒძ᥆ᥒᥱsі᥆ ᑲᥡᥱ ᑲᥡᥱᥱᥱ*...\n*👋(´꒳`)*" }
