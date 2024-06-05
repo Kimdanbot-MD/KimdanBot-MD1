@@ -493,9 +493,6 @@ return conn.sendFile(m.chat, buffer, 'error.jpg', `${msg[type].caption} ${teks}`
 
 //*. : ｡✿ * ﾟ * .: ｡ ✿ * ﾟ  * . : ｡ ✿ *
 
-// gei
-let group = global.db.data.chats[m.chat]
-
 switch (command) { 
 		
 case 'plist':
@@ -808,115 +805,6 @@ game15(m, body)
 break
 case 'love': 
 game16(conn, text, m, sender) 
-break
-case 'tictactoe':
-case 'ttt': {
-//---------------------[ TicTacToe ]------------------------
-let winScore = 4999
-let playScore = 99
-this.game = this.game ? this.game : {}
-let room13 = Object.values(this.game).find(room13 => room13.id && room13.game && room13.state && room13.id.startsWith('tictactoe') && [room13.game.playerX, room13.game.playerO].includes(m.sender) && room13.state == 'PLAYING')
-if (room13) {
-let ok
-let isWin = !1
-let isTie = !1
-let isSurrender = !1
-//reply(`[DEBUG]\n${parseInt(m.text)}`)
-if (!/^([1-9]|(me)?give up|surr?ender|off|skip)$/i.test(m.text)) return
-isSurrender = !/^[1-9]$/.test(m.text)
-if (m.sender !== room13.game.currentTurn) { 
-if (!isSurrender) return !0
-}
-if (!isSurrender && 1 > (ok = room13.game.turn(m.sender === room13.game.playerO, parseInt(m.text) - 1))) {
-m.reply({'-3': 'El juego ha terminado',
-'-2': 'Inválido',
-'-1': 'Posición inválida',
-0: 'Posición inválida', }[ok])
-return !0
-}
-if (m.sender === room13.game.winner) isWin = true
-else if (room13.game.board === 511) isTie = true
-let arr = room13.game.render().map(v => {
-return {X: '❎',
-O: '❌',
-1: '1️⃣',
-2: '2️⃣',
-3: '3️⃣',
-4: '4️⃣',
-5: '5️⃣',
-6: '6️⃣',
-7: '7️⃣',
-8: '8️⃣',
-9: '9️⃣',
-}[v]})
-if (isSurrender) {
-room13.game._currentTurn = m.sender === room13.game.playerX
-isWin = true
-}
-let winner = isSurrender ? room13.game.currentTurn : room13.game.winner
-let str = `${lenguaje.game.text1}
-
-       ${arr.slice(0, 3).join('')}
-       ${arr.slice(3, 6).join('')} 
-       ${arr.slice(6).join('')}
-	    
-❎ = @${room13.game.playerX.split('@')[0]}
-❌ = @${room13.game.playerO.split('@')[0]}
-
-${isWin ? `@${winner.split('@')[0]} ${lenguaje.game.text2} ${winScore} XP` : isTie ? `${lenguaje.game.text3}` : `${lenguaje.game.text4}
-
- ${['❎', '❌'][1 * room13.game._currentTurn]} (@${room13.game.currentTurn.split('@')[0]})`}` //`
-let users = global.db.data.users
-if ((room13.game._currentTurn ^ isSurrender ? room13.x : room13.o) !== m.chat)
-room13[room13.game._currentTurn ^ isSurrender ? 'x' : 'o'] = m.chat
-if (room13.x !== room13.o) await conn.sendText(room13.x, str, m, { mentions: parseMention(str) } )
-await conn.sendText(room13.o, str, m, { mentions: parseMention(str) } ) 
-         
-if (isTie || isWin) {
-users[room13.game.playerX].exp += playScore
-users[room13.game.playerO].exp += playScore
-delete this.game[room13.id]
-if (isWin)
-users[winner].exp += winScore - playScore
-}}
-	    
-//math
-if (kuismath.hasOwnProperty(m.sender.split('@')[0]) && isCmd) {
-kuis = true
-jawaban = kuismath[m.sender.split('@')[0]]
-if (budy.toLowerCase() == jawaban) { 
-const exp = Math.floor(Math.random() * 600)
-global.db.data.users[m.sender].exp += exp;
-await m.reply(`${lenguaje.game.text5} ${exp} Exp`) 
-m.react(`✅`) 
-delete kuismath[m.sender.split('@')[0]]
-} else m.react(`❌`)} 
-                          
-this.confirm = this.confirm ? this.confirm : {}
-if (this.confirm[m.sender.split('@')[0]]) {
-let { timeout, sender, message, to, type, count } = this.confirm[m.sender.split('@')[0]]
-let user = global.db.data.users[sender]
-let _user = global.db.data.users[to]
-if (/^No|no$/i.test(body)) {
-clearTimeout(timeout)
-delete this.confirm[m.sender.split('@')[0]]
-return this.sendTextWithMentions(m.chat, `${lenguaje.transfer.text1}.`, m)}
-
-if (/^Si|si$/i.test(body)) { 
-let previous = user[type] * 1
-let _previous = _user[type] * 1
-user[type] -= count * 1
-_user[type] += count * 1
-if (previous > user[type] * 1 && _previous < _user[type] * 1) {
-conn.sendMessage(m.chat, {text: `*${lenguaje.transfer.text2} ${count} ${type} a @${(to || '').replace(/@s\.whatsapp\.net/g, '')}*`, mentions: [to]}, {quoted: m}); 
-} else { 
-user[type] = previous; 
-_user[type] = _previous; 
-conn.sendMessage(m.chat, {text: `*[ ⚠️ ] ${lenguaje.transfer.text3} ${count} ${type} a @${(to || '').replace(/@s\.whatsapp\.net/g, '')}*`, mentions: [to]}, {quoted: m})} 
-clearTimeout(timeout); 
-delete this.confirm[sender]; 
-}}
-}
 break
 //convertidores
 case 'bass': case 'blown': case 'deep': case 'earrape': case 'fast': case 'fat': case 'nightcore': case 'reverse': case 'robot': case 'slow': case 'smooth': case 'squirrel': 
