@@ -437,7 +437,7 @@ mentionedJid:[m.sender],
 "mediaUrl": redes,  
 "sourceUrl": canales 
 }}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
-} else if (res.isCommunity == true) {
+} else if (res.joinApprovalMode == true) {
 await sleep(2000)
 try {
 ppgroup = await sock.profilePictureUrl(res.id, 'image')
