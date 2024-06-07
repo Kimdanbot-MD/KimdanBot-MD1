@@ -505,7 +505,7 @@ ppgroup = await sock.profilePictureUrl(res.id, 'image')
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 }
 //todos pueden AGG gente
-sock.sendMessage(res.id, {text: lenguaje['smsAvisos7'](),  
+sock.sendMessage(res.id, {text: lenguaje['smsAvisos10'](),  
 contextInfo:{  
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363200204060894@newsletter', 
@@ -533,8 +533,8 @@ ppgroup = await sock.profilePictureUrl(res.id, 'image')
 } catch (err) {
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 }
-//todos pueden editar los ajustes
-sock.sendMessage(res.id, {text: lenguaje['smsAvisos7'](),  
+//solo admins
+sock.sendMessage(res.id, {text: lenguaje['smsAvisos11'](),  
 contextInfo:{  
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363200204060894@newsletter', 
