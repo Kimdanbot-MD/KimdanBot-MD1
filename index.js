@@ -445,7 +445,38 @@ ppgroup = await sock.profilePictureUrl(res.id, 'image')
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 }
 
-sock.sendMessage(res.id, {text: 'El grupo fue agregado a una comunidad',  
+// configuración de acción para la aprobación de los miembros al momento de unirse
+sock.sendMessage(res.id, {text: 'Se habilito la configuración para la aprobación de miembros en este grupo',  
+contextInfo:{  
+forwardedNewsletterMessageInfo: { 
+newsletterJid: '120363200204060894@newsletter', 
+serverMessageId: '', 
+newsletterName: '༻꫞⃝🧃 𝐊𝐢𝐦𝐝𝐚𝐧𝐁𝐨𝐭-𝐌𝐃 🧃⃝꫞༺' },
+forwardingScore: 9999999,
+isForwarded: true,
+remoteJid: res.id,
+mentionedJid:[m.sender],  
+"externalAdReply": {  
+"showAdAttribution": true,  
+"containsAutoReply": false,
+"renderLargerThumbnail": false,  
+"title": lenguaje['smsAvisos5'](),
+"body": wm, 
+"mediaType": 1,   
+"thumbnailUrl": ftkim,  
+"mediaUrl": redes,  
+"sourceUrl": canales 
+}}}, {quoted: null, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
+} else if (res.joinApprovalMode == false) {
+await sleep(2000)
+try {
+ppgroup = await sock.profilePictureUrl(res.id, 'image')
+} catch (err) {
+ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
+}
+
+// configuración de acción para la aprobación de los miembros al momento de unirse
+sock.sendMessage(res.id, {text: 'Se deshabilito la configuración para la aprobación de miembros en este grupo',  
 contextInfo:{  
 forwardedNewsletterMessageInfo: { 
 newsletterJid: '120363200204060894@newsletter', 
