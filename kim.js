@@ -56,28 +56,39 @@ const {play, play2, play3, play4, mp3, mp4, git, tiktok, letra, mediafire, fb, i
 const {game, game1, game2, game3, game4, game5, game6, game7, game8, game9, game10, game11, game12, game13, game14, game15, game16} = require('./kim/juegos.js')  
 const {sticker, wm2, attp, dado} = require('./kim/stickers.js')
 
-const msgs = (message) => { // Función 'msgs' que toma un parámetro 'message'
-if (message.length >= 10) { // Longitud de 'message' es mayor o igual a 10 caracteres
-return `${message.substr(0, 500)}` // Devuelve los primeros 500 caracteres de 'message'
-} else { // Caso contrario
-return `${message}`}} // Devuelve 'message' completo
-
-const getCmd = (id) => { //Función llamada 'getCmd' que toma un parámetro 'id'
-const stickerdb = JSON.parse(fs.readFileSync('./database/stickerdb.json'))
-let anu = null;
-Object.keys(stickerdb).forEach(nganu => { // Itera sobre las claves del objeto 'stickerdb' utilizando 'forEach'
-if (stickerdb[nganu].id === id) { // Si el valor de la propiedad 'id' en el objeto 'stickerdb[nganu]' es igual a 'id'
-anu = nganu
-}})
-if (anu !== null) { // De lo contrario
-return stickerdb[anu].cmd // Devolver el valor de la propiedad 'cmd' en el objeto 'stickerdb[anu]'
-}}
-const getFileBuffer = async (mediakey, MediaType) => {
-const stream = await downloadContentFromMessage(mediakey, MediaType)
-let buffer = Buffer.from([])
-for await(const chunk of stream) {
-buffer = Buffer.concat([buffer, chunk]) }
-return buffer}
+let user = global.db.data.users[m.sender] 
+let tebaklagu = global.db.data.game.tebaklagu = [] 
+let kuismath = global.db.data.game.math = []
+let tekateki = global.db.data.game.tekateki = []
+  
+const msgs = (message) => {   
+if (message.length >= 10) { 
+return `${message.substr(0, 500)}` 
+} else {  
+return `${message}`}}
+const getFileBuffer = async (mediakey, MediaType) => {  
+const stream = await downloadContentFromMessage(mediakey, MediaType)  
+let buffer = Buffer.from([])  
+for await(const chunk of stream) {  
+buffer = Buffer.concat([buffer, chunk]) }  
+return buffer 
+}   
+  
+const addCmd = (cmd, id) =>  {  
+  const stickerdb = global.db.data.sticker   
+  stickerdb[id] = {id: id,  
+  cmd: cmd  
+  }}  
+  const getCmd = (id) => {  
+  const stickerdb = global.db.data.sticker  
+  let anu = null;    
+  Object.keys(stickerdb).forEach(nganu => {   
+  if (stickerdb[nganu].id === id) {   
+  anu = nganu    
+  }})    
+  if (anu !== null) {    
+  return stickerdb[anu].cmd    
+  }}  
 
 module.exports = conn = async (conn, m, chatUpdate, mek, store, sock) => { // Raíz "conn" para mensajes y argumentos
 var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
