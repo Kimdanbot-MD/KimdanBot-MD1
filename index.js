@@ -593,7 +593,8 @@ ppgroup = await sock.profilePictureUrl(res.id, 'image')
 ppgroup = 'https://i.ibb.co/RBx5SQC/avatar-group-large-v2.png'
 }
 // descripción
-let text = `${lenguaje['smsAvisos8']()}\n ❥ ${res.desc}`
+let text = `${lenguaje['smsAvisos8']()}\n`
+//❥ ${res.desc}
 sock.sendMessage(res.id, {text: text,  
 contextInfo:{  
 forwardedNewsletterMessageInfo: { 
