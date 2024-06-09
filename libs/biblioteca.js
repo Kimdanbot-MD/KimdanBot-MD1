@@ -7,7 +7,6 @@ db.once('open', () => {console.log('Base de datos conectada');});
 
 const fs = require('fs')
 const path = require('path')
-const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const bookSchema = new Schema({
