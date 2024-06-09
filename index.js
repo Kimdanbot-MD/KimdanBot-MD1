@@ -304,7 +304,6 @@ sock.user.jid = sock.user.id.split(":")[0] + "@s.whatsapp.net" // jid in user?
 let anticall = global.db.data.settings[numBot].anticall
 if (!anticall) return
 if (!owner) return 
-console.log(fuckedcall)
 for (let fucker of fuckedcall) {
 if (fucker.isGroup == false) {
 if (fucker.status == "offer") {
@@ -317,7 +316,7 @@ await sock.updateBlockStatus(fucker.from, "block")
 
 //detect
 sock.ev.on("groups.update", async (json) => {
-console.log(color(json, '#009FFF'))
+// console.log(color(json, '#009FFF'))
 //console.log(json)
 const res = json[0];
 const detect = global.db.data.chats[res.id].detect
@@ -622,7 +621,7 @@ mentionedJid:[m.sender],
 sock.ev.on('group-participants.update', async (anu) => {
 let isWelcome = global.db.data.chats[anu.id].welcome
 if(!isWelcome) return
-console.log(anu)
+// console.log(anu)
 try {
 let metadata = await sock.groupMetadata(anu.id)
 let participants = anu.participants
@@ -666,7 +665,7 @@ mentionedJid:[num],
 let isBye = global.db.data.chats[anu.id].bye
 if(!isBye) return
 if (anu.action == "remove") {
-        const buffer = await getBuffer(ppuser)
+const buffer = await getBuffer(ppuser)
 let name = num
 const members = metadata.participants.length
 sock.sendMessage(anu.id, { text: `${lenguaje.wel.C} @${name.split("@")[0]} 🍇*\n${lenguaje.wel.D}`, contextInfo:{
@@ -688,7 +687,7 @@ mentionedJid:[num],
 //nuevo admin
 let isAdm = global.db.data.chats[anu.id].adm
 if(!isAdm) return
- if (anu.action == "promote") {
+if (anu.action == "promote") {
 const groupAdmins = participants.filter(p => p.admin)
 const listAdmin = groupAdmins.map((v, i) => `*» ${i + 1}. @${v.id.split('@')[0]}*`).join('\n')
 const buffer = await getBuffer(ppuser)
