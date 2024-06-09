@@ -1,3 +1,10 @@
+import mongoose from 'mongoose'
+uri = "mongodb+srv://kimdan:n94FpKdCpRxU2K4W@kim.gcodxfl.mongodb.net/?retryWrites=true&w=majority&appName=Kim";
+mongoose.connection (uri) 
+const db = mongoose.connection;
+db.on('error', (error) => {console.error('Error al conectar con la base de datos:', error)});
+db.once('open', () => {console.log('Base de datos conectada');});
+
 const fs = require('fs')
 const path = require('path')
 const mongoose = require('mongoose');
