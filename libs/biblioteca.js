@@ -31,22 +31,63 @@ const bookSchema = new Schema({
 const Book = mongoose.model('Kim.Libros', bookSchema);
 
 // Function lista de libros 
-
 async function getFormattedBookList() {
   try {
+    // Recupera todos los libros de la base de datos.    const books = await Book.find({});
     const books = await Book.find({});
-    const bookTitles = books.map(book => book.title);
 
-    if (bookTitles.length === 0) {
+    if (books.length === 0) {
       return 'No hay libros disponibles.';
     }
+    const sortedBooks = sortBooks(books);
 
-    const formattedList = `**Lista de libros disponibles:**\n${bookTitles.join('\n')}`;
+    const formattedBookList = [];
+
+    for (const book of sortedBooks) {
+      const bookTitle = book.title;
+      const bookPart = extractBookPart(bookTitle); // extrae las partes (e.j., "1", "2")
+
+      const formattedBookEntry = `* **${bookTitle}** (${bookPart || ''})`;
+
+      formattedBookList.push(formattedBookEntry);
+    }
+
+    const formattedList = `**Lista de libros disponibles:**\n${formattedBookList.join('\n')}`;
+
     return formattedList;
   } catch (error) {
     console.error(error);
-    return ''; 
+    return '';
   }
+}
+
+function sortBooks(books) {
+   books.sort((a, b) => a.genre.toLowerCase().localeCompare(b.genre.toLowerCase()));
+
+  books.sortWithinEach('genre', (a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()));
+
+  books.sortWithinEach('genre', (a, b) => {
+    const partA = extractBookPart(a.title);
+    const partB = extractBookPart(b.title);
+
+    if (!partA && !partB) return 0; // If no parts, sort alphabetically
+    if (!partA) return 1; // If only book A has no part, move it to the end
+    if (!partB) return -1; // If only book B has no part, move it to the beginning
+
+    return partA.localeCompare(partB); // Compare part numbers
+  });
+
+  return books;
+}
+function extractBookPart(title) {
+  const regex = /\s*Parte\s*(\d+)\s*$/i;
+  const match = title.match(regex);
+
+  if (match) {
+    return match[1];
+  }
+
+  return null;
 }
 
 // Function buscar libro
