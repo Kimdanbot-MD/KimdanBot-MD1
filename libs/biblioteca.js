@@ -33,7 +33,7 @@ const Book = mongoose.model('Kim.Libros', bookSchema);
 // Function lista de libros 
 async function getFormattedBookList() {
   try {
-    // Recupera todos los libros de la base de datos.    const books = await Book.find({});
+    // Recupera todos los libros de la base de datos.    
     const books = await Book.find({});
 
     if (books.length === 0) {
@@ -70,11 +70,11 @@ function sortBooks(books) {
     const partA = extractBookPart(a.title);
     const partB = extractBookPart(b.title);
 
-    if (!partA && !partB) return 0; // If no parts, sort alphabetically
-    if (!partA) return 1; // If only book A has no part, move it to the end
-    if (!partB) return -1; // If only book B has no part, move it to the beginning
+    if (!partA && !partB) return 0; 
+    if (!partA) return 1; 
+    if (!partB) return -1; 
 
-    return partA.localeCompare(partB); // Compare part numbers
+    return partA.localeCompare(partB);
   });
 
   return books;
