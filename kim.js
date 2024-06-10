@@ -612,7 +612,7 @@ delete this.confirm[sender];
 
 switch (command) { 
 case 'prueba':
-getFormattedBookList()		
+m.reply(getFormattedBookList())		
 break
 		
 case 'plist':
