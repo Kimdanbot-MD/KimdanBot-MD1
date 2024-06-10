@@ -612,8 +612,7 @@ delete this.confirm[sender];
 
 switch (command) { 
 	case 'prueba':
-		await conn.sendMessage(m.chat, {text: getFormattedBookList, {quoted: m})} 
-
+		conn.sendMessage(m.chat, {text: getFormattedBookList}, {quoted: m, ephemeralExpiration: 24*60*100, disappearingMessagesInChat: 24*60*100})
 		break 
 		
 		
