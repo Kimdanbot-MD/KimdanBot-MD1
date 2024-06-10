@@ -70,21 +70,30 @@ async function getFormattedBookList() {
 function sortBooks(books) {
    books.sort((a, b) => a.genre.toLowerCase().localeCompare(b.genre.toLowerCase()));
 
-  books.sortWithinEach('genre', (a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()));
+  function sortWithinGenre(genreBooks) {
+    return genreBooks.sort((a, b) => {
+      const partA = extractBookPart(a.title);
+      const partB = extractBookPart(b.title);
 
-  books.sortWithinEach('genre', (a, b) => {
-    const partA = extractBookPart(a.title);
-    const partB = extractBookPart(b.title);
+      if (!partA && !partB) return 0;
+      if (!partA) return 1;
+      if (!partB) return -1;
 
-    if (!partA && !partB) return 0; 
-    if (!partA) return 1; 
-    if (!partB) return -1; 
-
-    return partA.localeCompare(partB);
-  });
-
-  return books;
+      return partA.localeCompare(partB);
+    });
+  }
+const booksByGenre = books.reduce((acc, book) => {
+    const genre = book.genre;
+    acc[genre] = acc[genre] || [];
+    acc[genre].push(book);
+    return acc;
+  }, {});
+  for (const genre in booksByGenre) {
+    booksByGenre[genre] = sortWithinGenre(booksByGenre[genre]);
+  }
+  return Object.values(booksByGenre).flat();
 }
+
 function extractBookPart(title) {
   const regex = /\s*Parte\s*(\d+)\s*$/i;
   const match = title.match(regex);
