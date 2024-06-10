@@ -32,7 +32,7 @@ const bookSchema = new Schema({
     type: Boolean,
     default: true
   }
-}, { collection: 'Kim.Libros', versionKey: false });
+}, { collection: 'Libros', versionKey: false });
 
 const Book = mongoose.model('Kim.Libros', bookSchema);
 
