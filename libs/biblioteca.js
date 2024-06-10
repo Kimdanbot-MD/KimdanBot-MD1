@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const uri = "mongodb+srv://kimdan:n94FpKdCpRxU2K4W@kim.mongodb.net/Kim?retryWrites=true&w=majority"
+const uri = "mongodb+srv://kimdan:n94FpKdCpRxU2K4W@kim.gcodxfl.mongodb.net/Kim?retryWrites=true&w=majority"
 mongoose.connect(uri)
 const db = mongoose.connection;
 db.on('error', (error) => {console.error('Error al conectar con la base de datos:', error)});
