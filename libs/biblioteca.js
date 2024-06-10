@@ -87,7 +87,7 @@ function sortBooks(books) {
 }
 function extractBookPart(title) {
   const regex = /\s*Parte\s*(\d+)\s*$/i;
-  const match = title(regex);
+  const match = title.match(regex);
 
   if (match) {
     return match[1];
