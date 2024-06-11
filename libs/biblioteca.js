@@ -118,8 +118,7 @@ async function searchBooks(text, conn, m, from) {
 async function addBook(body, text, conn, m, from) {
   const existingBook = await Book.findOne({ $or: [{ title }, { link }] });
 var gh = body.slice(11);
-var replace = gh.split("-")[0];
-var title = gh.split(", ")[1];
+var title = gh.split(" ")[1];
 var link = gh.split(", ")[2];
 var author = gh.split(", ")[3];
 var genre = gh.split(", ")[4]; 
