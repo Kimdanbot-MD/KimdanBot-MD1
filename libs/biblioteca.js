@@ -98,13 +98,11 @@ async function searchBooks(text, conn, m, from) {
     const titleRegex = new RegExp(`^${trimmedQuery}.*`, 'i');
     const authorRegex = new RegExp(`^${trimmedQuery}.*`, 'i');
     const genreRegex = new RegExp(`^${trimmedQuery}.*`, 'i');
-    const keywordSearch = { $text: { $search: trimmedQuery } };
     const searchCriteria = {
       $or: [
         { title: titleRegex },
         { author: authorRegex },
-        { genre: genreRegex },
-        keywordSearch
+        { genre: genreRegex }
       ]};
     const books = await Book.find(searchCriteria);
     if (books.length === 0) return m.reply('No se encontraron libros que coincidan con la búsqueda.') 
