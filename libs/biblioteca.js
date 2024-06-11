@@ -116,13 +116,12 @@ async function searchBooks(text, conn, m, from) {
 
 // Function agregar libro
 async function addBook(body, text, conn, m, from) {
-  const {title, link, author, genre} = text
   const existingBook = await Book.findOne({ $or: [{ title }, { link }] });
 var gh = body.slice(11);
-var title = gh.split("-")[1];
-var link = gh.split("-")[2];
-var author = gh.split("-")[3];
-var genre = gh.split("-")[4]; 
+var title = gh.split(", ")[1];
+var link = gh.split(", ")[2];
+var author = gh.split(", ")[3];
+var genre = gh.split(", ")[4]; 
 if (title && link && author && genre) {
   if (existingBook) return m.reply ('este libro ya existe') 
 
