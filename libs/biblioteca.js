@@ -46,7 +46,7 @@ async function getFormattedBookList(conn, m, match, from) {
   try {
     // Recupera todos los libros de la base de datos.    
     const books = await Book.find({});
-    if (books.length === 0) return reply('No hay libros disponibles.') 
+    if (books.length === 0) return m.reply('No hay libros disponibles.') 
     const sortedBooks = sortBooks(books);
     const formattedBookList = [];
     for (const book of sortedBooks) {
@@ -59,7 +59,7 @@ async function getFormattedBookList(conn, m, match, from) {
     await conn.sendMessage(m.chat, {text: formattedList }, { quoted: m })
   } catch (error) {
     console.error(error);
-    return '';
+    return m.reply('');
   }
 }
 
