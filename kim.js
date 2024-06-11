@@ -619,7 +619,7 @@ case 'libro':
 searchBooks(text, conn, m, from)		
 break
 case 'agglibro':
-addBook(text, conn, m, from)
+addBook(body, text, conn, m, from)
 break
 		
 case 'plist':
