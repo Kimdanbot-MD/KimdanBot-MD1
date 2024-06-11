@@ -615,7 +615,7 @@ switch (command) {
 case 'libros':
 getFormattedBookList(conn, m, from)
 break
-case 'libro'
+case 'libro':
 searchBooks(searchQuery, conn, m, from)		
 break
 
