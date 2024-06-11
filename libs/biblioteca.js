@@ -108,8 +108,7 @@ async function searchBooks(text, conn, m, from) {
       ]};
     const books = await Book.find(searchCriteria);
     if (books.length === 0) return m.reply('No se encontraron libros que coincidan con la búsqueda.') 
-    const formattedResults = books.map(book => {
-      return m.reply(`* *${book.title}* - ${book.link}`)});
+    const formattedResults = books.map(book => `* **${book.title}** - ${book.link}`);
 
     const t = `*Resultados de la búsqueda:*\n${formattedResults.join('\n')}`;
     await conn.sendMessage(m.chat, {text: t}, { quoted: m }) 
