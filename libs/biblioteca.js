@@ -44,8 +44,7 @@ const Book = mongoose.model('Kim.Libros', bookSchema);
 // Function lista de libros 
 async function getFormattedBookList(conn, m, from) {
   try {
-    // Recupera todos los libros de la base de datos.    
-    const books = await Book.find({});
+     const books = await Book.find({});
     if (books.length === 0) return m.reply('No hay libros disponibles.') 
     const sortedBooks = sortBooks(books);
     const formattedBookList = [];
@@ -59,9 +58,7 @@ async function getFormattedBookList(conn, m, from) {
     await conn.sendMessage(m.chat, {text: formattedList }, { quoted: m })
   } catch (error) {
     console.error(error);
-    return m.reply('');
-  }
-}
+    return m.reply('')}}
 
 function sortBooks(books) {
    books.sort((a, b) => a.genre.toLowerCase().localeCompare(b.genre.toLowerCase()));
@@ -74,8 +71,7 @@ function sortBooks(books) {
       if (!partA) return 1;
       if (!partB) return -1;
       return partA.localeCompare(partB);
-    });
-  }
+    })}
 const booksByGenre = books.reduce((acc, book) => {
     const genre = book.genre;
     acc[genre] = acc[genre] || [];
@@ -87,7 +83,6 @@ const booksByGenre = books.reduce((acc, book) => {
   }
   return Object.values(booksByGenre).flat();
 }
-
 function extractBookPart(title) {
   const regex = /\s*Parte\s*(\d+)\s*$/i;
   const match = title.match(regex);
