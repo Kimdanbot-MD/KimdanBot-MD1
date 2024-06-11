@@ -611,8 +611,13 @@ delete this.confirm[sender];
 //*. : ｡✿ * ﾟ * .: ｡ ✿ * ﾟ  * . : ｡ ✿ *
 
 switch (command) { 
-case 'prueba':
-m.reply(getFormattedBookList())		
+		
+case 'libros': {
+const books = await Book.find({});
+if (books.length === 0) return reply('No hay libros disponibles.') 
+const a = getFormattedBookList.formattedList
+await conn.sendMessage(m.chat, {text: a}, {quoted: m});			
+}
 break
 		
 case 'plist':
