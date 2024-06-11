@@ -122,15 +122,13 @@ var title = gh.split(", ")[1];
 var link = gh.split(", ")[2];
 var author = gh.split(", ")[3];
 var genre = gh.split(", ")[4]; 
-if (title && link && author && genre) {
+if (!title && !link && !author && !genre) return m.reply('error debes completar todos los campos title, link, author, genre')
+   try {
   if (existingBook) return m.reply ('este libro ya existe') 
-
   const newBook = new Book({ title, link, author, genre });
     await newBook.save();
     conn.sendMessage(m.chat, {text: `se agregó el libro ${newBook}`}, { quoted: m }) 
-    } else {
-    return m.reply('error debes completar todos los campos title, link, author, genre')
-    } else if(error){
+     } catch (error) {
       console.error(error);
       return m.reply('')}}
 
