@@ -90,43 +90,30 @@ function extractBookPart(title) {
 }
 
 // Function buscar libro
-async function searchBooks(searchQuery) {
+async function searchBooks(searchQuery, conn, m, from) {
   try {
     const trimmedQuery = searchQuery.trim();
-
     const titleRegex = new RegExp(`^${trimmedQuery}.*`, 'i');
-
     const authorRegex = new RegExp(`^${trimmedQuery}.*`, 'i');
-
     const genreRegex = new RegExp(`^${trimmedQuery}.*`, 'i');
-
     const keywordSearch = { $text: { $search: trimmedQuery } };
-
     const searchCriteria = {
       $or: [
         { title: titleRegex },
         { author: authorRegex },
         { genre: genreRegex },
         keywordSearch
-      ]
-    };
-
+      ]};
     const books = await Book.find(searchCriteria);
-
-    if (books.length === 0) {
-      return 'No se encontraron libros que coincidan con la búsqueda.';
-    }
-
+    if (books.length === 0) return m.reply('No se encontraron libros que coincidan con la búsqueda.') 
     const formattedResults = books.map(book => {
-      return `* **${book.title}** - ${book.link}`;
-    });
+      return m.reply(`* *${book.title}* - ${book.link}`)});
 
-    return `**Resultados de la búsqueda:**\n${formattedResults.join('\n')}`;
+    const t = `*Resultados de la búsqueda:*\n${formattedResults.join('\n')}`;
+    await conn.sendMessage(m.chat, {text: t}, { quoted: m }) 
   } catch (error) {
     console.error(error);
-    return '';
-  }
-}
+    return m.reply('')}}
 
 // Function agregar libro
 async function addBook(title, link, author, genre) {
