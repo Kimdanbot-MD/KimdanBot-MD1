@@ -1,3 +1,4 @@
+require('../kim.js')
 const mongoose = require('mongoose')
 const uri = "mongodb+srv://kimdan:n94FpKdCpRxU2K4W@kim.gcodxfl.mongodb.net/Kim?retryWrites=true&w=majority"
 mongoose.connect(uri)
@@ -5,8 +6,12 @@ const db = mongoose.connection;
 db.on('error', (error) => {console.error('Error al conectar con la base de datos:', error)});
 db.once('open', () => {console.log('Base de datos conectada');});
 
-const fs = require('fs')
-const path = require('path')
+const fs = require("fs")
+const path = require("path")
+const chalk = require("chalk");
+const axios = require('axios')
+const cheerio = require('cheerio')
+
 const { Schema } = mongoose;
 
 const bookSchema = new Schema({
@@ -37,30 +42,21 @@ const bookSchema = new Schema({
 const Book = mongoose.model('Kim.Libros', bookSchema);
 
 // Function lista de libros 
-async function getFormattedBookList() {
+async function getFormattedBookList(conn, m, match, from) {
   try {
     // Recupera todos los libros de la base de datos.    
     const books = await Book.find({});
-
-    if (books.length === 0) {
-      return 'No hay libros disponibles.';
-    }
+    if (books.length === 0) return reply('No hay libros disponibles.') 
     const sortedBooks = sortBooks(books);
-
     const formattedBookList = [];
-
     for (const book of sortedBooks) {
       const bookTitle = book.title;
       const bookPart = extractBookPart(bookTitle); // extrae las partes (e.j., "1", "2")
-
       const formattedBookEntry = `* **${bookTitle}** (${bookPart || ''})`;
-
       formattedBookList.push(formattedBookEntry);
     }
-
     const formattedList = `**Lista de libros disponibles:**\n${formattedBookList.join('\n')}`;
-
-    return formattedList;
+    await conn.sendMessage(m.chat, {text: formattedList }, { quoted: m })
   } catch (error) {
     console.error(error);
     return '';
@@ -74,11 +70,9 @@ function sortBooks(books) {
     return genreBooks.sort((a, b) => {
       const partA = extractBookPart(a.title);
       const partB = extractBookPart(b.title);
-
       if (!partA && !partB) return 0;
       if (!partA) return 1;
       if (!partB) return -1;
-
       return partA.localeCompare(partB);
     });
   }
@@ -97,11 +91,9 @@ const booksByGenre = books.reduce((acc, book) => {
 function extractBookPart(title) {
   const regex = /\s*Parte\s*(\d+)\s*$/i;
   const match = title.match(regex);
-
   if (match) {
     return match[1];
   }
-
   return null;
 }
 
