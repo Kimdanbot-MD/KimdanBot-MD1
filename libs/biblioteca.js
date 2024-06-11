@@ -90,8 +90,10 @@ function extractBookPart(title) {
 }
 
 // Function buscar libro
-async function searchBooks(searchQuery, conn, m, from) {
-  try {
+async function searchBooks(text, conn, m, from) {
+  if (!text) return m.reply('que libro buscas? ')
+    try {
+    const searchQuery = text
     const trimmedQuery = searchQuery.trim();
     const titleRegex = new RegExp(`^${trimmedQuery}.*`, 'i');
     const authorRegex = new RegExp(`^${trimmedQuery}.*`, 'i');
