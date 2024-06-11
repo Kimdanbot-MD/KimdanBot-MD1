@@ -115,30 +115,18 @@ async function searchBooks(text, conn, m, from) {
     return m.reply('')}}
 
 // Function agregar libro
-async function addBook(title, link, author, genre) {
-  if (!title || !link || !genre) {
-    throw new Error('Missing required fields: title, link, and genre are required.');
-  }
-
-  try {
-    const newBook = new Book({ title, link, author, genre });
+async function addBook(text, conn, m, from) {
+  const {title, link, author, genre} = text
+  const existingBook = await Book.findOne({ $or: [{ title }, { link }] });
+if (!title || !link || !author || !genre) return m.reply('error debes completar todos los campos title, link, author, genre') 
+if (existingBook) return m.reply ('este libro ya existe') 
+    try {
+  const newBook = new Book({ title, link, author, genre });
     await newBook.save();
-    return {
-      message: 'Book added successfully!',
-      book: newBook
-    };
+    await conn.sendMessage(m.chat, {text: `se agregó el libro ${newBook}`}, { quoted: m }) 
   } catch (error) {
-    if (error.name === 'ValidationError') {
-      // Handle validation errors specifically (e.g., return specific error messages)
-      throw new Error('Validation error: ' + error.message);
-    } else {
       console.error(error);
-      throw error; // Re-throw the original error for debugging purposes
-    }
-  }
-}
-
-}
+      return m.reply('')}}
 
 // Function actualizar 
 async function updateBookAvailability(bookId, isAvailable) {
