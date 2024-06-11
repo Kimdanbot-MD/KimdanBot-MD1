@@ -613,7 +613,7 @@ delete this.confirm[sender];
 switch (command) { 
 		
 case 'libros':
-getFormattedBookList(conn, m, match, from)
+getFormattedBookList(conn, m, from)
 break
 		
 case 'plist':
