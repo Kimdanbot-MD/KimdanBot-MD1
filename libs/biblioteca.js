@@ -116,14 +116,28 @@ async function searchBooks(text, conn, m, from) {
 
 // Function agregar libro
 async function addBook(title, link, author, genre) {
+  if (!title || !link || !genre) {
+    throw new Error('Missing required fields: title, link, and genre are required.');
+  }
+
   try {
     const newBook = new Book({ title, link, author, genre });
     await newBook.save();
-    return newBook;
+    return {
+      message: 'Book added successfully!',
+      book: newBook
+    };
   } catch (error) {
-    console.error(error);
-    return null;
+    if (error.name === 'ValidationError') {
+      // Handle validation errors specifically (e.g., return specific error messages)
+      throw new Error('Validation error: ' + error.message);
+    } else {
+      console.error(error);
+      throw error; // Re-throw the original error for debugging purposes
+    }
   }
+}
+
 }
 
 // Function actualizar 
