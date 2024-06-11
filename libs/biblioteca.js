@@ -116,21 +116,47 @@ async function searchBooks(text, conn, m, from) {
 
 // Function agregar libro
 async function addBook(body, text, conn, m, from) {
-  const existingBook = await Book.findOne({ $or: [{ title }, { link }] });
-var gh = body.slice(11);
-var title = gh.split("Título: ")[1];
-var link = gh.split("Link: ")[2];
-var author = gh.split("Autor: ")[3];
-var genre = gh.split("Género: ")[4]; 
-if (!title && !link && !author && !genre) return m.reply('error debes completar todos los campos title, link, author, genre')
-   try {
-  if (existingBook) return m.reply ('este libro ya existe') 
-  const newBook = new Book({ title, link, author, genre });
+  const sanitizedBody = body.replace(/[^a-zA-Z0-9\s:;\.\-_\/]+/g, '');
+  const sanitizedBodyLines = sanitizedBody.split('\n');
+  const titleLine = sanitizedBodyLines.find((line) => line.startsWith('Título:'));
+  const linkLine = sanitizedBodyLines.find((line) => line.startsWith('Link:'));
+  const authorLine = sanitizedBodyLines.find((line) => line.startsWith('Autor:'));
+  const genreLine = sanitizedBodyLines.find((line) => line.startsWith('Género:'));
+  if (!titleLine || !linkLine || !authorLine || !genreLine) return m.reply('Error: Debe completar todos los campos: título, link, autor, género');
+  const title = titleLine.replace('Título: ', '').trim();
+  const link = linkLine.replace('Link: ', '').trim();
+  const author = authorLine.replace('Autor: ', '').trim();
+  const genre = genreLine.replace('Género: ', '').trim();
+  if (!isValidMediafireLink(link)) return m.reply('Error: El enlace debe ser de Mediafire.');
+  const existingBooks = await Book.find({
+    $or: [
+      { title: { $regex: `^${title}$`, $options: 'i' } },
+      { link: { $regex: `^${link}$`, $options: 'i' } },
+    ]});
+  if (existingBooks.length > 0) {
+    const existingBookTitles = existingBooks.map((book) => book.title);
+    const duplicateTitleMessage = `Ya existe(n) libro(s) con título(s) similar(es): ${existingBookTitles.join(', ')}`;
+    const duplicateLinkMessage = 'El enlace ya existe en la biblioteca.';
+    return m.reply(existingBooks.some((book) => book.link === link) ? duplicateLinkMessage : duplicateTitleMessage);
+  }
+  try {
+    const newBook = new Book({
+      title,
+      link,
+      author,
+      genre,
+    });
     await newBook.save();
-    conn.sendMessage(m.chat, {text: `se agregó el libro ${newBook}`}, { quoted: m }) 
-     } catch (error) {
-      console.error(error);
-      return m.reply('')}}
+
+    m.reply(`Se agregó el libro: ${title}`);
+  } catch (error) {
+    console.error(error);
+    m.reply('Error al agregar el libro. Intente nuevamente.')}}
+function isValidMediafireLink(linkString) {
+  const mediafireRegex = /https?:\/\/(www\.)?mediafire\.com\/file\/(.*)/;
+  return mediafireRegex.test(linkString);
+}
+
 
 // Function actualizar 
 async function updateBookAvailability(bookId, isAvailable) {
