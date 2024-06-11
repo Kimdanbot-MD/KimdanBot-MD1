@@ -91,10 +91,7 @@ const booksByGenre = books.reduce((acc, book) => {
 function extractBookPart(title) {
   const regex = /\s*Parte\s*(\d+)\s*$/i;
   const match = title.match(regex);
-  if (match) {
-    return match[1];
-  }
-  return null;
+  return match ? match[1] : null;
 }
 
 // Function buscar libro
