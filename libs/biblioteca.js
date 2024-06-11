@@ -42,7 +42,7 @@ const bookSchema = new Schema({
 const Book = mongoose.model('Kim.Libros', bookSchema);
 
 // Function lista de libros 
-async function getFormattedBookList(conn, m, match, from) {
+async function getFormattedBookList(conn, m, from) {
   try {
     // Recupera todos los libros de la base de datos.    
     const books = await Book.find({});
