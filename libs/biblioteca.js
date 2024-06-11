@@ -130,7 +130,7 @@ if (title && link && author && genre) {
     conn.sendMessage(m.chat, {text: `se agregó el libro ${newBook}`}, { quoted: m }) 
     } else {
     return m.reply('error debes completar todos los campos title, link, author, genre')
-    } catch (error){
+    } else if(error){
       console.error(error);
       return m.reply('')}}
 
