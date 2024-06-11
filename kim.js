@@ -612,12 +612,8 @@ delete this.confirm[sender];
 
 switch (command) { 
 		
-case 'libros': {
-const books = await Book.find({});
-if (books.length === 0) return reply('No hay libros disponibles.') 
-const a = getFormattedBookList.formattedList
-await conn.sendMessage(m.chat, {text: a}, {quoted: m});			
-}
+case 'libros':
+getFormattedBookList(conn, m, match, from)
 break
 		
 case 'plist':
