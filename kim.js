@@ -616,7 +616,7 @@ case 'libros':
 getFormattedBookList(conn, m, from)
 break
 case 'libro':
-searchBooks(searchQuery, conn, m, from)		
+searchBooks(conn, m, from)		
 break
 
 case 'plist':
