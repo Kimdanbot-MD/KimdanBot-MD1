@@ -162,7 +162,7 @@ function sortBooks(books) {
 function shouldSortResults() {
   return false;
 }
-function formatSearchResults(books) {
+function formatSearchResults(books, book) {
  const título = book.title
    const link = book.link
      const autor = book.author
