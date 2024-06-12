@@ -616,7 +616,7 @@ case 'libros':
 getFormattedBookList(conn, m, from)
 break
 case 'libro':
-searchBooks(text, conn, m, from)		
+searchBooks(text, conn, m, from, query)		
 break
 case 'agglibro':
 addBook(body, text, conn, m, from)
