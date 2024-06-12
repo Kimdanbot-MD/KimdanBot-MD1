@@ -168,7 +168,7 @@ function formatSearchResults(books) {
      const autor = book.author
        const genero = book.genre
          let resultText = '';
-  books.forEach( => {
+  books.forEach(() => {
     let bookText = `* *${titulo}* - ${link}`;
     if (book.title) {
       bookText = `*¡Título(s) coincidente(s)!* \n${bookText}`;
