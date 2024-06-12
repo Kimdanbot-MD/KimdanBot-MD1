@@ -120,7 +120,7 @@ async function searchBooks(text, conn, m) {
     books = sortBooks(books);
   }
   const formattedResults = formatSearchResults(books);
-  await sendSearchResults(conn, m, formattedResults);
+  await conn.sendMessage(m.chat, { text: formattedResults }, { quoted: m });
 }
 function buildSearchCriteriaTitle(query) {
   const criteria = {
@@ -132,7 +132,7 @@ function buildSearchCriteriaTitle(query) {
   return criteria;
 }
 
-async function fetchExternalBooks(query) {
+function fetchExternalBooks(query) {
   // ... (Lógica para obtener libros de una API externa)
   // Ejemplo:
   // const respuesta = await axios.get('https://external-api.com/books?q=' + consulta);
@@ -176,9 +176,6 @@ function formatSearchResults(books) {
     }
     return m.reply(resultText) 
   }).join('\n');
-}
-async function sendSearchResults(conn, m, formattedResults) {
-  await conn.sendMessage(m.chat, { text: formattedResults }, { quoted: m });
 }
 
 // Function agregar libro
