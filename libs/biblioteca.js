@@ -163,19 +163,22 @@ function shouldSortResults() {
   return false;
 }
 function formatSearchResults(books) {
-  return books.map((book) => {
-    let resultText = `* *${book.title}* - ${book.link}`;
-     if (book.title) {
-      resultText = `*¡Título(s) coincidente(s)!* \n${resultText}`;
+  let resultText = '';
+  books.forEach((book) => {
+    let bookText = `* *${book.title}* - ${book.link}`;
+    if (book.title) {
+      bookText = `*¡Título(s) coincidente(s)!* \n${bookText}`;
     }
     if (book.author) {
-      resultText += ` (por ${book.author})`;
+      bookText += ` (por ${book.author})`;
     }
     if (book.genre) {
-      resultText += ` (género: ${book.genre})`;
+      bookText += ` (género: ${book.genre})`;
     }
-    return m.reply(resultText) 
-  }).join('\n');
+    resultText += bookText + '\n'; // Append each book's formatted text
+  });
+  resultText = resultText.slice(0, -1);
+  return resultText;
 }
 
 // Function agregar libro
