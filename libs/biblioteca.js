@@ -163,17 +163,21 @@ function shouldSortResults() {
   return false;
 }
 function formatSearchResults(books) {
-  let resultText = '';
-  books.forEach((book) => {
-    let bookText = `* *${book.title}* - ${book.link}`;
+ const título = book.title
+   const link = book.link
+     const autor = book.author
+       const genero = book.genre
+         let resultText = '';
+  books.forEach( => {
+    let bookText = `* *${titulo}* - ${link}`;
     if (book.title) {
       bookText = `*¡Título(s) coincidente(s)!* \n${bookText}`;
     }
     if (book.author) {
-      bookText += ` (por ${book.author})`;
+      bookText += ` (por ${autor})`;
     }
     if (book.genre) {
-      bookText += ` (género: ${book.genre})`;
+      bookText += ` (género: ${genero})`;
     }
     resultText += bookText + '\n'; // Append each book's formatted text
   });
