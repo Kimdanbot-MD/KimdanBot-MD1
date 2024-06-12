@@ -97,7 +97,6 @@ async function searchBooks(text, conn, m) {
   const trimmedQuery = searchQuery.trim();  
   const searchCriteria = buildSearchCriteriaTitle(trimmedQuery);
   const searchOptions = { limit: 100 };
-  let books = [];
   try {
     const internalBooks = await Book.find(searchCriteria, searchOptions);
     books = books.concat(internalBooks);
