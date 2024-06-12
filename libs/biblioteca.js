@@ -187,7 +187,7 @@ if (lowerTitle.includes(lowerQuery)) {
     return true;
   }
   return false;
-}a
+}
 async function sendSearchResults(conn, m, formattedResults) {
   await conn.sendMessage(m.chat, { text: formattedResults }, { quoted: m });
 }
