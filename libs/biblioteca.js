@@ -93,7 +93,7 @@ function extractBookPart(title) {
 async function searchBooks(text, conn, m) {
   if (!text) return m.reply('No se proporcionó un término de búsqueda.');
   const trimmedQuery = text.toLowerCase().trim();
-  const searchCriteria = buildSearchCriteria(trimmedQuery, searchType);
+  const searchCriteria = buildSearchCriteria(trimmedQuery);
   const searchOptions = { limit: 100 };
   let books = [];
   try {
@@ -122,13 +122,11 @@ async function searchBooks(text, conn, m) {
   const formattedResults = formatSearchResults(books);
   await sendSearchResults(conn, m, formattedResults);
 }
-function buildSearchCriteria(query, searchType) {
+function buildSearchCriteria(query) {
   const criteria = { $regex: `^${query}.*`, $options: 'i' };
-  if (searchType) {
-    criteria[searchType] = criteria;
-  }
   return criteria;
-}
+} 
+
 async function fetchExternalBooks(query) {
   // ... (Lógica para obtener libros de una API externa)
   // Ejemplo:
