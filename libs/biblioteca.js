@@ -151,11 +151,11 @@ function shouldDeduplicateResults() {
   return false; // Valor predeterminado a falso por ahora
 }
 function sortBooks(books) {
-  books.sort((a, b) => a.title.localeCompare(b.title));
+  //books.sort((a, b) => a.title.localeCompare(b.title));
   return books;
   }
 function shouldSortResults() {
-  return true;
+  return false;
 }
 function formatSearchResults(books) {
   return books.map((book) => {
