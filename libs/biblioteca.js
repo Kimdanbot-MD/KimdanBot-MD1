@@ -163,9 +163,10 @@ function shouldSortResults() {
   return false;
 }
 function formatSearchResults(books) {
+  const trimmedQuery = text.toLowerCase().trim();
   return books.map((book) => {
     let resultText = `* *${book.title}* - ${book.link}`;
-     if (isTitleSearchMatch(book.title, trimmedQuery)) {
+     if (isTitleSearchMatch(book.title, trimmedQuery?.toLowerCase())) {
       resultText = `*¡Título(s) coincidente(s)!* \n${resultText}`;
     }
     if (book.author) {
