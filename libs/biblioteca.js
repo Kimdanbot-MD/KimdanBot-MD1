@@ -95,9 +95,9 @@ async function searchBooks(text, conn, m) {
   const trimmedQuery = text.toLowerCase().trim();
   const searchCriteria = await Book.find({
             $or: [
-      { title: { $regex: `^${query}.*`, $options: 'i' } }, 
-      { title: { $regex: `.*${query}.*`, $options: 'i' } },            ]
-        });
+      { title: { $regex: `^${trimmedQuery}.*`, $options: 'i' } }, 
+      { title: { $regex: `.*${trimmedQuery}.*`, $options: 'i' } }
+             ]});
 const searchOptions = { limit: 100 };
   let books = [];
     try {
