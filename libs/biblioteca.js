@@ -92,7 +92,8 @@ function extractBookPart(title) {
 // Function buscar libro
 async function searchBooks(text, conn, m) {
   if (!text) return m.reply('No se proporcionó un término de búsqueda.');
-  const trimmedQuery = text.toLowerCase().trim();
+  const searchQuery = text
+  const trimmedQuery = searchQuery.trim();  
   const searchCriteria = buildSearchCriteriaTitle(trimmedQuery);
   const searchOptions = { limit: 100 };
   let books = [];
@@ -125,8 +126,8 @@ async function searchBooks(text, conn, m) {
 function buildSearchCriteriaTitle(query) {
   const criteria = {
     $or: [
-      { title: { $regex: `^${query}.*`, $options: 'i' } }, 
-      { title: { $regex: `.*${query}.*`, $options: 'i' } },
+      { title: { $regex: `^${trimmedQuery}.*`, $options: 'i' } }, 
+      { title: { $regex: `.*${trimmedQuery}.*`, $options: 'i' } },
     ],
   };
   return criteria;
@@ -164,7 +165,7 @@ function shouldSortResults() {
 }
 function formatSearchResults(books) {
   let resultText = ''; 
-  books.forEach((book) => {
+  books.map(book => {
     let bookText = `* **${book.title}** - ${book.link}`;
     if (book.title) {
       bookText = `*¡Título(s) coincidente(s)!* \n${bookText}`;
