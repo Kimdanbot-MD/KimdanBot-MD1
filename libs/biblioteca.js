@@ -90,29 +90,101 @@ function extractBookPart(title) {
 }
 
 // Function buscar libro
-async function searchBooks(text, conn, m, from) {
-  if (!text) return m.reply('que libro buscas? ')
-    try {
-    const searchQuery = text
-    const trimmedQuery = searchQuery.trim();
-    const titleRegex = new RegExp(`^${trimmedQuery}.*`, 'i');
-    const authorRegex = new RegExp(`^${trimmedQuery}.*`, 'i');
-    const genreRegex = new RegExp(`^${trimmedQuery}.*`, 'i');
-    const searchCriteria = {
-      $or: [
-        { title: titleRegex },
-        { author: authorRegex },
-        { genre: genreRegex }
-      ]};
-    const books = await Book.find(searchCriteria);
-    if (books.length === 0) return m.reply('No se encontraron libros que coincidan con la búsqueda.') 
-    const formattedResults = books.map(book => `* **${book.title}** - ${book.link}`);
-
-    const t = `*Resultados de la búsqueda:*\n${formattedResults.join('\n')}`;
-    await conn.sendMessage(m.chat, {text: t}, { quoted: m }) 
+async function searchBooks(text, conn, m) {
+  if (!text) return m.reply('No se proporcionó un término de búsqueda.');
+  const trimmedQuery = text.toLowerCase().trim();
+  let searchType;
+  if (shouldUseSearchTypeDetection()) {
+    searchType = detectSearchType(trimmedQuery);
+  }
+  const searchCriteria = buildSearchCriteria(trimmedQuery, searchType);
+  const searchOptions = { limit: 100 };
+  let books = [];
+  try {
+    const internalBooks = await Book.find(searchCriteria, searchOptions);
+    books = books.concat(internalBooks);
+    if (shouldUseExternalAPI()) {
+      const externalBooks = await fetchExternalBooks(trimmedQuery);
+      books = books.concat(externalBooks);
+    }
   } catch (error) {
     console.error(error);
-    return m.reply('')}}
+    if (error.name === 'MongoError' && error.code === 11000) {
+      return m.reply('Error interno en la base de datos. Intenta nuevamente más tarde.');
+    }
+    return m.reply('Error al buscar libros. Intenta nuevamente.');
+  }
+  if (books.length === 0) {
+    return m.reply('No se encontraron libros que coincidan con tu búsqueda.');
+  }
+  if (shouldDeduplicateResults()) {
+    books = deduplicateBooks(books);
+  }
+  if (shouldSortResults()) {
+    books = sortBooks(books);
+  }
+  const formattedResults = formatSearchResults(books);
+  await sendSearchResults(conn, m, formattedResults);
+}
+function detectSearchType(query) {
+  // ... (Search type detection logic using prefixes)
+}
+function buildSearchCriteria(query, searchType) {
+  const criteria = { $regex: `^${query}.*`, $options: 'i' };
+  if (searchType) {
+    criteria[searchType] = criteria;
+  }
+  return criteria;
+}
+async function fetchExternalBooks(query) {
+  // ... (Logic to fetch books from an external API)
+  // Example:
+  // const response = await axios.get('https://external-api.com/books?q=' + query);
+  // const externalBooks = response.data.books;
+  // return externalBooks;
+  return []; // Placeholder for external API integration
+}
+function shouldUseExternalAPI() {
+  // Implement logic to determine if external API integration should be used
+  return false; // Default to false for now
+}
+function deduplicateBooks(books) {
+  // ... (Logic to deduplicate books based on a unique identifier)
+  // Example:
+  // const uniqueBooks = new Set(books.map(book => book.id));
+  // return Array.from(uniqueBooks);
+  return books; // Placeholder for deduplication logic
+}
+function shouldDeduplicateResults() {
+  // Implement logic to determine if deduplication should be performed
+  return false; // Default to false for now
+}
+function sortBooks(books) {
+  // ... (Logic to sort books based on a specific criteria)
+  // Example:
+  // books.sort((a, b) => a.title.localeCompare(b.title));
+  // return books;
+  return books; // Placeholder for sorting logic
+}
+function shouldSortResults() {
+  // Implement logic to determine if sorting should be performed
+  return false; // Default to false for now
+}
+function formatSearchResults(books) {
+  return books.map((book) => {
+    let resultText = `* **${book.title}** - ${book.link}`;
+    if (book.author) {
+      resultText += ` (por ${book.author})`;
+    }
+    if (book.genre) {
+      resultText += ` (género: ${book.genre})`;
+    }
+    return resultText;
+  }).join('\n');
+}
+async function sendSearchResults(conn, m, formattedResults) {
+  await conn.sendMessage(m.chat, { text: formattedResults }, { quoted: m });
+}
 
 // Function agregar libro
 async function addBook(body, text, conn, m, from) {
