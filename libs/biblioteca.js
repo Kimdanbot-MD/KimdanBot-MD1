@@ -93,7 +93,14 @@ function extractBookPart(title) {
 async function searchBooks(text, conn, m) {
   if (!text) return m.reply('No se proporcionó un término de búsqueda.');
   const trimmedQuery = text.toLowerCase().trim();
-  const searchCriteria = buildSearchCriteriaTitle(trimmedQuery);
+  const criteria = await Book.find({
+            $or: [
+      { title: { $regex: `^${query}.*`, $options: 'i' } }, 
+      { title: { $regex: `.*${query}.*`, $options: 'i' } },            ]
+        });
+  return criteria;
+}
+const searchCriteria = criteria;
   const searchOptions = { limit: 100 };
   let books = [];
     try {
@@ -122,15 +129,6 @@ async function searchBooks(text, conn, m) {
   const formattedResults = books.map(book => `* *${book.title}* - ${book.link}`);
     const t = `*¡Título(s) coincidente(s)!*\n${formattedResults.join('\n')}`;
     await conn.sendMessage(m.chat, {text: t}, { quoted: m }) }
-
-function buildSearchCriteriaTitle(query) {
-  const criteria = await Book.find({
-            $or: [
-      { title: { $regex: `^${query}.*`, $options: 'i' } }, 
-      { title: { $regex: `.*${query}.*`, $options: 'i' } },            ]
-        });
-  return criteria;
-}
 
 function fetchExternalBooks(query) {
   // ... (Lógica para obtener libros de una API externa)
