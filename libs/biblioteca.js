@@ -90,7 +90,7 @@ function extractBookPart(title) {
 }
 
 // Function buscar libro
-async function searchBooks(text, conn, m, from, query) {
+async function searchBooks(text, conn, m, from) {
   if (!text) return m.reply('No se proporcionó un término de búsqueda.');
   const trimmedQuery = text.toLowerCase().trim();
   const searchCriteria = await Book.find({
