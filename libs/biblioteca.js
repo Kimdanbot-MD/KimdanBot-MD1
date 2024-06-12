@@ -123,15 +123,13 @@ async function searchBooks(text, conn, m) {
     const t = `*¡Título(s) coincidente(s)!*\n${formattedResults.join('\n')}`;
     await conn.sendMessage(m.chat, {text: t}, { quoted: m }) }
 
-function buildSearchCriteriaTitle(trimmedQuery) {
-  const titleRegex = new RegExp(`^${trimmedQuery}.*`, 'i');
-  const titRegex = new RegExp(`.*${trimmedQuery}.*`, 'i');
-  const criteria = {
-    $or: [
-      { title: titleRegex }, 
-      { title: titRegex }
-    ],
-  };
+function buildSearchCriteriaTitle(query) {
+  const criteria = await Book.find({
+            $or: [
+                { titulo: { $regex: query, $options: 'i' } },
+                { autor: { $regex: query, $options: 'i' } }
+            ]
+        });
   return criteria;
 }
 
