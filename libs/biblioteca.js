@@ -165,7 +165,7 @@ function shouldSortResults() {
 function formatSearchResults(books) {
   return books.map((book) => {
     let resultText = `* *${book.title}* - ${book.link}`;
-     if (isTitleSearchMatch(book.title, trimmedQuery?.toLowerCase())) {
+     if (isTitleSearchMatch(book.title)) {
       resultText = `*¡Título(s) coincidente(s)!* \n${resultText}`;
     }
     if (book.author) {
