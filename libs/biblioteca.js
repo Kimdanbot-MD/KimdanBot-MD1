@@ -123,7 +123,7 @@ async function searchBooks(text, conn, m) {
   const formattedResults = formatSearchResults(books);
   await conn.sendMessage(m.chat, { text: formattedResults }, { quoted: m });
 }
-function buildSearchCriteriaTitle(query) {
+function buildSearchCriteriaTitle(trimmedQuery) {
   const criteria = {
     $or: [
       { title: { $regex: `^${trimmedQuery}.*`, $options: 'i' } }, 
