@@ -122,10 +122,15 @@ async function searchBooks(text, conn, m) {
   const formattedResults = formatSearchResults(books);
   await sendSearchResults(conn, m, formattedResults);
 }
-function buildSearchCriteria(query) {
-  const criteria = { $regex: `^${query}.*`, $options: 'i' };
+function buildSearchCriteriaTitle(query) {
+  const criteria = {
+    $or: [
+      { title: { $regex: `^${query}.*`, $options: 'i' } }, 
+      { title: { $regex: `.*${query}.*`, $options: 'i' } },
+    ],
+  };
   return criteria;
-} 
+}
 
 async function fetchExternalBooks(query) {
   // ... (Lógica para obtener libros de una API externa)
@@ -159,7 +164,10 @@ function shouldSortResults() {
 }
 function formatSearchResults(books) {
   return books.map((book) => {
-    let resultText = `* **${book.title}** - ${book.link}`;
+    let resultText = `* *${book.title}* - ${book.link}`;
+     if (isTitleSearchMatch(book.title, trimmedQuery)) {
+      resultText = `*¡Título(s) coincidente(s)!* \n${resultText}`;
+    }
     if (book.author) {
       resultText += ` (por ${book.author})`;
     }
@@ -169,6 +177,17 @@ function formatSearchResults(books) {
     return resultText;
   }).join('\n');
 }
+function isTitleSearchMatch(title, query) {
+  const lowerTitle = title.toLowerCase();
+  const lowerQuery = query.toLowerCase();
+  if (lowerTitle.startsWith(lowerQuery)) {
+    return true;
+  }
+if (lowerTitle.includes(lowerQuery)) {
+    return true;
+  }
+  return false;
+}a
 async function sendSearchResults(conn, m, formattedResults) {
   await conn.sendMessage(m.chat, { text: formattedResults }, { quoted: m });
 }
