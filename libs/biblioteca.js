@@ -93,16 +93,12 @@ function extractBookPart(title) {
 async function searchBooks(text, conn, m, from) {
   if (!text) return m.reply('No se proporcionó un término de búsqueda.');
   const trimmedQuery = text.toLowerCase().trim();
-  const searchCriteria = await Book.find({
-            $or: [
-      { title: { $regex: `^${trimmedQuery}.*`, $options: 'i' } }, 
-      { title: { $regex: `.*${trimmedQuery}.*`, $options: 'i' } }
-             ]});
-const searchOptions = { limit: 100 };
+  const searchCriteria = { title: { $regex: `.*${trimmedQuery}.*`, $options: 'i' } };
+  const searchOptions = { limit: 100 };
   let books = [];
-    try {
+  try {
     const internalBooks = await Book.find(searchCriteria, searchOptions);
- books = books.concat(internalBooks);
+    books = books.concat(internalBooks);
     if (shouldUseExternalAPI()) {
       const externalBooks = await fetchExternalBooks(trimmedQuery);
       books = books.concat(externalBooks);
@@ -123,10 +119,10 @@ const searchOptions = { limit: 100 };
   if (shouldSortResults()) {
     books = sortBooks(books);
   }
-  const formattedResults = books.map(book => `* *${book.title}* - ${book.link}`);
-    const t = `*¡Título(s) coincidente(s)!*\n${formattedResults.join('\n')}`;
-    await conn.sendMessage(m.chat, {text: t}, { quoted: m }) }
-
+  const formattedResults = books.map((book) => `* *${book.title}* - ${book.link}`);
+  const responseText = `*¡Título(s) coincidente(s)!*\n${formattedResults.join('\n')}`;
+  await conn.sendMessage(m.chat, { text: responseText }, { quoted: m });
+}
 function fetchExternalBooks(query) {
   // ... (Lógica para obtener libros de una API externa)
   // Ejemplo:
