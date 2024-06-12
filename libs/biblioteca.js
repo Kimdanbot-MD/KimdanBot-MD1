@@ -174,7 +174,7 @@ function formatSearchResults(books) {
     if (book.genre) {
       resultText += ` (género: ${book.genre})`;
     }
-    return resultText;
+    return reply(resultText) 
   }).join('\n');
 }
 async function sendSearchResults(conn, m, formattedResults) {
