@@ -165,7 +165,7 @@ function shouldSortResults() {
 function formatSearchResults(books) {
   return books.map((book) => {
     let resultText = `* *${book.title}* - ${book.link}`;
-     if (isTitleSearchMatch(book.title)) {
+     if (book.title) {
       resultText = `*¡Título(s) coincidente(s)!* \n${resultText}`;
     }
     if (book.author) {
@@ -176,17 +176,6 @@ function formatSearchResults(books) {
     }
     return resultText;
   }).join('\n');
-}
-function isTitleSearchMatch(title, query) {
-  const lowerTitle = title.toLowerCase();
-  const lowerQuery = query.toLowerCase();
-  if (lowerTitle.startsWith(lowerQuery)) {
-    return true;
-  }
-if (lowerTitle.includes(lowerQuery)) {
-    return true;
-  }
-  return false;
 }
 async function sendSearchResults(conn, m, formattedResults) {
   await conn.sendMessage(m.chat, { text: formattedResults }, { quoted: m });
