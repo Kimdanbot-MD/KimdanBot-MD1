@@ -93,15 +93,12 @@ function extractBookPart(title) {
 async function searchBooks(text, conn, m) {
   if (!text) return m.reply('No se proporcionó un término de búsqueda.');
   const trimmedQuery = text.toLowerCase().trim();
-  const criteria = await Book.find({
+  const searchCriteria = await Book.find({
             $or: [
       { title: { $regex: `^${query}.*`, $options: 'i' } }, 
       { title: { $regex: `.*${query}.*`, $options: 'i' } },            ]
         });
-  return criteria;
-}
-const searchCriteria = criteria;
-  const searchOptions = { limit: 100 };
+const searchOptions = { limit: 100 };
   let books = [];
     try {
     const internalBooks = await Book.find(searchCriteria, searchOptions);
