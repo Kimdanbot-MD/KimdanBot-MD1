@@ -162,27 +162,23 @@ function sortBooks(books) {
 function shouldSortResults() {
   return false;
 }
-function formatSearchResults(books, book) {
- const titulo = book.title
-   const link = book.link
-     const autor = book.author
-       const genero = book.genre
-         let resultText = '';
-  books.forEach(() => {
-    let bookText = `* *${titulo}* - ${link}`;
+function formatSearchResults(books) {
+  let resultText = ''; 
+  books.forEach((book) => {
+    let bookText = `* **${book.title}** - ${book.link}`;
     if (book.title) {
       bookText = `*¡Título(s) coincidente(s)!* \n${bookText}`;
     }
     if (book.author) {
-      bookText += ` (por ${autor})`;
+      bookText += ` (por ${book.author})`;
     }
     if (book.genre) {
-      bookText += ` (género: ${genero})`;
+      bookText += ` (género: ${book.genre})`;
     }
-    resultText += bookText + '\n'; // Append each book's formatted text
+    resultText += bookText + '\n'; 
   });
   resultText = resultText.slice(0, -1);
-  return resultText;
+  return resultText; 
 }
 
 // Function agregar libro
