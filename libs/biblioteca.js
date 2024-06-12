@@ -125,10 +125,12 @@ async function searchBooks(text, conn, m) {
     await conn.sendMessage(m.chat, {text: t}, { quoted: m }) }
 
 function buildSearchCriteriaTitle(trimmedQuery) {
+  const titleRegex = new RegExp(`^${trimmedQuery}.*`, 'i');
+  const titRegex = new RegExp(`.*${trimmedQuery}.*`, 'i');
   const criteria = {
     $or: [
-      { title: { $regex: `^${trimmedQuery}.*`, $options: 'i' } }, 
-      { title: { $regex: `.*${trimmedQuery}.*`, $options: 'i' } },
+      { title: titleRegex }, 
+      { title: titRegex }
     ],
   };
   return criteria;
