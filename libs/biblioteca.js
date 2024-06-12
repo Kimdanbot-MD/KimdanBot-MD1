@@ -93,10 +93,6 @@ function extractBookPart(title) {
 async function searchBooks(text, conn, m) {
   if (!text) return m.reply('No se proporcionó un término de búsqueda.');
   const trimmedQuery = text.toLowerCase().trim();
-  let searchType;
-  if (shouldUseSearchTypeDetection()) {
-    searchType = detectSearchType(trimmedQuery);
-  }
   const searchCriteria = buildSearchCriteria(trimmedQuery, searchType);
   const searchOptions = { limit: 100 };
   let books = [];
@@ -126,9 +122,6 @@ async function searchBooks(text, conn, m) {
   const formattedResults = formatSearchResults(books);
   await sendSearchResults(conn, m, formattedResults);
 }
-function detectSearchType(query) {
-  // ... (Search type detection logic using prefixes)
-}
 function buildSearchCriteria(query, searchType) {
   const criteria = { $regex: `^${query}.*`, $options: 'i' };
   if (searchType) {
@@ -137,38 +130,34 @@ function buildSearchCriteria(query, searchType) {
   return criteria;
 }
 async function fetchExternalBooks(query) {
-  // ... (Logic to fetch books from an external API)
-  // Example:
-  // const response = await axios.get('https://external-api.com/books?q=' + query);
-  // const externalBooks = response.data.books;
-  // return externalBooks;
-  return []; // Placeholder for external API integration
+  // ... (Lógica para obtener libros de una API externa)
+  // Ejemplo:
+  // const respuesta = await axios.get('https://external-api.com/books?q=' + consulta);
+  // const librosExternos = respuesta.data.libros;
+  // return librosExternos;
+  return []; // Espacio reservado para la integración con la API externa
 }
 function shouldUseExternalAPI() {
-  // Implement logic to determine if external API integration should be used
-  return false; // Default to false for now
+  // Implementar lógica para determinar si se debe usar la integración con la API externa
+  return false; // Valor predeterminado a falso por ahora
 }
 function deduplicateBooks(books) {
-  // ... (Logic to deduplicate books based on a unique identifier)
-  // Example:
-  // const uniqueBooks = new Set(books.map(book => book.id));
-  // return Array.from(uniqueBooks);
-  return books; // Placeholder for deduplication logic
+  // ... (Lógica para deduplicar libros basado en un identificador único)
+  // Ejemplo:
+  // const librosUnicos = new Set(libros.map(libro => libro.id));
+  // return Array.from(librosUnicos);
+  return books; // Espacio reservado para la lógica de deduplicación
 }
 function shouldDeduplicateResults() {
-  // Implement logic to determine if deduplication should be performed
-  return false; // Default to false for now
+  // Implementar lógica para determinar si se debe realizar la deduplicación
+  return false; // Valor predeterminado a falso por ahora
 }
 function sortBooks(books) {
-  // ... (Logic to sort books based on a specific criteria)
-  // Example:
-  // books.sort((a, b) => a.title.localeCompare(b.title));
-  // return books;
-  return books; // Placeholder for sorting logic
-}
+  books.sort((a, b) => a.title.localeCompare(b.title));
+  return books;
+  }
 function shouldSortResults() {
-  // Implement logic to determine if sorting should be performed
-  return false; // Default to false for now
+  return true;
 }
 function formatSearchResults(books) {
   return books.map((book) => {
