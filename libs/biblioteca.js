@@ -120,9 +120,10 @@ async function searchBooks(text, conn, m) {
   if (shouldSortResults()) {
     books = sortBooks(books);
   }
-  const formattedResults = formatSearchResults(books);
-  await conn.sendMessage(m.chat, { text: formattedResults }, { quoted: m });
-}
+  const formattedResults = books.map(book => `* *${book.title}* - ${book.link}`);
+    const t = `*¡Título(s) coincidente(s)!*\n${formattedResults.join('\n')}`;
+    await conn.sendMessage(m.chat, {text: t}, { quoted: m }) }
+
 function buildSearchCriteriaTitle(trimmedQuery) {
   const criteria = {
     $or: [
@@ -162,25 +163,7 @@ function sortBooks(books) {
   }
 function shouldSortResults() {
   return false;
-}
-function formatSearchResults(books) {
-  let resultText = ''; 
-  books.map(book => {
-    let bookText = `* **${book.title}** - ${book.link}`;
-    if (book.title) {
-      bookText = `*¡Título(s) coincidente(s)!* \n${bookText}`;
-    }
-    if (book.author) {
-      bookText += ` (por ${book.author})`;
-    }
-    if (book.genre) {
-      bookText += ` (género: ${book.genre})`;
-    }
-    resultText += bookText + '\n'; 
-  });
-  resultText = resultText.slice(0, -1);
-  return resultText; 
-}
+}    
 
 // Function agregar libro
 async function addBook(body, text, conn, m, from) {
