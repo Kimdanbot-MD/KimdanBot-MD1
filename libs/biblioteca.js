@@ -42,7 +42,7 @@ const bookSchema = new Schema({
 const Book = mongoose.model('Kim.Libros', bookSchema);
 
 // Function lista de libros 
-async function getFormattedBookList(conn, m, from) {
+async function getFormattedBookList(conn, m, from, query) {
   try {
      const books = await Book.find({});
     if (books.length === 0) return m.reply('No hay libros disponibles.') 
