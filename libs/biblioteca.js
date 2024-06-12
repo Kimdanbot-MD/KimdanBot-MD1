@@ -91,13 +91,13 @@ function extractBookPart(title) {
 
 // Function buscar libro
 async function searchBooks(text, conn, m) {
-  if (!text) return m.reply('No se proporcionó un término de búsqueda.');
- const books = await Book.find({});
+  if (!text) return m.reply('No se proporcionó un término de búsqueda.'); 
  const searchQuery = text
   const trimmedQuery = searchQuery.trim();  
   const searchCriteria = buildSearchCriteriaTitle(trimmedQuery);
   const searchOptions = { limit: 100 };
-  try {
+  let books = [],
+    try {
     const internalBooks = await Book.find(searchCriteria, searchOptions);
     books = books.concat(internalBooks);
     if (shouldUseExternalAPI()) {
