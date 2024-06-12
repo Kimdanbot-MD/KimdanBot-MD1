@@ -126,9 +126,8 @@ async function searchBooks(text, conn, m) {
 function buildSearchCriteriaTitle(query) {
   const criteria = await Book.find({
             $or: [
-                { titulo: { $regex: query, $options: 'i' } },
-                { autor: { $regex: query, $options: 'i' } }
-            ]
+      { title: { $regex: `^${query}.*`, $options: 'i' } }, 
+      { title: { $regex: `.*${query}.*`, $options: 'i' } },            ]
         });
   return criteria;
 }
