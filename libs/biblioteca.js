@@ -169,9 +169,9 @@ async function addBook(body, text, conn, m, from) {
   const sanitizedBodyLines = sanitizedBody.split('\n');
   const bookInfo = sanitizedBodyLines.map((line) => line.trim());
   if (!text) return m.reply('Error: Debe proporcionar al menos 3 campos separados por coma (,)');
-  const title = bookInfo[0];
-  const link = bookInfo[1];
-  const genre = bookInfo[2];
+  const title = bookInfo[1];
+  const link = bookInfo[2];
+  const genre = bookInfo[3];
   if (!title) return m.reply('Error: El campo "Título" es obligatorio.');
   if (!link) return m.reply('Error: El campo "Link" es obligatorio.');
   if (!genre) return m.reply('Error: El campo "Género" es obligatorio.');
