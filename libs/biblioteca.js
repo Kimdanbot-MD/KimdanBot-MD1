@@ -167,11 +167,19 @@ function shouldSortResults() {
 async function addBook(body, text, conn, m, from) {
   const sanitizedBody = body.replace(/[^a-zA-Z0-9\s:;\.\-_\/]+/g, '');
   const sanitizedBodyLines = sanitizedBody.split('\n');
+
+  // Extract information from specific lines
   const titleLine = sanitizedBodyLines.find((line) => line.startsWith('Título:'));
   const linkLine = sanitizedBodyLines.find((line) => line.startsWith('Link:'));
   const authorLine = sanitizedBodyLines.find((line) => line.startsWith('Autor:'));
   const genreLine = sanitizedBodyLines.find((line) => line.startsWith('Género:'));
-  if (!titleLine || !linkLine || !authorLine || !genreLine) return m.reply('Error: Debe completar todos los campos: título, link, autor, género');
+
+  // Validate missing fields
+  if (!titleLine || !linkLine || !authorLine || !genreLine) {
+    return m.reply('Error: Debe completar todos los campos: título, link, autor, género');
+  }
+
+  // Extract data from lines
   const title = titleLine.replace('Título: ', '').trim();
   const link = linkLine.replace('Link: ', '').trim();
   const author = authorLine.replace('Autor: ', '').trim();
@@ -196,16 +204,15 @@ async function addBook(body, text, conn, m, from) {
       genre,
     });
     await newBook.save();
-
     m.reply(`Se agregó el libro: ${title}`);
   } catch (error) {
     console.error(error);
-    m.reply('Error al agregar el libro. Intente nuevamente.')}}
+    m.reply('Error al agregar el libro. Intente nuevamente.');
+  }}
 function isValidMediafireLink(linkString) {
   const mediafireRegex = /https?:\/\/(www\.)?mediafire\.com\/file\/(.*)/;
   return mediafireRegex.test(linkString);
 }
-
 
 // Function actualizar 
 async function updateBookAvailability(bookId, isAvailable) {
