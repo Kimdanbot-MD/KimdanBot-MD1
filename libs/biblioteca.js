@@ -65,24 +65,24 @@ const sortedBooks = filteredBooks.sort((a, b) => {
       return a.title.localeCompare(b.title);
     });
     const groupedBooks = _.groupBy(sortedBooks, (book) => book.genre || 'Sin género');
-    
-    const formattedList = Object.entries(groupedBooks).reduce((acc, [genre, books]) => {
-      if (genre === 'Sin género') {
-        acc.push('\n* Libros sin género definido:');
-      } else {
-        acc.push(`*Lista de libros:*\n Género: ${genre}`);
-      }
-      books.forEach((book) => {
-       acc.push(`* ${book.title}`);
-      });
-      return acc;
-    }, []);
-await conn.sendMessage(m.chat, { text: formattedList.join('\n')}, { quoted: m });
+    const formattedList = [];
+    for (const [genre, books] of Object.entries(groupedBooks)) {
+      formattedList.push(`*Lista de libros:*\n* Género: ${genre}`);
+      books.sort((a, b) => {
+        const titleComparison = a.title.localeCompare(b.title);
+        if (titleComparison !== 0) return titleComparison;
+        const partA = extractBookPart(a.title);
+        const partB = extractBookPart(b.title);
+        if (partA && partB) return parseInt(partA) - parseInt(partB);
+        return partB ? 1 : -1;
+      }).forEach((book) => {
+        formattedList.push(`* ${book.title}`);
+      })}
+    await conn.sendMessage(m.chat, { text: formattedList.join('\n') }, { quoted: m });
   } catch (error) {
     console.error('Error obtaining book list:', error);
     return m.reply('Error al obtener la lista de libros.');
-  }
-}
+  }}
 function sortBooksByPart(books) {
   return books.sort((a, b) => {
     const partA = extractBookPart(a.title);
