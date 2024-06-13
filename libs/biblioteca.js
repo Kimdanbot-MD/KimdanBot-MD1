@@ -221,16 +221,25 @@ async function updateBookAvailability(bookId, isAvailable) {
 }
 
 // Function eliminar libro
-async function deleteBook(conn, m, text, from) {
-  const bookId = book._id 
-    try {
-    await Book.findByIdAndDelete(bookId);
-    return true;
-  } catch (error) {
-    console.error(error);
-    return false;
+async function deleteBook(conn, m, text) {
+  const bookId = extractBookIdFromText(text);
+  if (!isValidObjectId(bookId)) {
+    return m.reply("ID del libro no válida. Debe ser un ObjectId válido.");
   }
-}
+  try {
+    const deletedBook = await Book.findByIdAndDelete(bookId);
+if (!deletedBook) {
+      return m.reply("Libro no encontrado con la ID proporcionada.");
+    }
+     triggerBookDeletedEvent(deletedBook);
+    return m.reply("Libro eliminado exitosamente.");
+  } catch (error) {
+    if (error.name === 'MongoError' && error.code === 11000) {
+      return m.reply("Error al eliminar el libro: No se puede eliminar porque está asociado a otros datos.");
+    } else {
+      console.error(error);
+      return m.reply("Error al eliminar el libro: " + error.message);
+    }}}
 
 module.exports = {
   Book,
