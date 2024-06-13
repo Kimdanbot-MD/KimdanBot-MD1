@@ -46,7 +46,7 @@ async function getFormattedBookList(conn, m, from) {
   try {
     const localBooks = await Book.find({});
     let allBooks = localBooks;
-    if (useExternal = true) {
+    if (useExternal = false) {
       try {
         const externalBooksResponse = await axios.get('https://api.zioo.space/download/books/data');
         const externalBooks = externalBooksResponse.data;
@@ -55,7 +55,7 @@ async function getFormattedBookList(conn, m, from) {
         console.error('Error fetching external books:', error);
           return m.reply('Hubo un error al obtener libros de una fuente externa.');
       }}
-const filteredBooks = allBooks.filter((book) => book.available);
+const filteredBooks = allBooks.filter((book) => Book.find({}));
 if (filteredBooks.length === 0) {
       return m.reply('No hay libros disponibles.');
     }
