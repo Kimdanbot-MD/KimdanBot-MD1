@@ -44,49 +44,47 @@ const Book = mongoose.model('Kim.Libros', bookSchema);
 // Function lista de libros 
 async function getFormattedBookList(conn, m, from) {
   try {
-     const books = await Book.find({});
-    if (books.length === 0) return m.reply('No hay libros disponibles.') 
-    const sortedBooks = sortBooks(books);
-    const formattedBookList = [];
-    for (const book of sortedBooks) {
-      const bookTitle = book.title;
-      const bookPart = extractBookPart(bookTitle); // extrae las partes (e.j., "1", "2")
-      const formattedBookEntry = `* **${bookTitle}** (${bookPart || ''})`;
-      formattedBookList.push(formattedBookEntry);
-    }
-    const formattedList = `**Lista de libros disponibles:**\n${formattedBookList.join('\n')}`;
-    await conn.sendMessage(m.chat, {text: formattedList }, { quoted: m })
+    const localBooks = await Book.find({ available: true });
+    const externalBooksResponse = await axios.get('[EXTERNAL_API_URL]');
+    const externalBooks = externalBooksResponse.data;
+    const allBooks = [...localBooks, ...externalBooks];
+    const filteredBooks = allBooks.filter((book) => book.available);
+    if (!filteredBooks.length) return m.reply('No hay libros disponibles.');
+    const sortedBooks = filteredBooks.sort((a, b) => {
+      const genreComparison = a.genre?.localeCompare(b.genre) || 1; 
+      if (genreComparison !== 0) return genreComparison;
+      return a.title.localeCompare(b.title);
+    });
+    const groupedBooks = _.groupBy(sortedBooks, (book) => book.genre || 'Sin género');
+    const formattedList = Object.entries(groupedBooks).reduce((acc, [genre, books]) => {
+      if (genre === 'Sin género') {
+        acc.push('\n* Libros sin género definido:');
+      } else {
+        acc.push(`\n* Lista de libros\n* Genero: ${genre}`);
+      }
+      books.forEach((book) => {
+        acc.push(`  - **${book.title}**`);
+      });
+      return acc;
+    }, []);
+    await conn.sendMessage(m.chat, { text: formattedList.join('\n') }, { quoted: m });
   } catch (error) {
     console.error(error);
-    return m.reply('')}}
-
-function sortBooks(books) {
-   books.sort((a, b) => a.genre.toLowerCase().localeCompare(b.genre.toLowerCase()));
-
-  function sortWithinGenre(genreBooks) {
-    return genreBooks.sort((a, b) => {
-      const partA = extractBookPart(a.title);
-      const partB = extractBookPart(b.title);
-      if (!partA && !partB) return 0;
-      if (!partA) return 1;
-      if (!partB) return -1;
-      return partA.localeCompare(partB);
-    })}
-const booksByGenre = books.reduce((acc, book) => {
-    const genre = book.genre;
-    acc[genre] = acc[genre] || [];
-    acc[genre].push(book);
-    return acc;
-  }, {});
-  for (const genre in booksByGenre) {
-    booksByGenre[genre] = sortWithinGenre(booksByGenre[genre]);
-  }
-  return Object.values(booksByGenre).flat();
+    return m.reply('Error al obtener la lista de libros.');
+  }}
+function sortBooksByPart(books) {
+  return books.sort((a, b) => {
+    const partA = extractBookPart(a.title);
+    const partB = extractBookPart(b.title);
+    if (partA && partB) return parseInt(partA) - parseInt(partB);
+    return partB ? 1 : -1;
+  });
 }
+
 function extractBookPart(title) {
-  const regex = /\s*Parte\s*(\d+)\s*$/i;
+  const regex = /\d+-\d+|\d+$/i; 
   const match = title.match(regex);
-  return match ? match[1] : null;
+  return match ? match[0] : null;
 }
 
 // Function buscar libro
