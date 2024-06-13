@@ -73,12 +73,12 @@ const sortedBooks = filteredBooks.sort((a, b) => {
         acc.push(`*Lista de libros:*\n Género: ${genre}`);
       }
       books.forEach((book) => {
-       const title = book.title
-         acc.push(`* ${title.join('\n')}`);
+       const title = book.title.join('\n')
+         acc.push(`* ${title}`);
       });
       return acc;
     }, []);
-await conn.sendMessage(m.chat, { text: formattedList.join('\n') }, { quoted: m });
+await conn.sendMessage(m.chat, { text: formattedList}, { quoted: m });
   } catch (error) {
     console.error('Error obtaining book list:', error);
     return m.reply('Error al obtener la lista de libros.');
