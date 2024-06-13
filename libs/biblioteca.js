@@ -73,7 +73,8 @@ const sortedBooks = filteredBooks.sort((a, b) => {
         acc.push(`*Lista de libros:*\n Género: ${genre}`);
       }
       books.forEach((book) => {
-       const title = book.title.join('\n')
+       const t = book.title
+         const title = t.join('\n')
          acc.push(`* ${title}`);
       });
       return acc;
