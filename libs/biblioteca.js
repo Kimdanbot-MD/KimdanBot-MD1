@@ -44,7 +44,7 @@ const Book = mongoose.model('Kim.Libros', bookSchema);
 // Function lista de libros 
 async function getFormattedBookList(conn, m, from) {
   try {
-    const localBooks = await Book.find({ available: true });
+    const localBooks = await Book.find({});
     /*const externalBooksResponse = await axios.get('[EXTERNAL_API_URL]');
     const externalBooks = externalBooksResponse.data;*/
     const allBooks = [...localBooks];//, ...externalBooks];
