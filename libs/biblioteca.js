@@ -65,7 +65,7 @@ const sortedBooks = filteredBooks.sort((a, b) => {
       return a.title.localeCompare(b.title);
     });
     const groupedBooks = _.groupBy(sortedBooks, (book) => book.genre || 'Sin género');
-
+    
     const formattedList = Object.entries(groupedBooks).reduce((acc, [genre, books]) => {
       if (genre === 'Sin género') {
         acc.push('\n* Libros sin género definido:');
@@ -73,7 +73,8 @@ const sortedBooks = filteredBooks.sort((a, b) => {
         acc.push(`*Lista de libros:*\n Género: ${genre}`);
       }
       books.forEach((book) => {
-        acc.push(`* ${book.title}`);
+       const title = book.title
+         acc.push(`* ${title.join('\n')}`);
       });
       return acc;
     }, []);
