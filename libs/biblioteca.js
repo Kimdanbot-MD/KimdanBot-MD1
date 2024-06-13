@@ -46,7 +46,7 @@ async function getFormattedBookList(conn, m, from, useExternal = false) {
   try {
     const localBooks = await Book.find({});
     let allBooks = localBooks;
-    if (useExternal = true) {
+    if (useExternal = false) {
       try {
         const externalBooksResponse = await axios.get('[EXTERNAL_API_URL]');
         const externalBooks = externalBooksResponse.data;
