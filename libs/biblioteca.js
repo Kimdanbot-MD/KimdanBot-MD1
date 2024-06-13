@@ -47,7 +47,7 @@ async function getFormattedBookList(conn, m, from) {
     const localBooks = await Book.find({});
     /*const externalBooksResponse = await axios.get('[EXTERNAL_API_URL]');
     const externalBooks = externalBooksResponse.data;*/
-    const allBooks = [...localBooks];//, ...externalBooks];
+    const allBooks = localBooks; //[...localBooks, ...externalBooks];
     const filteredBooks = allBooks.filter((book) => book.available);
     if (!filteredBooks.length) return m.reply('No hay libros disponibles.');
     const sortedBooks = filteredBooks.sort((a, b) => {
