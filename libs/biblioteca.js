@@ -42,32 +42,34 @@ const bookSchema = new Schema({
 const Book = mongoose.model('Kim.Libros', bookSchema);
 
 // Function lista de libros 
-async function getFormattedBookList(conn, m, from) {
+async function getFormattedBookList(conn, m, from, useExternal = false) {
   try {
     const localBooks = await Book.find({});
-    /*const externalBooksResponse = await axios.get('[EXTERNAL_API_URL]');
-    const externalBooks = externalBooksResponse.data;*/
-    const allBooks = localBooks; //[...localBooks, ...externalBooks];
+    let allBooks = localBooks;
+    if (useExternal) {
+      const externalBooksResponse = await axios.get('[EXTERNAL_API_URL]');
+      const externalBooks = externalBooksResponse.data;
+      allBooks = [...localBooks, ...externalBooks];
+    }
     const filteredBooks = allBooks.filter((book) => book.available);
-    if (allBooks.length === 0) return m.reply('No hay libros disponibles.');
+    if (!filteredBooks.length) return m.reply('No hay libros disponibles.');
     const sortedBooks = filteredBooks.sort((a, b) => {
-      const genreComparison = a.genre?.localeCompare(b.genre) || 1; 
+      const genreComparison = a.genre?.localeCompare(b.genre) || 1;
       if (genreComparison !== 0) return genreComparison;
       return a.title.localeCompare(b.title);
     });
-const groupedBooks = _.groupBy(sortedBooks, (book) => book.genre ? book.genre : 'Sin género');
-
-const formattedList = Object.entries(groupedBooks).reduce((acc, [genre, books]) => {
-  if (genre === 0 || 'Sin género') {
-    acc.push('\n* Libros sin género definido:');
-  } else {
-    acc.push(`\n* Lista de libros\n* Genero: ${genre}`);
-  }
-  books.forEach((book) => {
-    acc.push(`  - **${book.title}**`);
-  });
-  return acc;
-}, []);
+    const groupedBooks = _.groupBy(sortedBooks, (book) => book.genre ? book.genre : 'Sin género');
+    const formattedList = Object.entries(groupedBooks).reduce((acc, [genre, books]) => {
+      if (genre === 'Sin género') {
+        acc.push('\n* Libros sin género definido:');
+      } else {
+        acc.push(`\n* Lista de libros\n* Género: ${genre}`);
+      }
+      books.forEach((book) => {
+        acc.push(`  - **${book.title}**`);
+      });
+      return acc;
+    }, []);
     await conn.sendMessage(m.chat, { text: formattedList.join('\n') }, { quoted: m });
   } catch (error) {
     console.error(error);
