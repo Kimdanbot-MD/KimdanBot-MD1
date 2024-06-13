@@ -42,11 +42,11 @@ const bookSchema = new Schema({
 const Book = mongoose.model('Kim.Libros', bookSchema);
 
 // Function lista de libros 
-async function getFormattedBookList(conn, m, from) {
+async function getFormattedBookList(conn, m, from, useExternal = false) {
   try {
-    const localBooks = await Book.find({});
+    const localBooks = await Book.find({available});
     let allBooks = localBooks;
-    if (useExternal = false) {
+    if (useExternal) {
       try {
         const externalBooksResponse = await axios.get('https://api.zioo.space/download/books/data');
         const externalBooks = externalBooksResponse.data;
@@ -55,7 +55,7 @@ async function getFormattedBookList(conn, m, from) {
         console.error('Error fetching external books:', error);
           return m.reply('Hubo un error al obtener libros de una fuente externa.');
       }}
-const filteredBooks = allBooks.filter((book) => Book.find({}));
+const filteredBooks = allBooks.filter((book) => Book.find({available}));
 if (filteredBooks.length === 0) {
       return m.reply('No hay libros disponibles.');
     }
@@ -73,13 +73,11 @@ const sortedBooks = filteredBooks.sort((a, b) => {
         acc.push(`*Lista de libros:*\n Género: ${genre}`);
       }
       books.forEach((book) => {
-       const t = book.title
-         const title = t.join('\n')
-         acc.push(`* ${title}`);
+       acc.push(`* ${book.title}`);
       });
       return acc;
     }, []);
-await conn.sendMessage(m.chat, { text: formattedList}, { quoted: m });
+await conn.sendMessage(m.chat, { text: formattedList.join('\n')}, { quoted: m });
   } catch (error) {
     console.error('Error obtaining book list:', error);
     return m.reply('Error al obtener la lista de libros.');
