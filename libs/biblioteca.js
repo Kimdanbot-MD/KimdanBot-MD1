@@ -52,7 +52,7 @@ async function getFormattedBookList(conn, m, from, useExternal = false) {
       allBooks = [...localBooks, ...externalBooks];
     }
     const filteredBooks = allBooks.filter((book) => book.available);
-    if (filteredBooks.length === 0) return m.reply('No hay libros disponibles.');
+    if (allBooks.length === 0) return m.reply('No hay libros disponibles.');
     const sortedBooks = filteredBooks.sort((a, b) => {
       const genreComparison = a.genre?.localeCompare(b.genre) || 1;
       if (genreComparison !== 0) return genreComparison;
