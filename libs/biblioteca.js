@@ -204,7 +204,7 @@ async function addBook(body, text, conn, m, from) {
     m.reply('Error al agregar el libro. Intente nuevamente.');
   }}
 function isValidMediafireLink(linkString) {
-  const mediafireRegex = /https?:\/\/(www\.)?mediafire\.com\/file\/(.*)/;
+  const mediafireRegex = /https?:\/\/(www\.)?mediafire\.com\/file\/(.*?)\.pdf\/file/;
   return mediafireRegex.test(linkString);
 }
 
