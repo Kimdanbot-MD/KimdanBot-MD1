@@ -70,7 +70,7 @@ const sortedBooks = filteredBooks.sort((a, b) => {
       if (genre === 'Sin género') {
         acc.push('\n* Libros sin género definido:');
       } else {
-        acc.push(`\n*Lista de libros*\n Género: ${genre}`);
+        acc.push(`*Lista de libros:*\n Género: ${genre}`);
       }
       books.forEach((book) => {
         acc.push(`* ${book.title}`);
