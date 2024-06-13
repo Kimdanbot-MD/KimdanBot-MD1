@@ -44,7 +44,7 @@ const Book = mongoose.model('Kim.Libros', bookSchema);
 // Function lista de libros 
 async function getFormattedBookList(conn, m, from, useExternal = false) {
   try {
-    const localBooks = await Book.find({available});
+    const localBooks = await Book.find({});
     let allBooks = localBooks;
     if (useExternal) {
       try {
@@ -55,7 +55,7 @@ async function getFormattedBookList(conn, m, from, useExternal = false) {
         console.error('Error fetching external books:', error);
           return m.reply('Hubo un error al obtener libros de una fuente externa.');
       }}
-const filteredBooks = allBooks.filter((book) => Book.find({available}));
+const filteredBooks = allBooks.filter((book) => Book.find({}));
 if (filteredBooks.length === 0) {
       return m.reply('No hay libros disponibles.');
     }
