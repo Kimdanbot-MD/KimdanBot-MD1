@@ -47,18 +47,25 @@ async function getFormattedBookList(conn, m, from, useExternal = false) {
     const localBooks = await Book.find({});
     let allBooks = localBooks;
     if (useExternal) {
-      const externalBooksResponse = await axios.get('[EXTERNAL_API_URL]');
-      const externalBooks = externalBooksResponse.data;
-      allBooks = [...localBooks, ...externalBooks];
+      try {
+        const externalBooksResponse = await axios.get('[EXTERNAL_API_URL]');
+        const externalBooks = externalBooksResponse.data;
+        allBooks = [...localBooks, ...externalBooks];
+      } catch (error) {
+        console.error('Error fetching external books:', error);
+          return m.reply('Hubo un error al obtener libros de una fuente externa.');
+      }}
+const filteredBooks = allBooks.filter((book) => book.available);
+if (filteredBooks.length === 0) {
+      return m.reply('No hay libros disponibles.');
     }
-    const filteredBooks = allBooks.filter((book) => book.available);
-    if (allBooks.length === 0) return m.reply('No hay libros disponibles.');
-    const sortedBooks = filteredBooks.sort((a, b) => {
-      const genreComparison = a.genre?.localeCompare(b.genre) || 1;
+const sortedBooks = filteredBooks.sort((a, b) => {
+      const genreComparison = (a.genre?.localeCompare(b.genre) || 1);
       if (genreComparison !== 0) return genreComparison;
       return a.title.localeCompare(b.title);
     });
-    const groupedBooks = _.groupBy(sortedBooks, (book) => book.genre ? book.genre : 'Sin género');
+    const groupedBooks = _.groupBy(sortedBooks, (book) => book.genre || 'Sin género');
+
     const formattedList = Object.entries(groupedBooks).reduce((acc, [genre, books]) => {
       if (genre === 'Sin género') {
         acc.push('\n* Libros sin género definido:');
@@ -66,15 +73,16 @@ async function getFormattedBookList(conn, m, from, useExternal = false) {
         acc.push(`\n* Lista de libros\n* Género: ${genre}`);
       }
       books.forEach((book) => {
-        acc.push(`  - **${book.title}**`);
+        acc.push(` - **${book.title}**`);
       });
       return acc;
     }, []);
-    await conn.sendMessage(m.chat, { text: formattedList.join('\n') }, { quoted: m });
+await conn.sendMessage(m.chat, { text: formattedList.join('\n') }, { quoted: m });
   } catch (error) {
-    console.error(error);
+    console.error('Error obtaining book list:', error);
     return m.reply('Error al obtener la lista de libros.');
-  }}
+  }
+}
 function sortBooksByPart(books) {
   return books.sort((a, b) => {
     const partA = extractBookPart(a.title);
