@@ -67,7 +67,7 @@ const sortedBooks = filteredBooks.sort((a, b) => {
     const groupedBooks = _.groupBy(sortedBooks, (book) => book.genre || 'Sin género');
     const formattedList = [];
     for (const [genre, books] of Object.entries(groupedBooks)) {
-      formattedList.push(`*Lista de libros:*\n* Género: ${genre}`);
+      formattedList.push(`\n*Género:* ${genre}`);
       books.sort((a, b) => {
         const titleComparison = a.title.localeCompare(b.title);
         if (titleComparison !== 0) return titleComparison;
@@ -78,7 +78,7 @@ const sortedBooks = filteredBooks.sort((a, b) => {
       }).forEach((book) => {
         formattedList.push(`* ${book.title}`);
       })}
-    await conn.sendMessage(m.chat, { text: formattedList.join('\n') }, { quoted: m });
+    await conn.sendMessage(m.chat, { text: "`LISTA DE LIBROS`" + formattedList.join('\n') }, { quoted: m });
   } catch (error) {
     console.error('Error obtaining book list:', error);
     return m.reply('Error al obtener la lista de libros.');
