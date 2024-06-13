@@ -167,24 +167,19 @@ function shouldSortResults() {
 async function addBook(body, text, conn, m, from) {
   const sanitizedBody = body.replace(/[^a-zA-Z0-9\s:;\.\-_\/]+/g, '');
   const sanitizedBodyLines = sanitizedBody.split('\n');
-
-  // Extract information from specific lines
-  const titleLine = sanitizedBodyLines.find((line) => line.startsWith('Título:'));
-  const linkLine = sanitizedBodyLines.find((line) => line.startsWith('Link:'));
-  const authorLine = sanitizedBodyLines.find((line) => line.startsWith('Autor:'));
-  const genreLine = sanitizedBodyLines.find((line) => line.startsWith('Género:'));
-
-  // Validate missing fields
-  if (!titleLine || !linkLine || !authorLine || !genreLine) {
-    return m.reply('Error: Debe completar todos los campos: título, link, autor, género');
+  const bookInfo = sanitizedBodyLines.map((line) => line.trim());
+  if (bookInfo.length < 3) {
+    return m.reply('Error: Debe proporcionar al menos 3 campos separados por coma (,)');
   }
-
-  // Extract data from lines
-  const title = titleLine.replace('Título: ', '').trim();
-  const link = linkLine.replace('Link: ', '').trim();
-  const author = authorLine.replace('Autor: ', '').trim();
-  const genre = genreLine.replace('Género: ', '').trim();
-  if (!isValidMediafireLink(link)) return m.reply('Error: El enlace debe ser de Mediafire.');
+  const title = bookInfo[0];
+  const link = bookInfo[1];
+  const genre = bookInfo[2];
+  if (!title) return m.reply('Error: El campo "Título" es obligatorio.');
+  if (!link) return m.reply('Error: El campo "Link" es obligatorio.');
+  if (!genre) return m.reply('Error: El campo "Género" es obligatorio.');
+  if (!isValidMediafireLink(link)) {
+    return m.reply('Error: El enlace debe ser de Mediafire.');
+  }
   const existingBooks = await Book.find({
     $or: [
       { title: { $regex: `^${title}$`, $options: 'i' } },
@@ -196,6 +191,7 @@ async function addBook(body, text, conn, m, from) {
     const duplicateLinkMessage = 'El enlace ya existe en la biblioteca.';
     return m.reply(existingBooks.some((book) => book.link === link) ? duplicateLinkMessage : duplicateTitleMessage);
   }
+  const author = bookInfo.length > 3 ? bookInfo[3] : 'NN';
   try {
     const newBook = new Book({
       title,
