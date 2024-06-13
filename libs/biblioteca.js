@@ -11,7 +11,7 @@ const path = require("path")
 const chalk = require("chalk");
 const axios = require('axios')
 const cheerio = require('cheerio')
-
+const _ = require('lodash');
 const { Schema } = mongoose;
 
 const bookSchema = new Schema({
@@ -55,18 +55,19 @@ async function getFormattedBookList(conn, m, from) {
       if (genreComparison !== 0) return genreComparison;
       return a.title.localeCompare(b.title);
     });
-    const groupedBooks = _.groupBy(sortedBooks, (book) => book.genre || 'Sin género');
-    const formattedList = Object.entries(groupedBooks).reduce((acc, [genre, books]) => {
-      if (genre === 'Sin género') {
-        acc.push('\n* Libros sin género definido:');
-      } else {
-        acc.push(`\n* Lista de libros\n* Genero: ${genre}`);
-      }
-      books.forEach((book) => {
-        acc.push(`  - **${book.title}**`);
-      });
-      return acc;
-    }, []);
+const groupedBooks = _.groupBy(sortedBooks, (book) => book.genre ? book.genre : 'Sin género');
+
+const formattedList = Object.entries(groupedBooks).reduce((acc, [genre, books]) => {
+  if (genre === 0 || 'Sin género') {
+    acc.push('\n* Libros sin género definido:');
+  } else {
+    acc.push(`\n* Lista de libros\n* Genero: ${genre}`);
+  }
+  books.forEach((book) => {
+    acc.push(`  - **${book.title}**`);
+  });
+  return acc;
+}, []);
     await conn.sendMessage(m.chat, { text: formattedList.join('\n') }, { quoted: m });
   } catch (error) {
     console.error(error);
