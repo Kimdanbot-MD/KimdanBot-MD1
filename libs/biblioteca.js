@@ -33,9 +33,10 @@ const bookSchema = new Schema({
     type: String,
     trim: true
   },
-  isAvailable: {
-    type: Boolean,
-    default: true
+  _id: {
+    type: ObjectId,
+    required: true,
+    trim: true
   }
 }, { collection: 'Libros', versionKey: false });
 
@@ -220,8 +221,9 @@ async function updateBookAvailability(bookId, isAvailable) {
 }
 
 // Function eliminar libro
-async function deleteBook(bookId) {
-  try {
+async function deleteBook(conn, m, text, from) {
+  const bookId = book._id 
+    try {
     await Book.findByIdAndDelete(bookId);
     return true;
   } catch (error) {
