@@ -168,9 +168,7 @@ async function addBook(body, text, conn, m, from) {
   const sanitizedBody = body.replace(/[^a-zA-Z0-9\s:;\.\-_\/]+/g, '');
   const sanitizedBodyLines = sanitizedBody.split('\n');
   const bookInfo = sanitizedBodyLines.map((line) => line.trim());
-  if (bookInfo.length < 3) {
-    return m.reply('Error: Debe proporcionar al menos 3 campos separados por coma (,)');
-  }
+  if (bookInfo.length < 3) return m.reply('Error: Debe proporcionar al menos 3 campos separados por coma (,)');
   const title = bookInfo[0];
   const link = bookInfo[1];
   const genre = bookInfo[2];
