@@ -42,13 +42,13 @@ const bookSchema = new Schema({
 const Book = mongoose.model('Kim.Libros', bookSchema);
 
 // Function lista de libros 
-async function getFormattedBookList(conn, m, from, useExternal = false) {
+async function getFormattedBookList(conn, m, from) {
   try {
     const localBooks = await Book.find({});
     let allBooks = localBooks;
-    if (useExternal = false) {
+    if (useExternal = true) {
       try {
-        const externalBooksResponse = await axios.get('[EXTERNAL_API_URL]');
+        const externalBooksResponse = await axios.get('https://api.zioo.space/download/books/data');
         const externalBooks = externalBooksResponse.data;
         allBooks = [...localBooks, ...externalBooks];
       } catch (error) {
