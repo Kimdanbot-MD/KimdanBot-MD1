@@ -231,7 +231,7 @@ async function deleteBook(conn, m, text) {
 if (!deletedBook) {
       return m.reply("Libro no encontrado con la ID proporcionada.");
     }
-     triggerBookDeletedEvent(deletedBook);
+     //triggerBookDeletedEvent(deletedBook);
     return m.reply("Libro eliminado exitosamente.");
   } catch (error) {
     if (error.name === 'MongoError' && error.code === 11000) {
