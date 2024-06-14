@@ -1,5 +1,5 @@
 require('../kim.js')
-const mongoose = require('mongoose')
+const { mongoose, ObjectId } = require('mongoose')
 const uri = "mongodb+srv://kimdan:n94FpKdCpRxU2K4W@kim.gcodxfl.mongodb.net/Kim?retryWrites=true&w=majority"
 mongoose.connect(uri)
 const db = mongoose.connection;
@@ -12,7 +12,7 @@ const chalk = require("chalk");
 const axios = require('axios')
 const cheerio = require('cheerio')
 const _ = require('lodash');
-const { Schema, ObjectId } = mongoose;
+const { Schema } = mongoose;
 
 const bookSchema = new Schema({
   title: {
