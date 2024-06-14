@@ -169,12 +169,14 @@ async function addBook(body, text, conn, m, from) {
   const sanitizedBody = body.replace(/[^a-zA-Z0-9\s:;\.\-_\/+\u00C0-\u017F]+/g, '');
   const sanitizedBodyLines = sanitizedBody.split('\n');
   const bookInfo = sanitizedBodyLines.map((line) => line.trim());
-  if (!text) return m.reply('Error: Debe proporcionar al menos 3 campos separados por coma (,)');
+  if (!text) return m.reply('Error: Debe proporcionar al menos 4 campos separados por coma (,)');
   const title = bookInfo[1];
   const link = bookInfo[2];
-  const genre = bookInfo[3];
+  const author = bookInfo[3];
+  const genre = bookInfo[4];
   if (!title) return m.reply('Error: El campo "Título" es obligatorio.');
   if (!link) return m.reply('Error: El campo "Link" es obligatorio.');
+  if (!author) return m.reply('Error: El campo "autor" es obligatorio si no sabes el nombre pon NN.');
   if (!genre) return m.reply('Error: El campo "Género" es obligatorio.');
   if (!isValidMediafireLink(link)) {
     return m.reply('Error: El enlace debe ser de Mediafire.');
@@ -190,7 +192,7 @@ async function addBook(body, text, conn, m, from) {
     const duplicateLinkMessage = 'El enlace ya existe en la biblioteca.';
     return m.reply(existingBooks.some((book) => book.link === link) ? duplicateLinkMessage : duplicateTitleMessage);
   }
-  const author = bookInfo.length > 3 ? bookInfo[3] : 'NN';
+  if (bookInfo.length > 4) return m.reply('solo puedes definir: titulo, link, autor y genero') 
   try {
     const newBook = new Book({
       title,
@@ -231,7 +233,6 @@ async function deleteBook(conn, m, text) {
 if (!deletedBook) {
       return m.reply("Libro no encontrado con la ID proporcionada.");
     }
-     //triggerBookDeletedEvent(deletedBook);
     return m.reply("Libro eliminado exitosamente.");
   } catch (error) {
     if (error.name === 'MongoError' && error.code === 11000) {
