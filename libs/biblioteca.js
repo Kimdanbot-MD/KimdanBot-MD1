@@ -221,7 +221,7 @@ async function updateBookAvailability(bookId, isAvailable) {
 
 // Function eliminar libro
 async function deleteBook(conn, m, text) {
-  const bookId = extractBookIdFromText(text);
+  const bookId = text;
   if (!isValidObjectId(bookId)) {
     return m.reply("ID del libro no válida. Debe ser un ObjectId válido.");
   }
