@@ -107,7 +107,7 @@ async function searchBooks(text, conn, m, from) {
   const searchOptions = { limit: 100 };
   let books = [];
   try {
-    const internalBooks = await Book.find(searchCriteria, searchOptions);
+    const internalBooks = await Book.find(searchCriteria);
     books = books.concat(internalBooks);
     if (shouldUseExternalAPI()) {
       const externalBooks = await fetchExternalBooks(trimmedQuery);
