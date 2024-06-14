@@ -33,10 +33,9 @@ const bookSchema = new Schema({
     type: String,
     trim: true
   },
-  _id: {
-    type: ObjectId,
-    required: true,
-    trim: true
+  isAvailable: {
+    type: Boolean,
+    default: true
   }
 }, { collection: 'Libros', versionKey: false });
 
