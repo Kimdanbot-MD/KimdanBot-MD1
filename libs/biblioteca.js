@@ -12,7 +12,7 @@ const chalk = require("chalk");
 const axios = require('axios')
 const cheerio = require('cheerio')
 const _ = require('lodash');
-const { Schema } = mongoose;
+const { Schema, ObjectId } = mongoose;
 
 const bookSchema = new Schema({
   title: {
