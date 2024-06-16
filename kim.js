@@ -613,7 +613,7 @@ switch (command) {
 
 	case 'alegay': {
 		const channelJid = "120363200204060894@newsletter";
-  await conn.groupMetadataUpdate({ jId: channelJid })
+  await conn.groupMetadata({ jId: channelJid })
     .then(isAlreadyJoined => {
       if (isAlreadyJoined) return reply('Ya está unido al canal:', channelJid);
       return client.joinGroup(channelJid)})
