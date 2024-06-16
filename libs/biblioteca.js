@@ -224,7 +224,7 @@ function isValidMediafireLink(linkString) {
 
   // Funcion actualizar titulo
 async function updateBookTitle(text, conn, m, from) {
-  const sanitizedBody = body.replace(/[^\w\s:;\.\-_\/+\p{Latin}]+/g, '');
+  const sanitizedBody = text.replace(/[^\w\s:;\.\-_\/+\p{Latin}]+/g, '');
   const sanitizedBodyLines = sanitizedBody.split('\n');
 const b = sanitizedBodyLines.map((line) => line.trim().split(' ').join(' '));
  const bookId = b[1]
