@@ -1,4 +1,4 @@
-require('../kim.js')
+ require('../kim.js')
 const { mongoose } = require('mongoose')
 const uri = "mongodb+srv://kimdan:n94FpKdCpRxU2K4W@kim.gcodxfl.mongodb.net/Kim?retryWrites=true&w=majority"
 mongoose.connect(uri)
@@ -222,13 +222,12 @@ function isValidMediafireLink(linkString) {
   return mediafireRegex.test(linkString);
 }
 
-
   // Funcion actualizar titulo
 async function updateBookTitle(text, conn, m, from) {
   if (text) return m.reply('Ejemplo:\n\nactitle 6217c634678a123456789012 El Señor de los Anillos: La Comunidad del Anillo')
-  const bookId = text.split(" ")[1]; // Extrae el ID del libro del texto del mensaje
-  const newTitle = text.split(" ").slice(2).join(" "); // Extrae el nuevo título del texto del mensaje
-  if (!ObjectId.isValid(bookId)) return m.reply("ID del libro no válida. Debe ser un ObjectId válido.");
+   const [bookId, ...newTitleWords] = text.split(' ');
+  const newTitle = newTitleWords.join(' ');
+if (!mongoose.Types.ObjectId.isValid(bookId)) return m.reply("ID del libro no válida. Debe ser un ObjectId válido.");
   if (!newTitle) return m.reply("Error: Debe proporcionar un nuevo título.");
   try {
     const existingBook = await Book.findById(bookId);
