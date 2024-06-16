@@ -170,10 +170,10 @@ async function addBook(body, text, conn, m, from) {
    const sanitizedBody = body.replace(/[^a-zA-Z0-9\s:;\.\-_\/+\u00C0-\u017F]+/g, '');
   const sanitizedBodyLines = sanitizedBody.split('\n');
   const bookInfo = sanitizedBodyLines.map((line) => line.trim());
-  const title = bookInfo[1]
-  const link = bookInfo[2]
-  const author = bookInfo[3]
-  const genre = bookInfo[4]
+  const title = bookInfo[1];
+  const link = bookInfo[2];
+  const author = bookInfo[3];
+  const genre = bookInfo[4];
   if (!title) return m.reply('Error: El campo "Título" es obligatorio.');
   if (!link) return m.reply('Error: El campo "Link" es obligatorio.');
   if (!author) return m.reply('Error: El campo "autor" es obligatorio si no sabes el nombre pon NN.');
