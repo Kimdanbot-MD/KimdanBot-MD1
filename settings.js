@@ -11,7 +11,16 @@ global.owner = [
 ["573148243189"],
 ["5214434703586", "Zam", true],
 ["5217294888993"],
-["51968374620", "Ale", true]]
+["51968374620", "Ale", true],
+["522221496388", " suro", true]]
+
+global.vip = [
+owner 
+]
+
+global.aport = [
+  vip
+]
 
 // ═════════════𓊈『 IDIOMAS 』𓊉═════════════ 
 global.place = 'America/Bogota' // Aquí puede encontrar su ubicación https://momentjs.com/timezone/
