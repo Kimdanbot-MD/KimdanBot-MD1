@@ -166,13 +166,11 @@ function shouldSortResults() {
 
 // Function agregar libro
 async function addBook(body, text, conn, m, from) {
-  const sanitizedBodyLines = body.replace('\n');
-  const bookInfo = sanitizedBodyLines.map((line) => line.trim());
-  if (!text) return m.reply('Error: Debe proporcionar al menos 4 campos separados por renglon');
-  const title = bookInfo[1];
-  const link = bookInfo[2];
-  const author = bookInfo[3];
-  const genre = bookInfo[4];
+   if (!text) return m.reply('Error: Debe proporcionar al menos 4 campos separados por renglon');
+  const title = text.split('\n').slice(1).join('\n');
+  const link = text.split('\n').slice(2).join('\n');
+  const author = text.split('\n').slice(3).join('\n');
+  const genre = text.split('\n').slice(4).join('\n');
   if (!title) return m.reply('Error: El campo "Título" es obligatorio.');
   if (!link) return m.reply('Error: El campo "Link" es obligatorio.');
   if (!author) return m.reply('Error: El campo "autor" es obligatorio si no sabes el nombre pon NN.');
