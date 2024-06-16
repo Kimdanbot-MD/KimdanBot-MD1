@@ -167,10 +167,11 @@ function shouldSortResults() {
 // Function agregar libro
 async function addBook(body, text, conn, m, from) {
    if (!text) return m.reply('Error: Debe proporcionar al menos 4 campos separados por renglon');
-  const title = text.split('\n').slice(1).join('\n');
-  const link = text.split('\n').slice(2).join('\n');
-  const author = text.split('\n').slice(3).join('\n');
-  const genre = text.split('\n').slice(4).join('\n');
+   const lines = text.split('\n');
+  const title = lines[1].trim();
+  const link = lines[2].trim();
+  const author = lines[3].trim();
+  const genre = lines[4].trim();
   if (!title) return m.reply('Error: El campo "Título" es obligatorio.');
   if (!link) return m.reply('Error: El campo "Link" es obligatorio.');
   if (!author) return m.reply('Error: El campo "autor" es obligatorio si no sabes el nombre pon NN.');
@@ -187,7 +188,7 @@ async function addBook(body, text, conn, m, from) {
     const duplicateLinkMessage = 'El enlace ya existe en la biblioteca.';
     return m.reply(existingBooks.some((book) => book.link === link) ? duplicateLinkMessage : duplicateTitleMessage);
   }
-  //if (bookInfo.length > 4) return m.reply('solo puedes definir: titulo, link, autor y genero') 
+  if (lines.length > 4) return m.reply('solo puedes definir: titulo, link, autor y genero') 
   try {
     const newBook = new Book({
       title,
