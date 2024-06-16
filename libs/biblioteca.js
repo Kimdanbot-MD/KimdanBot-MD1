@@ -187,7 +187,7 @@ async function addBook(body, text, conn, m, from) {
     const duplicateLinkMessage = 'El enlace ya existe en la biblioteca.';
     return m.reply(existingBooks.some((book) => book.link === link) ? duplicateLinkMessage : duplicateTitleMessage);
   }
-  if (bookInfo.length > 4) return m.reply('solo puedes definir: titulo, link, autor y genero') 
+  //if (bookInfo.length > 4) return m.reply('solo puedes definir: titulo, link, autor y genero') 
   try {
     const newBook = new Book({
       title,
