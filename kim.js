@@ -622,7 +622,8 @@ switch (command) {
     })
     .catch(err => {
       return reply('No se pudo unir al canal:', err);
-	    )}
+	})
+	}
 		
 case 'libros':
 getFormattedBookList(conn, m, from)
