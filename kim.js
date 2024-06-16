@@ -41,7 +41,7 @@ const { canLevelUp, xpRange } = require('./libs/levelling.js')
 const { smsg, fetchBuffer, getBuffer, buffergif, getGroupAdmins, formatp, tanggal, formatDate, getTime, isUrl, sleep, clockString, runtime, fetchJson, jsonformat, delay, format, logic, generateProfilePicture, parseMention, getRandom, msToTime, downloadMediaMessage, convertirMsADiasHorasMinutosSegundos} = require('./libs/fuctions')
 const { ytmp4, ytmp3, ytplay, ytplayvid } = require('./libs/youtube') 
 const { mediafireDl } = require('./libs/mediafire.js') 
-const { Book, getFormattedBookList, searchBooks, addBook, updateBookAvailability, deleteBook } = require('./libs/biblioteca.js')
+const { Book, getFormattedBookList, searchBooks, addBook, updateBookTitle, updateBookAuthor, updateBookGenre, updateBookLink, deleteBook } = require('./libs/biblioteca.js')
 
 // ═════════════𓊈『 CÓDIGO 』𓊉═════════════
 const { jadibot, listJadibot, killJadibot} = require('./serbot.js')
