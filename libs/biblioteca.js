@@ -242,9 +242,11 @@ if (!mongoose.Types.ObjectId.isValid(bookId)) return m.reply("ID del libro no v�
 
 // Funcion actualizar autor
 async function updateBookAuthor(text, conn, m, from) {
-  if (text) return m.reply('Ejemplo:\n\nactitle 6217c634678a123456789012 Jhon Ronald Reuel Tolkien')
-  const bookId = text.split(" ")[1]; // Extrae el ID del libro del texto del mensaje
-  const newAuthor = text.split(" ").slice(2).join(" "); // Extrae el nuevo autor del texto del mensaje
+  const sanitizedBody = text.replace(/[^\w\s:;\.\-_\/+\p{Latin}]+/g, '');
+  const sanitizedBodyLines = sanitizedBody.split('\n');
+const b = sanitizedBodyLines.map((line) => line.trim().split(' ').join(' '));
+ const bookId = b[1]
+  const newAuthor = b[2]
   if (!ObjectId.isValid(bookId)) return m.reply("ID del libro no válida. Debe ser un ObjectId válido.");
 if (!newAuthor) return m.reply('Error: Debe proporcionar un nuevo autor.');
   try {
@@ -258,9 +260,11 @@ if (!newAuthor) return m.reply('Error: Debe proporcionar un nuevo autor.');
 
 // Funcion actualizar genero
 async function updateBookGenre(text, conn, m, from) {
-  if (text) return m.reply('Ejemplo:\n\nactitle 6217c634678a123456789012 Acción')
-  const bookId = text.split(" ")[1]; // Extrae el ID del libro del texto del mensaje
-  const newGenre = text.split(" ").slice(2).join(" "); // Extrae el nuevo genero del texto del mensaje
+const sanitizedBody = text.replace(/[^\w\s:;\.\-_\/+\p{Latin}]+/g, '');
+  const sanitizedBodyLines = sanitizedBody.split('\n');
+const b = sanitizedBodyLines.map((line) => line.trim().split(' ').join(' '));
+ const bookId = b[1]
+  const newGenre = b[2]
   if (!ObjectId.isValid(bookId)) return m.reply("ID del libro no válida. Debe ser un ObjectId válido.");
 if (!newGenre) return m.reply('Error: Debe proporcionar un nuevo género.');
   try {
@@ -274,9 +278,11 @@ if (!newGenre) return m.reply('Error: Debe proporcionar un nuevo género.');
 
 // Funcion actualizar link
 async function updateBookLink(text, conn, m, from) {
- if (text) return m.reply('Ejemplo:\n\nactitle 6217c634678a123456789012 link')
-  const bookId = text.split(" ")[1]; // Extrae el ID del libro del texto del mensaje
-  const newLink = text.split(" ").slice(2).join(" "); // Extrae el nuevo link del texto del mensaje
+const sanitizedBody = text.replace(/[^\w\s:;\.\-_\/+\p{Latin}]+/g, '');
+  const sanitizedBodyLines = sanitizedBody.split('\n');
+const b = sanitizedBodyLines.map((line) => line.trim().split(' ').join(' '));
+ const bookId = b[1]
+  const newLink = b[2]
   if (!ObjectId.isValid(bookId)) return m.reply("ID del libro no válida. Debe ser un ObjectId válido.");
 if (!newLink) return  m.reply('Error: Debe proporcionar un nuevo enlace.');
   if (!isValidMediafireLink(newLink)) return m.reply('Error: El enlace debe ser de Mediafire.');
