@@ -224,13 +224,11 @@ function isValidMediafireLink(linkString) {
 
   // Funcion actualizar titulo
 async function updateBookTitle(text, conn, m, from) {
-  /*const sanitizedBody = body.replace(/[^\w\s:;\.\-_\/+\p{Latin}]+/g, '');
-  const sanitizedBodyLines = sanitizedBody.split(' ');
+  const sanitizedBody = body.replace(/[^\w\s:;\.\-_\/+\p{Latin}]+/g, '');
+  const sanitizedBodyLines = sanitizedBody.split('\n');
 const b = sanitizedBodyLines.map((line) => line.trim().split(' ').join(' '));
  const bookId = b[1]
-  const newTitle = b[2]*/
- const bookId = text.split(" ")[1]; // Extrae el ID del libro del texto del mensaje
- const newTitle = text.split(" ").slice(2).join(" "); // Extrae el nuevo título del texto del mensaje
+  const newTitle = b[2]
 if (!mongoose.Types.ObjectId.isValid(bookId)) return m.reply("ID del libro no válida. Debe ser un ObjectId válido.");
   if (!newTitle) return m.reply("Error: Debe proporcionar un nuevo título.");
   try {
