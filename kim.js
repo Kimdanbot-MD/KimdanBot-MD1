@@ -617,9 +617,12 @@ switch (command) {
     .then(isAlreadyJoined => {
       if (isAlreadyJoined) return reply('Ya está unido al canal:', channelJid);
       return client.joinGroup(channelJid)})
-    .then(() => return reply('Se unió exitosamente al canal:', channelJid);
-    )
-    .catch(err => return reply('No se pudo unir al canal:', err))}
+    .then(() => {
+      return reply('Se unió exitosamente al canal:', channelJid);
+    })
+    .catch(err => {
+      return reply('No se pudo unir al canal:', err);
+	    )}
 		
 case 'libros':
 getFormattedBookList(conn, m, from)
