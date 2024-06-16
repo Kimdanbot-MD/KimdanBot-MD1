@@ -166,8 +166,7 @@ function shouldSortResults() {
 
 // Function agregar libro
 async function addBook(body, text, conn, m, from) {
-  const sanitizedBody = body.replace(/[^a-zA-Z0-9\s:;\.\-_\/+\u00C0-\u017F]+/g '');
-  const sanitizedBodyLines = sanitizedBody.split('\n');
+  const sanitizedBodyLines = body.replace('\n');
   const bookInfo = sanitizedBodyLines.map((line) => line.trim());
   if (!text) return m.reply('Error: Debe proporcionar al menos 4 campos separados por renglon');
   const title = bookInfo[1];
