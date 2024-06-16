@@ -1501,7 +1501,7 @@ function isNumber(x) {return !isNaN(x)}
 // ═════════════𓊈『 OWNER 』𓊉═════════════
 default:
 if (budy.startsWith('>')) {
-if (!isCreator) return reply(mess.owner)
+if (!owner) return reply(mess.owner)
 try {
 return reply(JSON.stringify(eval(budy.slice(2)), null, '\t'))
 } catch (e) {
@@ -1509,7 +1509,7 @@ e = String(e)
 reply(e)
 }}
 if (budy.startsWith('=>')) {
-if (!isCreator) return reply(mess.owner)
+if (!owner) return reply(mess.owner)
 try {
 return reply(JSON.stringify(eval(`(async () => { ${budy.slice(3)} })()`), null, '\t'))  
 } catch (e) {
@@ -1517,7 +1517,7 @@ e = String(e)
 reply(e)
 }}
 if (budy.startsWith('$')) {
-if (!isCreator) return reply(mess.owner) 
+if (!owner) return reply(mess.owner) 
 try {
 return reply(String(execSync(budy.slice(2), { encoding: 'utf-8' })))
 } catch (err) { 
