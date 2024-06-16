@@ -167,11 +167,13 @@ function shouldSortResults() {
 // Function agregar libro
 async function addBook(body, text, conn, m, from) {
    if (!text) return m.reply('Error: Debe proporcionar al menos 4 campos separados por renglon');
-   const lines = text.split('\n');
-  const title = lines[1].trim();
-  const link = lines[2].trim();
-  const author = lines[3].trim();
-  const genre = lines[4].trim();
+   const sanitizedBody = body.replace(/[^a-zA-Z0-9\s:;\.\-_\/+\u00C0-\u017F]+/g" " '');
+  const sanitizedBodyLines = sanitizedBody.split('\n');
+  const bookInfo = sanitizedBodyLines.map((line) => line.trim());
+  const title = bookInfo[1].trim();
+  const link = bookInfo[2].trim();
+  const author = bookInfo[3].trim();
+  const genre = bookInfo[4].trim();
   if (!title) return m.reply('Error: El campo "Título" es obligatorio.');
   if (!link) return m.reply('Error: El campo "Link" es obligatorio.');
   if (!author) return m.reply('Error: El campo "autor" es obligatorio si no sabes el nombre pon NN.');
@@ -182,7 +184,7 @@ async function addBook(body, text, conn, m, from) {
       { title: { $regex: `^${title}$`, $options: 'i' } },
       { link: { $regex: `^${link}$`, $options: 'i' } },
     ]});
-  if (existingBooks.length > 0) {
+  if (bookInfo.length > 0) {
     const existingBookTitles = existingBooks.map((book) => book.title);
     const duplicateTitleMessage = `Ya existe(n) libro(s) con título(s) similar(es): ${existingBookTitles.join(', ')}`;
     const duplicateLinkMessage = 'El enlace ya existe en la biblioteca.';
