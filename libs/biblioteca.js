@@ -166,48 +166,62 @@ function shouldSortResults() {
 
 // Function agregar libro
 async function addBook(body, text, conn, m, from) {
-   if (!text) return m.reply('Error: Debe proporcionar al menos 4 campos separados por renglon');
-   const sanitizedBody = body.replace(/[^a-zA-Z0-9\s:;\.\-_\/+\u00C0-\u017F]+/g, '');
+  if (text.split('\n').length < 4) {
+    return m.reply('Error: Debe proporcionar al menos 4 campos separados por renglon');
+  }
+  const sanitizedBody = body.replace(/[^a-zA-Z0-9\s:;\.\-_\/+\u00C0-\u17F]+/g, '');
   const sanitizedBodyLines = sanitizedBody.split('\n');
-  const bookInfo = sanitizedBodyLines.map((line) => line.trim());
-  const title = bookInfo[1];
-  const link = bookInfo[2];
-  const author = bookInfo[3];
-  const genre = bookInfo[4];
-  if (!title) return m.reply('Error: El campo "Título" es obligatorio.');
-  if (!link) return m.reply('Error: El campo "Link" es obligatorio.');
-  if (!author) return m.reply('Error: El campo "autor" es obligatorio si no sabes el nombre pon NN.');
-  if (!genre) return m.reply('Error: El campo "Género" es obligatorio.');
-  if (!isValidMediafireLink(link)) return m.reply('Error: El enlace debe ser de Mediafire.');
+const bookInfo = sanitizedBodyLines.map((line) => line.trim());
+if (!bookInfo[1]) {
+    return m.reply('Error: El campo "Título" es obligatorio.');
+  }
+  if (!bookInfo[2]) {
+    return m.reply('Error: El campo "Link" es obligatorio.');
+  }
+  if (!bookInfo[3]) {
+    return m.reply('Error: El campo "autor" es obligatorio si no sabes el nombre pon NN.');
+  }
+  if (!bookInfo[4]) {
+    return m.reply('Error: El campo "Género" es obligatorio.');
+  }
+  if (!isValidMediafireLink(bookInfo[2])) {
+    return m.reply('Error: El enlace debe ser de Mediafire.');
+  }
   const existingBooks = await Book.find({
     $or: [
-      { title: { $regex: `^${title}$`, $options: 'i' } },
-      { link: { $regex: `^${link}$`, $options: 'i' } },
-    ]});
-  if (bookInfo.length > 0) {
-    const existingBookTitles = existingBooks.map((book) => book.title);
-    const duplicateTitleMessage = `Ya existe(n) libro(s) con título(s) similar(es): ${existingBookTitles.join(', ')}`;
-    const duplicateLinkMessage = 'El enlace ya existe en la biblioteca.';
-    return m.reply(existingBooks.some((book) => book.link === link) ? duplicateLinkMessage : duplicateTitleMessage);
+      { title: { $regex: `^${bookInfo[1]}$`, $options: 'i' } },
+      { link: { $regex: `^${bookInfo[2]}$`, $options: 'i' } },
+    ],
+  });
+  if (existingBooks.length > 0) {
+    const duplicateMessages = [];
+    if (existingBooks.some((book) => book.title.toLowerCase() === bookInfo[1].toLowerCase())) {
+      duplicateMessages.push(`Ya existe(n) libro(s) con título(s) similar(es): ${existingBooks.map((book) => book.title).join(', ')}`);
+    }
+    if (existingBooks.some((book) => book.link === bookInfo[2])) {
+      duplicateMessages.push('El enlace ya existe en la biblioteca.');
+    }
+    return m.reply(duplicateMessages.join('\n'));
   }
-  if (lines.length > 4) return m.reply('solo puedes definir: titulo, link, autor y genero') 
   try {
     const newBook = new Book({
-      title,
-      link,
-      author,
-      genre,
+      title: bookInfo[1],
+      link: bookInfo[2],
+      author: bookInfo[3],
+      genre: bookInfo[4],
     });
     await newBook.save();
-    m.reply(`Se agregó el libro: ${title}`);
+    m.reply(`Se agregó el libro: ${newBook.title}`);
   } catch (error) {
     console.error(error);
     m.reply('Error al agregar el libro. Intente nuevamente.');
   }}
+
 function isValidMediafireLink(linkString) {
   const mediafireRegex = /https?:\/\/(www\.)?mediafire\.com\/file\/(.*?)\.pdf\/file/;
   return mediafireRegex.test(linkString);
 }
+
 
   // Funcion actualizar titulo
 async function updateBookTitle(text, conn, m, from) {
