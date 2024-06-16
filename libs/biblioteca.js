@@ -171,7 +171,7 @@ async function addBook(body, text, conn, m, from) {
   }
   const sanitizedBody = body.replace(/[^\w\s:;\.\-_\/+\p{Latin}]+/g, '');
   const sanitizedBodyLines = sanitizedBody.split('\n');
-const bookInfo = sanitizedBodyLines.map((line) => line.trim());
+const bookInfo = sanitizedBodyLines.map((line) => line.trim().split(' ').join(' '));
 if (!bookInfo[1]) {
     return m.reply('Error: El campo "Título" es obligatorio.');
   }
