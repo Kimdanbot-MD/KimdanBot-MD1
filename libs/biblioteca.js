@@ -166,10 +166,10 @@ function shouldSortResults() {
 
 // Function agregar libro
 async function addBook(body, text, conn, m, from) {
-  const sanitizedBody = body.replace(/[^a-zA-Z0-9\s:;\.\-_\/+\u00C0-\u017F]+/g, '');
+  const sanitizedBody = body.replace(/[^a-zA-Z0-9\s:;\.\-_\/+\u00C0-\u017F]+/g'');
   const sanitizedBodyLines = sanitizedBody.split('\n');
   const bookInfo = sanitizedBodyLines.map((line) => line.trim());
-  if (!text) return m.reply('Error: Debe proporcionar al menos 4 campos separados por coma (,)');
+  if (!text) return m.reply('Error: Debe proporcionar al menos 4 campos separados por renglon');
   const title = bookInfo[1];
   const link = bookInfo[2];
   const author = bookInfo[3];
@@ -178,9 +178,7 @@ async function addBook(body, text, conn, m, from) {
   if (!link) return m.reply('Error: El campo "Link" es obligatorio.');
   if (!author) return m.reply('Error: El campo "autor" es obligatorio si no sabes el nombre pon NN.');
   if (!genre) return m.reply('Error: El campo "Género" es obligatorio.');
-  if (!isValidMediafireLink(link)) {
-    return m.reply('Error: El enlace debe ser de Mediafire.');
-  }
+  if (!isValidMediafireLink(link)) return m.reply('Error: El enlace debe ser de Mediafire.');
   const existingBooks = await Book.find({
     $or: [
       { title: { $regex: `^${title}$`, $options: 'i' } },
@@ -211,15 +209,75 @@ function isValidMediafireLink(linkString) {
   return mediafireRegex.test(linkString);
 }
 
-// Function actualizar 
-async function updateBookAvailability(bookId, isAvailable) {
+  // Funcion actualizar titulo
+async function updateBookTitle(text, conn, m, from) {
+  if (text) return m.reply('Ejemplo:\n\nactitle 6217c634678a123456789012 El Señor de los Anillos: La Comunidad del Anillo')
+  const bookId = text.split(" ")[1]; // Extrae el ID del libro del texto del mensaje
+  const newTitle = text.split(" ").slice(2).join(" "); // Extrae el nuevo título del texto del mensaje
+  if (!ObjectId.isValid(bookId)) return m.reply("ID del libro no válida. Debe ser un ObjectId válido.");
+  if (!newTitle) return m.reply("Error: Debe proporcionar un nuevo título.");
   try {
-    await Book.findByIdAndUpdate(bookId, { isAvailable });
-    return true;
+    const existingBook = await Book.findById(bookId);
+    if (!existingBook) return m.reply("Libro no encontrado con la ID proporcionada.");
+    const updatedBook = await Book.findByIdAndUpdate(bookId, { title: newTitle }, { new: true });
+    m.reply(`Se actualizó el título del libro a: ${updatedBook.title}`);
   } catch (error) {
     console.error(error);
-    return false;
-  }
+    m.reply("Error al actualizar el título del libro.")}}
+
+// Funcion actualizar autor
+async function updateBookAuthor(text, conn, m, from) {
+  if (text) return m.reply('Ejemplo:\n\nactitle 6217c634678a123456789012 Jhon Ronald Reuel Tolkien')
+  const bookId = text.split(" ")[1]; // Extrae el ID del libro del texto del mensaje
+  const newAuthor = text.split(" ").slice(2).join(" "); // Extrae el nuevo autor del texto del mensaje
+  if (!ObjectId.isValid(bookId)) return m.reply("ID del libro no válida. Debe ser un ObjectId válido.");
+if (!newAuthor) return m.reply('Error: Debe proporcionar un nuevo autor.');
+  try {
+    const existingBook = await Book.findById(bookId);
+    if (!existingBook) return  m.reply('Libro no encontrado con la ID proporcionada.');
+    const updatedBook = await Book.findByIdAndUpdate(bookId, { author: newAuthor }, { new: true });
+     m.reply(`Se actualizo el autor del libro a: ${updatedBook.author}`)
+    } catch (error) {
+    console.error(error);
+    m.reply('Error al actualizar el autor del libro.')}}
+
+// Funcion actualizar genero
+async function updateBookGenre(text, conn, m, from) {
+  if (text) return m.reply('Ejemplo:\n\nactitle 6217c634678a123456789012 Acción')
+  const bookId = text.split(" ")[1]; // Extrae el ID del libro del texto del mensaje
+  const newGenre = text.split(" ").slice(2).join(" "); // Extrae el nuevo genero del texto del mensaje
+  if (!ObjectId.isValid(bookId)) return m.reply("ID del libro no válida. Debe ser un ObjectId válido.");
+if (!newGenre) return m.reply('Error: Debe proporcionar un nuevo género.');
+  try {
+    const existingBook = await Book.findById(bookId);
+    if (!existingBook) return m.reply('Libro no encontrado con la ID proporcionada.');
+    const updatedBook = await Book.findByIdAndUpdate(bookId, { genre: newGenre }, { new: true });
+    return m.reply(`Se actualizó el género del libro a: ${updatedBook.genre}`);
+  } catch (error) {
+    console.error(error);
+    return m.reply('Error al actualizar el género del libro.')}}
+
+// Funcion actualizar link
+async function updateBookLink(text, conn, m, from) {
+ if (text) return m.reply('Ejemplo:\n\nactitle 6217c634678a123456789012 link')
+  const bookId = text.split(" ")[1]; // Extrae el ID del libro del texto del mensaje
+  const newLink = text.split(" ").slice(2).join(" "); // Extrae el nuevo link del texto del mensaje
+  if (!ObjectId.isValid(bookId)) return m.reply("ID del libro no válida. Debe ser un ObjectId válido.");
+if (!newLink) return  m.reply('Error: Debe proporcionar un nuevo enlace.');
+  if (!isValidMediafireLink(newLink)) return m.reply('Error: El enlace debe ser de Mediafire.');
+  try {
+    const existingBook = await Book.findById(bookId);
+    if (!existingBook) return  m.reply('Libro no encontrado con la ID proporcionada.');
+    const updatedBook = await Book.findByIdAndUpdate(bookId, { link: newLink }, { new: true });
+    return  m.reply(`Se actualizó el enlace del libro a: ${updatedBook.link}`);
+  } catch (error) {
+    console.error(error);
+    return  m.reply('Error al actualizar el enlace del libro.')}}
+
+// Function to check if link is Mediafire (unchanged)
+function isValidMediafireLink(linkString) {
+  const mediafireRegex = /https?:\/\/(www\.)?mediafire\.com\/file\/(.*?)\.pdf\/file/;
+  return mediafireRegex.test(linkString);
 }
 
 // Function eliminar libro
@@ -247,6 +305,9 @@ module.exports = {
   getFormattedBookList,
   searchBooks,
   addBook,
-  updateBookAvailability,
+  updateBookTitle,
+  updateBookAuthor,
+  updateBookGenre,
+  updateBookLink,
   deleteBook
 };
