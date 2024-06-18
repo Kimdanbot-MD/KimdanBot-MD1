@@ -19,7 +19,7 @@ let tempFolder = path.join(__dirname, "..", "temp");
         }
         
        const imageToWebp = function (media) {
-    let nameWebp = crypto.randomBytes(5) + '.webp';
+    let nameWebp = Math.floor(Math.random() * 10000) + '.webp';
     return new Promise((resolve, reject) => {
         ffmpeg(media)
             .on('error', (e) => {
@@ -43,7 +43,7 @@ let tempFolder = path.join(__dirname, "..", "temp");
        }
 
        const videoToWebp = function (media) {
-    let nameWebp = crypto.randomBytes(5) + '.webp';
+    let nameWebp = Math.floor(Math.random() * 10000) + '.webp';
     return new Promise((resolve, reject) => {
         ffmpeg(media)
             .on('error', (e) => {
@@ -79,8 +79,8 @@ let tempFolder = path.join(__dirname, "..", "temp");
 
      const writeExifImg = async(media, metadata) => {
         let wMedia = await imageToWebp(media);
-          let tmpFileIn = path.join(tempFolder, crypto.randomBytes(6) + '.webp');
-          let tmpFileOut = path.join(tempFolder, crypto.randomBytes(6) + '.webp');
+          let tmpFileIn = path.join(tempFolder, Math.floor(Math.random() * 10000) + '.webp');
+          let tmpFileOut = path.join(tempFolder, Math.floor(Math.random() * 10000) + '.webp');
          fs.writeFileSync(tmpFileIn, wMedia)
          // Func;
         if (metadata.packname || metadata.author) { 
@@ -101,8 +101,8 @@ let tempFolder = path.join(__dirname, "..", "temp");
 
        const writeExifVid = async(media, metadata) => { 
          let wMedia = await this.videoToWebp(media);
-         let tmpFileIn = path.join(tempFolder, crypto.randomBytes(6) + '.webp');
-         let tmpFileOut = path.join(tempFolder, crypto.randomBytes(6)  + '.webp');
+         let tmpFileIn = path.join(tempFolder, Math.floor(Math.random() * 10000) + '.webp');
+         let tmpFileOut = path.join(tempFolder, Math.floor(Math.random() * 10000)  + '.webp');
           fs.writeFileSync(tmpFileIn, wMedia);
            // Func;
           if (metadata.packname || metadata.author) { 
@@ -123,8 +123,8 @@ let tempFolder = path.join(__dirname, "..", "temp");
 
           const writeExif = async(media, metadata) => { 
            let wMedia = /webp/.test(media.mimetype) ? media.data : /image/.test(media.mimetype) ? await this.imageToWebp(media.data) : /video/.test(media.mimetype) ? await this.videoToWebp(media.data) : ""            
-	  let tmpFileIn = path.join(tempFolder, crypto.randomBytes(5) + '.webp');
-           let tmpFileOut = path.join(tempFolder, crypto.randomBytes(5) + '.webp');
+	  let tmpFileIn = path.join(tempFolder, Math.floor(Math.random() * 10000) + '.webp');
+           let tmpFileOut = path.join(tempFolder, Math.floor(Math.random() * 10000) + '.webp');
             fs.writeFileSync(tmpFileIn, wMedia);
               // Func;
              if (metadata.packname || metadata.author) { 
