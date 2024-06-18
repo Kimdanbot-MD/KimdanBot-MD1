@@ -624,6 +624,38 @@ switch (command) {
       return reply('No se pudo unir al canal:', err);
 	})
 	}
+	break
+		
+	case 'botaolista':
+await conn.relayMessage(from, {interactiveMessage: {body: { text: `generando lista`},nativeFlowMessage: {
+buttons: [{           
+                name: "single_select",
+                buttonParamsJson: JSON.stringify({
+                   title: "listado",
+                   sections: [{
+                     title: "libros",
+                    rows: [{
+                          header: "encabezado",
+                          title: "titulo",
+                         description: "descripción",
+                         id: `Comando aqui`},
+                        {
+                        header: "encabezado2",
+                        title: "Título2",
+                         description: "descripción 2",
+                        id: `Comando aqui`}
+                     ],
+                  }]
+                       }) }
+         
+            ],
+            messageParamsJson: "",
+          },
+        },
+      },
+      {}
+    ).then((r) => console.log(r));
+    break
 		
 case 'libros':
 getFormattedBookList(conn, m, from)
