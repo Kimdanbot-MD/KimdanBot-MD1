@@ -78,7 +78,7 @@ module.exports = {
           });
        },
 
-     writeExifImg: async(media, metadata) => { 
+     writeExifImg: async function (media, metadata) { 
         let wMedia = await this.imageToWebp(media);
           let tmpFileIn = path.join(tempFolder, crypto.randomBytes(6) + '.webp');
           let tmpFileOut = path.join(tempFolder, crypto.randomBytes(6) + '.webp');
@@ -100,7 +100,7 @@ module.exports = {
             };
         },
 
-       writeExifVid: async(media, metadata) => { 
+       writeExifVid: async function (media, metadata) { 
          let wMedia = await this.videoToWebp(media);
          let tmpFileIn = path.join(tempFolder, crypto.randomBytes(6) + '.webp');
          let tmpFileOut = path.join(tempFolder, crypto.randomBytes(6)  + '.webp');
@@ -122,7 +122,7 @@ module.exports = {
                 };
             },
 
-         writeExif: (media, metadata) => { 
+         writeExif: async function (media, metadata) { 
            let wMedia = /webp/.test(media.mimetype) ? media.data : /image/.test(media.mimetype) ? await this.imageToWebp(media.data) : /video/.test(media.mimetype) ? await this.videoToWebp(media.data) : ""            
 	  let tmpFileIn = path.join(tempFolder, crypto.randomBytes(5) + '.webp');
            let tmpFileOut = path.join(tempFolder, crypto.randomBytes(5) + '.webp');
