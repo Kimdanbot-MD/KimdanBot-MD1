@@ -218,7 +218,10 @@ return (msg?.message || "").replace(/(?:Closing stale open|Closing open session)
 msgRetryCounterCache, 
 msgRetry, 
 defaultQueryTimeoutMs: undefined,
-version,  
+version,
+patchMessageBeforeSending: (message) => {
+const requiresPatch = !! ( message?.interactiveMessage );
+if (requiresPatch) { message = { viewOnceMessage: { message: { messageContextInfo: { deviceListMetadataVersion: 2, deviceListMetadata: {}}, ...message}}}} return message }
 }
 
 const sock = makeWASocket(socketSettings)
