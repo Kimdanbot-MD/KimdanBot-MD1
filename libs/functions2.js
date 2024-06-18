@@ -145,5 +145,5 @@ module.exports = {
         },
 
        toAudio: (buffer, ext) =>
-          ffmpeg(buffer, ['-vn', '-c:a', 'libopus', '-b:a', '128k', '-vbr', 'on', '-compression_level', '10'], ext, 'opus'); 
+          ffmpeg(buffer, ['-vn', '-c:a', 'libopus', '-b:a', '128k', '-vbr', 'on', '-compression_level', '10'], ext, 'opus') 
 }
