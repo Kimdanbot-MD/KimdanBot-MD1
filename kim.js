@@ -627,7 +627,7 @@ switch (command) {
 	break
 		
 	case 'botaolista':
-await conn.sendMessage(from, {interactiveMessage: {body: { text: `generando lista`},nativeFlowMessage: {
+await conn.relayMessage(from, {interactiveMessage: {body: { text: `generando lista`},nativeFlowMessage: {
 buttons: [{           
                 name: "single_select",
                 buttonParamsJson: JSON.stringify({
