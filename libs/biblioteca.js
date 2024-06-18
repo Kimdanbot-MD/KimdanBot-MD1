@@ -65,21 +65,29 @@ const sortedBooks = filteredBooks.sort((a, b) => {
       if (genreComparison !== 0) return genreComparison;
       return a.title.localeCompare(b.title);
     });
+    const interactiveMessagePayload = {
+      body: { text: `**LISTA DE LIBROS**` },
+      nativeFlowMessage: {
+        buttons: [], 
+        messageParamsJson: "",
+      }};
     const groupedBooks = _.groupBy(sortedBooks, (book) => book.genre || 'Sin género');
-    const formattedList = [];
     for (const [genre, books] of Object.entries(groupedBooks)) {
-      formattedList.push(`\n*Género:* ${genre}`);
-      books.sort((a, b) => {
-        const titleComparison = a.title.localeCompare(b.title);
-        if (titleComparison !== 0) return titleComparison;
-        const partA = extractBookPart(a.title);
-        const partB = extractBookPart(b.title);
-        if (partA && partB) return parseInt(partA) - parseInt(partB);
-        return partB ? 1 : -1;
-      }).forEach((book) => {
-        formattedList.push(`* ${book.title}`);
-      })}
-    await conn.sendMessage(m.chat, { text: "`LISTA DE LIBROS`" + formattedList.join('\n') }, { quoted: m });
+      const section = {
+        title: genre, 
+        rows: books.map((book) => ({
+          header: "nose",
+          title: book.title,
+          description: `libro-${book.id}`,
+          id: `comando`, 
+        }))};
+      interactiveMessagePayload.nativeFlowMessage.buttons.push({
+        name: "single_select",
+        buttonParamsJson: JSON.stringify({
+          title: "libros", 
+          sections: [section],
+        })})}
+    await conn.relayMessage(from, { interactiveMessage: interactiveMessagePayload }, {});
   } catch (error) {
     console.error('Error obtaining book list:', error);
     return m.reply('Error al obtener la lista de libros.');
@@ -92,7 +100,6 @@ function sortBooksByPart(books) {
     return partB ? 1 : -1;
   });
 }
-
 function extractBookPart(title) {
   const regex = /\d+-\d+|\d+$/i; 
   const match = title.match(regex);
