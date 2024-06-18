@@ -123,7 +123,8 @@ module.exports = {
             },
 
          writeExif: (media, metadata) => { 
-           let wMedia = /webp/.test(media.mimetype) ? media.data : /image/.test(media.mimetype) ? await imageToWebp(media.data) : /video/.test(media.mimetype) ? await videoToWebp(media.data) : ""            let tmpFileIn = path.join(tempFolder, crypto.randomBytes(5) + '.webp');
+           let wMedia = /webp/.test(media.mimetype) ? media.data : /image/.test(media.mimetype) ? await imageToWebp(media.data) : /video/.test(media.mimetype) ? await videoToWebp(media.data) : ""            
+	  let tmpFileIn = path.join(tempFolder, crypto.randomBytes(5) + '.webp');
            let tmpFileOut = path.join(tempFolder, crypto.randomBytes(5) + '.webp');
             fs.writeFileSync(tmpFileIn, wMedia);
               // Func;
