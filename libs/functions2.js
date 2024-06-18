@@ -19,7 +19,7 @@ module.exports = {
 	        }
         },
         
-       imageToWebp: (media) => {
+       imageToWebp: function (media) {
     let nameWebp = crypto.randomBytes(5) + '.webp';
     return new Promise((resolve, reject) => {
         ffmpeg(media)
@@ -43,7 +43,7 @@ module.exports = {
          });
        },
 
-       videoToWebp: (media) => {
+       videoToWebp: function (media) {
     let nameWebp = crypto.randomBytes(5) + '.webp';
     return new Promise((resolve, reject) => {
         ffmpeg(media)
@@ -79,7 +79,7 @@ module.exports = {
        },
 
      writeExifImg: async(media, metadata) => { 
-        let wMedia = await imageToWebp(media);
+        let wMedia = await this.imageToWebp(media);
           let tmpFileIn = path.join(tempFolder, crypto.randomBytes(6) + '.webp');
           let tmpFileOut = path.join(tempFolder, crypto.randomBytes(6) + '.webp');
          fs.writeFileSync(tmpFileIn, wMedia)
@@ -101,7 +101,7 @@ module.exports = {
         },
 
        writeExifVid: async(media, metadata) => { 
-         let wMedia = await videoToWebp(media);
+         let wMedia = await this.videoToWebp(media);
          let tmpFileIn = path.join(tempFolder, crypto.randomBytes(6) + '.webp');
          let tmpFileOut = path.join(tempFolder, crypto.randomBytes(6)  + '.webp');
           fs.writeFileSync(tmpFileIn, wMedia);
@@ -123,7 +123,7 @@ module.exports = {
             },
 
          writeExif: (media, metadata) => { 
-           let wMedia = /webp/.test(media.mimetype) ? media.data : /image/.test(media.mimetype) ? await imageToWebp(media.data) : /video/.test(media.mimetype) ? await videoToWebp(media.data) : ""            
+           let wMedia = /webp/.test(media.mimetype) ? media.data : /image/.test(media.mimetype) ? await this.imageToWebp(media.data) : /video/.test(media.mimetype) ? await this.videoToWebp(media.data) : ""            
 	  let tmpFileIn = path.join(tempFolder, crypto.randomBytes(5) + '.webp');
            let tmpFileOut = path.join(tempFolder, crypto.randomBytes(5) + '.webp');
             fs.writeFileSync(tmpFileIn, wMedia);
