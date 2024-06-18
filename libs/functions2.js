@@ -79,7 +79,7 @@ module.exports = {
        },
 
      writeExifImg: async(media, metadata) => { 
-        let wMedia = await imageToWebp(media) 
+        let wMedia = await imageToWebp(media);
           let tmpFileIn = path.join(tempFolder, crypto.randomBytes(6) + '.webp');
           let tmpFileOut = path.join(tempFolder, crypto.randomBytes(6) + '.webp');
          fs.writeFileSync(tmpFileIn, wMedia)
