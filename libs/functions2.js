@@ -101,7 +101,7 @@ module.exports = {
         },
 
        writeExifVid: async(media, metadata) => { 
-         let wMedia = await videoToWebp(media):
+         let wMedia = await videoToWebp(media);
          let tmpFileIn = path.join(tempFolder, crypto.randomBytes(6) + '.webp');
          let tmpFileOut = path.join(tempFolder, crypto.randomBytes(6)  + '.webp');
           fs.writeFileSync(tmpFileIn, wMedia);
@@ -146,5 +146,5 @@ module.exports = {
 
        toAudio: (buffer, ext) =>
           ffmpeg(buffer, ['-vn', '-c:a', 'libopus', '-b:a', '128k', '-vbr', 'on', '-compression_level', '10'], ext, 'opus'); 
-
 }
+module.exports = { imageToWebp, videoToWebp, writeExifImg, writeExifVid, writeExif, toAudio }
