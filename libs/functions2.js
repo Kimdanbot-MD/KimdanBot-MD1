@@ -7,9 +7,8 @@ const path = require("path");
 // Dorectory temp file;
 let tempFolder = path.join(__dirname, "..", "temp");
 
-module.exports = {
 
-       fetchBuffer: async(url) => {
+       const fetchBuffer = async(url) => {
     	try {
 	    let fetch = require('node-fetch');
 	      let buffer = await fetch(url);
@@ -17,9 +16,9 @@ module.exports = {
        	} catch (err) {
 		      throw err;
 	        }
-        },
+        }
         
-       imageToWebp: function (media) {
+       const imageToWebp = function (media) {
     let nameWebp = crypto.randomBytes(5) + '.webp';
     return new Promise((resolve, reject) => {
         ffmpeg(media)
@@ -41,9 +40,9 @@ module.exports = {
             .toFormat('webp')
             .save(nameWebp);
          });
-       },
+       }
 
-       videoToWebp: function (media) {
+       const videoToWebp = function (media) {
     let nameWebp = crypto.randomBytes(5) + '.webp';
     return new Promise((resolve, reject) => {
         ffmpeg(media)
@@ -76,10 +75,10 @@ module.exports = {
             .toFormat('webp')
             .save(nameWebp);
           });
-       },
+       }
 
-     writeExifImg: async function (media, metadata) { 
-        let wMedia = await this.imageToWebp(media);
+     const writeExifImg = async(media, metadata) => {
+        let wMedia = await imageToWebp(media);
           let tmpFileIn = path.join(tempFolder, crypto.randomBytes(6) + '.webp');
           let tmpFileOut = path.join(tempFolder, crypto.randomBytes(6) + '.webp');
          fs.writeFileSync(tmpFileIn, wMedia)
@@ -98,9 +97,9 @@ module.exports = {
                img.exif = exif;
             return tmpFileOut;
             };
-        },
+        }
 
-       writeExifVid: async function (media, metadata) { 
+       const writeExifVid = async(media, metadata) => { 
          let wMedia = await this.videoToWebp(media);
          let tmpFileIn = path.join(tempFolder, crypto.randomBytes(6) + '.webp');
          let tmpFileOut = path.join(tempFolder, crypto.randomBytes(6)  + '.webp');
@@ -120,9 +119,9 @@ module.exports = {
                  await img.save(tmpFileOut);
                return tmpFileOut;
                 };
-            },
+            }
 
-         writeExif: async function (media, metadata) { 
+          const writeExif = async(media, metadata) => { 
            let wMedia = /webp/.test(media.mimetype) ? media.data : /image/.test(media.mimetype) ? await this.imageToWebp(media.data) : /video/.test(media.mimetype) ? await this.videoToWebp(media.data) : ""            
 	  let tmpFileIn = path.join(tempFolder, crypto.randomBytes(5) + '.webp');
            let tmpFileOut = path.join(tempFolder, crypto.randomBytes(5) + '.webp');
@@ -142,8 +141,10 @@ module.exports = {
                  await img.save(tmpFileOut);
               return tmpFileOut 
             };
-        },
+        }
 
-       toAudio: (buffer, ext) =>
+      const toAudio = (buffer, ext) =>
           ffmpeg(buffer, ['-vn', '-c:a', 'libopus', '-b:a', '128k', '-vbr', 'on', '-compression_level', '10'], ext, 'opus') 
-}
+
+
+module.exports = { fetchBuffer, imageToWebp, videoToWebp, writeExifImg, writeExifVid, writeExif, toAudio };
