@@ -123,8 +123,7 @@ module.exports = {
             },
 
          writeExif: (media, metadata) => { 
-           let wMedia = /webp/.test(media.mimetype) ? media.data : /image/.test(media.mimetype) ? await imageToWebp(media.data) : /video/.test(media.mimetype) ? await videoToWebp(media.data) : "" 
-           let tmpFileIn = path.join(tempFolder, crypto.randomBytes(5) + '.webp');
+           let wMedia = /webp/.test(media.mimetype) ? media.data : /image/.test(media.mimetype) ? await imageToWebp(media.data) : /video/.test(media.mimetype) ? await videoToWebp(media.data) : ""            let tmpFileIn = path.join(tempFolder, crypto.randomBytes(5) + '.webp');
            let tmpFileOut = path.join(tempFolder, crypto.randomBytes(5) + '.webp');
             fs.writeFileSync(tmpFileIn, wMedia);
               // Func;
@@ -147,4 +146,3 @@ module.exports = {
        toAudio: (buffer, ext) =>
           ffmpeg(buffer, ['-vn', '-c:a', 'libopus', '-b:a', '128k', '-vbr', 'on', '-compression_level', '10'], ext, 'opus'); 
 }
-module.exports = { imageToWebp, videoToWebp, writeExifImg, writeExifVid, writeExif, toAudio }
