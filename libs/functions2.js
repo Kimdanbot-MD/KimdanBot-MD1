@@ -5,10 +5,10 @@ const webp = require("node-webpmux");
 const path = require("path");
 
 // Dorectory temp file;
-let tempFolder = path.join(__dirname, "..", "temp");
+const tempFolder = path.join(__dirname, "..", "temp");
 
 
-       const fetchBuffer = async(url) => {
+       exports.fetchBuffer = async(url) => {
     	try {
 	    let fetch = require('node-fetch');
 	      let buffer = await fetch(url);
@@ -18,7 +18,7 @@ let tempFolder = path.join(__dirname, "..", "temp");
 	        }
         }
         
-       const imageToWebp = function (media) {
+       async function imageToWebp(media) {
     let nameWebp = Math.floor(Math.random() * 10000) + '.webp';
     return new Promise((resolve, reject) => {
         ffmpeg(media)
@@ -42,7 +42,7 @@ let tempFolder = path.join(__dirname, "..", "temp");
          });
        }
 
-       const videoToWebp = function (media) {
+       async function videoToWebp(media) {
     let nameWebp = Math.floor(Math.random() * 10000) + '.webp';
     return new Promise((resolve, reject) => {
         ffmpeg(media)
@@ -77,7 +77,7 @@ let tempFolder = path.join(__dirname, "..", "temp");
           });
        }
 
-     const writeExifImg = async(media, metadata) => {
+     async function writeExifImg(media, metadata) { 
         let wMedia = await imageToWebp(media);
           let tmpFileIn = path.join(tempFolder, Math.floor(Math.random() * 10000) + '.webp');
           let tmpFileOut = path.join(tempFolder, Math.floor(Math.random() * 10000) + '.webp');
@@ -99,7 +99,7 @@ let tempFolder = path.join(__dirname, "..", "temp");
             };
         }
 
-       const writeExifVid = async(media, metadata) => { 
+       async function writeExifVid(media, metadata) {
          let wMedia = await this.videoToWebp(media);
          let tmpFileIn = path.join(tempFolder, Math.floor(Math.random() * 10000) + '.webp');
          let tmpFileOut = path.join(tempFolder, Math.floor(Math.random() * 10000)  + '.webp');
@@ -121,7 +121,7 @@ let tempFolder = path.join(__dirname, "..", "temp");
                 };
             }
 
-          const writeExif = async(media, metadata) => { 
+          async function writeExif(media, metadata) { 
            let wMedia = /webp/.test(media.mimetype) ? media.data : /image/.test(media.mimetype) ? await this.imageToWebp(media.data) : /video/.test(media.mimetype) ? await this.videoToWebp(media.data) : ""            
 	  let tmpFileIn = path.join(tempFolder, Math.floor(Math.random() * 10000) + '.webp');
            let tmpFileOut = path.join(tempFolder, Math.floor(Math.random() * 10000) + '.webp');
@@ -143,8 +143,7 @@ let tempFolder = path.join(__dirname, "..", "temp");
             };
         }
 
-      const toAudio = (buffer, ext) =>
-          ffmpeg(buffer, ['-vn', '-c:a', 'libopus', '-b:a', '128k', '-vbr', 'on', '-compression_level', '10'], ext, 'opus') 
-
+      function toAudio(buffer, ext) {
+         return ffmpeg(buffer, ['-vn', '-c:a', 'libopus', '-b:a', '128k', '-vbr', 'on', '-compression_level', '10'], ext, 'opus')}   
 
 module.exports = { fetchBuffer, imageToWebp, videoToWebp, writeExifImg, writeExifVid, writeExif, toAudio };
