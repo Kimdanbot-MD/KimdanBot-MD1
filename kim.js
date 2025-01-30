@@ -435,10 +435,10 @@ await conn.updateBlockStatus(m.chat, 'block')
 return
 }}
 	
-if (msg.text.toLowerCase().includes('serbot') || msg.text.toLowerCase().includes('jadibot') || msg.text.toLowerCase().includes('estado') || msg.text.toLowerCase().includes('owner') || msg.text.toLowerCase().includes('infohost') || msg.text.toLowerCase().includes('grupos') || msg.text.toLowerCase().includes('stop')) {
+/*if (msg.text.toLowerCase().includes('serbot') || msg.text.toLowerCase().includes('jadibot') || msg.text.toLowerCase().includes('estado') || msg.text.toLowerCase().includes('owner') || msg.text.toLowerCase().includes('infohost') || msg.text.toLowerCase().includes('grupos') || msg.text.toLowerCase().includes('stop')) {
 } else if (global.db.data.settings[numBot].antipv && !m.isGroup && !isCreator) {
   return;
-}
+}*/
 	
 //═════════════𓊈『 AFK 』𓊉═════════════
 let mentionUser = [...new Set([...(m.mentionedJid || []), ...(m.quoted ? [m.quoted.sender] : [])])]
