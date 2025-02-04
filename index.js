@@ -238,22 +238,16 @@ console.log(chalk.bgBlack(chalk.bold.redBright(`\n🍓  (≡^∇^≡) іᥒ𝗍r
 process.exit(0)
 }} else {
 while (true) {
-phoneNumber = await question(chalk.bgBlack(chalk.bold.greenBright(`\n🍓  (≡^∇^≡) ⍴᥆r𝖿іs іᥒ𝗍r᥆ძᥙzᥴᥲ sᥙ ᥒᥙ́mᥱr᥆ ძᥱ ᥕһᥲ𝗍sᥲ⍴⍴. 🍓\n\n${chalk.bold.yellowBright("🫐  ⍴᥆r ᥱȷᥱm⍴ᥣ᥆ (〃∀〃)ゞ🫐\n    ➥ +57 316 1407118")}\n`))) 
-phoneNumber = phoneNumber.replace(/\D/g,'')
-if (!phoneNumber.startsWith('+')) {
-phoneNumber = +${phoneNumber}
-	console.log(chalk.bold.redBright("🍨  ⍴᥆r𝖿ᥲs rᥱᥴᥙᥱrძᥲ іᥒ𝗍r᥆ძᥙᥴіr ᥱᥣ ᥴ᥆ძіg᥆ ძᥱᥣ ⍴ᥲіs. (◞ ᜊ ◟ㆀ) 🍨"))
-}
-} while (!await isValidPhoneNumber(phoneNumber))
-rl.close()
-addNumber = phoneNumber.replace(/\D/g, '')
-/*if (addNumber.match(/^\d+$/) && Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
+addNumber = await question(chalk.bgBlack(chalk.bold.greenBright(`\n🍓  (≡^∇^≡) ⍴᥆r𝖿іs іᥒ𝗍r᥆ძᥙzᥴᥲ sᥙ ᥒᥙ́mᥱr᥆ ძᥱ ᥕһᥲ𝗍sᥲ⍴⍴. 🍓\n\n${chalk.bold.yellowBright("🫐  ⍴᥆r ᥱȷᥱm⍴ᥣ᥆ (〃∀〃)ゞ🫐\n    ➥ +57 316 1407118")}\n`))) 
+addNumber = addNumber.replace(/[^0-9]/g, '')
+if (addNumber.match(/^\d+$/) && Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
+if (addNumber.match(/^\d+$/) && Object.keys(PHONENUMBER_MCC).some(v => addNumber.startsWith(v))) {
 break 
 } else {
 console.log(chalk.bold.redBright("🍨  ⍴᥆r𝖿ᥲs rᥱᥴᥙᥱrძᥲ іᥒ𝗍r᥆ძᥙᥴіr ᥱᥣ ᥴ᥆ძіg᥆ ძᥱᥣ ⍴ᥲіs. (◞ ᜊ ◟ㆀ) 🍨"))
 }}
 rl.close()  
-} */
+}
 
 setTimeout(async () => {
 let codeBot = await sock.requestPairingCode(addNumber)
