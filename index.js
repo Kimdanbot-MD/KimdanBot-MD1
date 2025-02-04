@@ -256,6 +256,7 @@ console.log(chalk.bold.white(chalk.bgMagenta(`(●'▽ '●)ゝ 🩷  ᥴ᥆ძ�
 }, 2000)
 }}
 }
+	   }
 
 async function getMessage(key) {
 if (store) {
@@ -837,5 +838,4 @@ console.log(chalk.redBright(`Update'${__filename}'`))
 delete require.cache[file]
 require(file)
 })	
-	}
 })()	
