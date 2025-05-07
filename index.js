@@ -32,7 +32,6 @@ const rl = readline.createInterface({ input: process.stdin, output: process.stdo
 const question = (text) => new Promise((resolve) => rl.question(text, resolve))
 const msgRetry = (MessageRetryMap) => { }
 let { version, isLatest } = await fetchLatestBaileysVersion()
-const msgRetryCounterCache = new NodeCache() //para mensaje de reintento, "mensaje en espera"   
 
 const { readdirSync, statSync, unlinkSync } = require('fs')
 const {say} = cfonts;
@@ -214,7 +213,6 @@ let jid = jidNormalizedUser(key.remoteJid)
 let msg = await store.loadMessage(jid, key.id)
 return (msg?.message || "").replace(/(?:Closing stale open|Closing open session)/g, "")
 },
-msgRetryCounterCache, 
 msgRetry, 
 defaultQueryTimeoutMs: undefined,
 version: [2, 3000, 1015901307],
